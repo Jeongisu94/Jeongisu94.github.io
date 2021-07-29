@@ -20,31 +20,31 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="ABIABI란? Application Binary Interface 함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스 응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의  함수의 파라미터들을 어떤 레지스터에 넣을지 정의 컴파일 , 링커 ,툴체인에서 제공 한다.  POSIX">
+<meta name="description" content="Scheduling우선순위 기반 스케쥴러 정적 우선순위 프로세스마다 우선순위를 미리 지정   동적 우선순위 상황에 따라 스케쥴러가 우선순위를 동적으로 변경    POSIX Portable Operating system interface의 약자로   서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 A">
 <meta property="og:type" content="article">
-<meta property="og:title" content="System Programming - ABI">
-<meta property="og:url" content="https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/index.html">
+<meta property="og:title" content="System Programming - Scheduling">
+<meta property="og:url" content="https://jeongisu94.github.io/2021/07/29/System-Programming-Scheduling/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
-<meta property="og:description" content="ABIABI란? Application Binary Interface 함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스 응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의  함수의 파라미터들을 어떤 레지스터에 넣을지 정의 컴파일 , 링커 ,툴체인에서 제공 한다.  POSIX">
+<meta property="og:description" content="Scheduling우선순위 기반 스케쥴러 정적 우선순위 프로세스마다 우선순위를 미리 지정   동적 우선순위 상황에 따라 스케쥴러가 우선순위를 동적으로 변경    POSIX Portable Operating system interface의 약자로   서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 A">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-28T05:50:44.000Z">
-<meta property="article:modified_time" content="2021-07-28T07:45:51.509Z">
+<meta property="article:published_time" content="2021-07-29T06:30:03.000Z">
+<meta property="article:modified_time" content="2021-07-29T10:20:03.895Z">
 <meta property="article:author" content="Jeongisu">
-<meta property="article:tag" content="ABI">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="System Programming">
-<meta property="article:tag" content="TIL">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/">
+<link rel="canonical" href="https://jeongisu94.github.io/2021/07/29/System-Programming-Scheduling/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/","path":"2021/07/28/System-Programming-ABI/","title":"System Programming - ABI"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/07/29/System-Programming-Scheduling/","path":"2021/07/29/System-Programming-Scheduling/","title":"System Programming - Scheduling"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>System Programming - ABI | ISU's Blog</title>
+<title>System Programming - Scheduling | ISU's Blog</title>
   
 
 
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ABI"><span class="nav-number">1.</span> <span class="nav-text">ABI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ABI%EB%9E%80"><span class="nav-number">1.1.</span> <span class="nav-text">ABI란?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#POSIX"><span class="nav-number">2.</span> <span class="nav-text">POSIX</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scheduling"><span class="nav-number">1.</span> <span class="nav-text">Scheduling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EA%B8%B0%EB%B0%98-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC"><span class="nav-number">1.1.</span> <span class="nav-text">우선순위 기반 스케쥴러</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POSIX"><span class="nav-number">1.2.</span> <span class="nav-text">POSIX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EA%B4%80%EB%A0%A8-System-Call"><span class="nav-number">1.3.</span> <span class="nav-text">우선순위 관련 System Call</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nice"><span class="nav-number">1.3.1.</span> <span class="nav-text">nice()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getpriority-setpriority"><span class="nav-number">1.3.2.</span> <span class="nav-text">getpriority(), setpriority()</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -216,7 +216,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/29/System-Programming-Scheduling/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -229,7 +229,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          System Programming - ABI
+          System Programming - Scheduling
         </h1>
 
         <div class="post-meta-container">
@@ -241,7 +241,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-07-28 14:50:44 / Modified: 16:45:51" itemprop="dateCreated datePublished" datetime="2021-07-28T14:50:44+09:00">2021-07-28</time>
+      <time title="Created: 2021-07-29 15:30:03 / Modified: 19:20:03" itemprop="dateCreated datePublished" datetime="2021-07-29T15:30:03+09:00">2021-07-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -250,6 +250,10 @@
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/System-Programming/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
         </span>
     </span>
 
@@ -263,14 +267,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
-<li>Application Binary Interface</li>
-<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
-<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
-<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
-<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
+        <h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
+<li>정적 우선순위<ul>
+<li>프로세스마다 우선순위를 미리 지정</li>
 </ul>
-<h1 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+</li>
+<li>동적 우선순위<ul>
+<li>상황에 따라 스케쥴러가 우선순위를 동적으로 변경</li>
+</ul>
+</li>
+</ul>
+<h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><ul>
+<li><p>Portable Operating system interface의 약자로</p>
+<p>  서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 Application 규격이다.</p>
+</li>
+<li><p>리눅스는 POSIX에서 정한 규격으로 시스템콜을 정의했다</p>
+</li>
+</ul>
+<h2 id="우선순위-관련-System-Call"><a href="#우선순위-관련-System-Call" class="headerlink" title="우선순위 관련 System Call"></a>우선순위 관련 System Call</h2><h3 id="nice"><a href="#nice" class="headerlink" title="nice()"></a>nice()</h3><ul>
+<li>root가 소유한 프로세스만 우선순위를 높일 수 있고 </li>
+</ul>
+<p>그외 다른 프로세스의 우선순위는 낮출수만 있다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nice</span> <span class="params">(<span class="keyword">int</span> inc)</span></span>; </span><br></pre></td></tr></table></figure>
+
+
+<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">id_t</span> who)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">in_t</span> who, <span class="keyword">int</span> value)</span></span>; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>이름에도 알 수 있듯이 프로세스의 우선순위를 가져오거나 정할 수 있다.</li>
+<li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
+<li>who는 process ID (0을 넣으면 현재 프로세스이다), value는 우선순위로 인자를 갖는다</li>
+</ul>
+
     </div>
 
     
@@ -279,20 +306,23 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/ABI/" rel="tag"># ABI</a>
               <a href="/tags/C/" rel="tag"># C</a>
               <a href="/tags/System-Programming/" rel="tag"># System Programming</a>
-              <a href="/tags/TIL/" rel="tag"># TIL</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/OS/" rel="tag"># OS</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2021/07/28/System-Programming-Process/" rel="prev" title="System Programming - Process">
+                  <i class="fa fa-chevron-left"></i> System Programming - Process
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/28/System-Programming-Process/" rel="next" title="System Programming - Process">
-                  System Programming - Process <i class="fa fa-chevron-right"></i>
+                <a href="/2021/07/29/System-Programming-IPC/" rel="next" title="System Programming - IPC">
+                  System Programming - IPC <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
