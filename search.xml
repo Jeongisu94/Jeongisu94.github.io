@@ -1,43 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/2021/07/28/test/</url>
-    <content><![CDATA[]]></content>
+    <title>System Programming - ABI</title>
+    <url>/2021/07/28/System-Programming-ABI/</url>
+    <content><![CDATA[<h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
+<li>Application Binary Interface</li>
+<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
+<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
+<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
+<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
+</ul>
+<h1 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
       <categories>
-        <category>cate_test</category>
+        <category>System Programming</category>
       </categories>
       <tags>
-        <tag>tags_test</tag>
+        <tag>ABI</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>TIL</tag>
       </tags>
   </entry>
   <entry>
-    <title>to test all</title>
-    <url>/2021/07/28/to-test-all/</url>
-    <content><![CDATA[<p>NFO  Generated: js/next-boot.js<br>INFO  Generated: js/schedule.js<br>INFO  Generated: js/pjax.js<br>INFO  Generated: js/motion.js<br>INFO  Generated: js/third-party/rating.js<br>INFO  Generated: js/third-party/quicklink.js<br>INFO  Generated: js/third-party/analytics/google-analytics.js<br>INFO  Generated: js/third-party/chat/gitter.js<br>INFO  Generated: js/third-party/comments/disqus.js<br>INFO  Generated: js/third-party/chat/tidio.js<br>INFO  Generated: js/utils.js<br>INFO  Generated: js/third-party/comments/isso.js<br>INFO  Generated: js/third-party/comments/disqusjs.js<br>INFO  Generated: js/third-party/comments/livere.js<br>INFO  Generated: js/third-party/comments/gitalk.js<br>INFO  Generated: js/third-party/math/mathjax.js<br>INFO  Generated: js/third-party/analytics/growingio.js<br>INFO  Generated: js/third-party/comments/utterances.js<br>INFO  Generated: js/third-party/statistics/firestore.js<br>INFO  Generated: js/config.js<br>INFO  Generated: js/comments.js<br>INFO  Generated: js/third-party/tags/pdf.js<br>INFO  Generated: js/comments-buttons.js<br>INFO  Generated: js/third-party/search/local-search.js<br>INFO  Generated: css/main.css<br>INFO  Generated: 2021/07/28/test/index.html<br>INFO  52 files generated in 836 ms<br> ~/dev/blog ▓▒░ hexo server                                                                           ░▒▓ ✔  3s  02:59:08 <br>INFO  Validating config<br>INFO  ==================================<br>  ███╗   ██╗███████╗██╗  ██╗████████╗<br>  ████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝<br>  ██╔██╗ ██║█████╗   ╚███╔╝    ██║<br>  ██║╚██╗██║██╔══╝   ██╔██╗    ██║<br>  ██║ ╚████║███████╗██╔╝ ██╗   ██║<br>  ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝<br>========================================<br>NexT version 8.6.1<br>Documentation: <a href="https://theme-next.js.org/">https://theme-next.js.org</a><br>========================================<br>INFO  Start processing<br>INFO  Hexo is running at <a href="http://localhost:4000/">http://localhost:4000</a> . Press Ctrl+C to stop.<br>(node:22277) Warning: Accessing non-existent property ‘lineno’ of module exports inside circular dependency<br>(Use <code>node --trace-warnings ...</code> to show where the warning was created)<br>(node:22277) Warning: Accessing non-existent property ‘column’ of module exports inside circular dependency<br>(node:22277) Warning: Accessing non-existent property ‘filename’ of module exports inside circular dependency<br>(node:22277) Warning: Accessing non-existent property ‘lineno’ of module exports inside circular dependency<br>(node:22277) Warning: Accessing non-existent property ‘column’ of module exports inside circular dependency<br>(node:22277) Warning: Accessing non-existent property ‘filename’ of module exports inside circular dependency<br>^CINFO  Farewell<br> ~/dev/blog ▓▒░ cd ..                                                                            ░▒▓ ✔  23m 34s  03:22:47 <br> ~/dev ▓▒░ vim blog                                                                                        ░▒▓ ✔  03:26:35 <br> ~/dev ▓▒░ vim blog/themes/next/_config.yml                                                                ░▒▓ ✔  03:26:45 <br> ~/dev ▓▒░ vim blog/themes/next/_config.yml                                                          ░▒▓ ✔  31s  03:27:25 <br> ~/dev ▓▒░ hexo new post “test”                                                                   ░▒▓ ✔  2m 44s  03:30:10 <br>Usage: hexo <command></p>
-<p>Commands:<br>  help     Get help on a command.<br>  init     Create a new Hexo folder.<br>  version  Display version information.</p>
-<p>Global Options:<br>  –config  Specify config file instead of using _config.yml<br>  –cwd     Specify the CWD<br>  –debug   Display all verbose messages in the terminal<br>  –draft   Display draft posts<br>  –safe    Disable all plugins and scripts<br>  –silent  Hide output on console</p>
-<p>For more help, you can use ‘hexo help [command]’ for the detailed information<br>or you can check the docs: <a href="http://hexo.io/docs/">http://hexo.io/docs/</a><br> ~/dev ▓▒░ hexo new post “to test hexo                                                                     ░▒▓ ✔  03:30:21 <br>dquote&gt; “<br>Usage: hexo <command></p>
-<p>Commands:<br>  help     Get help on a command.<br>  init     Create a new Hexo folder.<br>  version  Display version information.</p>
-<p>Global Options:<br>  –config  Specify config file instead of using _config.yml<br>  –cwd     Specify the CWD<br>  –debug   Display all verbose messages in the terminal<br>  –draft   Display draft posts<br>  –safe    Disable all plugins and scripts<br>  –silent  Hide output on console</p>
-<p>For more help, you can use ‘hexo help [command]’ for the detailed information<br>or you can check the docs: <a href="http://hexo.io/docs/">http://hexo.io/docs/</a><br> ~/dev ▓▒░ clear                                                                                           ░▒▓ ✔  03:30:47 <br> 1 to-test-all.md +                                                                                                          X<br> ~/dev ▓▒░ hexo new post “test2aa “                                                                        ░▒▓ ✔  03:30:52 <br>Usage: hexo <command></p>
-<p>Commands:<br>  help     Get help on a command.<br>  init     Create a new Hexo folder.<br>  version  Display version information.</p>
-<p>Global Options:<br>  –config  Specify config file instead of using _config.yml<br>  –cwd     Specify the CWD<br>  –debug   Display all verbose messages in the terminal<br>  –draft   Display draft posts<br>  –safe    Disable all plugins and scripts<br>  –silent  Hide output on console</p>
-<p>For more help, you can use ‘hexo help [command]’ for the detailed information<br>or you can check the docs: <a href="http://hexo.io/docs/">http://hexo.io/docs/</a><br> ~/dev ▓▒░ cd blog                                                                                         ░▒▓ ✔  03:31:10 <br> ~/dev/blog ▓▒░ hexo new post “to test all”                                                                ░▒▓ ✔  03:31:25 <br>INFO  Validating config<br>INFO  ==================================<br>  ███╗   ██╗███████╗██╗  ██╗████████╗<br>  ████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝<br>  ██╔██╗ ██║█████╗   ╚███╔╝    ██║<br>  ██║╚██╗██║██╔══╝   ██╔██╗    ██║<br>  ██║ ╚████║███████╗██╔╝ ██╗   ██║<br>  ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝<br>========================================<br>NexT version 8.6.1<br>Documentation: <a href="https://theme-next.js.org/">https://theme-next.js.org</a><br>========================================<br>INFO  Created: ~/dev/blog/source/_posts/to-test-all.md<br> ~/dev/blog ▓▒░ vim source/_posts/to-test-all.md                                                           ░▒▓ ✔  03:31:52 <br> ~/dev/blog ▓▒░ hexo clean &amp;&amp; hexo generate                                                       ░▒▓ ✔  2m 12s  03:34:33 <br>INFO  Validating config<br>INFO  ==================================<br>  ███╗   ██╗███████╗██╗  ██╗████████╗<br>  ████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝<br>  ██╔██╗ ██║█████╗   ╚███╔╝    ██║<br>  ██║╚██╗██║██╔══╝   ██╔██╗    ██║<br>  ██║ ╚████║███████╗██╔╝ ██╗   ██║<br>  ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝<br>========================================<br>NexT version 8.6.1<br>Documentation: <a href="https://theme-next.js.org/">https://theme-next.js.org</a><br>========================================<br>INFO  Deleted database.<br>INFO  Deleted public folder.<br>INFO  Validating config<br>INFO  ==================================<br>  ███╗   ██╗███████╗██╗  ██╗████████╗<br>  ████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝<br>  ██╔██╗ ██║█████╗   ╚███╔╝    ██║<br>  ██║╚██╗██║██╔══╝   ██╔██╗    ██║<br>  ██║ ╚████║███████╗██╔╝ ██╗   ██║<br>  ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝<br>========================================<br>NexT version 8.6.1<br>Documentation: <a href="https://theme-next.js.org/">https://theme-next.js.org</a><br>========================================<br>INFO  Start processing<br>INFO  Files loaded in 310 ms<br>(node:22917) Warning: Accessing non-existent property ‘lineno’ of module exports inside circular dependency<br>(Use <code>node --trace-warnings ...</code> to show where the warning was created)<br>(node:22917) Warning: Accessing non-existent property ‘column’ of module exports inside circular dependency<br>(node:22917) Warning: Accessing non-existent property ‘filename’ of module exports inside circular dependency<br>(node:22917) Warning: Accessing non-existent property ‘lineno’ of module exports inside circular dependency<br>(node:22917) Warning: Accessing non-existent property ‘column’ of module exports inside circular dependency<br>(node:22917) Warning: Accessing non-existent property ‘filename’ of module exports inside circular dependency<br>INFO  Generated: tags/index.html<br>INFO  Generated: search.xml<br>INFO  Generated: archives/2021/index.html<br>INFO  Generated: archives/index.html<br>INFO  Generated: categories/cate-test/index.html<br>INFO  Generated: categories/next/js/index.html<br>INFO  Generated: categories/next/index.html<br>INFO  Generated: categories/index.html<br>INFO  Generated: archives/2021/07/index.html<br>INFO  Generated: tags/blog/index.html<br>INFO  Generated: tags/next/index.html<br>INFO  Generated: index.html<br>INFO  Generated: images/apple-touch-icon-next.png<br>INFO  Generated: tags/tags-test/index.html<br>INFO  Generated: images/favicon-16x16-next.png<br>INFO  Generated: images/favicon-32x32-next.png<br>INFO  Generated: images/avatar.gif<br>INFO  Generated: images/logo.svg<br>INFO  Generated: images/logo-algolia-nebula-blue-full.svg<br>INFO  Generated: css/noscript.css<br>INFO  Generated: js/schemes/muse.js<br>INFO  Generated: js/third-party/analytics/baidu-analytics.js<br>INFO  Generated: js/third-party/chat/chatra.js<br>INFO  Generated: js/third-party/nprogress.js<br>INFO  Generated: js/bookmark.js<br>INFO  Generated: js/third-party/comments/disqus.js<br>INFO  Generated: js/third-party/statistics/lean-analytics.js<br>INFO  Generated: js/third-party/search/algolia-search.js<br>INFO  Generated: js/third-party/math/katex.js<br>INFO  Generated: js/comments-buttons.js<br>INFO  Generated: js/motion.js<br>INFO  Generated: js/next-boot.js<br>INFO  Generated: js/config.js<br>INFO  Generated: js/pjax.js<br>INFO  Generated: js/schedule.js<br>INFO  Generated: js/utils.js<br>INFO  Generated: js/third-party/rating.js<br>INFO  Generated: js/third-party/analytics/google-analytics.js<br>INFO  Generated: js/third-party/chat/gitter.js<br>INFO  Generated: js/third-party/analytics/growingio.js<br>INFO  Generated: js/third-party/chat/tidio.js<br>INFO  Generated: js/third-party/comments/livere.js<br>INFO  Generated: js/third-party/comments/disqusjs.js<br>INFO  Generated: js/third-party/comments/changyan.js<br>INFO  Generated: js/third-party/math/mathjax.js<br>INFO  Generated: js/third-party/comments/isso.js<br>INFO  Generated: js/third-party/comments/gitalk.js<br>INFO  Generated: js/third-party/search/local-search.js<br>INFO  Generated: js/third-party/comments/utterances.js<br>INFO  Generated: js/third-party/statistics/firestore.js<br>INFO  Generated: js/third-party/tags/pdf.js<br>INFO  Generated: js/third-party/tags/mermaid.js<br>INFO  Generated: js/comments.js<br>INFO  Generated: js/third-party/quicklink.js<br>INFO  Generated: css/main.css<br>INFO  Generated: 2021/07/28/test/index.html<br>INFO  Generated: 2021/07/28/to-test-all/index.html<br>INFO  57 files generated in 937 ms</p>
-<h1 id="Hello-World-in-C"><a href="#Hello-World-in-C" class="headerlink" title="Hello World in C"></a>Hello World in C</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>System Programming - Process</title>
+    <url>/2021/07/28/System-Programming-Process/</url>
+    <content><![CDATA[<p>#Program , Process ,Thread의 개념</p>
+<h2 id="프로그램"><a href="#프로그램" class="headerlink" title="프로그램"></a>프로그램</h2><ul>
+<li>특정한 일을 수행하기위한 명령어로 구성된 실행 가능한 파일</li>
+<li>바이너리, 코드이미지 , Application …<h2 id="프로세스"><a href="#프로세스" class="headerlink" title="프로세스"></a>프로세스</h2></li>
+<li>실행중인 프로그램 (메미로 적재+ 프로세스 상태 정보 포함)<br><img src="../image/System-Programming-Process_images/processMemeryStructure.png"><h2 id="스레드"><a href="#스레드" class="headerlink" title="스레드"></a>스레드</h2></li>
+<li>가장 최소 단위의 실행가능한 프로세스<br><img src="../image/System-Programming-Process_images/processthread.png"></li>
+</ul>
+<h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><h2 id="Process-ID"><a href="#Process-ID" class="headerlink" title="Process ID"></a>Process ID</h2><ul>
+<li>각 프로세스 해당 시점에 유니크한 pid를 가진다</li>
+<li>pid는 Linux에서는 signed 16비트 정수값을 사용하여 최대 32678이다<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo cat /proc/sys/kernel/pid_max # 명령어를 통하여 확인 가능</span><br><span class="line">32768</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>##Process 계층</p>
+<ul>
+<li>최초 프로세스는 init 프로세스 (pid : 1)</li>
+<li>init 프로세스는 운영체제가 생성한다.</li>
+<li>다른 프로세스는 또 다른 프로세스로부터 생성되어 계층 구조를 가진다</li>
+<li>ppid 값이 부모 프로세스의 pid를 뜻한다<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef # -e 시스템상의 모든 프로세스 -f UID,PID PPID등 모든 정보 출력</span><br></pre></td></tr></table></figure>
+<img src="../image/System-Programming-Process_images/psef_result.png"></li>
+</ul>
+<p>##Process와 Owner 관리<br>리눅스에서 File은 inode 프로세스는 pid로 관리하듯이</p>
+<p>프로세스의 소유자와 그룹또한 UID / GID로 관리된다.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo cat /etc/passwd #uid와 gid및 사용자에 관한 정보들이 출력된다.</span><br></pre></td></tr></table></figure>
+<p><img src="../image/System-Programming-Process_images/passwd.png"> </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo cat /etc/shadow #암호화된 상태의 password가 적혀있음</span><br></pre></td></tr></table></figure>
 
-<p><img src="../image/to-test-all_images/cat.png" alt=".."><br><img src="/image/to-test-all_images/cat.png" alt=" "><br><img src="source/image/to-test-all_images/cat.png" alt="source"></p>
-<h2 id="헬로월드를-출력합니다"><a href="#헬로월드를-출력합니다" class="headerlink" title="헬로월드를 출력합니다"></a>헬로월드를 출력합니다</h2><h3 id="H3"><a href="#H3" class="headerlink" title="H3"></a>H3</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    system.out.println(<span class="string">&quot;hello wolrd&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>##Process관리 관련 시스템콜</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pid=%d\n&quot;</span>), getpid();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;ppid=%d\n&quot;</span>), getppid();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>자바에서 헬로월드 출력합니다</p>
+<p><img src="../image/System-Programming-Process_images/pidinfo.png"></p>
+<ul>
+<li>실행할때마다 pid가 1씩 순차적으로 증가하는것을 확인 할 수 있다</li>
+</ul>
+<h2 id="Process-생성"><a href="#Process-생성" class="headerlink" title="Process 생성"></a>Process 생성</h2><ul>
+<li>process 생성 과정 <ol>
+<li>TEXT,DATA,BSS같은 정적인 공간을 먼저 확보</li>
+<li>실행하면서 STACK과 HEAP의 공간을 생성한다</li>
+</ol>
+</li>
+</ul>
+<h1 id="fork-amp-exec"><a href="#fork-amp-exec" class="headerlink" title="fork() &amp; exec()"></a>fork() &amp; exec()</h1><h2 id="fork-시스템콜"><a href="#fork-시스템콜" class="headerlink" title="fork() 시스템콜"></a>fork() 시스템콜</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">fork</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 부모 프로세스를 그대로 복사하기떄문에 인자가 없다. </span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>새로운 프로세스 공간을 별도로 만들고 실행중이였던 부모 프로세스 모든 내용을 복사</li>
+<li>자식 프로세스는 부모프로세스 공간을 모두 복사 후 fork() 시스템콜 이후 코드부터 실행된다.</li>
+<li>자식 프로세스는 pid가 0으로 리턴되며 부모 프로세스는 실제 pid를 리턴</li>
+<li>부모자식간의 플세스의  변수와 Program Count 값은 동일하다</li>
+</ul>
+<h2 id="execl-execp-execle"><a href="#execl-execp-execle" class="headerlink" title="execl() execp() execle()"></a>execl() execp() execle()</h2><ul>
+<li><p>exec() 시스템콜을 호출한 프로세스의 공간의 TEXT,DATA,BSS영역을</p>
+<p>새로운 프로세스의 이미지로 덮어 씌움</p>
+</li>
+<li><p>별도의 프로세스 공간을 만들지 않음 </p>
+</li>
+<li><p>부모 프로세스가 사라짐.</p>
+</li>
+</ul>
+<p>execl.c</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;excute ls\n&quot;</span>);</span><br><span class="line">  execl(<span class="string">&quot;/bin/ls&quot;</span>, <span class="string">&quot;ls&quot;</span> , <span class="string">&quot;-l&quot;</span>, <span class="literal">NULL</span>); <span class="comment">// 실행파일의 이름, argv[0], argv[1]... , NULL) </span></span><br><span class="line">  perror(<span class="string">&quot;execl is failed\n&quot;</span>);</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>execl이 실행되면 코드영역이 ls로 덮어 씌워지게 되고<br>밑의 코드는 실행되지 않는다.<br><img src="../image/System-Programming-Process_images/execl.png"></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">execl(<span class="string">&quot;디렉토리와 파일 이름이 합친 전체이름&quot;</span>,<span class="string">&quot;명령어 리스트&quot;</span>, <span class="literal">NULL</span>);</span><br><span class="line">execp(<span class="string">&quot;파일 이름&quot;</span>, <span class="string">&quot;명령어 인수 리스트&quot;</span>, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+<p>execp의 execl과의 차이점은 파일 이름을 해당 프로세스를 실행한 프로세스 환경변수를 검색한다.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *evmp[] = &#123;<span class="string">&quot;USER=name&quot;</span>, <span class="string">&quot;PATH=/bin&quot;</span>, (<span class="keyword">char</span> *)<span class="number">0</span>&#125;;</span><br><span class="line">execle(<span class="string">&quot;ls, &quot;</span>ls<span class="string">&quot;, &quot;</span>-al<span class="string">&quot; NULL, envp);</span></span><br></pre></td></tr></table></figure>
+<p>환경 변수를 지정하고자 할때는 execle을 사용한다.</p>
+<h3 id="execv-execvp-execve-시스템콜"><a href="#execv-execvp-execve-시스템콜" class="headerlink" title="execv(),execvp(),execve() 시스템콜"></a>execv(),execvp(),execve() 시스템콜</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *envp[] = &#123;<span class="string">&quot;USER=NAME&quot;</span>, <span class="string">&quot;PATH=/bin&quot;</span>, (<span class="keyword">char</span>*<span class="number">0</span>); <span class="comment">// 환경변수 배열</span></span><br><span class="line"><span class="keyword">char</span> *arg[] &#123;<span class="string">&quot;ls&quot;</span>, <span class="string">&quot;-al&quot;</span> ,<span class="literal">NULL</span>&#125;; <span class="comment">// 인수 리스트 배열</span></span><br><span class="line"></span><br><span class="line">execv(<span class="string">&quot;/bin/ls&quot;</span> arg);</span><br><span class="line">exevp(<span class="string">&quot;ls&quot;</span>,arg);</span><br><span class="line">exeve(<span class="string">&quot;ls&quot;</span>,arg)</span><br></pre></td></tr></table></figure>
+
+<h2 id="wait-시스템콜"><a href="#wait-시스템콜" class="headerlink" title="wait() 시스템콜"></a>wait() 시스템콜</h2><ul>
+<li>wait()을 사용하면 fork() 호출 시 자식 프로세스가 종료할 때 까지 부모 프로세스가 기다린다.</li>
+<li>부자 프로세스간의 동기화와 고아 프로세스가 생기는 것을 방지 할 수있다.</li>
+</ul>
+<p><img src="../image/System-Programming-Process_images/wait.png"></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">wait</span> <span class="params">(<span class="keyword">int</span> *status)</span> <span class="comment">// wait 시스템 콜은 자식 프로세스의 pid를 반환한다</span></span></span><br><span class="line"><span class="function">                         <span class="comment">// 자식 프로세스의 종료 상태값을 인자로 갖는다.</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">WIFEXITED</span><span class="params">(status)</span></span>; <span class="comment">// 자식 프로세스의 정상 종료 시 리턴값은 0이 아닌값</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="fork-execl-wait-정리"><a href="#fork-execl-wait-정리" class="headerlink" title="fork, execl wait 정리"></a>fork, execl wait 정리</h2><p>execl()만 사용하면 부모프로세스가 사라지므로<br>이를 유지하기위해 fork로 새로운 프로세스 공간후 execl을 호출한다<br>wait함수를 사용해서 부모 프로세스가 자식 프로세스가 끝날 떄 까지 기다릴 수 있음.</p>
+<h1 id="copy-on-write"><a href="#copy-on-write" class="headerlink" title="copy on write"></a>copy on write</h1><ul>
+<li><p>fork()는 새로운 프로세스 공간 생성 후 부모의 프로세스 공간을 모두 복사한다</p>
+</li>
+<li><p>메모리를 모두 복사하려면 시간이 오래 걸린다.</p>
+</li>
+<li><p>자식프로세스 생성시 부모 프로세스 페이지를 우선 사용한다.</p>
+</li>
+<li><p>이때 자식 프로세스에 쓰기가 발생할때 해당 페이지만 복사하고 분리한다</p>
+<ul>
+<li>+모두 복사하지 않기 때문에 프로세스 생성 시간을 줄일 수 있음</li>
+<li>+새로 생성된 프로세스에 할당되어야하는 페이지수도 최소화 할 수 있음</li>
+<li><img src="../image/System-Programming-Process_images/cowr.png"><br><img src="../image/System-Programming-Process_images/coww.png"></li>
+</ul>
+</li>
+<li><p>커널공간을 공유하여 읽기만 있을때에는 복사 없이 Process A에서 사용 하고있던 물리주소를 그대로 사용한다.</p>
+</li>
+<li><p>코드 실행중 write를 요청하게되면 그 시점에 child process가 복사하여 페이지 포인터를 변경하여 사용한다</p>
+</li>
+</ul>
+<h1 id="Process-종료"><a href="#Process-종료" class="headerlink" title="Process 종료"></a>Process 종료</h1><h2 id="exit"><a href="#exit" class="headerlink" title="exit()"></a>exit()</h2><p>프로세스를 종료하는 시스템콜</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span><span class="params">(<span class="keyword">int</span> status)</span></span>; <span class="comment">// 프로세스 종료 상태 번호를 인자로 갖는다</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>main함수의 return  와 exit(0)의 차이는 </p>
+<p>exit()는 즉시 프로세스를 종료한다<br>return 0는 함수를 종료한다.</p>
+<p>  main에서 return시에는 C언어 실행파일에 기본으로 포함된 _start() 함수를 호출하고</p>
+<p>  그함수는 main을 실행하고 모두 실행후 exit()를 호출하게 된다.</p>
+</li>
+<li><p>exit를 실행하면 </p>
+<ul>
+<li>atexit()에 등록된 함수 실행</li>
+<li>열려 있는 모든 입출력 스트림 버퍼 삭제 (stdin, stdout, stderr)</li>
+<li>프로세스가 오픈한 파일을 모두 닫음</li>
+<li>tmpfile()함수를 통해 생성된 임시 파일들 삭제</li>
+</ul>
+</li>
+</ul>
+<h2 id="atexit"><a href="#atexit" class="headerlink" title="atexit()"></a>atexit()</h2><p>프로세스가 종료될때 실행될 함수를 등록하는 함수이다.<br>스택형식으로 등록되어 들어온순의 역순으로 실행된다.</p>
+<hr>
+<p>출처 :<br>본 내용은 Fastcampus KDT BE과정 수업을 기반으로 작성되었음을 알립니다. </p>
+<p>기타 출처:<br><a href="https://kyu9341.github.io/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/2020/10/04/OS_Process_Structure/">https://kyu9341.github.io/운영체제/2020/10/04/OS_Process_Structure/</a></p>
 ]]></content>
       <categories>
-        <category>next</category>
-        <category>js</category>
+        <category>System Programming</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>blog</tag>
-        <tag>next</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>
