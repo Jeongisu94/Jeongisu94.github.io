@@ -239,7 +239,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-29 14:00:09" itemprop="dateModified" datetime="2021-07-29T14:00:09+09:00">2021-07-29</time>
+        <time title="Modified: 2021-07-29 14:06:38" itemprop="dateModified" datetime="2021-07-29T14:06:38+09:00">2021-07-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,8 +265,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>#Program , Process ,Thread의 개념</p>
-<h2 id="프로그램"><a href="#프로그램" class="headerlink" title="프로그램"></a>프로그램</h2><ul>
+          <h1 id="Program-Process-Thread의-개념"><a href="#Program-Process-Thread의-개념" class="headerlink" title="Program , Process ,Thread의 개념"></a>Program , Process ,Thread의 개념</h1><h2 id="프로그램"><a href="#프로그램" class="headerlink" title="프로그램"></a>프로그램</h2><ul>
 <li>특정한 일을 수행하기위한 명령어로 구성된 실행 가능한 파일</li>
 <li>바이너리, 코드이미지 , Application …</li>
 </ul>
@@ -279,21 +278,20 @@
 <h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><h2 id="Process-ID"><a href="#Process-ID" class="headerlink" title="Process ID"></a>Process ID</h2><ul>
 <li>각 프로세스 해당 시점에 유니크한 pid를 가진다</li>
 <li>pid는 Linux에서는 signed 16비트 정수값을 사용하여 최대 32678이다<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /proc/sys/kernel/pid_max # 명령어를 통하여 확인 가능</span><br><span class="line">32768</span><br></pre></td></tr></table></figure>
-##Process 계층</li>
+<h2 id="Process-계층"><a href="#Process-계층" class="headerlink" title="Process 계층"></a>Process 계층</h2></li>
 <li>최초 프로세스는 init 프로세스 (pid : 1)</li>
 <li>init 프로세스는 운영체제가 생성한다.</li>
 <li>다른 프로세스는 또 다른 프로세스로부터 생성되어 계층 구조를 가진다</li>
 <li>ppid 값이 부모 프로세스의 pid를 뜻한다<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef # -e 시스템상의 모든 프로세스 -f UID,PID PPID등 모든 정보 출력</span><br></pre></td></tr></table></figure>
 <img src="../image/System-Programming-Process_images/psef_result.png"></li>
 </ul>
-<p>##Process와 Owner 관리<br>리눅스에서 File은 inode 프로세스는 pid로 관리하듯이</p>
+<h2 id="Process와-Owner-관리"><a href="#Process와-Owner-관리" class="headerlink" title="Process와 Owner 관리"></a>Process와 Owner 관리</h2><p>리눅스에서 File은 inode 프로세스는 pid로 관리하듯이</p>
 <p>프로세스의 소유자와 그룹또한 UID / GID로 관리된다.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/passwd #uid와 gid및 사용자에 관한 정보들이 출력된다.</span><br></pre></td></tr></table></figure>
 <p><img src="../image/System-Programming-Process_images/passwd.png"> </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/shadow #암호화된 상태의 password가 적혀있음</span><br></pre></td></tr></table></figure>
 
-<p>##Process관리 관련 시스템콜</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pid=%d\n&quot;</span>), getpid();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;ppid=%d\n&quot;</span>), getppid();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Process관리-관련-시스템콜"><a href="#Process관리-관련-시스템콜" class="headerlink" title="Process관리 관련 시스템콜"></a>Process관리 관련 시스템콜</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pid=%d\n&quot;</span>), getpid();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;ppid=%d\n&quot;</span>), getppid();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="../image/System-Programming-Process_images/pidinfo.png"></p>
 <ul>
