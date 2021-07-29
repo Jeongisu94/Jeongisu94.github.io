@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>System Programming - ABI</title>
-    <url>/2021/07/28/System-Programming-ABI/</url>
-    <content><![CDATA[<h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
-<li>Application Binary Interface</li>
-<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
-<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
-<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
-<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
-</ul>
-<h1 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-      <categories>
-        <category>System Programming</category>
-      </categories>
-      <tags>
-        <tag>ABI</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-        <tag>TIL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>System Programming - Process</title>
     <url>/2021/07/28/System-Programming-Process/</url>
     <content><![CDATA[<h1 id="Program-Process-Thread의-개념"><a href="#Program-Process-Thread의-개념" class="headerlink" title="Program , Process ,Thread의 개념"></a>Program , Process ,Thread의 개념</h1><h2 id="프로그램"><a href="#프로그램" class="headerlink" title="프로그램"></a>프로그램</h2><ul>
@@ -29,7 +8,7 @@
 <li>바이너리, 코드이미지 , Application …</li>
 </ul>
 <h2 id="프로세스"><a href="#프로세스" class="headerlink" title="프로세스"></a>프로세스</h2><ul>
-<li>실행중인 프로그램 (메미로 적재+ 프로세스 상태 정보 포함)<br><img src="/image/System-Programming-Process_images/processMemeryStructure.png"></li>
+<li>실행중인 프로그램 (메모리 적재+ 프로세스 상태 정보 포함)<br><img src="/image/System-Programming-Process_images/processMemeryStructure.png"></li>
 </ul>
 <h2 id="스레드"><a href="#스레드" class="headerlink" title="스레드"></a>스레드</h2><ul>
 <li>가장 최소 단위의 실행가능한 프로세스<br><img src="/image/System-Programming-Process_images/processthread.png"></li>
@@ -146,10 +125,31 @@
         <category>Linux</category>
       </categories>
       <tags>
+        <tag>Linux</tag>
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>TIL</tag>
-        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System Programming - ABI</title>
+    <url>/2021/07/28/System-Programming-ABI/</url>
+    <content><![CDATA[<h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
+<li>Application Binary Interface</li>
+<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
+<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
+<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
+<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
+</ul>
+<h1 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>System Programming</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>TIL</tag>
+        <tag>ABI</tag>
       </tags>
   </entry>
 </search>
