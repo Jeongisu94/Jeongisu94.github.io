@@ -20,31 +20,34 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="ABIABI란? Application Binary Interface 함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스 응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의  함수의 파라미터들을 어떤 레지스터에 넣을지 정의 컴파일 , 링커 ,툴체인에서 제공 한다.">
+<meta name="description" content="#Intro 모종의 이유로 맥 셋팅을 처음부터 다시 하게되는 경우가 생긴다.  Time Machine이나 Migration을 사용하기엔 레거시가 남을 것 같아 찝찝한 기분이 들어 일일히 한땀한땀 셋팅을 한다. 그렇기 때문에 구글링하고 여러 블로그를 서핑하면서 셋팅하는데 꽤 많은 시간을 소비하게 된다..  그래서 그 시간을 줄이기위해 나의 맥 셋팅을 포스팅를">
 <meta property="og:type" content="article">
-<meta property="og:title" content="System Programming - ABI">
-<meta property="og:url" content="https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/index.html">
+<meta property="og:title" content="내 개발환경 셋팅하기 Oh My ZSH , iTerm2 , power10k">
+<meta property="og:url" content="https://jeongisu94.github.io/2021/07/30/mac-setting-iterm/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
-<meta property="og:description" content="ABIABI란? Application Binary Interface 함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스 응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의  함수의 파라미터들을 어떤 레지스터에 넣을지 정의 컴파일 , 링커 ,툴체인에서 제공 한다.">
+<meta property="og:description" content="#Intro 모종의 이유로 맥 셋팅을 처음부터 다시 하게되는 경우가 생긴다.  Time Machine이나 Migration을 사용하기엔 레거시가 남을 것 같아 찝찝한 기분이 들어 일일히 한땀한땀 셋팅을 한다. 그렇기 때문에 구글링하고 여러 블로그를 서핑하면서 셋팅하는데 꽤 많은 시간을 소비하게 된다..  그래서 그 시간을 줄이기위해 나의 맥 셋팅을 포스팅를">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-28T05:50:44.000Z">
-<meta property="article:modified_time" content="2021-07-30T11:10:18.238Z">
+<meta property="og:image" content="https://jeongisu94.github.io/2021/07/30/image/mac-setting-iterm_images/img.png">
+<meta property="og:image" content="https://jeongisu94.github.io/2021/07/30/image/mac-setting-iterm_images/icon_iterm.png">
+<meta property="article:published_time" content="2021-07-30T12:59:39.000Z">
+<meta property="article:modified_time" content="2021-07-30T15:31:13.565Z">
 <meta property="article:author" content="Jeongisu">
-<meta property="article:tag" content="TIL">
-<meta property="article:tag" content="System Programming">
-<meta property="article:tag" content="C">
-<meta property="article:tag" content="ABI">
+<meta property="article:tag" content="mac">
+<meta property="article:tag" content="setting">
+<meta property="article:tag" content="zsh">
+<meta property="article:tag" content="terminal">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jeongisu94.github.io/2021/07/30/image/mac-setting-iterm_images/img.png">
 
 
-<link rel="canonical" href="https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/">
+<link rel="canonical" href="https://jeongisu94.github.io/2021/07/30/mac-setting-iterm/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/","path":"2021/07/28/System-Programming-ABI/","title":"System Programming - ABI"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/07/30/mac-setting-iterm/","path":"2021/07/30/mac-setting-iterm/","title":"내 개발환경 셋팅하기 Oh My ZSH , iTerm2 , power10k"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>System Programming - ABI | ISU's Blog</title>
+<title>내 개발환경 셋팅하기 Oh My ZSH , iTerm2 , power10k | ISU's Blog</title>
   
 
 
@@ -151,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ABI"><span class="nav-number">1.</span> <span class="nav-text">ABI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ABI%EB%9E%80"><span class="nav-number">1.1.</span> <span class="nav-text">ABI란?</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8D%BA-Homebrew"><span class="nav-number">1.</span> <span class="nav-text">🍺 Homebrew</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install"><span class="nav-number">1.1.</span> <span class="nav-text">Install</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iterm2"><span class="nav-number">2.</span> <span class="nav-text"> iterm2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install"><span class="nav-number">3.</span> <span class="nav-text">install</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -216,7 +219,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/30/mac-setting-iterm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -229,7 +232,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          System Programming - ABI
+          내 개발환경 셋팅하기 Oh My ZSH , iTerm2 , power10k
         </h1>
 
         <div class="post-meta-container">
@@ -240,14 +243,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-07-28 14:50:44" itemprop="dateCreated datePublished" datetime="2021-07-28T14:50:44+09:00">2021-07-28</time>
+      <time title="Created: 2021-07-30 21:59:39" itemprop="dateCreated datePublished" datetime="2021-07-30T21:59:39+09:00">2021-07-30</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-30 20:10:18" itemprop="dateModified" datetime="2021-07-30T20:10:18+09:00">2021-07-30</time>
+        <time title="Modified: 2021-07-31 00:31:13" itemprop="dateModified" datetime="2021-07-31T00:31:13+09:00">2021-07-31</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,7 +258,11 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
+          <a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/mac/setting/" itemprop="url" rel="index"><span itemprop="name">setting</span></a>
         </span>
     </span>
 
@@ -269,12 +276,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
-<li>Application Binary Interface</li>
-<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
-<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
-<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
-<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
+        <p>#Intro</p>
+<p>모종의 이유로 맥 셋팅을 처음부터 다시 하게되는 경우가 생긴다. </p>
+<p>Time Machine이나 Migration을 사용하기엔 레거시가 남을 것 같아 찝찝한 기분이 들어 일일히 한땀한땀 셋팅을 한다.</p>
+<p>그렇기 때문에 구글링하고 여러 블로그를 서핑하면서 셋팅하는데 꽤 많은 시간을 소비하게 된다.. </p>
+<p>그래서 그 시간을 줄이기위해 나의 맥 셋팅을 포스팅를 하게 되었다.</p>
+<h2 id="🍺-Homebrew"><a href="#🍺-Homebrew" class="headerlink" title="🍺 Homebrew"></a>🍺 <a target="_blank" rel="noopener" href="https://brew.sh/index_ko">Homebrew</a></h2><ul>
+<li><p>포멧을하고나서 가장 먼저 설치하는 MacOS 전용 패키기 관리자이다.</p>
+<p> 앱을 설치하기 위해서는 App Store서 설치하거나 </p>
+<p> 앱을 배포하는 공식 홈페이지에서 다운받아서 Application 폴더에 옮겨줘야하는 귀찮은 작업을 해야하지만</p>
+<p> Homebrew를 이용하면 간단한 명령어를 통해서 등록된 앱들을 설치, 업데이트, 삭제 할 수 있다! 🙃</p>
+</li>
+</ul>
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
+<li>설치법은 매우간단하다 터미널 앱을 켜서 다음 명령어를 입력해주면 된다.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>homebrew를 설치했으면 다음은 gui에서 사용가능한 앱을 설치해주는 패키지인 cask를 설치해야한다</p>
+<p><code>brew install cask</code></p>
+<p>cask를 설치헀으면 <code>brew list</code> 명령어를 통하여 설치한 앱을 확인 할 수 있다. </p>
+<p><img src="../image/mac-setting-iterm_images/img.png"></p>
+<p>원하는 앱을 찾고싶을땐 <code>brew search &#123;appname&#125;</code>으로 검색하여 설치 할 수 있다.</p>
+<h2 id="iterm2"><a href="#iterm2" class="headerlink" title=" iterm2"></a><img src="../image/mac-setting-iterm_images/icon_iterm.png"> <a target="_blank" rel="noopener" href="https://iterm2.com/">iterm2</a></h2><ul>
+<li><p>정말 기본 쉘명령어만 사용할 수 있는 기본 terminal에 iterm은 테마를 적용시켜 가독성뿐만 아니라 </p>
+<p> 예쁜 UI를 가질 수있고 split view나 리소스 모니터링등 여러가지 기능을 제공한다</p>
+</li>
+</ul>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><ul>
+<li>위에서 설치한 homebrew를 패키지 관리자를 통해서<br><code>shell homebrew install --cask iterm2</code> </li>
 </ul>
 
     </div>
@@ -285,24 +315,21 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/TIL/" rel="tag"># TIL</a>
-              <a href="/tags/System-Programming/" rel="tag"># System Programming</a>
-              <a href="/tags/C/" rel="tag"># C</a>
-              <a href="/tags/ABI/" rel="tag"># ABI</a>
+              <a href="/tags/mac/" rel="tag"># mac</a>
+              <a href="/tags/setting/" rel="tag"># setting</a>
+              <a href="/tags/zsh/" rel="tag"># zsh</a>
+              <a href="/tags/terminal/" rel="tag"># terminal</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/23/Linux-FileSystem/" rel="prev" title="Linux의 파일 시스템">
-                  <i class="fa fa-chevron-left"></i> Linux의 파일 시스템
+                <a href="/2021/07/29/System-Programming-IPC/" rel="prev" title="System Programming - IPC">
+                  <i class="fa fa-chevron-left"></i> System Programming - IPC
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/07/28/System-Programming-Process/" rel="next" title="System Programming - Process">
-                  System Programming - Process <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
