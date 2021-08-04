@@ -278,6 +278,128 @@
       </tags>
   </entry>
   <entry>
+    <title>Shell 사용법 2</title>
+    <url>/2021/07/23/Linux-How_to_use_shell/</url>
+    <content><![CDATA[<p>#Shell 사용법</p>
+<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
+<li>바이너리는 실행할 수 있는 파일</li>
+<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
+<li>메모리와 관련된 상태정보 (PCB)</li>
+<li>시스템 리소스</li>
+<li>스케쥴링 단위</li>
+</ul>
+</li>
+</ul>
+<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
+<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
+<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
+</ul>
+<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
+<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
+<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
+<li>서버 데몬, 백신 프로그램, etc..</li>
+</ul>
+<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span></span><br><span class="line">[job number] process ID ## result</span><br></pre></td></tr></table></figure>
+<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
+<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">^Z ## 실행중인 포어그라운드  프로세스 중단 not kill</span><br><span class="line">^C ## 포어그라운드 프로세스 종료</span><br><span class="line">jobs ## 실행중인 백그라운드 프로세스와 상태정보 출력</span><br><span class="line">ps ## 실행중인 프로세스 출력 </span><br><span class="line">kill -9 [PID] ## PID해당하는 프로세스 죽이기</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
+<hr>
+<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
+<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
+]]></content>
+      <categories>
+        <category>Shell</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+        <tag>Bash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shell 사용법 1</title>
+    <url>/2021/07/22/Linux%20-%20Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95%20/</url>
+    <content><![CDATA[<h1 id="Shell-사용법"><a href="#Shell-사용법" class="headerlink" title="Shell 사용법"></a>Shell 사용법</h1><h2 id="Standard-Stream-표준-입출력"><a href="#Standard-Stream-표준-입출력" class="headerlink" title="Standard Stream (표준 입출력)"></a>Standard Stream (표준 입출력)</h2><ul>
+<li>리눅스환경에서는  command로 실행되는 프로세스는 세가지 스트림을 가진다<ul>
+<li>표준 입력 스트림 - stdin</li>
+<li>표준 출력 스트림 - stdout</li>
+<li>표준 오류 스트림 - stderr</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled.png"></p>
+<p>ex) ls -al 은 stdin에 해당하고 stdout은 그에따른 결과에 해당한다고 할 수 있다.</p>
+<hr>
+<h2 id="Redirection-리디렉션"><a href="#Redirection-리디렉션" class="headerlink" title="Redirection (리디렉션)"></a>Redirection (리디렉션)</h2><ul>
+<li><p>표준 스트림을 바꿔 줄 수 있다.</p>
+<p>   [ &lt; , &gt; , &lt;&lt; , &gt;&gt; ]를 사용한다.</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls &gt; file.txt <span class="comment"># 출력내용을 터미널의 console에 출력이 아닌 file.txt에 저장시킴</span></span><br><span class="line"></span><br><span class="line">head &lt; file.txt <span class="comment"># file.txt내용의 10줄이 입력으로 사용 된다.ead &lt; files.txt &gt; files2.txt</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ head &lt;.bashrc &gt; test.txt </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>이 명령어는 다음과 같이 작동한다.<ol>
+<li>head &lt; .bashrc</li>
+<li>1의 결과 &gt; test.txt에 저장</li>
+</ol>
+<ul>
+<li>출력화면</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled%201.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls -al &gt;&gt; test1.txt <span class="comment"># 기존의 내용을 삭제하지않고 추가한다.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Pipe-파이프"><a href="#Pipe-파이프" class="headerlink" title="Pipe (파이프)"></a>Pipe (파이프)</h2><ul>
+<li><p>여러개의 프로세스 사이에서 앞의 프로세스의 출력을 그 뒤의 프로세스의 입력으로 사용 하는 것.</p>
+<p>  [ | ] 를 사용한다.</p>
+</li>
+</ul>
+<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/%ED%8C%8C%EC%9D%B4%ED%94%84.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat .bashrc | grep <span class="keyword">case</span></span><br><span class="line"><span class="keyword">case</span> $- <span class="keyword">in</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">	<span class="comment"># a case would tend to support setf rather than setaf.)</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>cat 명령을 통한 출력내용이 grep 명령의 입력 스트림으로 들어간다.</li>
+<li>grep case 는 grep 명령의 입력스을 검색해서 cat의 출력내용에 case가 있는 라인만 출력한다</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Shell</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+        <tag>Bash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System Programming - ABI</title>
+    <url>/2021/07/28/System-Programming-ABI/</url>
+    <content><![CDATA[<h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
+<li>Application Binary Interface</li>
+<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
+<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
+<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
+<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>System Programming</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>ABI</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux의 파일 시스템</title>
     <url>/2021/07/23/Linux-FileSystem/</url>
     <content><![CDATA[<h1 id="Linux-파일-시스템"><a href="#Linux-파일-시스템" class="headerlink" title="Linux 파일 시스템"></a>Linux 파일 시스템</h1><p>리눅스는 모든 것은 파일이라는 철학에따라 모든 인터랙션은 파일을 읽고 쓰는 것처럼 이루어져있다.<br>따라서 모든 자원에 대한 추상화 인터페이스로 파일 인터페이스를 활용한다.</p>
@@ -351,125 +473,43 @@
       </tags>
   </entry>
   <entry>
-    <title>Shell 사용법 1</title>
-    <url>/2021/07/22/Linux%20-%20Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95%20/</url>
-    <content><![CDATA[<h1 id="Shell-사용법"><a href="#Shell-사용법" class="headerlink" title="Shell 사용법"></a>Shell 사용법</h1><h2 id="Standard-Stream-표준-입출력"><a href="#Standard-Stream-표준-입출력" class="headerlink" title="Standard Stream (표준 입출력)"></a>Standard Stream (표준 입출력)</h2><ul>
-<li>리눅스환경에서는  command로 실행되는 프로세스는 세가지 스트림을 가진다<ul>
-<li>표준 입력 스트림 - stdin</li>
-<li>표준 출력 스트림 - stdout</li>
-<li>표준 오류 스트림 - stderr</li>
-</ul>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled.png"></p>
-<p>ex) ls -al 은 stdin에 해당하고 stdout은 그에따른 결과에 해당한다고 할 수 있다.</p>
-<hr>
-<h2 id="Redirection-리디렉션"><a href="#Redirection-리디렉션" class="headerlink" title="Redirection (리디렉션)"></a>Redirection (리디렉션)</h2><ul>
-<li><p>표준 스트림을 바꿔 줄 수 있다.</p>
-<p>   [ &lt; , &gt; , &lt;&lt; , &gt;&gt; ]를 사용한다.</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls &gt; file.txt <span class="comment"># 출력내용을 터미널의 console에 출력이 아닌 file.txt에 저장시킴</span></span><br><span class="line"></span><br><span class="line">head &lt; file.txt <span class="comment"># file.txt내용의 10줄이 입력으로 사용 된다.ead &lt; files.txt &gt; files2.txt</span></span><br></pre></td></tr></table></figure>
+    <title>System-Programming-IPC(2)</title>
+    <url>/2021/08/04/System-Programming-IPC-2/</url>
+    <content><![CDATA[<p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msgctl(msgid, PIC_RMID,<span class="number">0</span>); <span class="comment">//삭제예시, 메시지 아이디와 컨트롤에대한 인자를 받는다. </span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ head &lt;.bashrc &gt; test.txt </span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ipcs <span class="comment">#명령어를 통해 확인 할 수 있다.</span></span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>이 명령어는 다음과 같이 작동한다.<ol>
-<li>head &lt; .bashrc</li>
-<li>1의 결과 &gt; test.txt에 저장</li>
-</ol>
-<ul>
-<li>출력화면</li>
+<h2 id="공유메모리-Shared-Memory"><a href="#공유메모리-Shared-Memory" class="headerlink" title="공유메모리 (Shared Memory)"></a>공유메모리 (Shared Memory)</h2><ul>
+<li>모든 프로세스는 커널영역을 공유한다는 점을 이용하여<br>커널에 공간을 확보하여 그 공간을 변수처럼 사용하는 방식이다</li>
+<li>큐와 다르게 주소를 변수처럼 접근한다</li>
+<li>공유 메모리 Key를 통하여 여러 프로세스가 접근이 가능하다</li>
 </ul>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled%201.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls -al &gt;&gt; test1.txt <span class="comment"># 기존의 내용을 삭제하지않고 추가한다.</span></span><br></pre></td></tr></table></figure>
+<h3 id="공유-메모리-생성"><a href="#공유-메모리-생성" class="headerlink" title="공유 메모리 생성"></a>공유 메모리 생성</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">key: 임의의 숫자 또는 ftok 함수로 생성한 키 값</span></span><br><span class="line"><span class="comment">size: 공유 메모리의 크기</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 속성</span></span><br><span class="line"><span class="comment">return value : 공유 메모리 식별자 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">size_t</span>, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line">shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>,SIZE , IPC_CREAT|<span class="number">0666</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="Pipe-파이프"><a href="#Pipe-파이프" class="headerlink" title="Pipe (파이프)"></a>Pipe (파이프)</h2><ul>
-<li><p>여러개의 프로세스 사이에서 앞의 프로세스의 출력을 그 뒤의 프로세스의 입력으로 사용 하는 것.</p>
-<p>  [ | ] 를 사용한다.</p>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/%ED%8C%8C%EC%9D%B4%ED%94%84.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat .bashrc | grep <span class="keyword">case</span></span><br><span class="line"><span class="keyword">case</span> $- <span class="keyword">in</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">	<span class="comment"># a case would tend to support setf rather than setaf.)</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure>
+<h3 id="공유-메모리-연결"><a href="#공유-메모리-연결" class="headerlink" title="공유 메모리 연결"></a>공유 메모리 연결</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">shmaddr : 공유 메모리 연결 주소 (char *) NULL로 설정하면 적절한 주소로 연결된다</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 권한 설정 (0이면 읽기쓰기, SHM_RDONLY면 읽기만)</span></span><br><span class="line"><span class="comment">return value: 연결이 성공하면 메모리의 시작 주소를 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">shmat</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">const</span> <span class="keyword">void</span> *shamddr, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line"></span><br><span class="line">shmaddr = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li>cat 명령을 통한 출력내용이 grep 명령의 입력 스트림으로 들어간다.</li>
-<li>grep case 는 grep 명령의 입력스을 검색해서 cat의 출력내용에 case가 있는 라인만 출력한다</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Shell</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-        <tag>Bash</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shell 사용법 2</title>
-    <url>/2021/07/23/Linux-How_to_use_shell/</url>
-    <content><![CDATA[<p>#Shell 사용법</p>
-<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
-<li>바이너리는 실행할 수 있는 파일</li>
-<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
-<li>메모리와 관련된 상태정보 (PCB)</li>
-<li>시스템 리소스</li>
-<li>스케쥴링 단위</li>
-</ul>
-</li>
-</ul>
-<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
-<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
-<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
-</ul>
-<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
-<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
-<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
-<li>서버 데몬, 백신 프로그램, etc..</li>
-</ul>
-<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span></span><br><span class="line">[job number] process ID ## result</span><br></pre></td></tr></table></figure>
-<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">^Z ## 실행중인 포어그라운드  프로세스 중단 not kill</span><br><span class="line">^C ## 포어그라운드 프로세스 종료</span><br><span class="line">jobs ## 실행중인 백그라운드 프로세스와 상태정보 출력</span><br><span class="line">ps ## 실행중인 프로세스 출력 </span><br><span class="line">kill -9 [PID] ## PID해당하는 프로세스 죽이기</span><br></pre></td></tr></table></figure>
+<h3 id="공유-메모리-해제"><a href="#공유-메모리-해제" class="headerlink" title="공유 메모리 해제"></a>공유 메모리 해제</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmdt</span><span class="params">(<span class="keyword">char</span> * shmaddr)</span></span>; <span class="comment">// 공유 메모리 연결 주소로 인자를 갖는다.</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
-]]></content>
-      <categories>
-        <category>Shell</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-        <tag>Bash</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>System Programming - ABI</title>
-    <url>/2021/07/28/System-Programming-ABI/</url>
-    <content><![CDATA[<h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
-<li>Application Binary Interface</li>
-<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
-<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
-<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
-<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
-</ul>
+<h3 id="공유-메모리-읽기-쓰기"><a href="#공유-메모리-읽기-쓰기" class="headerlink" title="공유 메모리 읽기/쓰기"></a>공유 메모리 읽기/쓰기</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;%s&quot;</span> \n<span class="string">&quot;), (char *)shmaddr); </span></span><br><span class="line"><span class="string">strcpy((char*)shmaddr, &quot;</span>to write<span class="string">&quot;);</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-컨트롤"><a href="#공유-메모리-컨트롤" class="headerlink" title="공유 메모리 컨트롤"></a>공유 메모리 컨트롤</h3><p>커널영역을 끊임없이 만들 수 없기때문에 메모리를 컨트롤해줘야한다</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">cmd: 수행할 컨트롤 (ex: IPC_RMID - shmid로 지정한 공유 메모리 제거)</span></span><br><span class="line"><span class="comment">buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmctl</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">int</span> cmd, struct shmid_ds *buf)</span></span>;</span><br><span class="line"></span><br><span class="line">shmctl(shmid, IPC_RMID, (struct shmid_ds *)<span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="활용-예시"><a href="#활용-예시" class="headerlink" title="활용 예시"></a>활용 예시</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shmid, pid;</span><br><span class="line">    <span class="keyword">char</span> *shmaddr_parent, *shmaddr_child;</span><br><span class="line">    shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>, <span class="number">10</span>, IPC_CREAT|<span class="number">0644</span>);</span><br><span class="line">    <span class="keyword">if</span>(shmid == <span class="number">-1</span>) &#123; <span class="comment">// ocurred error</span></span><br><span class="line">            perror(<span class="string">&quot;shmget err&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// parent process</span></span><br><span class="line">            wait(<span class="number">0</span>);</span><br><span class="line">            shmaddr_parent = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>,<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, shmaddr_parent);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_parent);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            shmaddr_child = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="built_in">strcpy</span>((<span class="keyword">char</span> *)shmaddr_child, <span class="string">&quot;Hello Parent!&quot;</span>);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_child);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// shmctl(shmid, IPC_RMID, (struct shmid_ds *)NULL); ipcs로 확인하기위해 삭제하지 않았음.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/System-Programming-IPC-2_images/example.png"></p>
 ]]></content>
       <categories>
         <category>System Programming</category>
+        <category>Linux</category>
       </categories>
       <tags>
         <tag>TIL</tag>
-        <tag>ABI</tag>
+        <tag>Linux</tag>
         <tag>C</tag>
         <tag>System Programming</tag>
+        <tag>Shared Memory</tag>
       </tags>
   </entry>
   <entry>
@@ -522,6 +562,9 @@
         <tag>Linux</tag>
         <tag>C</tag>
         <tag>System Programming</tag>
+        <tag>File</tag>
+        <tag>Pipe</tag>
+        <tag>Message Queue</tag>
       </tags>
   </entry>
   <entry>
@@ -772,6 +815,59 @@
         <tag>setting</tag>
         <tag>zsh</tag>
         <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System-Programming-Signal</title>
+    <url>/2021/08/04/System-Programming-Signal/</url>
+    <content><![CDATA[<h1 id="시그널-signal"><a href="#시그널-signal" class="headerlink" title="시그널 (signal)"></a>시그널 (signal)</h1><ul>
+<li>유닉스에서 사용되는 커널 또는 프로세스에서 다른 프로세스에 어떤 이벤트가 발생되었는지를 알려주는 기법</li>
+<li>ex) Ctrl + C 프로세스 종료 , Ctrl + Z 프로세스를 백그라운드로</li>
+</ul>
+<h2 id="주요-Signal"><a href="#주요-Signal" class="headerlink" title="주요 Signal"></a>주요 Signal</h2><ul>
+<li>시그널 종류와 각 시그널에 따라 기능이 매핑되어있음<ul>
+<li>SIGKILL : 프로세스를 죽임</li>
+<li>SIGALARM: 알람 발생</li>
+<li>SIGSTP : 프로세스 멈춤 (= ctrl + Z)</li>
+<li>SIGCONT: 멈춰진 프로세스 재개</li>
+<li>SIGINT : 프로세스에 인터럽트를 보내고 죽임 (=Ctrl + C)</li>
+<li>SIGSEGV: 프로세스가 다른 메모리영역을 침법</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">kill</span> -l <span class="comment">#명령어를 통해 시그널 명령어들을 볼 수 있음</span></span> </span><br></pre></td></tr></table></figure>
+<p><img src="/image/System-Programming-Signal_images/killll.png"></p>
+<h2 id="Signal-동작"><a href="#Signal-동작" class="headerlink" title="Signal 동작"></a>Signal 동작</h2><ul>
+<li>프로그램에서 특정 시그널의 기본 동작대신 다른 동작하도록 재정의가 가능하다.</li>
+<li>각 프로세스에서  시그널 처리에 대해 다음과 같은 동작 설정 가능하다.<ol>
+<li>시그널 무시</li>
+<li>시그널 블록</li>
+<li>프로그램 안에 등록된 시그널 핸들러로 재정의한 특정 동작 수행</li>
+</ol>
+</li>
+</ul>
+<h2 id="Send-Signal"><a href="#Send-Signal" class="headerlink" title="Send Signal"></a>Send Signal</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kill</span><span class="params">(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> sig)</span> <span class="comment">// pid와 sig#를 인자로 받는다 </span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="받은-Signal-기본-동작-재정의"><a href="#받은-Signal-기본-동작-재정의" class="headerlink" title="받은 Signal 기본 동작 재정의"></a>받은 Signal 기본 동작 재정의</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="keyword">void</span> (*signal(<span class="keyword">int</span> signum, <span class="keyword">void</span> (*handler)(<span class="keyword">int</span>)))(<span class="keyword">int</span>);</span><br><span class="line"></span><br><span class="line">singal(SIGINT, SIG_IGN); <span class="comment">// SIGINT를 받으면 SIG_IGN(시그널 무시) 동작</span></span><br><span class="line"></span><br><span class="line">signal(SIGINT, (<span class="keyword">void</span> *)signal_handler); <span class="comment">// SIGINT를 받으면 핸들러를 통해 재정의한 동작을 실행</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h2><p>sigloop.c</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">signal_handler</span> <span class="params">(<span class="keyword">int</span> signo)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Catch SIGINT!, but no stop\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (signal (SIGINT, signal_handler) == SIG_ERR) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Can&#x27;t catch SIGINT!\n&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span> (<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (;;)</span><br><span class="line">          pause();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>sigkill.c</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> pid, sig_num;</span><br><span class="line">  <span class="keyword">if</span> (argc != <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;usage %s [pid][signum]\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  pid = atoi(argv[<span class="number">1</span>]);</span><br><span class="line">  sig_num = atoi(argv[<span class="number">2</span>]);</span><br><span class="line">  <span class="keyword">if</span> ( kill(pid, sig_num)) &#123; <span class="comment">// Kill 시스템콜을 통해 해당 프로세스에 SIG_NUM을 넘겨줌</span></span><br><span class="line">    perror(<span class="string">&quot;To send Signal is failed\n&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/System-Programming-Signal_images/sigexam.png"><br>다음과 같이 원래 SIGINT의 디폴트는 종료이지만 종료하지않고<br>재정의한대로 메시지가 출력된다.</p>
+]]></content>
+      <categories>
+        <category>System Programming</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>Signal</tag>
       </tags>
   </entry>
 </search>
