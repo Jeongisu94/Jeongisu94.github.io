@@ -158,13 +158,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -208,6 +208,123 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/04/ShellScript-Basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/04/ShellScript-Basic/" class="post-title-link" itemprop="url">ShellScript-Basic</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-04 21:25:10" itemprop="dateCreated datePublished" datetime="2021-08-04T21:25:10+09:00">2021-08-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-05 16:18:14" itemprop="dateModified" datetime="2021-08-05T16:18:14+09:00">2021-08-05</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/Linux/object-Object/" itemprop="url" rel="index"><span itemprop="name">[object Object]</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/Linux/object-Object/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/Linux/object-Object/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Shell-Script"><a href="#Shell-Script" class="headerlink" title="Shell Script"></a>Shell Script</h1><h2 id="기본-문법"><a href="#기본-문법" class="headerlink" title="기본 문법"></a>기본 문법</h2><ul>
+<li>쉘 스크립트는 파일로 작성 후 파일을 실행함</li>
+<li>파일의 가장 위으 ㅣ첫 라인은 <code>#!/bin/bash</code>로 시작</li>
+<li>쉘 스크립트 파일은 실행 권한을 갖고있어야함</li>
+</ul>
+<h3 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h3><p>hello.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;Hello Bash!&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 hello.sh</span><br><span class="line">$./hello.sh</span><br><span class="line"></span><br><span class="line">Hello bash!</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>echo</code>는 화면에 출력해주는 쉘 명령어</li>
+</ul>
+<h3 id="변수"><a href="#변수" class="headerlink" title="변수"></a>변수</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">mysql_id=<span class="string">&#x27;root&#x27;</span> </span><br><span class="line">mysql_directory=<span class="string">&#x27;/etc/mysql&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$mysql_id</span> <span class="comment"># $변수명으로 사용가능 </span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$mysql_directory</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">daemons=(<span class="string">&quot;httpd&quot;</span> <span class="string">&quot;mysql&quot;</span> <span class="string">&quot;vsftpd&quot;</span>) <span class="comment"># , 가아닌 띄어쓰기로 구분</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;daemons[1]&#125;</span> <span class="comment"># $&#123;배열명[index]&#125; 형식으로 사용</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;daemons[a]&#125;</span> <span class="comment"># 배열의 모든 데이터 출력</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;daemons[*]&#125;</span> <span class="comment"># 배열의 모든 데이터 출력</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#daemons[@]&#125;</span> <span class="comment"># 배열의 크기 출력 : 3</span></span><br><span class="line"></span><br><span class="line">filelist = ( $(ls) ) <span class="comment"># 괄호안에있는 명령어의 결과값을 배열에 넣는다</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;filelist[*]&#125;</span> <span class="comment"># filelist의 모든 값 출력</span></span><br></pre></td></tr></table></figure>
+
+<p>arraytest.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_info = &#123;<span class="string">&quot;isu&quot;</span> <span class="string">&quot;28&quot;</span> <span class="string">&quot;BE&quot;</span>&#125;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;my_info[0]&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;my_info[*]&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#my_info[@]&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="사전에-정의된-지역-변수"><a href="#사전에-정의된-지역-변수" class="headerlink" title="사전에 정의된 지역 변수"></a>사전에 정의된 지역 변수</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$ <span class="comment"># 쉘의 프로세스 번호 (pid)</span></span><br><span class="line"><span class="variable">$0</span> <span class="comment"># 쉘스크립트 이름 ex) ls </span></span><br><span class="line"><span class="variable">$1</span> ~ <span class="variable">$9</span> <span class="comment"># 명령줄 인수 </span></span><br><span class="line">$* <span class="comment"># 모든 명령줄 인수리스트 ex) -al -z</span></span><br><span class="line"><span class="variable">$#</span> <span class="comment"># 인수의 갯수 ex) 2개 (la -al -z)</span></span><br><span class="line">$? <span class="comment"># 최근 실행한 명령어의 종료 값 0은 성공 나머지는 실패 </span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/04/System-Programming-Signal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -231,10 +348,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-04 19:35:39 / Modified: 21:22:25" itemprop="dateCreated datePublished" datetime="2021-08-04T19:35:39+09:00">2021-08-04</time>
+      <time title="Created: 2021-08-04 19:35:39" itemprop="dateCreated datePublished" datetime="2021-08-04T19:35:39+09:00">2021-08-04</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-05 01:30:30" itemprop="dateModified" datetime="2021-08-05T01:30:30+09:00">2021-08-05</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -274,7 +397,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">kill</span> -l <span class="comment">#명령어를 통해 시그널 명령어들을 볼 수 있음</span></span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$kill</span> -l <span class="comment">#명령어를 통해 시그널 명령어들을 볼 수 있음 </span></span><br></pre></td></tr></table></figure>
 <p><img src="/image/System-Programming-Signal_images/killll.png"></p>
 <h2 id="Signal-동작"><a href="#Signal-동작" class="headerlink" title="Signal 동작"></a>Signal 동작</h2><ul>
 <li>프로그램에서 특정 시그널의 기본 동작대신 다른 동작하도록 재정의가 가능하다.</li>
@@ -345,10 +468,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-04 17:43:04 / Modified: 19:33:03" itemprop="dateCreated datePublished" datetime="2021-08-04T17:43:04+09:00">2021-08-04</time>
+      <time title="Created: 2021-08-04 17:43:04" itemprop="dateCreated datePublished" datetime="2021-08-04T17:43:04+09:00">2021-08-04</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-05 01:30:16" itemprop="dateModified" datetime="2021-08-05T01:30:16+09:00">2021-08-05</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -376,7 +505,7 @@
           <p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msgctl(msgid, PIC_RMID,<span class="number">0</span>); <span class="comment">//삭제예시, 메시지 아이디와 컨트롤에대한 인자를 받는다. </span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ipcs <span class="comment">#명령어를 통해 확인 할 수 있다.</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ipcs <span class="comment">#명령어를 통해 확인 할 수 있다.</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="공유메모리-Shared-Memory"><a href="#공유메모리-Shared-Memory" class="headerlink" title="공유메모리 (Shared Memory)"></a>공유메모리 (Shared Memory)</h2><ul>
 <li>모든 프로세스는 커널영역을 공유한다는 점을 이용하여<br>커널에 공간을 확보하여 그 공간을 변수처럼 사용하는 방식이다</li>
@@ -454,7 +583,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-04 02:02:30" itemprop="dateModified" datetime="2021-08-04T02:02:30+09:00">2021-08-04</time>
+        <time title="Modified: 2021-08-04 21:56:52" itemprop="dateModified" datetime="2021-08-04T21:56:52+09:00">2021-08-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -487,14 +616,14 @@
 <h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
 <li>설치법은 매우간단하다 터미널 앱을 켜서 다음 명령어를 입력해주면 된다.</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>homebrew를 설치했으면 다음은 gui에서 사용가능한 앱을 설치해주는 패키지인 cask를 설치해야한다</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install cask</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install cask</span><br></pre></td></tr></table></figure>
 
 <p>cask를 설치헀으면 <code>brew list</code> 명령어를 통하여 설치한 앱을 확인 할 수 있다. </p>
 <p>그리고 웹서버로부터 콘텐츠를 가져오는 프로그램인 ‘wget’을 설치해야한다</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install wget</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install wget</span><br></pre></td></tr></table></figure>
 
 <p>gui프로그램이 아니므로 –cask 옵션을 사용하지 않는다</p>
 <p><img src="/image/mac-setting-iterm_images/img.png"></p>
@@ -505,12 +634,12 @@
 <h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><ul>
 <li>위에서 설치한 homebrew를 패키지 관리자를 통해서 설치 할 수있다 다음의 명령어를 복사해서 입력해보자</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">homebrew install --cask iterm2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">homebrew install --cask iterm2</span><br></pre></td></tr></table></figure>
 
 <h3 id="Setting"><a href="#Setting" class="headerlink" title="Setting"></a>Setting</h3><h4 id="Font"><a href="#Font" class="headerlink" title="Font"></a>Font</h4><ul>
 <li>iterm을 설치했으면 이제 차례차레 셋팅을 해줄 차례가 된다. 가독성이 떨어지는 기본 폰트부터 바꿔보자<br>  내가 사용하는 폰트는 <a target="_blank" rel="noopener" href="https://github.com/naver/d2codingfont">D2 Coding</a> 이다 이 폰트는 i,l,1,I와 0,o,O,ㅇ과 같이 구분하기 힘든 폰트들을<br>  나눔바른고딕을 기반으로 수정한 폰트이다.</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -P ./Downloads -L https://github.com/naver/d2codingfont/raw/master/D2Coding-Ver1.3.2-20180524.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -P ./Downloads -L https://github.com/naver/d2codingfont/raw/master/D2Coding-Ver1.3.2-20180524.zip</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>다운로드 폴더에서 다운받은 .zip 파일을 압축해제하고 D2Coding-Ver1.3.2-20180524-all.ttc를 실행하여 폰트를 설치하자</p>
@@ -525,19 +654,19 @@
 <li><em>oh my zsh</em> 은 zsh쉘 터미널 환경을 플러그인 프레임워크이다 내장 플러그인과 테마도 갖추고있고<br>  필요에따라서 다양한 플러그인을 설치하여 사용 할 수 있다</li>
 </ul>
 <h3 id="Install-2"><a href="#Install-2" class="headerlink" title="Install"></a>Install</h3><ul>
-<li>마찬가지로 다음 명령어를 복사하여 입력해 설치하자!<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure></li>
+<li>마찬가지로 다음 명령어를 복사하여 입력해 설치하자!<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Setting-1"><a href="#Setting-1" class="headerlink" title="Setting"></a>Setting</h3><p>Oh my zsh를 설치후엔 플러그인과 테마를 적용해주도록 한다</p>
 <h4 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h4><p>현재사용 하고있는 플러그인은 다음과 같다</p>
 <ol>
-<li>zsh-completions : 자동완성 기능을 제공한다<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh zsh-completions</span><br></pre></td></tr></table></figure></li>
-<li>zsh-autosuggestions : 과거에 썻던 명령어를 기반으로 명령어를 추천해준다<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure></li>
+<li>zsh-completions : 자동완성 기능을 제공한다<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh zsh-completions</span><br></pre></td></tr></table></figure></li>
+<li>zsh-autosuggestions : 과거에 썻던 명령어를 기반으로 명령어를 추천해준다<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>이렇게 설치한 플러그인들은 <code>vi ~/.zshrc</code> 명령어를 통해 plugins에 다음 그림과 같이 입력해주도록 한다.</p>
 <p><img src="/image/mac-setting-iterm_images/zshrc.png"></p>
 <h4 id="Theme"><a href="#Theme" class="headerlink" title="Theme"></a>Theme</h4><p>현재 사용하는 테마는 powerlevel10k이다.<br>이 테마는 쉘을 입력한 시간, 현재 위치, 브랜치 등등 다양한 정보를 가독성 높게 표현해준다</p>
 <p>다음 명령어를 복사해서 입력해주자</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
 <p>설치후에 <code>vi ~/.zshrc</code> 명령어를 통해 zshrc파일에 <code>ZSH_THEME</code>에<br><code>=&quot;powerlevel10k/powerlevel10k&quot;</code> 를 입력후 저장하고 iterm을 재실행 해주면 설정이 시작된다.</p>
 
       
@@ -596,7 +725,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-04 18:55:10" itemprop="dateModified" datetime="2021-08-04T18:55:10+09:00">2021-08-04</time>
+        <time title="Modified: 2021-08-05 01:30:16" itemprop="dateModified" datetime="2021-08-05T01:30:16+09:00">2021-08-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -646,7 +775,7 @@
 <li>선입선출 방식으로 데이터를 전송</li>
 <li>파이프와 다르게 양방향 통신도 가능하며 부모 자식간 프로세스가 아니어도 가능하다</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">ipcs <span class="comment"># 이 명령어를 통해 메시지를 포함한 ipc 정보를 확인할 수 있다</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ipcs</span> <span class="comment"># 이 명령어를 통해 메시지를 포함한 ipc 정보를 확인할 수 있다</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/image/System-Programming-IPC_images/ipcs.png"></p>
 <p>메시지를 보낼떄의 예</p>
@@ -823,7 +952,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-29 19:21:30" itemprop="dateModified" datetime="2021-07-29T19:21:30+09:00">2021-07-29</time>
+        <time title="Modified: 2021-08-04 21:54:28" itemprop="dateModified" datetime="2021-08-04T21:54:28+09:00">2021-08-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -861,19 +990,19 @@
 </ul>
 <h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><h2 id="Process-ID"><a href="#Process-ID" class="headerlink" title="Process ID"></a>Process ID</h2><ul>
 <li>각 프로세스 해당 시점에 유니크한 pid를 가진다</li>
-<li>pid는 Linux에서는 signed 16비트 정수값을 사용하여 최대 32678이다<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /proc/sys/kernel/pid_max # 명령어를 통하여 확인 가능</span><br><span class="line">32768</span><br></pre></td></tr></table></figure>
+<li>pid는 Linux에서는 signed 16비트 정수값을 사용하여 최대 32678이다<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /proc/sys/kernel/pid_max <span class="comment"># 명령어를 통하여 확인 가능</span></span><br><span class="line">32768</span><br></pre></td></tr></table></figure>
 <h2 id="Process-계층"><a href="#Process-계층" class="headerlink" title="Process 계층"></a>Process 계층</h2></li>
 <li>최초 프로세스는 init 프로세스 (pid : 1)</li>
 <li>init 프로세스는 운영체제가 생성한다.</li>
 <li>다른 프로세스는 또 다른 프로세스로부터 생성되어 계층 구조를 가진다</li>
-<li>ppid 값이 부모 프로세스의 pid를 뜻한다<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef # -e 시스템상의 모든 프로세스 -f UID,PID PPID등 모든 정보 출력</span><br></pre></td></tr></table></figure>
+<li>ppid 값이 부모 프로세스의 pid를 뜻한다<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef <span class="comment"># -e 시스템상의 모든 프로세스 -f UID,PID PPID등 모든 정보 출력</span></span><br></pre></td></tr></table></figure>
 <img src="/image/System-Programming-Process_images/psef_result.png"></li>
 </ul>
 <h2 id="Process와-Owner-관리"><a href="#Process와-Owner-관리" class="headerlink" title="Process와 Owner 관리"></a>Process와 Owner 관리</h2><p>리눅스에서 File은 inode 프로세스는 pid로 관리하듯이</p>
 <p>프로세스의 소유자와 그룹또한 UID / GID로 관리된다.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/passwd #uid와 gid및 사용자에 관한 정보들이 출력된다.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/passwd <span class="comment">#uid와 gid및 사용자에 관한 정보들이 출력된다.</span></span><br></pre></td></tr></table></figure>
 <p><img src="/image/System-Programming-Process_images/passwd.png"> </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/shadow #암호화된 상태의 password가 적혀있음</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/shadow <span class="comment">#암호화된 상태의 password가 적혀있음</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Process관리-관련-시스템콜"><a href="#Process관리-관련-시스템콜" class="headerlink" title="Process관리 관련 시스템콜"></a>Process관리 관련 시스템콜</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pid=%d\n&quot;</span>), getpid();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;ppid=%d\n&quot;</span>), getppid();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1108,7 +1237,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-30 02:56:14" itemprop="dateModified" datetime="2021-07-30T02:56:14+09:00">2021-07-30</time>
+        <time title="Modified: 2021-08-05 01:26:10" itemprop="dateModified" datetime="2021-08-05T01:26:10+09:00">2021-08-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1137,7 +1266,7 @@
 <li>Linux는 전역 네임스페이스를 사용한다</li>
 <li>/directory1/sub/image.jpg</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat tty <span class="comment"># 가상파일 시스템 인터페이스 - 가상터미널환경 - input(키보드)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat tty <span class="comment"># 가상파일 시스템 인터페이스 - 가상터미널환경 - input(키보드)</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="슈퍼블록-inode"><a href="#슈퍼블록-inode" class="headerlink" title="슈퍼블록 , inode"></a>슈퍼블록 , inode</h2><h3 id="슈퍼블록"><a href="#슈퍼블록" class="headerlink" title="슈퍼블록"></a>슈퍼블록</h3><ul>
 <li>파일 시스템에 관한 정보(전체사이즈, 어떤 FS Algorithms을 썻는지 등)</li>
@@ -1157,7 +1286,7 @@
 <li>Direct Blocks 파일을 블록이라는 작은단위로 나눈 것을 엑세스 할 수 있는 첫번쨰 주소를 저장해놓음</li>
 <li>indirect blocks , double indirect , triple indirect 간접적으로 블록에 접근할 수 있는 주소</li>
 </ol>
-<h2 id="File-inode"><a href="#File-inode" class="headerlink" title="File inode"></a>File inode</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/ubuntu/link.txt # &#x27;/&#x27; 가 덴트리이다.</span><br></pre></td></tr></table></figure>
+<h2 id="File-inode"><a href="#File-inode" class="headerlink" title="File inode"></a>File inode</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/ubuntu/link.txt <span class="comment"># &#x27;/&#x27; 가 덴트리이다.</span></span><br></pre></td></tr></table></figure>
 <p>dentry(directory entry)</p>
 <ul>
 <li>각 덴트리는 해당 디렉토리 파일과 정보를 가지고 있다</li>
@@ -1167,11 +1296,11 @@
 <li>다른 디렉토리에서 접근 할 수 있게끔 파일에 연결하는 것을 link라고하는데<br>방법에따라 Hard Link와 Soft Link로 나뉜다.</li>
 </ul>
 <p><img src="/image/Linux-FileSystem/hardsoftlink.png"></p>
-<h3 id="Hard-link"><a href="#Hard-link" class="headerlink" title="Hard link"></a>Hard link</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ln [Original File] [Link File]</span></span><br></pre></td></tr></table></figure>
+<h3 id="Hard-link"><a href="#Hard-link" class="headerlink" title="Hard link"></a>Hard link</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ln [Original File] [Link File]</span><br></pre></td></tr></table></figure>
 <p>Hard link를 하게되면 파일이 생기는데 그때의 inode의 번호는 Original File을 따라간다. </p>
 <p><img src="/image/Linux-FileSystem/hardlink.png"></p>
 <p>Original File을 삭제해도 inode구조는 삭제되지 않기때문에<br>Hard Link한 파일은 여전히 접근 가능하다.<br>w</p>
-<h3 id="Soft-Link-Symbolic-Link"><a href="#Soft-Link-Symbolic-Link" class="headerlink" title="Soft Link (Symbolic Link)"></a>Soft Link (Symbolic Link)</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s [File1] [File2]</span><br></pre></td></tr></table></figure>
+<h3 id="Soft-Link-Symbolic-Link"><a href="#Soft-Link-Symbolic-Link" class="headerlink" title="Soft Link (Symbolic Link)"></a>Soft Link (Symbolic Link)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s [File1] [File2]</span><br></pre></td></tr></table></figure>
 <p><img src="/image/Linux-FileSystem/softlink_.png"></p>
 <ul>
 <li>Windows OS의 바로가기와 기능상 동일하다.</li>
@@ -1248,7 +1377,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-30 17:01:12" itemprop="dateModified" datetime="2021-07-30T17:01:12+09:00">2021-07-30</time>
+        <time title="Modified: 2021-08-04 21:56:20" itemprop="dateModified" datetime="2021-08-04T21:56:20+09:00">2021-08-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1294,142 +1423,14 @@
 <li>서버 데몬, 백신 프로그램, etc..</li>
 </ul>
 <p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span></span><br><span class="line">[job number] process ID ## result</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
 <p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">^Z ## 실행중인 포어그라운드  프로세스 중단 not kill</span><br><span class="line">^C ## 포어그라운드 프로세스 종료</span><br><span class="line">jobs ## 실행중인 백그라운드 프로세스와 상태정보 출력</span><br><span class="line">ps ## 실행중인 프로세스 출력 </span><br><span class="line">kill -9 [PID] ## PID해당하는 프로세스 죽이기</span><br></pre></td></tr></table></figure>
+<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
 <hr>
 <p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
 <p><a target="_blank" rel="noopener" href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/22/Linux%20-%20Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95%20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/22/Linux%20-%20Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95%20/" class="post-title-link" itemprop="url">Shell 사용법 1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-22 01:20:30" itemprop="dateCreated datePublished" datetime="2021-07-22T01:20:30+09:00">2021-07-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-30 02:58:37" itemprop="dateModified" datetime="2021-07-30T02:58:37+09:00">2021-07-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Shell-사용법"><a href="#Shell-사용법" class="headerlink" title="Shell 사용법"></a>Shell 사용법</h1><h2 id="Standard-Stream-표준-입출력"><a href="#Standard-Stream-표준-입출력" class="headerlink" title="Standard Stream (표준 입출력)"></a>Standard Stream (표준 입출력)</h2><ul>
-<li>리눅스환경에서는  command로 실행되는 프로세스는 세가지 스트림을 가진다<ul>
-<li>표준 입력 스트림 - stdin</li>
-<li>표준 출력 스트림 - stdout</li>
-<li>표준 오류 스트림 - stderr</li>
-</ul>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled.png"></p>
-<p>ex) ls -al 은 stdin에 해당하고 stdout은 그에따른 결과에 해당한다고 할 수 있다.</p>
-<hr>
-<h2 id="Redirection-리디렉션"><a href="#Redirection-리디렉션" class="headerlink" title="Redirection (리디렉션)"></a>Redirection (리디렉션)</h2><ul>
-<li><p>표준 스트림을 바꿔 줄 수 있다.</p>
-<p>   [ &lt; , &gt; , &lt;&lt; , &gt;&gt; ]를 사용한다.</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls &gt; file.txt <span class="comment"># 출력내용을 터미널의 console에 출력이 아닌 file.txt에 저장시킴</span></span><br><span class="line"></span><br><span class="line">head &lt; file.txt <span class="comment"># file.txt내용의 10줄이 입력으로 사용 된다.ead &lt; files.txt &gt; files2.txt</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ head &lt;.bashrc &gt; test.txt </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>이 명령어는 다음과 같이 작동한다.<ol>
-<li>head &lt; .bashrc</li>
-<li>1의 결과 &gt; test.txt에 저장</li>
-</ol>
-<ul>
-<li>출력화면</li>
-</ul>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled%201.png"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al &gt;&gt; test1.txt <span class="comment"># 기존의 내용을 삭제하지않고 추가한다.</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Pipe-파이프"><a href="#Pipe-파이프" class="headerlink" title="Pipe (파이프)"></a>Pipe (파이프)</h2><ul>
-<li><p>여러개의 프로세스 사이에서 앞의 프로세스의 출력을 그 뒤의 프로세스의 입력으로 사용 하는 것.</p>
-<p>  [ | ] 를 사용한다.</p>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/%ED%8C%8C%EC%9D%B4%ED%94%84.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat .bashrc | grep <span class="keyword">case</span></span><br><span class="line"><span class="keyword">case</span> $- <span class="keyword">in</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">	<span class="comment"># a case would tend to support setf rather than setaf.)</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>cat 명령을 통한 출력내용이 grep 명령의 입력 스트림으로 들어간다.</li>
-<li>grep case 는 grep 명령의 입력스을 검색해서 cat의 출력내용에 case가 있는 라인만 출력한다</li>
-</ol>
 
       
     </div>
