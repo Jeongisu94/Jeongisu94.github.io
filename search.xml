@@ -452,6 +452,31 @@
       </tags>
   </entry>
   <entry>
+    <title>ShellScript-Basic(2)</title>
+    <url>/2021/08/05/ShellScript-Basic-2/</url>
+    <content><![CDATA[<h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
+<li>디렉토리내의 하부디렉토리 또는 파일들을 주기적으로 백업하는 쉘 스크립트<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="variable">$1</span> ] || [ -z <span class="variable">$2</span>]; <span class="keyword">then</span> <span class="comment"># 인자 2개를 받아서 하나라도 NULL이면 참이면</span></span><br><span class="line">  ehco usage: <span class="variable">$0</span> sourcedir targetdir <span class="comment"># 쉘 이름과 사용법을 출력</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  SRCDIR=<span class="variable">$1</span></span><br><span class="line">  DSTDIR=<span class="variable">$2</span></span><br><span class="line">  BACKUPFILE=backup.$(date +%y%m%d%H%M%S).tar.gz <span class="comment"># date 쉘명령어를 사용하여 날짜와 시간을 기록하여 백업파일을 생성</span></span><br><span class="line">  <span class="keyword">if</span> [ -d <span class="variable">$DSTDIR</span> ]; <span class="keyword">then</span> <span class="comment"># DSTDIR가 디렉토리이면 </span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> <span class="comment"># 압축</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    mkdir <span class="variable">$DSTDIR</span> <span class="comment"># 디렉토리가 없으면 생성하고 압축</span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> </span><br><span class="line">  <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="tar-명령어"><a href="#tar-명령어" class="headerlink" title="tar 명령어"></a>tar 명령어</h4><ul>
+<li>기존의 tar는 하나의 파일로 묶기만 가능했는데gzip이라는 압축명령이 많이 쓰이게되면서 tar라는 명령에 묶기가 아닌 압축도 할 수있 게끔 옵션을 제공하여gzip을 활용해서 묶고 압축 할 수 있다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">x  <span class="comment">#묶음 해제</span></span><br><span class="line">c  <span class="comment">#파일 묶음</span></span><br><span class="line">v  <span class="comment">#묶음 해제 과정 출력</span></span><br><span class="line">z  <span class="comment">#gunzip을 사용</span></span><br><span class="line">f  <span class="comment">#파일 이름을 지정</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf [압축된 파일 이름] [압축할 파일이나 폴더명]</span><br><span class="line">tar -xvzf [압축 해제할 압축 아카이브 이름]</span><br></pre></td></tr></table></figure>
+
+<h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> -f -name <span class="string">&#x27;filename&#x27;</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;shell1, shell2, shell3 &quot;</span> \;</span><br><span class="line"><span class="comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span></span><br><span class="line"><span class="comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">LOGDIR=/var/<span class="built_in">log</span></span><br><span class="line">GZIPDAY = 1</span><br><span class="line">DELDAY = 2</span><br><span class="line"><span class="built_in">cd</span> %LOGDIR</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cd <span class="variable">$LOGDIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*log.?&#x27;</span> -mtime +<span class="variable">$GZIPDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;gzip &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*gz.?&#x27;</span> -mtime +<span class="variable">$DELSDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;rm -f &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Shell</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ShellScript-Basic</title>
     <url>/2021/08/04/ShellScript-Basic/</url>
     <content><![CDATA[<h1 id="Shell-Script"><a href="#Shell-Script" class="headerlink" title="Shell Script"></a>Shell Script</h1><h2 id="기본-문법"><a href="#기본-문법" class="headerlink" title="기본 문법"></a>기본 문법</h2><ul>
@@ -497,6 +522,8 @@
 
 <h4 id="조건"><a href="#조건" class="headerlink" title="조건"></a>조건</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$1</span> -z <span class="variable">$2</span> ] </span><br><span class="line">-z <span class="comment"># 문자가 null이면 참</span></span><br><span class="line">-n <span class="comment"># 문자가 not null 이면 참 </span></span><br><span class="line">-eq <span class="comment"># equal == </span></span><br><span class="line">-ne <span class="comment"># not equal !=</span></span><br><span class="line">-lt <span class="comment"># less than &lt;</span></span><br><span class="line">-le <span class="comment"># less equal &lt;=</span></span><br><span class="line">-gt <span class="comment"># greater than &gt;</span></span><br><span class="line">-ge <span class="comment"># greater equal &gt;=</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="파일검사-조건"><a href="#파일검사-조건" class="headerlink" title="파일검사 조건"></a>파일검사 조건</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-e <span class="comment"># 파일이 존재하면 참</span></span><br><span class="line">-d <span class="comment"># 파일이 디렉토리이면 참</span></span><br><span class="line">-h <span class="comment"># 심볼릭 링크파일이면 침</span></span><br><span class="line">-f <span class="comment"># 파일이 일반파일이면 참 (directory X)</span></span><br><span class="line">-s <span class="comment"># 파일 크기가 0이 아니면 참</span></span><br><span class="line">-u <span class="comment"># 파일이 set-user-id 설정되면 참</span></span><br><span class="line">-r <span class="comment"># 파일이 읽기 가능 상태이면 참</span></span><br><span class="line">-w <span class="comment"># 파일이 쓰기 가능 상태이면 참</span></span><br><span class="line">-x <span class="comment"># 파일이 실행 가능 상태이면 참</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="명령어-해석"><a href="#명령어-해석" class="headerlink" title="명령어 해석"></a>명령어 해석</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping -c 1 192.168.0.1 1&gt;/dev/null</span><br><span class="line"><span class="keyword">if</span> [ $? == 0 ]</span><br><span class="line"><span class="keyword">then</span> </span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Success Ping&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Failed Ping&quot;</span></span><br><span class="line"><span class="keyword">fi</span> </span><br></pre></td></tr></table></figure>
 <ul>
 <li>-c 1 : ping을 한번만 보냄</li>
@@ -514,10 +541,11 @@
       <categories>
         <category>Shell</category>
         <category>Linux</category>
-        <category>[object Object]</category>
-        <category>Shell</category>
-        <category>Linux</category>
       </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
   </entry>
   <entry>
     <title>System Programming - ABI</title>
@@ -767,6 +795,114 @@
       </tags>
   </entry>
   <entry>
+    <title>System-Programming-Pthread</title>
+    <url>/2021/08/05/System-Programming-Pthread/</url>
+    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
+<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
+<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
+</ul>
+<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
+<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
+</li>
+<li><p>모든 함수는 pthread_ 로 시작</p>
+</li>
+<li><p>크게 두가지로 분류 된다</p>
+<ul>
+<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
+<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
+</ul>
+</li>
+<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
+<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>##스레드 사용</p>
+<h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
+<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
+<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
+<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
+<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
+
+<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
+<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
+<ul>
+<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
+</ul>
+</li>
+<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
+<ul>
+<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
+<li>detach는 해당 스레드가 종료되면 바로 해제</li>
+</ul>
+</li>
+</ul>
+<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
+<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>System Programming - Scheduling</title>
+    <url>/2021/07/29/System-Programming-Scheduling/</url>
+    <content><![CDATA[<h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
+<li>정적 우선순위<ul>
+<li>프로세스마다 우선순위를 미리 지정</li>
+</ul>
+</li>
+<li>동적 우선순위<ul>
+<li>상황에 따라 스케쥴러가 우선순위를 동적으로 변경</li>
+</ul>
+</li>
+</ul>
+<h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><ul>
+<li><p>Portable Operating system interface의 약자로</p>
+<p>  서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 Application 규격이다.</p>
+</li>
+<li><p>리눅스는 POSIX에서 정한 규격으로 시스템콜을 정의했다</p>
+</li>
+</ul>
+<h2 id="우선순위-관련-System-Call"><a href="#우선순위-관련-System-Call" class="headerlink" title="우선순위 관련 System Call"></a>우선순위 관련 System Call</h2><h3 id="nice"><a href="#nice" class="headerlink" title="nice()"></a>nice()</h3><ul>
+<li>root가 소유한 프로세스만 우선순위를 높일 수 있고 </li>
+</ul>
+<p>그외 다른 프로세스의 우선순위는 낮출수만 있다.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nice</span> <span class="params">(<span class="keyword">int</span> inc)</span></span>; </span><br></pre></td></tr></table></figure>
+
+
+<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">id_t</span> who)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">in_t</span> who, <span class="keyword">int</span> value)</span></span>; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>이름에도 알 수 있듯이 프로세스의 우선순위를 가져오거나 정할 수 있다.</li>
+<li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
+<li>who는 process ID (0을 넣으면 현재 프로세스이다), value는 우선순위로 인자를 갖는다</li>
+</ul>
+]]></content>
+      <categories>
+        <category>System Programming</category>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>System-Programming-Signal</title>
     <url>/2021/08/04/System-Programming-Signal/</url>
     <content><![CDATA[<h1 id="시그널-signal"><a href="#시그널-signal" class="headerlink" title="시그널 (signal)"></a>시그널 (signal)</h1><ul>
@@ -817,51 +953,6 @@
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>Signal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>System Programming - Scheduling</title>
-    <url>/2021/07/29/System-Programming-Scheduling/</url>
-    <content><![CDATA[<h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
-<li>정적 우선순위<ul>
-<li>프로세스마다 우선순위를 미리 지정</li>
-</ul>
-</li>
-<li>동적 우선순위<ul>
-<li>상황에 따라 스케쥴러가 우선순위를 동적으로 변경</li>
-</ul>
-</li>
-</ul>
-<h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><ul>
-<li><p>Portable Operating system interface의 약자로</p>
-<p>  서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 Application 규격이다.</p>
-</li>
-<li><p>리눅스는 POSIX에서 정한 규격으로 시스템콜을 정의했다</p>
-</li>
-</ul>
-<h2 id="우선순위-관련-System-Call"><a href="#우선순위-관련-System-Call" class="headerlink" title="우선순위 관련 System Call"></a>우선순위 관련 System Call</h2><h3 id="nice"><a href="#nice" class="headerlink" title="nice()"></a>nice()</h3><ul>
-<li>root가 소유한 프로세스만 우선순위를 높일 수 있고 </li>
-</ul>
-<p>그외 다른 프로세스의 우선순위는 낮출수만 있다.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nice</span> <span class="params">(<span class="keyword">int</span> inc)</span></span>; </span><br></pre></td></tr></table></figure>
-
-
-<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">id_t</span> who)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">in_t</span> who, <span class="keyword">int</span> value)</span></span>; </span><br></pre></td></tr></table></figure>
-<ul>
-<li>이름에도 알 수 있듯이 프로세스의 우선순위를 가져오거나 정할 수 있다.</li>
-<li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
-<li>who는 process ID (0을 넣으면 현재 프로세스이다), value는 우선순위로 인자를 갖는다</li>
-</ul>
-]]></content>
-      <categories>
-        <category>System Programming</category>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
