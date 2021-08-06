@@ -609,61 +609,6 @@
       </tags>
   </entry>
   <entry>
-    <title>System Programming - IPC</title>
-    <url>/2021/07/29/System-Programming-IPC/</url>
-    <content><![CDATA[<h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><h2 id="IPC란"><a href="#IPC란" class="headerlink" title="IPC란"></a>IPC란</h2><ul>
-<li><p>OS에서 할당받은 독립적인 공간을 갖는 Process는 서로 물리적인 주소를 접근 할 수 </p>
-<p>없어서 프로세스간 통신을 하는데 어려움을 겪는다 이때 사용하는 기술이 IPC이다!</p>
-</li>
-</ul>
-<h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><ul>
-<li>두 프로세스 모두 저장매체를 접근 할 수 있기 때문에 파일을 통해서 통신할 수 있다.</li>
-<li>+가장 간단한 방법</li>
-<li>-서로 접근하고 있는지 확인할 방법이 없다</li>
-</ul>
-<h2 id="Others-IPC"><a href="#Others-IPC" class="headerlink" title="Others IPC"></a>Others IPC</h2><ul>
-<li>프로세스들의 커널공간은 공유한다는 아이디어를 기반으로<br>페이지테이블에 같은 물리주소를 가리킴으로써 다양한 IPC기법이 개발되었다.</li>
-</ul>
-<h3 id="PIPE"><a href="#PIPE" class="headerlink" title="PIPE"></a>PIPE</h3><ul>
-<li>fork()를 통해 자식 프로세스를 만들었을때 부모와 자식간의 통신</li>
-<li>단방향 통신</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSGSIZE 255</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* msg = <span class="string">&quot;Hello Child&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">255</span>];</span><br><span class="line">  <span class="keyword">int</span> fd[<span class="number">2</span>], pid, nbyes;</span><br><span class="line">  <span class="keyword">if</span> (pipe(fd) &lt; <span class="number">0</span>) <span class="built_in">exit</span>(<span class="number">1</span>); <span class="comment">// 커널영역에 pipe 생성하고 오류시 exit(1)</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// 부모 프로세스이면 pid값을 출력</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;praent PID:%d, child PID:%d\n&quot;</span>, getpid(), pid);</span><br><span class="line">    write(fd[<span class="number">1</span>], msg, MSGSIZE); <span class="comment">// fd[1]에 메시지를 씀</span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>) <span class="comment">// 정상 종료  </span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;child PID %d\n, getpid());</span></span><br><span class="line"><span class="string">    nbytes= read(fd[0], buf , MSGSIZE); // 파일을 읽는 시스템콜 공란에 255사이즈데이터를 읽음 </span></span><br><span class="line"><span class="string">                                        // 동일한 커널영역에 들어가서 buf에 넣어주게됨 </span></span><br><span class="line"><span class="string">    printf(&quot;</span>%d %s\n, nbytes, buf);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h3><ul>
-<li>선입선출 방식으로 데이터를 전송</li>
-<li>파이프와 다르게 양방향 통신도 가능하며 부모 자식간 프로세스가 아니어도 가능하다</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ipcs</span> <span class="comment"># 이 명령어를 통해 메시지를 포함한 ipc 정보를 확인할 수 있다</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/System-Programming-IPC_images/ipcs.png"></p>
-<p>메시지를 보낼떄의 예</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msqid = msgget(key, msgflg) <span class="comment">// 다른 메시지큐와 구분될 key , 메시지 큐의 옵션을 인자로 갖는다</span></span><br><span class="line">msgsnd(msqid, &amp;sbuf, buf_length, IPC_NOWAIT) <span class="comment">// 메시지를 보낼때의 함수</span></span><br><span class="line"> <span class="comment">//IPC_NOWAIT은 읽지않더라도 다음 코드를 실행할때 사용, 0이면 실행할떄까지 기다린다.</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  Key_t key = <span class="number">1111</span>;</span><br><span class="line">  msgid = msgget(key, IPC_CREAT|<span class="number">0644</span>); <span class="comment">// 메시지를 0644권한으로 새로 만든다</span></span><br><span class="line">  <span class="keyword">if</span> (msgid == <span class="number">-1</span>) &#123; <span class="comment">// 메시지생성에 실패했을경우</span></span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125; </span><br><span class="line">  msg.type = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">strcpy</span>(msg.text, <span class="string">&quot;Hello Message Queue\n&quot;</span>); <span class="comment">// 메시지 구조체에 텍스트를 넣는다</span></span><br><span class="line">  <span class="keyword">if</span> (msgsnd(msgid, (<span class="keyword">void</span> *)&amp;msg, <span class="number">50</span>, IPC_NOWAIT) == <span class="number">-1</span>) &#123; <span class="comment">// 메시지를 보내며 에러 확인</span></span><br><span class="line">    <span class="comment">// 메시지의 아이디, 구조체의 주소, 사이즈를 인자로 보낸다</span></span><br><span class="line">    perror(<span class="string">&quot;msgsnd&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>메시지를 받을떄의 예</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">sszie_t</span> <span class="title">msgrcv</span><span class="params">(<span class="keyword">int</span> msqid, <span class="keyword">void</span> *msgp, <span class="keyword">size_t</span> msgsz, <span class="keyword">long</span> msgtyp, <span class="keyword">int</span> msgflg)</span></span></span><br><span class="line"><span class="function"><span class="title">msgrcv</span><span class="params">(msqid, &amp;rbuf, MSGSZ, <span class="number">1</span> ,<span class="number">0</span>)</span> <span class="comment">// msgtype 0: 첫번째메시지 다른 양수이면 일치하는 첫번째 메시지</span></span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  <span class="keyword">key_t</span> key = <span class="number">1111</span>; <span class="comment">// snd할때 키값과 동일해야한다.</span></span><br><span class="line">  <span class="keyword">if</span>((msgid == msgget(key, IPC_CREAT|<span class="number">0644</span>)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  len = msgrcv(msgid, &amp;msg, <span class="number">50</span>, <span class="number">0</span> ,<span class="number">0</span>); <span class="comment">// (메시지id, size , type, wait);</span></span><br><span class="line">  <span class="comment">//type에 일치하는 가장먼저오는 메시지를 수신한다</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Received Message is [%d] %s]\n&quot;</span>, len, msg.text);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>System Programming</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Linux</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-        <tag>File</tag>
-        <tag>Pipe</tag>
-        <tag>Message Queue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>System Programming - Process</title>
     <url>/2021/07/28/System-Programming-Process/</url>
     <content><![CDATA[<h1 id="Program-Process-Thread의-개념"><a href="#Program-Process-Thread의-개념" class="headerlink" title="Program , Process ,Thread의 개념"></a>Program , Process ,Thread의 개념</h1><h2 id="프로그램"><a href="#프로그램" class="headerlink" title="프로그램"></a>프로그램</h2><ul>
@@ -795,6 +740,61 @@
       </tags>
   </entry>
   <entry>
+    <title>System Programming - IPC</title>
+    <url>/2021/07/29/System-Programming-IPC/</url>
+    <content><![CDATA[<h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><h2 id="IPC란"><a href="#IPC란" class="headerlink" title="IPC란"></a>IPC란</h2><ul>
+<li><p>OS에서 할당받은 독립적인 공간을 갖는 Process는 서로 물리적인 주소를 접근 할 수 </p>
+<p>없어서 프로세스간 통신을 하는데 어려움을 겪는다 이때 사용하는 기술이 IPC이다!</p>
+</li>
+</ul>
+<h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><ul>
+<li>두 프로세스 모두 저장매체를 접근 할 수 있기 때문에 파일을 통해서 통신할 수 있다.</li>
+<li>+가장 간단한 방법</li>
+<li>-서로 접근하고 있는지 확인할 방법이 없다</li>
+</ul>
+<h2 id="Others-IPC"><a href="#Others-IPC" class="headerlink" title="Others IPC"></a>Others IPC</h2><ul>
+<li>프로세스들의 커널공간은 공유한다는 아이디어를 기반으로<br>페이지테이블에 같은 물리주소를 가리킴으로써 다양한 IPC기법이 개발되었다.</li>
+</ul>
+<h3 id="PIPE"><a href="#PIPE" class="headerlink" title="PIPE"></a>PIPE</h3><ul>
+<li>fork()를 통해 자식 프로세스를 만들었을때 부모와 자식간의 통신</li>
+<li>단방향 통신</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSGSIZE 255</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* msg = <span class="string">&quot;Hello Child&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">255</span>];</span><br><span class="line">  <span class="keyword">int</span> fd[<span class="number">2</span>], pid, nbyes;</span><br><span class="line">  <span class="keyword">if</span> (pipe(fd) &lt; <span class="number">0</span>) <span class="built_in">exit</span>(<span class="number">1</span>); <span class="comment">// 커널영역에 pipe 생성하고 오류시 exit(1)</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// 부모 프로세스이면 pid값을 출력</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;praent PID:%d, child PID:%d\n&quot;</span>, getpid(), pid);</span><br><span class="line">    write(fd[<span class="number">1</span>], msg, MSGSIZE); <span class="comment">// fd[1]에 메시지를 씀</span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>) <span class="comment">// 정상 종료  </span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;child PID %d\n, getpid());</span></span><br><span class="line"><span class="string">    nbytes= read(fd[0], buf , MSGSIZE); // 파일을 읽는 시스템콜 공란에 255사이즈데이터를 읽음 </span></span><br><span class="line"><span class="string">                                        // 동일한 커널영역에 들어가서 buf에 넣어주게됨 </span></span><br><span class="line"><span class="string">    printf(&quot;</span>%d %s\n, nbytes, buf);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h3><ul>
+<li>선입선출 방식으로 데이터를 전송</li>
+<li>파이프와 다르게 양방향 통신도 가능하며 부모 자식간 프로세스가 아니어도 가능하다</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ipcs</span> <span class="comment"># 이 명령어를 통해 메시지를 포함한 ipc 정보를 확인할 수 있다</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/System-Programming-IPC_images/ipcs.png"></p>
+<p>메시지를 보낼떄의 예</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msqid = msgget(key, msgflg) <span class="comment">// 다른 메시지큐와 구분될 key , 메시지 큐의 옵션을 인자로 갖는다</span></span><br><span class="line">msgsnd(msqid, &amp;sbuf, buf_length, IPC_NOWAIT) <span class="comment">// 메시지를 보낼때의 함수</span></span><br><span class="line"> <span class="comment">//IPC_NOWAIT은 읽지않더라도 다음 코드를 실행할때 사용, 0이면 실행할떄까지 기다린다.</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  Key_t key = <span class="number">1111</span>;</span><br><span class="line">  msgid = msgget(key, IPC_CREAT|<span class="number">0644</span>); <span class="comment">// 메시지를 0644권한으로 새로 만든다</span></span><br><span class="line">  <span class="keyword">if</span> (msgid == <span class="number">-1</span>) &#123; <span class="comment">// 메시지생성에 실패했을경우</span></span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125; </span><br><span class="line">  msg.type = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">strcpy</span>(msg.text, <span class="string">&quot;Hello Message Queue\n&quot;</span>); <span class="comment">// 메시지 구조체에 텍스트를 넣는다</span></span><br><span class="line">  <span class="keyword">if</span> (msgsnd(msgid, (<span class="keyword">void</span> *)&amp;msg, <span class="number">50</span>, IPC_NOWAIT) == <span class="number">-1</span>) &#123; <span class="comment">// 메시지를 보내며 에러 확인</span></span><br><span class="line">    <span class="comment">// 메시지의 아이디, 구조체의 주소, 사이즈를 인자로 보낸다</span></span><br><span class="line">    perror(<span class="string">&quot;msgsnd&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>메시지를 받을떄의 예</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">sszie_t</span> <span class="title">msgrcv</span><span class="params">(<span class="keyword">int</span> msqid, <span class="keyword">void</span> *msgp, <span class="keyword">size_t</span> msgsz, <span class="keyword">long</span> msgtyp, <span class="keyword">int</span> msgflg)</span></span></span><br><span class="line"><span class="function"><span class="title">msgrcv</span><span class="params">(msqid, &amp;rbuf, MSGSZ, <span class="number">1</span> ,<span class="number">0</span>)</span> <span class="comment">// msgtype 0: 첫번째메시지 다른 양수이면 일치하는 첫번째 메시지</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  <span class="keyword">key_t</span> key = <span class="number">1111</span>; <span class="comment">// snd할때 키값과 동일해야한다.</span></span><br><span class="line">  <span class="keyword">if</span>((msgid == msgget(key, IPC_CREAT|<span class="number">0644</span>)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  len = msgrcv(msgid, &amp;msg, <span class="number">50</span>, <span class="number">0</span> ,<span class="number">0</span>); <span class="comment">// (메시지id, size , type, wait);</span></span><br><span class="line">  <span class="comment">//type에 일치하는 가장먼저오는 메시지를 수신한다</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Received Message is [%d] %s]\n&quot;</span>, len, msg.text);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>System Programming</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>File</tag>
+        <tag>Pipe</tag>
+        <tag>Message Queue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>System-Programming-Pthread</title>
     <url>/2021/08/05/System-Programming-Pthread/</url>
     <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
@@ -818,8 +818,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
 
-<p>##스레드 사용</p>
-<h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
+<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
 
@@ -829,7 +828,7 @@
 <h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
 <li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
 <p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
-<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있</p>
+<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
 </li>
 </ul>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
@@ -953,6 +952,24 @@
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>Signal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git ignore 적용 안될때</title>
+    <url>/2021/08/06/git-add/</url>
+    <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
+<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
+<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">git add * The following paths are ignored by one of your .gitignore files: git-add/ignore.txt</span><br><span class="line">Use -f <span class="keyword">if</span> you really want to add them.</span><br></pre></td></tr></table></figure>
+<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
+<p>이때는  <code>zsh git add .</code> 를 써서 해결 할 수 있다. </p>
+<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Git</tag>
+        <tag>Trouble Shooting</tag>
       </tags>
   </entry>
   <entry>
