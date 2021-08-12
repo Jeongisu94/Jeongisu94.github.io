@@ -177,18 +177,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -348,7 +348,8 @@
 <ol>
 <li>Terminal을 사용하여 AWS에 접속</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 &#123;pemfile&#125;.pem // 보안을위해 퍼미션을 제한.</span><br><span class="line">ssh -i &#123;pemfile&#125;.pem ubuntu@&#123;public IPv4 Address&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> <span class="token number">400</span> <span class="token punctuation">&#123;</span>pemfile<span class="token punctuation">&#125;</span>.pem // 보안을위해 퍼미션을 제한.
+<span class="token function">ssh</span> -i <span class="token punctuation">&#123;</span>pemfile<span class="token punctuation">&#125;</span>.pem ubuntu@<span class="token punctuation">&#123;</span>public IPv4 Address<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
 <p>접속이 된것을 확인 할 수 있다.</p>

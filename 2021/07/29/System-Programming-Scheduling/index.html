@@ -165,18 +165,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -288,10 +288,13 @@
 <li>root가 소유한 프로세스만 우선순위를 높일 수 있고 </li>
 </ul>
 <p>그외 다른 프로세스의 우선순위는 낮출수만 있다.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nice</span> <span class="params">(<span class="keyword">int</span> inc)</span></span>; </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token keyword">int</span> <span class="token function">nice</span> <span class="token punctuation">(</span><span class="token keyword">int</span> inc<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
-<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">id_t</span> who)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">in_t</span> who, <span class="keyword">int</span> value)</span></span>; </span><br></pre></td></tr></table></figure>
+<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/resource.h></span></span>
+<span class="token keyword">int</span> <span class="token function">getpriority</span><span class="token punctuation">(</span><span class="token keyword">int</span> which<span class="token punctuation">,</span> <span class="token class-name">id_t</span> who<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">setpriority</span><span class="token punctuation">(</span><span class="token keyword">int</span> which<span class="token punctuation">,</span> <span class="token class-name">in_t</span> who<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>이름에도 알 수 있듯이 프로세스의 우선순위를 가져오거나 정할 수 있다.</li>
 <li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
