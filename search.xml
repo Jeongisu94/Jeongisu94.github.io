@@ -1677,25 +1677,6 @@ ret <span class="token operator">=</span> <span class="token function">pthread_c
       </tags>
   </entry>
   <entry>
-    <title>Git ignore 적용 안될때</title>
-    <url>/2021/08/06/git-add/</url>
-    <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
-<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
-<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">git add * The following paths are ignored by one of your .gitignore files: git-add&#x2F;ignore.txt
-Use -f if you really want to add them.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
-<p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
-<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Git</tag>
-        <tag>Trouble Shooting</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>내 개발환경 셋팅하기 Oh My ZSH , iTerm2 , power10k</title>
     <url>/2021/07/30/mac-setting-iterm/</url>
     <content><![CDATA[<h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>모종의 이유로 맥 셋팅을 처음부터 다시 하게되는 경우가 생긴다.<br>Time Machine이나 Migration을 사용하기엔 레거시가 남을 것 같아 찝찝한 기분이 들어 일일히 한땀한땀 셋팅을 한다.<br>그렇기 때문에 구글링하고 여러 블로그를 서핑하면서 셋팅하는데 꽤 많은 시간을 소비하게 된다..<br>그래서 그 시간을 줄이기위해 나의 맥 셋팅을 포스팅를 하게 되었다.</p>
@@ -1767,6 +1748,25 @@ Use -f if you really want to add them.<span aria-hidden="true" class="line-numbe
         <tag>setting</tag>
         <tag>zsh</tag>
         <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git ignore 적용 안될때</title>
+    <url>/2021/08/06/git-add/</url>
+    <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
+<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
+<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">git add * The following paths are ignored by one of your .gitignore files: git-add&#x2F;ignore.txt
+Use -f if you really want to add them.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
+<p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
+<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Git</tag>
+        <tag>Trouble Shooting</tag>
       </tags>
   </entry>
 </search>
