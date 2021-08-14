@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,124 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/14/blog-Spawn-Failed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/14/blog-Spawn-Failed/" class="post-title-link" itemprop="url">Hexo Deploy시 Spawn Failed 오류해결 방법</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-08-14 17:02:23 / Modified: 17:28:39" itemprop="dateCreated datePublished" datetime="2021-08-14T17:02:23+09:00">2021-08-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/blog/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="오류-발생"><a href="#오류-발생" class="headerlink" title="오류 발생"></a>오류 발생</h2><ul>
+<li><p>여느때와 다르게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">remote: Support <span class="token keyword">for</span> password authentication was removed on August <span class="token number">13</span>, <span class="token number">2021</span>. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="token keyword">for</span> <span class="token function">more</span> information.
+fatal: unable to access <span class="token string">'https://github.com/Jeongisu94/Jeongisu94.github.io.git/'</span><span class="token builtin class-name">:</span> The requested URL returned error: <span class="token number">403</span>
+FATAL <span class="token punctuation">&#123;</span>
+  err: Error: Spawn failed
+      at ChildProcess.<span class="token operator">&lt;</span>anonymous<span class="token operator">></span> <span class="token punctuation">(</span>/Users/jeong-isu/dev/blog/node_modules/hexo-util/lib/spawn.js:51:21<span class="token punctuation">)</span>
+      at ChildProcess.emit <span class="token punctuation">(</span>node:events:394:28<span class="token punctuation">)</span>
+      at Process.ChildProcess._handle.onexit <span class="token punctuation">(</span>node:internal/child_process:290:12<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    code: <span class="token number">128</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span> Something's wrong. Maybe you can <span class="token function">find</span> the solution here: %s https://hexo.io/docs/troubleshooting.html<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>대충 보아하니 작성일(210814)기준으로 어제 비밀번호가 만료됐으니까 비번말고 대신 토큰써라 하는 내용이다</p>
+</li>
+</ul>
+<h2 id="오류-해결-방법"><a href="#오류-해결-방법" class="headerlink" title="오류 해결 방법"></a>오류 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
+<li><p>github.com의 프로필 사진을 클릭하여 Setting - Development Setting - Personal Access Token에 들어가자</p>
+<p><img src="/image/blog-Spawn-Failed_images/personal_access_token.png"></p>
+</li>
+<li><p>Generate new toekn을 클릭하여 토큰을 생성하자</p>
+<p><img src="/image/blog-Spawn-Failed_images/genToken.png"></p>
+<ul>
+<li>노트에는 어떤 토큰인지 설명과 만료기한을 설정해주자 Repo에 접근해야하니 Repo도 체크해주자</li>
+</ul>
+</li>
+<li><p>Generate Token을 누르면 토큰이 생성됨과 동시에 토큰이 나오는데 이 토큰은 한번밖에 알려주지 않으니 클립보드에 복사해두자</p>
+</li>
+</ul>
+<h3 id="configure-yml-파일-수정하기"><a href="#configure-yml-파일-수정하기" class="headerlink" title="_configure.yml 파일 수정하기"></a>_configure.yml 파일 수정하기</h3><ul>
+<li>hexo 설정파일인 _config.yml파일에서 repo설정을 다음과 같이바꿔준다</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">repo<span class="token operator">:</span> https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token punctuation">&#123;</span>githubID<span class="token punctuation">&#125;</span><span class="token operator">:</span><span class="token punctuation">&#123;</span><span class="token class-name">Token</span><span class="token punctuation">&#125;</span><span class="token annotation punctuation">@github.com</span><span class="token operator">/</span><span class="token punctuation">&#123;</span><span class="token class-name">GithubID</span><span class="token punctuation">&#125;</span><span class="token operator">/</span>githubID<span class="token punctuation">.</span>github<span class="token punctuation">.</span>io<span class="token punctuation">.</span>git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><p>그 후 hexo clean &amp;&amp; hexo deploy를 하면 오류 없이 잘 배치 된다.</p>
+<p><img src="/image/blog-Spawn-Failed_images/complete.png"></p>
+</li>
+<li><p>토큰이 외부에 노출되지 않도록 주의하자! </p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1446,170 +1564,6 @@ index <span class="token operator">=</span> <span class="token number">0</span><
   <span class="token assign-left variable">index</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> $index + <span class="token number">1</span><span class="token variable">`</span></span>
   <span class="token assign-left variable">num</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> $num -1<span class="token variable">`</span></span>
 <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/04/System-Programming-Signal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/04/System-Programming-Signal/" class="post-title-link" itemprop="url">System-Programming-Signal</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-04 19:35:39" itemprop="dateCreated datePublished" datetime="2021-08-04T19:35:39+09:00">2021-08-04</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-06 20:32:03" itemprop="dateModified" datetime="2021-08-06T20:32:03+09:00">2021-08-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="시그널-signal"><a href="#시그널-signal" class="headerlink" title="시그널 (signal)"></a>시그널 (signal)</h1><ul>
-<li>유닉스에서 사용되는 커널 또는 프로세스에서 다른 프로세스에 어떤 이벤트가 발생되었는지를 알려주는 기법</li>
-<li>ex) Ctrl + C 프로세스 종료 , Ctrl + Z 프로세스를 백그라운드로</li>
-</ul>
-<h2 id="주요-Signal"><a href="#주요-Signal" class="headerlink" title="주요 Signal"></a>주요 Signal</h2><ul>
-<li>시그널 종류와 각 시그널에 따라 기능이 매핑되어있음<ul>
-<li>SIGKILL : 프로세스를 죽임</li>
-<li>SIGALARM: 알람 발생</li>
-<li>SIGSTP : 프로세스 멈춤 (= ctrl + Z)</li>
-<li>SIGCONT: 멈춰진 프로세스 재개</li>
-<li>SIGINT : 프로세스에 인터럽트를 보내고 죽임 (=Ctrl + C)</li>
-<li>SIGSEGV: 프로세스가 다른 메모리영역을 침법</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token variable">$kill</span> -l <span class="token comment">#명령어를 통해 시그널 명령어들을 볼 수 있음 </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/image/System-Programming-Signal_images/killll.png"></p>
-<h2 id="Signal-동작"><a href="#Signal-동작" class="headerlink" title="Signal 동작"></a>Signal 동작</h2><ul>
-<li>프로그램에서 특정 시그널의 기본 동작대신 다른 동작하도록 재정의가 가능하다.</li>
-<li>각 프로세스에서  시그널 처리에 대해 다음과 같은 동작 설정 가능하다.<ol>
-<li>시그널 무시</li>
-<li>시그널 블록</li>
-<li>프로그램 안에 등록된 시그널 핸들러로 재정의한 특정 동작 수행</li>
-</ol>
-</li>
-</ul>
-<h2 id="Send-Signal"><a href="#Send-Signal" class="headerlink" title="Send Signal"></a>Send Signal</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;signal.h></span> </span>
-
-<span class="token keyword">int</span> <span class="token function">kill</span><span class="token punctuation">(</span><span class="token class-name">pid_t</span> pid<span class="token punctuation">,</span> <span class="token keyword">int</span> sig<span class="token punctuation">)</span> <span class="token comment">// pid와 sig#를 인자로 받는다 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="받은-Signal-기본-동작-재정의"><a href="#받은-Signal-기본-동작-재정의" class="headerlink" title="받은 Signal 기본 동작 재정의"></a>받은 Signal 기본 동작 재정의</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;signal.h></span></span>
-<span class="token keyword">void</span> <span class="token punctuation">(</span><span class="token operator">*</span><span class="token function">signal</span><span class="token punctuation">(</span><span class="token keyword">int</span> signum<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token punctuation">(</span><span class="token operator">*</span>handler<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">singal</span><span class="token punctuation">(</span>SIGINT<span class="token punctuation">,</span> SIG_IGN<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// SIGINT를 받으면 SIG_IGN(시그널 무시) 동작</span>
-
-<span class="token function">signal</span><span class="token punctuation">(</span>SIGINT<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span>signal_handler<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// SIGINT를 받으면 핸들러를 통해 재정의한 동작을 실행</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h2><p>sigloop.c</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;signal.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
-
-<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">signal_handler</span> <span class="token punctuation">(</span><span class="token keyword">int</span> signo<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Catch SIGINT!, but no stop\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">signal</span> <span class="token punctuation">(</span>SIGINT<span class="token punctuation">,</span> signal_handler<span class="token punctuation">)</span> <span class="token operator">==</span> SIG_ERR<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Can't catch SIGINT!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token function">exit</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-          <span class="token function">pause</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>sigkill.c</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;signal.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>argv<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">int</span> pid<span class="token punctuation">,</span> sig_num<span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">!=</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"usage %s [pid][signum]\n"</span><span class="token punctuation">,</span> argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-  pid <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  sig_num <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">kill</span><span class="token punctuation">(</span>pid<span class="token punctuation">,</span> sig_num<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// Kill 시스템콜을 통해 해당 프로세스에 SIG_NUM을 넘겨줌</span>
-    <span class="token function">perror</span><span class="token punctuation">(</span><span class="token string">"To send Signal is failed\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/image/System-Programming-Signal_images/sigexam.png"><br>다음과 같이 원래 SIGINT의 디폴트는 종료이지만 종료하지않고<br>재정의한대로 메시지가 출력된다.</p>
-
       
     </div>
 
