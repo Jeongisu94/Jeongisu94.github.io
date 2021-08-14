@@ -20,18 +20,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Hexo Deploy시 Spawn Failed 해결방법오류 발생 여느때와 다르게 기술블로그 작성을 위해 hexo clean &amp;&amp; hexo deploy를 해주었는데이러한 오류 메시지가 발생하였다  remote: Support for password authentication was removed on August 13, 2021. Please">
+<meta name="description" content="Hexo Deploy시 Spawn Failed 해결방법문제 인식 여느때와 같게 기술블로그 작성을 위해 hexo clean &amp;&amp; hexo deploy를 해주었는데이러한 오류 메시지가 발생하였다  remote: Support for password authentication was removed on August 13, 2021. Please u">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo Deploy시 Spawn Failed 오류해결 방법">
 <meta property="og:url" content="https://jeongisu94.github.io/2021/08/14/blog-Spawn-Failed/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
-<meta property="og:description" content="Hexo Deploy시 Spawn Failed 해결방법오류 발생 여느때와 다르게 기술블로그 작성을 위해 hexo clean &amp;&amp; hexo deploy를 해주었는데이러한 오류 메시지가 발생하였다  remote: Support for password authentication was removed on August 13, 2021. Please">
+<meta property="og:description" content="Hexo Deploy시 Spawn Failed 해결방법문제 인식 여느때와 같게 기술블로그 작성을 위해 hexo clean &amp;&amp; hexo deploy를 해주었는데이러한 오류 메시지가 발생하였다  remote: Support for password authentication was removed on August 13, 2021. Please u">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://jeongisu94.github.io/image/blog-Spawn-Failed_images/personal_access_token.png">
 <meta property="og:image" content="https://jeongisu94.github.io/image/blog-Spawn-Failed_images/genToken.png">
 <meta property="og:image" content="https://jeongisu94.github.io/image/blog-Spawn-Failed_images/complete.png">
 <meta property="article:published_time" content="2021-08-14T08:02:23.000Z">
-<meta property="article:modified_time" content="2021-08-14T08:28:39.431Z">
+<meta property="article:modified_time" content="2021-08-14T08:46:39.077Z">
 <meta property="article:author" content="Jeongisu">
 <meta property="article:tag" content="Trouble Shooting">
 <meta property="article:tag" content="hexo">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-Deploy%EC%8B%9C-Spawn-Failed-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95"><span class="nav-number">1.</span> <span class="nav-text">Hexo Deploy시 Spawn Failed 해결방법</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%98%A4%EB%A5%98-%EB%B0%9C%EC%83%9D"><span class="nav-number">1.1.</span> <span class="nav-text">오류 발생</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95"><span class="nav-number">1.2.</span> <span class="nav-text">오류 해결 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%86%A0%ED%81%B0-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">토큰 생성하기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configure-yml-%ED%8C%8C%EC%9D%BC-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text">_configure.yml 파일 수정하기</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-Deploy%EC%8B%9C-Spawn-Failed-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95"><span class="nav-number">1.</span> <span class="nav-text">Hexo Deploy시 Spawn Failed 해결방법</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AC%B8%EC%A0%9C-%EC%9D%B8%EC%8B%9D"><span class="nav-number">1.1.</span> <span class="nav-text">문제 인식</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95"><span class="nav-number">1.2.</span> <span class="nav-text">문제 해결 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%ED%86%A0%ED%81%B0-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">토큰 생성하기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configure-yml-%ED%8C%8C%EC%9D%BC-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text">_configure.yml 파일 수정하기</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,7 +243,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-08-14 17:02:23 / Modified: 17:28:39" itemprop="dateCreated datePublished" datetime="2021-08-14T17:02:23+09:00">2021-08-14</time>
+      <time title="Created: 2021-08-14 17:02:23 / Modified: 17:46:39" itemprop="dateCreated datePublished" datetime="2021-08-14T17:02:23+09:00">2021-08-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -269,8 +269,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="오류-발생"><a href="#오류-발생" class="headerlink" title="오류 발생"></a>오류 발생</h2><ul>
-<li><p>여느때와 다르게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
+        <h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="문제-인식"><a href="#문제-인식" class="headerlink" title="문제 인식"></a>문제 인식</h2><ul>
+<li><p>여느때와 같게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">remote: Support <span class="token keyword">for</span> password authentication was removed on August <span class="token number">13</span>, <span class="token number">2021</span>. Please use a personal access token instead.
 remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="token keyword">for</span> <span class="token function">more</span> information.
 fatal: unable to access <span class="token string">'https://github.com/Jeongisu94/Jeongisu94.github.io.git/'</span><span class="token builtin class-name">:</span> The requested URL returned error: <span class="token number">403</span>
@@ -285,7 +285,7 @@ FATAL <span class="token punctuation">&#123;</span>
 <li><p>대충 보아하니 작성일(210814)기준으로 어제 비밀번호가 만료됐으니까 비번말고 대신 토큰써라 하는 내용이다</p>
 </li>
 </ul>
-<h2 id="오류-해결-방법"><a href="#오류-해결-방법" class="headerlink" title="오류 해결 방법"></a>오류 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
+<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
 <li><p>github.com의 프로필 사진을 클릭하여 Setting - Development Setting - Personal Access Token에 들어가자</p>
 <p><img src="/image/blog-Spawn-Failed_images/personal_access_token.png"></p>
 </li>

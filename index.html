@@ -233,7 +233,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-08-14 17:02:23 / Modified: 17:28:39" itemprop="dateCreated datePublished" datetime="2021-08-14T17:02:23+09:00">2021-08-14</time>
+      <time title="Created: 2021-08-14 17:02:23 / Modified: 17:46:39" itemprop="dateCreated datePublished" datetime="2021-08-14T17:02:23+09:00">2021-08-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -259,8 +259,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="오류-발생"><a href="#오류-발생" class="headerlink" title="오류 발생"></a>오류 발생</h2><ul>
-<li><p>여느때와 다르게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
+          <h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="문제-인식"><a href="#문제-인식" class="headerlink" title="문제 인식"></a>문제 인식</h2><ul>
+<li><p>여느때와 같게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">remote: Support <span class="token keyword">for</span> password authentication was removed on August <span class="token number">13</span>, <span class="token number">2021</span>. Please use a personal access token instead.
 remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="token keyword">for</span> <span class="token function">more</span> information.
 fatal: unable to access <span class="token string">'https://github.com/Jeongisu94/Jeongisu94.github.io.git/'</span><span class="token builtin class-name">:</span> The requested URL returned error: <span class="token number">403</span>
@@ -275,7 +275,7 @@ FATAL <span class="token punctuation">&#123;</span>
 <li><p>대충 보아하니 작성일(210814)기준으로 어제 비밀번호가 만료됐으니까 비번말고 대신 토큰써라 하는 내용이다</p>
 </li>
 </ul>
-<h2 id="오류-해결-방법"><a href="#오류-해결-방법" class="headerlink" title="오류 해결 방법"></a>오류 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
+<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
 <li><p>github.com의 프로필 사진을 클릭하여 Setting - Development Setting - Personal Access Token에 들어가자</p>
 <p><img src="/image/blog-Spawn-Failed_images/personal_access_token.png"></p>
 </li>
