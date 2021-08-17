@@ -165,120 +165,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux - Shell basic</title>
-    <url>/2021/07/22/Linux%20-%20Shell%20Basic/</url>
-    <content><![CDATA[<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><h2 id="Shell은-사용자와-하드웨어-또는-OS간의-인터페이스이다"><a href="#Shell은-사용자와-하드웨어-또는-OS간의-인터페이스이다" class="headerlink" title="Shell은 사용자와 하드웨어 또는 OS간의 인터페이스이다."></a>Shell은 사용자와 하드웨어 또는 OS간의 인터페이스이다.</h2><p>![](/image/Linux Shell Basic/R800x0.jpeg)</p>
-<ul>
-<li>명령어를 해석하여 커널에 명령어를 요청하여 프로그램을 실행</li>
-</ul>
-<h2 id="Shell-명령어"><a href="#Shell-명령어" class="headerlink" title="Shell 명령어"></a>Shell 명령어</h2><h3 id="다중사용자에-관한-명령어"><a href="#다중사용자에-관한-명령어" class="headerlink" title="다중사용자에 관한 명령어"></a>다중사용자에 관한 명령어</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">whoami</span> <span class="token comment">#로그인되어있는 사용자 ID를 출력</span>
-ubuntu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">passwd</span> <span class="token comment">#현재 사용자의 비밀번호 변경</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#두 명령어엔 기본 설정에 대한 차이가 존재한다.</span>
-$ <span class="token function">useradd</span> <span class="token comment">#사용자 기본 설정을 해야한다.</span>
-$ adduser <span class="token comment">#기본설정을 자동으로 수행</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#su: 사용자 변경</span>
-<span class="token function">su</span> root <span class="token comment"># 현재 사용자의 환경설정 기반으로 root로 변경</span>
-<span class="token function">su</span> - root <span class="token comment">#변경되는 사용자의 환경설정을 기반으로 root로 전환</span>
-
-<span class="token comment">#사용자의 홈 디렉토리에 있는 .bashrc 와 .profile에는 환경설정이 존재한다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="권한에-관한-명령어"><a href="#권한에-관한-명령어" class="headerlink" title="권한에 관한 명령어"></a>권한에 관한 명령어</h2><h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><p>root 계정에 로그인 하지 않은 상태에서 root권한으로 명령어를 실행</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> sudoers <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>User privilege specification 밑에 자신의 계정과 권한을 입력한다.</p>
-<p><img src="/image/Linux%20Shell%20Basic/Untitled.png"><br><img src="/image/Linux%20Shell%20Basic/Untitled%201.png"><br>권한거부없이 sudoers를 수정 할 수 있다</p>
-<p>sudo를 매번 입력하는 것이 번거로워 root계정으로 로그인하여 작업을 할 수도 있지만<br>그럴 경우 시스템상에 큰 영향을 끼칠수 있는 명령을 했을때 경고없이 실행되므로 되돌릴 수 없는 명령을 할 수도 있다.<br>ex) rm -rf * #디렉토리와 파일과 하위 디렉토리까지 모두 삭제</p>
-<h2 id="파일-권한"><a href="#파일-권한" class="headerlink" title="파일 권한"></a>파일 권한</h2><p>ls -al 명령어를 통해 파일 목록과 파일에대한 소유자,소유자그룹  기타사용자를 포함한 권한 정보를 살펴 볼 수 있다.</p>
-<p><img src="/image/Linux%20Shell%20Basic/Untitled%202.png"></p>
-<ul>
-<li><p>권한에 대한 설명</p>
-<p>  1 | 3 | 3 | 3 글자씩 의미를 가지는데 </p>
-<p>  첫번째 영역은 파일인지 디렉토리인지를 나타내고</p>
-<p>  나머지 세 영역은 소유자, 그룹, 기타사용자에관한 권한을 나타낸다.</p>
-<p>  r w x는 각각 읽기 , 쓰기 , 실행을 의미한다.</p>
-</li>
-</ul>
-<h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><ul>
-<li><p>파일 권한 변경 명령어로 두가지 방식으로 사용할 수있다.</p>
-</li>
-<li><p>명령어 기호</p>
-<p>  <a href="https://www.notion.so/a32632cdbdf64bc1a70133ab8a0c9765">Untitled</a></p>
-</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chmod</span> g+rx file.a <span class="token comment"># file.a라는 파일에대해서 그룹사용자에게 읽기와 실행권한을 추가</span>
-$ <span class="token function">chmod</span> ug+rw file.a <span class="token comment"># file.a라는 파일에 유저와 그룹에 읽기와 쓰기 권한을 준다.</span>
-$ <span class="token function">chmod</span> <span class="token assign-left variable">u</span><span class="token operator">=</span>rwx, <span class="token assign-left variable">o</span><span class="token operator">=</span>rx test.c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li><p>숫자를 사용</p>
-<p>  r=2^2 w=2^1 x=2^0</p>
-<p>  3비트 이진법을 사용하여 소유자/그룹/기타의 권한을 각각 읽기 쓰기 실행권한을 설정할 수 있다.</p>
-<p>  ex)chmod 777 file : 소유자 그룹 다른사용자에게 읽기 쓰기 실행권한 부여 </p>
-</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chmod</span> <span class="token number">400</span> isudev.pem <span class="token comment"># 소유자에게만 읽기권한만 설정</span>
-$ <span class="token function">chmod</span> -R <span class="token number">777</span> directory <span class="token comment"># 하위디렉토리를 포함하여 권한 부여</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h2><ul>
-<li>소유자 변경 명령어</li>
-<li>chown [옵션] [소유자:소유그룹] [파일]</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chown</span> root:root <span class="token function">file</span>
-$ <span class="token function">chown</span> root: <span class="token function">file</span>
-$ <span class="token function">chown</span> :root <span class="token function">file</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<hr>
-<h2 id="파일에-관한-명령어"><a href="#파일에-관한-명령어" class="headerlink" title="파일에 관한 명령어"></a>파일에 관한 명령어</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">pwd</span> <span class="token comment"># print working directory의 약어, 현재 작업중인 디렉토리를 출력</span>
-/pwd/devisu
-$ <span class="token builtin class-name">cd</span> <span class="token comment">#change directory 디렉토리 이동</span>
-$ <span class="token function">ls</span> <span class="token comment"># list directory contents의 약어 </span>
-		 <span class="token comment"># -al옵션을 추가해서 숨김파일을 볼 수 있다.</span>
-/etc$ <span class="token function">ls</span> host*  <span class="token comment"># *나 ?같은 와일드카드를 이용하여 쉽게 list할 수 있다.</span>
-host.conf  <span class="token function">hostname</span>  hosts  hosts.allow  hosts.deny<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><ul>
-<li>파일의 내용을 출력한다</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">cat</span> test.c<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><ul>
-<li>파일의 첫 10줄을 출력한다</li>
-</ul>
-<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3><ul>
-<li>head의 반대로 끝 10줄을 출력</li>
-</ul>
-<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><ul>
-<li>한 화면에 출력하고 넘겨가며 표기</li>
-</ul>
-<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><ul>
-<li>파일을 삭제하는 명령어</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">rm</span> test.c <span class="token comment"># 파일 삭제</span>
-$ <span class="token function">rm</span> -rf directory <span class="token comment"># 디렉토리를 삭제하고 -r:하위 디렉토리도 모두 삭제  -f: 묻지않고 강제 삭제</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><ul>
-<li>검색명령어</li>
-<li>grep [-옵션] [패턴] [파일]</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">grep</span> banana ./fruits.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>현재 디렉토리에있는 fruits.txt에 있는 banana가 써있는 Line만 출력</p>
-<hr>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML 기초</title>
     <url>/2021/07/21/HTML_Basic/</url>
     <content><![CDATA[<h1 id="HTML-기초"><a href="#HTML-기초" class="headerlink" title="HTML 기초"></a>HTML 기초</h1><h2 id="HTML의-기본형태"><a href="#HTML의-기본형태" class="headerlink" title="HTML의 기본형태"></a>HTML의 기본형태</h2><p>HTML의 TAG</p>
@@ -391,6 +277,120 @@ $ <span class="token function">rm</span> -rf directory <span class="token commen
         <tag>Web</tag>
         <tag>TIL</tag>
         <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux - Shell basic</title>
+    <url>/2021/07/22/Linux%20-%20Shell%20Basic/</url>
+    <content><![CDATA[<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><h2 id="Shell은-사용자와-하드웨어-또는-OS간의-인터페이스이다"><a href="#Shell은-사용자와-하드웨어-또는-OS간의-인터페이스이다" class="headerlink" title="Shell은 사용자와 하드웨어 또는 OS간의 인터페이스이다."></a>Shell은 사용자와 하드웨어 또는 OS간의 인터페이스이다.</h2><p>![](/image/Linux Shell Basic/R800x0.jpeg)</p>
+<ul>
+<li>명령어를 해석하여 커널에 명령어를 요청하여 프로그램을 실행</li>
+</ul>
+<h2 id="Shell-명령어"><a href="#Shell-명령어" class="headerlink" title="Shell 명령어"></a>Shell 명령어</h2><h3 id="다중사용자에-관한-명령어"><a href="#다중사용자에-관한-명령어" class="headerlink" title="다중사용자에 관한 명령어"></a>다중사용자에 관한 명령어</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">whoami</span> <span class="token comment">#로그인되어있는 사용자 ID를 출력</span>
+ubuntu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">passwd</span> <span class="token comment">#현재 사용자의 비밀번호 변경</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#두 명령어엔 기본 설정에 대한 차이가 존재한다.</span>
+$ <span class="token function">useradd</span> <span class="token comment">#사용자 기본 설정을 해야한다.</span>
+$ adduser <span class="token comment">#기본설정을 자동으로 수행</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#su: 사용자 변경</span>
+<span class="token function">su</span> root <span class="token comment"># 현재 사용자의 환경설정 기반으로 root로 변경</span>
+<span class="token function">su</span> - root <span class="token comment">#변경되는 사용자의 환경설정을 기반으로 root로 전환</span>
+
+<span class="token comment">#사용자의 홈 디렉토리에 있는 .bashrc 와 .profile에는 환경설정이 존재한다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="권한에-관한-명령어"><a href="#권한에-관한-명령어" class="headerlink" title="권한에 관한 명령어"></a>권한에 관한 명령어</h2><h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><p>root 계정에 로그인 하지 않은 상태에서 root권한으로 명령어를 실행</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> sudoers <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>User privilege specification 밑에 자신의 계정과 권한을 입력한다.</p>
+<p><img src="/image/Linux%20Shell%20Basic/Untitled.png"><br><img src="/image/Linux%20Shell%20Basic/Untitled%201.png"><br>권한거부없이 sudoers를 수정 할 수 있다</p>
+<p>sudo를 매번 입력하는 것이 번거로워 root계정으로 로그인하여 작업을 할 수도 있지만<br>그럴 경우 시스템상에 큰 영향을 끼칠수 있는 명령을 했을때 경고없이 실행되므로 되돌릴 수 없는 명령을 할 수도 있다.<br>ex) rm -rf * #디렉토리와 파일과 하위 디렉토리까지 모두 삭제</p>
+<h2 id="파일-권한"><a href="#파일-권한" class="headerlink" title="파일 권한"></a>파일 권한</h2><p>ls -al 명령어를 통해 파일 목록과 파일에대한 소유자,소유자그룹  기타사용자를 포함한 권한 정보를 살펴 볼 수 있다.</p>
+<p><img src="/image/Linux%20Shell%20Basic/Untitled%202.png"></p>
+<ul>
+<li><p>권한에 대한 설명</p>
+<p>  1 | 3 | 3 | 3 글자씩 의미를 가지는데 </p>
+<p>  첫번째 영역은 파일인지 디렉토리인지를 나타내고</p>
+<p>  나머지 세 영역은 소유자, 그룹, 기타사용자에관한 권한을 나타낸다.</p>
+<p>  r w x는 각각 읽기 , 쓰기 , 실행을 의미한다.</p>
+</li>
+</ul>
+<h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><ul>
+<li><p>파일 권한 변경 명령어로 두가지 방식으로 사용할 수있다.</p>
+</li>
+<li><p>명령어 기호</p>
+<p>  <a href="https://www.notion.so/a32632cdbdf64bc1a70133ab8a0c9765">Untitled</a></p>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chmod</span> g+rx file.a <span class="token comment"># file.a라는 파일에대해서 그룹사용자에게 읽기와 실행권한을 추가</span>
+$ <span class="token function">chmod</span> ug+rw file.a <span class="token comment"># file.a라는 파일에 유저와 그룹에 읽기와 쓰기 권한을 준다.</span>
+$ <span class="token function">chmod</span> <span class="token assign-left variable">u</span><span class="token operator">=</span>rwx, <span class="token assign-left variable">o</span><span class="token operator">=</span>rx test.c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>숫자를 사용</p>
+<p>  r=2^2 w=2^1 x=2^0</p>
+<p>  3비트 이진법을 사용하여 소유자/그룹/기타의 권한을 각각 읽기 쓰기 실행권한을 설정할 수 있다.</p>
+<p>  ex)chmod 777 file : 소유자 그룹 다른사용자에게 읽기 쓰기 실행권한 부여 </p>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chmod</span> <span class="token number">400</span> isudev.pem <span class="token comment"># 소유자에게만 읽기권한만 설정</span>
+$ <span class="token function">chmod</span> -R <span class="token number">777</span> directory <span class="token comment"># 하위디렉토리를 포함하여 권한 부여</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h2><ul>
+<li>소유자 변경 명령어</li>
+<li>chown [옵션] [소유자:소유그룹] [파일]</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chown</span> root:root <span class="token function">file</span>
+$ <span class="token function">chown</span> root: <span class="token function">file</span>
+$ <span class="token function">chown</span> :root <span class="token function">file</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="파일에-관한-명령어"><a href="#파일에-관한-명령어" class="headerlink" title="파일에 관한 명령어"></a>파일에 관한 명령어</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">pwd</span> <span class="token comment"># print working directory의 약어, 현재 작업중인 디렉토리를 출력</span>
+/pwd/devisu
+$ <span class="token builtin class-name">cd</span> <span class="token comment">#change directory 디렉토리 이동</span>
+$ <span class="token function">ls</span> <span class="token comment"># list directory contents의 약어 </span>
+		 <span class="token comment"># -al옵션을 추가해서 숨김파일을 볼 수 있다.</span>
+/etc$ <span class="token function">ls</span> host*  <span class="token comment"># *나 ?같은 와일드카드를 이용하여 쉽게 list할 수 있다.</span>
+host.conf  <span class="token function">hostname</span>  hosts  hosts.allow  hosts.deny<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><ul>
+<li>파일의 내용을 출력한다</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">cat</span> test.c<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><ul>
+<li>파일의 첫 10줄을 출력한다</li>
+</ul>
+<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3><ul>
+<li>head의 반대로 끝 10줄을 출력</li>
+</ul>
+<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><ul>
+<li>한 화면에 출력하고 넘겨가며 표기</li>
+</ul>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><ul>
+<li>파일을 삭제하는 명령어</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">rm</span> test.c <span class="token comment"># 파일 삭제</span>
+$ <span class="token function">rm</span> -rf directory <span class="token comment"># 디렉토리를 삭제하고 -r:하위 디렉토리도 모두 삭제  -f: 묻지않고 강제 삭제</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><ul>
+<li>검색명령어</li>
+<li>grep [-옵션] [패턴] [파일]</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">grep</span> banana ./fruits.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>현재 디렉토리에있는 fruits.txt에 있는 banana가 써있는 Line만 출력</p>
+<hr>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
       </tags>
   </entry>
   <entry>
@@ -761,6 +761,56 @@ $ <span class="token function">rm</span> -rf directory <span class="token commen
       </tags>
   </entry>
   <entry>
+    <title>객체 지향 프로그래밍 4</title>
+    <url>/2021/08/13/OOP-java-4/</url>
+    <content><![CDATA[<h1 id="접근-제어자와-정보-은닉"><a href="#접근-제어자와-정보-은닉" class="headerlink" title="접근 제어자와 정보 은닉"></a>접근 제어자와 정보 은닉</h1><h2 id="접근-제어-지시자-access-modifier"><a href="#접근-제어-지시자-access-modifier" class="headerlink" title="접근 제어 지시자(access modifier)"></a>접근 제어 지시자(access modifier)</h2><ul>
+<li><p>접근제어지시자를 통해 정보은닉을 활용한 캡슐화가 구현이 된다.</p>
+</li>
+<li><p>클래스의 외부에서 클래스 내의 멤버변수, 메서드 , 생성자를 사용여부를 나타내는 키워드</p>
+<ul>
+<li>private 같은 클래스 내부에서만 접근 가능</li>
+<li>default(아무것도 안쓴경우) 같은 패키지 내부에서만 접근 가능</li>
+<li>protected 같은 패키지나 상속관계의 클래스에서 접근 가능</li>
+<li>public 클래스의 외부 어디서나 접근 할 수 있음</li>
+</ul>
+</li>
+<li><p>public get()/set() 메소드를 통하여 private한 멤버변수를 접근한다</p>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>name<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 정보를 보호함과 동시에 유효성을 검사 할 수 있다.</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="정보-은닉을-활용한-캡슐화"><a href="#정보-은닉을-활용한-캡슐화" class="headerlink" title="정보 은닉을 활용한 캡슐화"></a>정보 은닉을 활용한 캡슐화</h2><ul>
+<li><p>캡슐화는 슈퍼클래스로부터 자식 클래스를 외부로 은닉하는 행위</p>
+</li>
+<li><p>꼭 필요한 정보와 기능만 외부에 오픈함으로써 메서드나 멤버변수의 접근하면서 발생 할 수있는<br>오류를 최소화 한다.</p>
+</li>
+<li><p>캡슐화는 객체간 소통시 세부사항을 알 필요 없어서 낮은 결합도를 제공함</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>access modifier</tag>
+        <tag>capsulation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>객체 지향 프로그래밍 5</title>
     <url>/2021/08/13/OOP-java-5/</url>
     <content><![CDATA[<h1 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h1><h2 id="Static-변수"><a href="#Static-변수" class="headerlink" title="Static 변수"></a>Static 변수</h2><ul>
@@ -866,43 +916,266 @@ $ <span class="token function">rm</span> -rf directory <span class="token commen
       </tags>
   </entry>
   <entry>
-    <title>객체 지향 프로그래밍 4</title>
-    <url>/2021/08/13/OOP-java-4/</url>
-    <content><![CDATA[<h1 id="접근-제어자와-정보-은닉"><a href="#접근-제어자와-정보-은닉" class="headerlink" title="접근 제어자와 정보 은닉"></a>접근 제어자와 정보 은닉</h1><h2 id="접근-제어-지시자-access-modifier"><a href="#접근-제어-지시자-access-modifier" class="headerlink" title="접근 제어 지시자(access modifier)"></a>접근 제어 지시자(access modifier)</h2><ul>
-<li><p>접근제어지시자를 통해 정보은닉을 활용한 캡슐화가 구현이 된다.</p>
-</li>
-<li><p>클래스의 외부에서 클래스 내의 멤버변수, 메서드 , 생성자를 사용여부를 나타내는 키워드</p>
-<ul>
-<li>private 같은 클래스 내부에서만 접근 가능</li>
-<li>default(아무것도 안쓴경우) 같은 패키지 내부에서만 접근 가능</li>
-<li>protected 같은 패키지나 상속관계의 클래스에서 접근 가능</li>
-<li>public 클래스의 외부 어디서나 접근 할 수 있음</li>
+    <title>객체지향 프로그래밍 6</title>
+    <url>/2021/08/14/OOP-java-6/</url>
+    <content><![CDATA[<h1 id="Array-List"><a href="#Array-List" class="headerlink" title="Array List"></a>Array List</h1><h2 id="Array-List-1"><a href="#Array-List-1" class="headerlink" title="Array List"></a>Array List</h2><ul>
+<li>자바에서 기본 배열은 선언 또는 사용시 길이를 정해줘야해야하며 요소가 그 길이보다 크게되면<br>배열을 재 할당하고 복사해야 하는등 불편함이 있다</li>
+<li>또 배열의 요소에 추가하거나 삭제할때 요소들의 이동에 관한 구현을 해야한다</li>
 </ul>
-</li>
-<li><p>public get()/set() 메소드를 통하여 private한 멤버변수를 접근한다</p>
-</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
-    
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<table>
+<thead>
+<tr>
+<th align="center">메소드</th>
+<th align="left">설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">boolean add(E e)</td>
+<td align="left">배열에 요소를 추가한다</td>
+</tr>
+<tr>
+<td align="center">int size()</td>
+<td align="left">요소의 전채 개수 반환한다.</td>
+</tr>
+<tr>
+<td align="center">E get(int index)</td>
+<td align="left">해당 인덱스의 값을 반환한다.</td>
+</tr>
+<tr>
+<td align="center">E remove(int index)</td>
+<td align="left">해당 인덱스의 값을 제거하고 반환한다.</td>
+</tr>
+<tr>
+<td align="center">boolean isEmpty()</td>
+<td align="left">배열이 비어있는지 확인한다. 비어있으면 true</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">></span></span> arrayList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+arrayList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Element</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="예제-코드"><a href="#예제-코드" class="headerlink" title="예제 코드"></a>예제 코드</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token keyword">package</span> <span class="token class-name">ArrayListTest</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Subject</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> subjectScore<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> subjectName<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Subject</span><span class="token punctuation">(</span><span class="token keyword">int</span> subjectScore<span class="token punctuation">,</span> <span class="token class-name">String</span> subjectName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectScore <span class="token operator">=</span> subjectScore<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectName <span class="token operator">=</span> subjectName<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>name<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 정보를 보호함과 동시에 유효성을 검사 할 수 있다.</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setSubjectScore</span><span class="token punctuation">(</span><span class="token keyword">int</span> subjectScore<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectScore <span class="token operator">=</span> subjectScore<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setSubjectName</span><span class="token punctuation">(</span><span class="token class-name">String</span> subjectName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectName <span class="token operator">=</span> subjectName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getSubjectScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> subjectScore<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getSubjectName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> subjectName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token class-name">ArrayListTest</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> studentID<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> studentName<span class="token punctuation">;</span>
+    <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Subject</span><span class="token punctuation">></span></span> subjectList<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token keyword">int</span> studentID<span class="token punctuation">,</span> <span class="token class-name">String</span> studentName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>studentID <span class="token operator">=</span> studentID<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>studentName <span class="token operator">=</span> studentName<span class="token punctuation">;</span>
+        subjectList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Subject</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addSubject</span><span class="token punctuation">(</span><span class="token keyword">int</span> score<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        subjectList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Subject</span><span class="token punctuation">(</span>score<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printAllScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>studentID <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> studentName <span class="token operator">+</span> <span class="token string">"의 성적표 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Subject</span> subject<span class="token operator">:</span> subjectList <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>subject<span class="token punctuation">.</span><span class="token function">getSubjectName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" : "</span> <span class="token operator">+</span> subject<span class="token punctuation">.</span><span class="token function">getSubjectScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"점 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="정보-은닉을-활용한-캡슐화"><a href="#정보-은닉을-활용한-캡슐화" class="headerlink" title="정보 은닉을 활용한 캡슐화"></a>정보 은닉을 활용한 캡슐화</h2><ul>
-<li><p>캡슐화는 슈퍼클래스로부터 자식 클래스를 외부로 은닉하는 행위</p>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Student</span> kim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">"kim"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Student</span> park <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">"park"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Student</span> jeong <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span><span class="token string">"jeong"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        kim<span class="token punctuation">.</span><span class="token function">addSubject</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token string">"수학"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        kim<span class="token punctuation">.</span><span class="token function">addSubject</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token string">"영어"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        kim<span class="token punctuation">.</span><span class="token function">printAllScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>list</tag>
+        <tag>array list</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>객체지향 프로그래밍 7</title>
+    <url>/2021/08/17/OOP-java-7/</url>
+    <content><![CDATA[<h1 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h1><h2 id="클래스-상속"><a href="#클래스-상속" class="headerlink" title="클래스 상속"></a>클래스 상속</h2><ul>
+<li><p>상속이란 단어 뜻 그대로 상속이란 물려받는 것을 의미 한다.</p>
 </li>
-<li><p>꼭 필요한 정보와 기능만 외부에 오픈함으로써 메서드나 멤버변수의 접근하면서 발생 할 수있는<br>오류를 최소화 한다.</p>
+<li><p>부모클래스가 상속을 하게되면 필드와 메소드를 자식클래스에게 물려주게 된다.</p>
 </li>
-<li><p>캡슐화는 객체간 소통시 세부사항을 알 필요 없어서 낮은 결합도를 제공함</p>
+<li><p>자바에서는 안정성을 위해서 다중 상속을 받는 것은 불가능하다.</p>
 </li>
+<li><p><code>class ChildClass extends ParentClass</code> 와 같은 형식으로 사용한다</p>
+</li>
+</ul>
+<h2 id="상속의-특징과-장점"><a href="#상속의-특징과-장점" class="headerlink" title="상속의 특징과 장점"></a>상속의 특징과 장점</h2><ul>
+<li>상위 클래스는 하위 클래스보다 추상적인 개념과 기능을 가진다</li>
+<li>하위 클래스는 상위 클래스보다 구체적인 개념과 기능을 가진다</li>
+<li>코드를 재사용 함으로써 중복성을 줄일 수 있다</li>
+<li>클래스 수정/추가에 대한 유연성과 확장성이 증가된다</li>
+</ul>
+<h4 id="코드-예시"><a href="#코드-예시" class="headerlink" title="코드 예시"></a>코드 예시</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token keyword">package</span> <span class="token namespace">inheritancetest</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">Assertions</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CustomerTest</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">VIPCustomer</span> kim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VIPCustomer</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">"Kimbob"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">VIPCustomer</span> park <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VIPCustomer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Customer</span> lee <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VIPCustomer</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">"Leelee"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Customer</span> jeong <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span> <span class="token string">"Jeongo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+        kim<span class="token punctuation">.</span><span class="token function">printCustomer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        park<span class="token punctuation">.</span><span class="token function">printCustomer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        lee<span class="token punctuation">.</span><span class="token function">printCustomer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        jeong<span class="token punctuation">.</span><span class="token function">printCustomer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token keyword">package</span> <span class="token namespace">inheritancetest</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">VIPCustomer</span> <span class="token keyword">extends</span> <span class="token class-name">Customer</span><span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">double</span> salesRatio<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> agentID<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">VIPCustomer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span>grade <span class="token operator">=</span> <span class="token string">"VIP"</span><span class="token punctuation">;</span>
+        bonusRatio <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">;</span>
+        salesRatio <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">VIPCustomer</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">super</span><span class="token punctuation">.</span>grade <span class="token operator">=</span> <span class="token string">"VIP"</span><span class="token punctuation">;</span>
+        bonusRatio <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">;</span>
+        salesRatio <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">calPrice</span><span class="token punctuation">(</span><span class="token keyword">int</span> price<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        bonusPoint <span class="token operator">+=</span> price <span class="token operator">*</span> bonusRatio<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> price <span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>price <span class="token operator">*</span> salesRatio<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token keyword">package</span> <span class="token namespace">inheritancetest</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Customer</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">protected</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token class-name">String</span> grade<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token keyword">int</span> bonusPoint<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token keyword">double</span> bonusRatio<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        grade <span class="token operator">=</span> <span class="token string">"SILVER"</span><span class="token punctuation">;</span>
+        bonusRatio <span class="token operator">=</span> <span class="token number">0.01</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Customer</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        grade <span class="token operator">=</span> <span class="token string">"SILVER"</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> calPrice <span class="token punctuation">(</span><span class="token keyword">int</span> price<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        bonusPoint <span class="token operator">+=</span> price <span class="token operator">*</span> bonusRatio<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> price<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printCustomer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"id = "</span> <span class="token operator">+</span> id <span class="token operator">+</span> <span class="token string">", name = "</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">", grade = "</span> <span class="token operator">+</span> grade<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="protected-키워드"><a href="#protected-키워드" class="headerlink" title="protected 키워드"></a>protected 키워드</h3><ul>
+<li>private은 내부에서만 접근이 가능하고 외부에서는 접근이 불가능한 특성을 갖고있다</li>
+<li>protected는 하위 클래스도 접근이 가능하다</li>
+</ul>
+<h3 id="Super-키워드"><a href="#Super-키워드" class="headerlink" title="Super 키워드"></a>Super 키워드</h3><ul>
+<li>Super 키워드는 하위 클래스에서 상위 클래스에 대한 참조 값이다</li>
+<li>super()는 상위 클래스의 기본 생성자를 호출한다 <code>super(argu1, argu2,...)</code></li>
+<li>하위클래스에서 상위 클래스의 생성자를 명시적으로 호출하지 않으면 자동으로 super()가 호출 된다</li>
+</ul>
+<h3 id="메모리의-상태"><a href="#메모리의-상태" class="headerlink" title="메모리의 상태"></a>메모리의 상태</h3><ul>
+<li>항상 상위 클래스의 인스턴스가 힙메모리에 먼저 생성된 후에 하위 클래스 인스턴스가 생성된다</li>
+</ul>
+<h3 id="Up-casting"><a href="#Up-casting" class="headerlink" title="Up casting"></a>Up casting</h3><ul>
+<li><p>하위 클래스를 상위 클래스로 형 변환 하는 것</p>
+</li>
+<li><p>상위 클래스로 변수를 선언하고 하위 클래스 생성자로 인스턴스를 생성</p>
+<p>  <code>Parent child = new Child()</code></p>
+</li>
+<li><p>하위 클래스는 상위 클래스의 모든 특성을 갖고 있기떄문에 모든 하위클래스는 업캐스팅이 가능하다</p>
+</li>
+<li><p>업캐스팅을 한 경우 하위클래스의 상위 클래스를 멤버변수와 메소드만 접근 가능하다.</p>
+</li>
+</ul>
+<h3 id="Override"><a href="#Override" class="headerlink" title="Override"></a>Override</h3><ul>
+<li>메소드 오버라이드는 상위클래스에 정의된 메소드를 재정의하여 사용하는 것이다</li>
+<li>함수의 반환타입, 파라미터의 갯수는 같아야한다 </li>
+<li>@Override라는 Anntation을 통해 컴파일러에게 override된 메소드임을 알려준다 </li>
+</ul>
+<h3 id="가상-메소드"><a href="#가상-메소드" class="headerlink" title="가상 메소드"></a>가상 메소드</h3><h4 id="메소드"><a href="#메소드" class="headerlink" title="메소드"></a>메소드</h4><ul>
+<li>메소드의 이름은 주소값을 나타낸다</li>
+<li>메소드는 프로그램 실행시 코드영역에 적재되는 instruction set이다</li>
+<li>해당 메소드가 호출 되면 instruction set이 잇는 주소를 찾아 명령어가 실행 된다</li>
+<li>이때 메소드에서 사용하는 변수들은 스택메모리에 위치한다</li>
+<li>같은 클래스의 다른 인스턴스라도 같은 메소드가 호출 된다.</li>
+</ul>
+<h4 id="가상-메소드-1"><a href="#가상-메소드-1" class="headerlink" title="가상 메소드"></a>가상 메소드</h4><ul>
+<li>각 클래스들은 해당 메서드에 대한 주소 값을 가진 가상 메소드 테이블을 가진다</li>
+<li>재정의 된 경우 재정의 된 메소드와 메소드주소가 바인딩 된다.</li>
 </ul>
 ]]></content>
       <categories>
@@ -910,9 +1183,9 @@ $ <span class="token function">rm</span> -rf directory <span class="token commen
         <category>java</category>
       </categories>
       <tags>
-        <tag>java</tag>
-        <tag>access modifier</tag>
-        <tag>capsulation</tag>
+        <tag>inheritance</tag>
+        <tag>casting</tag>
+        <tag>overriding</tag>
       </tags>
   </entry>
   <entry>
@@ -969,6 +1242,93 @@ DELDAY <span class="token operator">=</span> <span class="token number">2</span>
       <tags>
         <tag>Linux</tag>
         <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OOP-java-8</title>
+    <url>/2021/08/17/OOP-java-8/</url>
+    <content><![CDATA[<h1 id="다형성"><a href="#다형성" class="headerlink" title="다형성"></a>다형성</h1><h2 id="다형성이란"><a href="#다형성이란" class="headerlink" title="다형성이란"></a>다형성이란</h2><ul>
+<li>프로그램의 각 요소들(상수,변수,객체,함수,메소드 …)이 여러 가지 타입에 속할수 있는 성질</li>
+<li>객체지향 프로그래밍에서 가장 큰 특징(추상화,캡슐화,상속,다형성) 중 하나이다.</li>
+</ul>
+<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">bark</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"동물이 웁니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@java.lang.Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">bark</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"왈왈"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shakeTail</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"살랑살랑"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    i
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@java.lang.Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">bark</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"야옹"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PolymorphismTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Aniaml</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Aniaml</span> cat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Animal</span><span class="token punctuation">></span></span> animalArrayList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Animal</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+        animalArrayList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>dog<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        animalArrayList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>cat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Animal</span> animal <span class="token operator">:</span> animalArrayList<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            animal<span class="token punctuation">.</span><span class="token function">bark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">barkAnimal</span><span class="token punctuation">(</span><span class="token class-name">Animal</span> animal<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        animal<span class="token punctuation">.</span><span class="token function">bark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>코드를 실행하면 같은 animal.bark()임에도 불구하고 </p>
+<p>  ‘야옹’과 ‘멍멍’이 출력이 된다.</p>
+</li>
+<li><p>이렇듯 같은 코드여도 메소드 오버라이딩을 통해 다른 결과를 가질 수 있다. </p>
+</li>
+<li><p>그러나 Dog 클래스의 shakeTail 메소드는 현재 Dog가 Animal 타입이기 때문에 접근이 불가능하다</p>
+</li>
+<li><p>따라서 접근하기 위해선 Downcasting이 필요하다</p>
+</li>
+</ul>
+<h2 id="downcasting"><a href="#downcasting" class="headerlink" title="downcasting"></a>downcasting</h2><ul>
+<li><p>Upcasting된 객체를 다시 원래의 타입으로 캐스팅 하는 것</p>
+</li>
+<li><p>하위 클래스로의 형 변환은 명시적으로 해야한다</p>
+</li>
+<li><p><code>dog = (Dog)dog</code>  <code>객체 = (원래하위클래스) 업캐스팅된객체</code> </p>
+</li>
+<li><p>또는 <code>(Dog dog).shakeTail();</code> 과 같이 사용 할 수 있다.</p>
+</li>
+</ul>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><ul>
+<li>instanceof 함수는 원래 형이 맞는지 체크하는 키워드이다<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>dog <span class="token keyword">instanceof</span> <span class="token class-name">Dog</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    dog <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Dog</span><span class="token punctuation">)</span>dog<span class="token punctuation">;</span>
+    dog<span class="token punctuation">.</span><span class="token function">shakeTail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>polymorphism</tag>
       </tags>
   </entry>
   <entry>

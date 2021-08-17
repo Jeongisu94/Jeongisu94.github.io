@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,507 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/05/System-Programming-Pthread/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/05/System-Programming-Pthread/" class="post-title-link" itemprop="url">System-Programming-Pthread</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-05 20:06:33" itemprop="dateCreated datePublished" datetime="2021-08-05T20:06:33+09:00">2021-08-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-06 20:32:03" itemprop="dateModified" datetime="2021-08-06T20:32:03+09:00">2021-08-06</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
+<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
+<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
+</ul>
+<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
+<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
+</li>
+<li><p>모든 함수는 pthread_ 로 시작</p>
+</li>
+<li><p>크게 두가지로 분류 된다</p>
+<ul>
+<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
+<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
+</ul>
+</li>
+<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
+<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gcc -pthread test.c -o <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pthread_create</span> <span class="token punctuation">(</span><span class="token class-name">pthread_t</span> <span class="token operator">*</span>thread<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token class-name">pthread_attr_t</span> <span class="token operator">*</span>attr<span class="token punctuation">,</span>
+                    <span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">*</span>start_routine<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">void</span><span class="token operator">*</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/* thread: 생성된 스레드 식별자
+   attr: 스레드 특징 설정
+   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)
+   arg: 스레드 함수 인자 */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">pthread_t</span> thread1<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">thread_function</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>ptr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ret <span class="token operator">=</span> <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>thread1<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span> thread_function<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>message1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// return갑은 성공하면 0 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
+<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">pthread_exit</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>retaval<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
+<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
+<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
+<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
+</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pthread_join</span> <span class="token punctuation">(</span><span class="token class-name">pthread_t</span> thread<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span><span class="token operator">*</span>thread_return<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">pthread_join</span> <span class="token punctuation">(</span>p_thread<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span>
+
+<span class="token function">prtinf</span><span class="token punctuation">(</span><span class="token string">"thread join %d\n"</span> <span class="token punctuation">,</span> status<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
+<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
+<ul>
+<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
+</ul>
+</li>
+<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
+<ul>
+<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
+<li>detach는 해당 스레드가 종료되면 바로 해제</li>
+</ul>
+</li>
+</ul>
+<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
+<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">pthread_mutext_t</span> mutex_lock <span class="token operator">=</span> PTHREAD_MUTEX_INITIALIZER<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token class-name">pthread_mutex_t</span> <span class="token operator">*</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token class-name">pthread_mutex_t</span> <span class="token operator">*</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">inlcude</span> <span class="token expression"><span class="token operator">&lt;</span>pthread<span class="token punctuation">.</span>h<span class="token operator">></span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+
+<span class="token class-name">pthread_mutex_t</span> mutex_lock <span class="token operator">=</span> PTHREAD_MUTEX_INITIALIZER<span class="token punctuation">;</span>
+<span class="token keyword">int</span> g_count <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">t_function</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 스레드 함수</span>
+  <span class="token keyword">char</span><span class="token operator">*</span> thread_name <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>data<span class="token punctuation">;</span>
+  <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex_lock<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Mutex로 락</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s start\n"</span><span class="token punctuation">,</span> thread_name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10000000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    g_count<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s, g_count = %d\n"</span> thread_name<span class="token punctuation">,</span> g_count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex_lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token class-name">pthread_t</span> p_thread1<span class="token punctuation">,</span> p_thread2<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> status<span class="token punctuation">;</span>
+  <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>p_thread1<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> t_function<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token string">"Thread1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>p_thread2<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> t_function<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token string">"Thread2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pthread_join</span><span class="token punctuation">(</span>p_thread1<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pthread_join</span><span class="token punctuation">(</span>p_thread2<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/05/ShellScript-Basic-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/05/ShellScript-Basic-2/" class="post-title-link" itemprop="url">ShellScript-Basic(2)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-08-05 17:23:06 / Modified: 19:59:18" itemprop="dateCreated datePublished" datetime="2021-08-05T17:23:06+09:00">2021-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
+<li>디렉토리내의 하부디렉토리 또는 파일들을 주기적으로 백업하는 쉘 스크립트<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -z <span class="token variable">$1</span> <span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span> -z <span class="token variable">$2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token comment"># 인자 2개를 받아서 하나라도 NULL이면 참이면</span>
+  ehco usage: <span class="token variable">$0</span> sourcedir targetdir <span class="token comment"># 쉘 이름과 사용법을 출력</span>
+<span class="token keyword">else</span>
+  <span class="token assign-left variable">SRCDIR</span><span class="token operator">=</span><span class="token variable">$1</span>
+  <span class="token assign-left variable">DSTDIR</span><span class="token operator">=</span><span class="token variable">$2</span>
+  <span class="token assign-left variable">BACKUPFILE</span><span class="token operator">=</span>backup.<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%y%m%d%H%M%S<span class="token variable">)</span></span>.tar.gz <span class="token comment"># date 쉘명령어를 사용하여 날짜와 시간을 기록하여 백업파일을 생성</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> -d <span class="token variable">$DSTDIR</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token comment"># DSTDIR가 디렉토리이면 </span>
+    <span class="token function">tar</span> -cvzf <span class="token variable">$DSTDIR</span>/<span class="token variable">$BACKUPFILE</span> <span class="token variable">$SRCDIR</span> <span class="token comment"># 압축</span>
+  <span class="token keyword">else</span>
+    <span class="token function">mkdir</span> <span class="token variable">$DSTDIR</span> <span class="token comment"># 디렉토리가 없으면 생성하고 압축</span>
+    <span class="token function">tar</span> -cvzf <span class="token variable">$DSTDIR</span>/<span class="token variable">$BACKUPFILE</span> <span class="token variable">$SRCDIR</span> 
+  <span class="token keyword">fi</span> 
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="tar-명령어"><a href="#tar-명령어" class="headerlink" title="tar 명령어"></a>tar 명령어</h4><ul>
+<li>기존의 tar는 하나의 파일로 묶기만 가능했는데gzip이라는 압축명령이 많이 쓰이게되면서 tar라는 명령에 묶기가 아닌 압축도 할 수있 게끔 옵션을 제공하여gzip을 활용해서 묶고 압축 할 수 있다.</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">x  <span class="token comment">#묶음 해제</span>
+c  <span class="token comment">#파일 묶음</span>
+<span class="token function">v</span>  <span class="token comment">#묶음 해제 과정 출력</span>
+z  <span class="token comment">#gunzip을 사용</span>
+f  <span class="token comment">#파일 이름을 지정</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -cvzf <span class="token punctuation">[</span>압축된 파일 이름<span class="token punctuation">]</span> <span class="token punctuation">[</span>압축할 파일이나 폴더명<span class="token punctuation">]</span>
+<span class="token function">tar</span> -xvzf <span class="token punctuation">[</span>압축 해제할 압축 아카이브 이름<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type -f -name <span class="token string">'filename'</span> -exec <span class="token function">bash</span> -c <span class="token string">"shell1, shell2, shell3 "</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+<span class="token comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span>
+<span class="token comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token assign-left variable">LOGDIR</span><span class="token operator">=</span>/var/log
+GZIPDAY <span class="token operator">=</span> <span class="token number">1</span>
+DELDAY <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token builtin class-name">cd</span> %LOGDIR
+<span class="token builtin class-name">echo</span> <span class="token string">"cd <span class="token variable">$LOGDIR</span>"</span>
+
+<span class="token function">sudo</span> <span class="token function">find</span> ./path -type f -name <span class="token string">'*log.?'</span> -mtime +<span class="token variable">$GZIPDAY</span> -exec <span class="token function">bash</span> -c <span class="token string">"gzip &#123;&#125;"</span> <span class="token punctuation">\</span><span class="token punctuation">;</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>
+<span class="token comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span>
+<span class="token function">sudo</span> <span class="token function">find</span> ./path -type f -name <span class="token string">'*gz.?'</span> -mtime +<span class="token variable">$DELSDAY</span> -exec <span class="token function">bash</span> -c <span class="token string">"rm -f &#123;&#125;"</span> <span class="token punctuation">\</span><span class="token punctuation">;</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>
+<span class="token comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/04/ShellScript-Basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/04/ShellScript-Basic/" class="post-title-link" itemprop="url">ShellScript-Basic</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-04 21:25:10" itemprop="dateCreated datePublished" datetime="2021-08-04T21:25:10+09:00">2021-08-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-05 17:43:27" itemprop="dateModified" datetime="2021-08-05T17:43:27+09:00">2021-08-05</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Shell-Script"><a href="#Shell-Script" class="headerlink" title="Shell Script"></a>Shell Script</h1><h2 id="기본-문법"><a href="#기본-문법" class="headerlink" title="기본 문법"></a>기본 문법</h2><ul>
+<li>쉘 스크립트는 파일로 작성 후 파일을 실행함</li>
+<li>파일의 가장 위으 ㅣ첫 라인은 <code>#!/bin/bash</code>로 시작</li>
+<li>쉘 스크립트 파일은 실행 권한을 갖고있어야함</li>
+</ul>
+<h3 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h3><p>hello.sh</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token builtin class-name">echo</span> <span class="token string">'Hello Bash!'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> <span class="token number">777</span> hello.sh
+$./hello.sh
+
+Hello bash<span class="token operator">!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>echo</code>는 화면에 출력해주는 쉘 명령어</li>
+</ul>
+<h3 id="변수"><a href="#변수" class="headerlink" title="변수"></a>변수</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token assign-left variable">mysql_id</span><span class="token operator">=</span><span class="token string">'root'</span> 
+<span class="token assign-left variable">mysql_directory</span><span class="token operator">=</span><span class="token string">'/etc/mysql'</span>
+
+<span class="token builtin class-name">echo</span> <span class="token variable">$mysql_id</span> <span class="token comment"># $변수명으로 사용가능 </span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$mysql_directory</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">daemons</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">"httpd"</span> <span class="token string">"mysql"</span> <span class="token string">"vsftpd"</span><span class="token punctuation">)</span> <span class="token comment"># , 가아닌 띄어쓰기로 구분</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$&#123;daemons<span class="token punctuation">[</span>1<span class="token punctuation">]</span>&#125;</span> <span class="token comment"># $&#123;배열명[index]&#125; 형식으로 사용</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$&#123;daemons<span class="token punctuation">[</span>a<span class="token punctuation">]</span>&#125;</span> <span class="token comment"># 배열의 모든 데이터 출력</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$&#123;daemons<span class="token punctuation">[</span>*<span class="token punctuation">]</span>&#125;</span> <span class="token comment"># 배열의 모든 데이터 출력</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$&#123;<span class="token operator">#</span>daemons<span class="token punctuation">[</span>@<span class="token punctuation">]</span>&#125;</span> <span class="token comment"># 배열의 크기 출력 : 3</span>
+
+filelist <span class="token operator">=</span> <span class="token punctuation">(</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">ls</span><span class="token variable">)</span></span> <span class="token punctuation">)</span> <span class="token comment"># 괄호안에있는 명령어의 결과값을 배열에 넣는다</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$&#123;filelist<span class="token punctuation">[</span>*<span class="token punctuation">]</span>&#125;</span> <span class="token comment"># filelist의 모든 값 출력</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>arraytest.sh</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">my_info <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"isu"</span> <span class="token string">"28"</span> <span class="token string">"BE"</span><span class="token punctuation">&#125;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$&#123;my_info<span class="token punctuation">[</span>0<span class="token punctuation">]</span>&#125;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$&#123;my_info<span class="token punctuation">[</span>*<span class="token punctuation">]</span>&#125;</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$&#123;<span class="token operator">#</span>my_info<span class="token punctuation">[</span>@<span class="token punctuation">]</span>&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="사전에-정의된-지역-변수"><a href="#사전에-정의된-지역-변수" class="headerlink" title="사전에 정의된 지역 변수"></a>사전에 정의된 지역 변수</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token variable">$$</span> <span class="token comment"># 쉘의 프로세스 번호 (pid)</span>
+<span class="token variable">$0</span> <span class="token comment"># 쉘스크립트 이름 ex) ls </span>
+<span class="token variable">$1</span> ~ <span class="token variable">$9</span> <span class="token comment"># 명령줄 인수 </span>
+<span class="token variable">$*</span> <span class="token comment"># 모든 명령줄 인수리스트 ex) -al -z</span>
+<span class="token variable">$#</span> <span class="token comment"># 인수의 갯수 ex) 2개 (la -al -z)</span>
+<span class="token variable">$?</span> <span class="token comment"># 최근 실행한 명령어의 종료 값 0은 성공 나머지는 실패 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h3><ul>
+<li>expr: 숫자 연산</li>
+<li>expr을 사용하는 경우 backquote를 사용해야함</li>
+<li>연산자 *와 () 앞에는 \를 사용해야함</li>
+<li>숫자,변수,기호 사이에는 space가 있어야 구분됨</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">num <span class="token operator">=</span> <span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> <span class="token punctuation">\</span><span class="token punctuation">(</span><span class="token number">3</span> <span class="token punctuation">\</span>* <span class="token number">5</span><span class="token punctuation">\</span><span class="token punctuation">)</span> / + <span class="token number">4</span> + <span class="token number">7</span> <span class="token variable">`</span></span>
+<span class="token comment"># (3*5)/4+7</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="조건문"><a href="#조건문" class="headerlink" title="조건문"></a>조건문</h3><ul>
+<li><p>if로 시작해서 fi로 끝남</p>
+</li>
+<li><p>indent는 필요없지만 가독성을 위해 써야함 </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span> state <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+  <span class="token comment">#TODO</span>
+<span class="token keyword">else</span> 
+  <span class="token comment">#TODO</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>한줄로 작성하기 위해선 ; 으로 구분함</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span> 조건 <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> TODO<span class="token punctuation">;</span> <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<p>예시</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$1</span> <span class="token operator">!=</span> <span class="token variable">$2</span> <span class="token punctuation">]</span> <span class="token comment"># 인자를 2개를 받아 비교</span>
+<span class="token keyword">then</span>
+  ehco <span class="token string">"different value"</span>
+
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="조건"><a href="#조건" class="headerlink" title="조건"></a>조건</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$1</span> -z <span class="token variable">$2</span> <span class="token punctuation">]</span> 
+-z <span class="token comment"># 문자가 null이면 참</span>
+-n <span class="token comment"># 문자가 not null 이면 참 </span>
+-eq <span class="token comment"># equal == </span>
+-ne <span class="token comment"># not equal !=</span>
+-lt <span class="token comment"># less than &lt;</span>
+-le <span class="token comment"># less equal &lt;=</span>
+-gt <span class="token comment"># greater than ></span>
+-ge <span class="token comment"># greater equal >=</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="파일검사-조건"><a href="#파일검사-조건" class="headerlink" title="파일검사 조건"></a>파일검사 조건</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-e <span class="token comment"># 파일이 존재하면 참</span>
+-d <span class="token comment"># 파일이 디렉토리이면 참</span>
+-h <span class="token comment"># 심볼릭 링크파일이면 침</span>
+-f <span class="token comment"># 파일이 일반파일이면 참 (directory X)</span>
+-s <span class="token comment"># 파일 크기가 0이 아니면 참</span>
+-u <span class="token comment"># 파일이 set-user-id 설정되면 참</span>
+-r <span class="token comment"># 파일이 읽기 가능 상태이면 참</span>
+-w <span class="token comment"># 파일이 쓰기 가능 상태이면 참</span>
+-x <span class="token comment"># 파일이 실행 가능 상태이면 참</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="명령어-해석"><a href="#명령어-해석" class="headerlink" title="명령어 해석"></a>명령어 해석</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ping</span> -c <span class="token number">1</span> <span class="token number">192.168</span>.0.1 <span class="token operator"><span class="token file-descriptor important">1</span>></span>/dev/null
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span> 
+  <span class="token builtin class-name">echo</span> <span class="token string">"Success Ping"</span>
+<span class="token keyword">else</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"Failed Ping"</span>
+<span class="token keyword">fi</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>-c 1 : ping을 한번만 보냄</li>
+<li>192.168.0.1 : 타겟 IP</li>
+<li>1&gt;/dev/null : 표준출력을 /dev/null로 리디렉션 따라서 출력내용은 버려짐</li>
+<li>$? ==0 : 가장 최근 인자를 가져옴 </li>
+</ul>
+<h3 id="For-반복문"><a href="#For-반복문" class="headerlink" title="For 반복문"></a>For 반복문</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">for</span> 변수 <span class="token keyword">in</span> 변수값1 변수값2
+<span class="token keyword">do</span>
+  TODO
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">database</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">$(</span><span class="token function">ls</span><span class="token variable">)</span></span>
+<span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token variable">$database</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="While-반복문"><a href="#While-반복문" class="headerlink" title="While 반복문"></a>While 반복문</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">while</span> <span class="token punctuation">[</span> 조건문 <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+  TODO
+<span class="token keyword">while</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token assign-left variable">list</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">ls</span><span class="token variable">)</span></span> <span class="token comment"># list변수에 ls명령의 결과를 저장</span>
+<span class="token assign-left variable">num</span><span class="token operator">=</span><span class="token variable">$&#123;<span class="token operator">#</span>lists<span class="token punctuation">[</span>@<span class="token punctuation">]</span>&#125;</span> <span class="token comment"># 리스트의 갯수를 저장</span>
+index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token variable">$num</span> -ge <span class="token number">0</span> <span class="token punctuation">]</span> <span class="token comment"># num >= 0</span>
+<span class="token keyword">do</span>
+  ehco <span class="token variable">$&#123;list<span class="token punctuation">[</span>$index<span class="token punctuation">]</span>&#125;</span>
+  <span class="token assign-left variable">index</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> $index + <span class="token number">1</span><span class="token variable">`</span></span>
+  <span class="token assign-left variable">num</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">expr</span> $num -1<span class="token variable">`</span></span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1281,396 +1782,6 @@ buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조
 <li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
 <li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/23/Linux-FileSystem/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/23/Linux-FileSystem/" class="post-title-link" itemprop="url">Linux의 파일 시스템</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-23 19:20:30" itemprop="dateCreated datePublished" datetime="2021-07-23T19:20:30+09:00">2021-07-23</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-05 01:26:10" itemprop="dateModified" datetime="2021-08-05T01:26:10+09:00">2021-08-05</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Linux-파일-시스템"><a href="#Linux-파일-시스템" class="headerlink" title="Linux 파일 시스템"></a>Linux 파일 시스템</h1><p>리눅스는 모든 것은 파일이라는 철학에따라 모든 인터랙션은 파일을 읽고 쓰는 것처럼 이루어져있다.<br>따라서 모든 자원에 대한 추상화 인터페이스로 파일 인터페이스를 활용한다.</p>
-<p>네트워크,마우스,키보드, 저장매체들과 운영체제간에 IO로 이루어져있어<br>가장 간단한 인터페이스인 File Interface를 추상화하여 다룬다.</p>
-<p>##File namespace</p>
-<ul>
-<li>Linux는 전역 네임스페이스를 사용한다</li>
-<li>/directory1/sub/image.jpg</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">cat</span> <span class="token function">tty</span> <span class="token comment"># 가상파일 시스템 인터페이스 - 가상터미널환경 - input(키보드)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="슈퍼블록-inode"><a href="#슈퍼블록-inode" class="headerlink" title="슈퍼블록 , inode"></a>슈퍼블록 , inode</h2><h3 id="슈퍼블록"><a href="#슈퍼블록" class="headerlink" title="슈퍼블록"></a>슈퍼블록</h3><ul>
-<li>파일 시스템에 관한 정보(전체사이즈, 어떤 FS Algorithms을 썻는지 등)</li>
-</ul>
-<h3 id="파일"><a href="#파일" class="headerlink" title="파일"></a>파일</h3><ul>
-<li>프로세스는 pid와 매핑되어있는 것 처럼 각각의 파일은 inode와 매핑이 되어있다.</li>
-<li>파일시스템에서는 inode를 기반으로 파일을 엑세스함</li>
-<li>프로세스의 정보를 저장해놓은 PCB처럼 inode의 정보를 기반으로 요약해놓은 정보를 메타데이터라고 함</li>
-</ul>
-<p><img src="/image/Linux-FileSystem/52dcd856.png"></p>
-<p><em>inode 기반 메타 데이터</em></p>
-<ol>
-<li>Mode 소유자</li>
-<li>Owner info 소유자 정보</li>
-<li>Size 파일의 사이즈</li>
-<li>Timestamps 생성시간</li>
-<li>Direct Blocks 파일을 블록이라는 작은단위로 나눈 것을 엑세스 할 수 있는 첫번쨰 주소를 저장해놓음</li>
-<li>indirect blocks , double indirect , triple indirect 간접적으로 블록에 접근할 수 있는 주소</li>
-</ol>
-<h2 id="File-inode"><a href="#File-inode" class="headerlink" title="File inode"></a>File inode</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/home/ubuntu/link.txt <span class="token comment"># '/' 가 덴트리이다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>dentry(directory entry)</p>
-<ul>
-<li>각 덴트리는 해당 디렉토리 파일과 정보를 가지고 있다</li>
-<li>탐색할때 각 덴트리에서 inode를 찾아 계층적으로 탐색한다</li>
-</ul>
-<h2 id="Hard-Link-VS-Soft-Link"><a href="#Hard-Link-VS-Soft-Link" class="headerlink" title="Hard Link VS Soft Link"></a>Hard Link VS Soft Link</h2><ul>
-<li>다른 디렉토리에서 접근 할 수 있게끔 파일에 연결하는 것을 link라고하는데<br>방법에따라 Hard Link와 Soft Link로 나뉜다.</li>
-</ul>
-<p><img src="/image/Linux-FileSystem/hardsoftlink.png"></p>
-<h3 id="Hard-link"><a href="#Hard-link" class="headerlink" title="Hard link"></a>Hard link</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ln</span> <span class="token punctuation">[</span>Original File<span class="token punctuation">]</span> <span class="token punctuation">[</span>Link File<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>Hard link를 하게되면 파일이 생기는데 그때의 inode의 번호는 Original File을 따라간다. </p>
-<p><img src="/image/Linux-FileSystem/hardlink.png"></p>
-<p>Original File을 삭제해도 inode구조는 삭제되지 않기때문에<br>Hard Link한 파일은 여전히 접근 가능하다.<br>w</p>
-<h3 id="Soft-Link-Symbolic-Link"><a href="#Soft-Link-Symbolic-Link" class="headerlink" title="Soft Link (Symbolic Link)"></a>Soft Link (Symbolic Link)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> -s <span class="token punctuation">[</span>File1<span class="token punctuation">]</span> <span class="token punctuation">[</span>File2<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/image/Linux-FileSystem/softlink_.png"></p>
-<ul>
-<li>Windows OS의 바로가기와 기능상 동일하다.</li>
-<li>Soft link의 inode구조체에는 원본파일의 주소가 있어 리디렉션을해 원본파일이 삭제되면 접근할 수 없게된다.<h3 id="Copy"><a href="#Copy" class="headerlink" title="Copy"></a>Copy</h3></li>
-</ul>
-<p>copy의경우 파일의 내용 전체를 복사하기때문에 그만큼 용량도 두배로 늘어나게 된다.</p>
-<hr>
-<h2 id="특수파일"><a href="#특수파일" class="headerlink" title="특수파일"></a>특수파일</h2><h3 id="디바이스"><a href="#디바이스" class="headerlink" title="디바이스"></a>디바이스</h3><ul>
-<li>블록디바이스 <ul>
-<li>HDD같이 블록이나 섹터 등 정해진 단위로 데이터 전송</li>
-</ul>
-</li>
-<li>캐릭터 디바이스<ul>
-<li>키보드 마우스등 byte 단위 데이터 전송 </li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/23/Linux-How_to_use_shell/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/23/Linux-How_to_use_shell/" class="post-title-link" itemprop="url">Shell 사용법 2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-23 01:20:30" itemprop="dateCreated datePublished" datetime="2021-07-23T01:20:30+09:00">2021-07-23</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-04 21:56:20" itemprop="dateModified" datetime="2021-08-04T21:56:20+09:00">2021-08-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>#Shell 사용법</p>
-<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
-<li>바이너리는 실행할 수 있는 파일</li>
-<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
-<li>메모리와 관련된 상태정보 (PCB)</li>
-<li>시스템 리소스</li>
-<li>스케쥴링 단위</li>
-</ul>
-</li>
-</ul>
-<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
-<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
-<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
-</ul>
-<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
-<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
-<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
-<li>서버 데몬, 백신 프로그램, etc..</li>
-</ul>
-<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">find</span> / -name <span class="token string">'*.py'</span> <span class="token operator">></span> list.txt <span class="token operator">&amp;</span>
-<span class="token punctuation">[</span>job number<span class="token punctuation">]</span> process ID <span class="token comment">## result</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">^Z <span class="token comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span>
-^C <span class="token comment">## 포어그라운드 프로세스 종료</span>
-<span class="token function">jobs</span> <span class="token comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span>
-<span class="token function">ps</span> <span class="token comment">## 실행중인 프로세스 출력 </span>
-<span class="token function">kill</span> -9 <span class="token punctuation">[</span>PID<span class="token punctuation">]</span> <span class="token comment">## PID해당하는 프로세스 죽이기</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-<p><a target="_blank" rel="noopener" href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/22/Linux%20-%20Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95%20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/22/Linux%20-%20Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95%20/" class="post-title-link" itemprop="url">Shell 사용법 1</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-22 01:20:30" itemprop="dateCreated datePublished" datetime="2021-07-22T01:20:30+09:00">2021-07-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-30 02:58:37" itemprop="dateModified" datetime="2021-07-30T02:58:37+09:00">2021-07-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Shell-사용법"><a href="#Shell-사용법" class="headerlink" title="Shell 사용법"></a>Shell 사용법</h1><h2 id="Standard-Stream-표준-입출력"><a href="#Standard-Stream-표준-입출력" class="headerlink" title="Standard Stream (표준 입출력)"></a>Standard Stream (표준 입출력)</h2><ul>
-<li>리눅스환경에서는  command로 실행되는 프로세스는 세가지 스트림을 가진다<ul>
-<li>표준 입력 스트림 - stdin</li>
-<li>표준 출력 스트림 - stdout</li>
-<li>표준 오류 스트림 - stderr</li>
-</ul>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled.png"></p>
-<p>ex) ls -al 은 stdin에 해당하고 stdout은 그에따른 결과에 해당한다고 할 수 있다.</p>
-<hr>
-<h2 id="Redirection-리디렉션"><a href="#Redirection-리디렉션" class="headerlink" title="Redirection (리디렉션)"></a>Redirection (리디렉션)</h2><ul>
-<li><p>표준 스트림을 바꿔 줄 수 있다.</p>
-<p>   [ &lt; , &gt; , &lt;&lt; , &gt;&gt; ]를 사용한다.</p>
-</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> <span class="token operator">></span> file.txt <span class="token comment"># 출력내용을 터미널의 console에 출력이 아닌 file.txt에 저장시킴</span>
-
-<span class="token function">head</span> <span class="token operator">&lt;</span> file.txt <span class="token comment"># file.txt내용의 10줄이 입력으로 사용 된다.ead &lt; files.txt > files2.txt</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">head</span> <span class="token operator">&lt;</span>.bashrc <span class="token operator">></span> test.txt <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ul>
-<li>이 명령어는 다음과 같이 작동한다.<ol>
-<li>head &lt; .bashrc</li>
-<li>1의 결과 &gt; test.txt에 저장</li>
-</ol>
-<ul>
-<li>출력화면</li>
-</ul>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled%201.png"></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ls</span> -al <span class="token operator">>></span> test1.txt <span class="token comment"># 기존의 내용을 삭제하지않고 추가한다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="Pipe-파이프"><a href="#Pipe-파이프" class="headerlink" title="Pipe (파이프)"></a>Pipe (파이프)</h2><ul>
-<li><p>여러개의 프로세스 사이에서 앞의 프로세스의 출력을 그 뒤의 프로세스의 입력으로 사용 하는 것.</p>
-<p>  [ | ] 를 사용한다.</p>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/%ED%8C%8C%EC%9D%B4%ED%94%84.jpg"></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">cat</span> .bashrc <span class="token operator">|</span> <span class="token function">grep</span> <span class="token keyword">case</span>
-<span class="token keyword">case</span> $- <span class="token keyword">in</span>
-<span class="token keyword">case</span> <span class="token string">"<span class="token environment constant">$TERM</span>"</span> <span class="token keyword">in</span>
-	<span class="token comment"># a case would tend to support setf rather than setaf.)</span>
-<span class="token keyword">case</span> <span class="token string">"<span class="token environment constant">$TERM</span>"</span> <span class="token keyword">in</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol>
-<li>cat 명령을 통한 출력내용이 grep 명령의 입력 스트림으로 들어간다.</li>
-<li>grep case 는 grep 명령의 입력스을 검색해서 cat의 출력내용에 case가 있는 라인만 출력한다</li>
-</ol>
 
       
     </div>
