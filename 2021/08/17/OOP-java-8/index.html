@@ -22,13 +22,13 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="다형성다형성이란 프로그램의 각 요소들(상수,변수,객체,함수,메소드 …)이 여러 가지 타입에 속할수 있는 성질 객체지향 프로그래밍에서 가장 큰 특징(추상화,캡슐화,상속,다형성) 중 하나이다.  예시class Animal &amp;#123;     public void bark() &amp;#123;         System.out.println(&quot;동물이 웁니다.&quot;);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="객체지향 프로그래밍 8">
+<meta property="og:title" content="객체지향 프로그래밍 - Polymorphism">
 <meta property="og:url" content="https://jeongisu94.github.io/2021/08/17/OOP-java-8/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
 <meta property="og:description" content="다형성다형성이란 프로그램의 각 요소들(상수,변수,객체,함수,메소드 …)이 여러 가지 타입에 속할수 있는 성질 객체지향 프로그래밍에서 가장 큰 특징(추상화,캡슐화,상속,다형성) 중 하나이다.  예시class Animal &amp;#123;     public void bark() &amp;#123;         System.out.println(&quot;동물이 웁니다.&quot;);">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-17T10:36:48.000Z">
-<meta property="article:modified_time" content="2021-08-17T14:01:16.078Z">
+<meta property="article:modified_time" content="2021-08-18T07:27:41.678Z">
 <meta property="article:author" content="Jeongisu">
 <meta property="article:tag" content="polymorphism">
 <meta name="twitter:card" content="summary">
@@ -38,10 +38,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/08/17/OOP-java-8/","path":"2021/08/17/OOP-java-8/","title":"객체지향 프로그래밍 8"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/08/17/OOP-java-8/","path":"2021/08/17/OOP-java-8/","title":"객체지향 프로그래밍 - Polymorphism"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>객체지향 프로그래밍 8 | ISU's Blog</title>
+<title>객체지향 프로그래밍 - Polymorphism | ISU's Blog</title>
   
 
 
@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -226,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          객체지향 프로그래밍 8
+          객체지향 프로그래밍 - Polymorphism
         </h1>
 
         <div class="post-meta-container">
@@ -236,10 +236,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-17 19:36:48 / Modified: 23:01:16" itemprop="dateCreated datePublished" datetime="2021-08-17T19:36:48+09:00">2021-08-17</time>
+      <time title="Created: 2021-08-17 19:36:48" itemprop="dateCreated datePublished" datetime="2021-08-17T19:36:48+09:00">2021-08-17</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-18 16:27:41" itemprop="dateModified" datetime="2021-08-18T16:27:41+09:00">2021-08-18</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -353,13 +359,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/17/OOP-java-7/" rel="prev" title="객체지향 프로그래밍 7">
-                  <i class="fa fa-chevron-left"></i> 객체지향 프로그래밍 7
+                <a href="/2021/08/17/OOP-java-7/" rel="prev" title="객체지향 프로그래밍 - Inheritance">
+                  <i class="fa fa-chevron-left"></i> 객체지향 프로그래밍 - Inheritance
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/17/OOP-java-9/" rel="next" title="객체지향 프로그래밍 9">
-                  객체지향 프로그래밍 9 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/08/17/OOP-java-9/" rel="next" title="객체지향 프로그래밍 - Abstract Method">
+                  객체지향 프로그래밍 - Abstract Method <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

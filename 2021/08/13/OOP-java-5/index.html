@@ -22,13 +22,13 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="StaticStatic 변수 static은 변수앞에 붙는 키워드로 인스턴스가 생성될 떄 만들어지는 변수가 아닌 처음 프로그램이 메모리에 로딩 될때 메모리에 할당된다.  클래스 변수, 정적변수라고도 한다  메모리의 데이터영역에 저장된다. *인스턴스는 힙영역  인스턴스 생성과 상관없이 사용가능해서 클래스 이름으로 접근이 가능하다   package staticT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="객체 지향 프로그래밍 5">
+<meta property="og:title" content="객체 지향 프로그래밍 - Static">
 <meta property="og:url" content="https://jeongisu94.github.io/2021/08/13/OOP-java-5/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
 <meta property="og:description" content="StaticStatic 변수 static은 변수앞에 붙는 키워드로 인스턴스가 생성될 떄 만들어지는 변수가 아닌 처음 프로그램이 메모리에 로딩 될때 메모리에 할당된다.  클래스 변수, 정적변수라고도 한다  메모리의 데이터영역에 저장된다. *인스턴스는 힙영역  인스턴스 생성과 상관없이 사용가능해서 클래스 이름으로 접근이 가능하다   package staticT">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-13T11:59:48.000Z">
-<meta property="article:modified_time" content="2021-08-14T07:03:21.123Z">
+<meta property="article:modified_time" content="2021-08-18T07:28:14.995Z">
 <meta property="article:author" content="Jeongisu">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="oop">
@@ -40,10 +40,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/08/13/OOP-java-5/","path":"2021/08/13/OOP-java-5/","title":"객체 지향 프로그래밍 5"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/08/13/OOP-java-5/","path":"2021/08/13/OOP-java-5/","title":"객체 지향 프로그래밍 - Static"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>객체 지향 프로그래밍 5 | ISU's Blog</title>
+<title>객체 지향 프로그래밍 - Static | ISU's Blog</title>
   
 
 
@@ -164,7 +164,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,7 +175,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -228,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          객체 지향 프로그래밍 5
+          객체 지향 프로그래밍 - Static
         </h1>
 
         <div class="post-meta-container">
@@ -246,7 +246,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-14 16:03:21" itemprop="dateModified" datetime="2021-08-14T16:03:21+09:00">2021-08-14</time>
+        <time title="Modified: 2021-08-18 16:28:14" itemprop="dateModified" datetime="2021-08-18T16:28:14+09:00">2021-08-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -381,8 +381,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/13/OOP-java-4/" rel="prev" title="객체 지향 프로그래밍 4">
-                  <i class="fa fa-chevron-left"></i> 객체 지향 프로그래밍 4
+                <a href="/2021/08/13/OOP-java-4/" rel="prev" title="객체 지향 프로그래밍 - 접근 제어자">
+                  <i class="fa fa-chevron-left"></i> 객체 지향 프로그래밍 - 접근 제어자
                 </a>
             </div>
             <div class="post-nav-item">

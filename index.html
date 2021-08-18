@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -208,6 +208,143 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/18/OOP-java-11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/18/OOP-java-11/" class="post-title-link" itemprop="url">Java - Object Class</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-08-18 19:41:10 / Modified: 20:30:34" itemprop="dateCreated datePublished" datetime="2021-08-18T19:41:10+09:00">2021-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Object-Class"><a href="#Object-Class" class="headerlink" title="Object Class"></a>Object Class</h1><h2 id="Object-Class-1"><a href="#Object-Class-1" class="headerlink" title="Object Class"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html">Object Class</a></h2><ul>
+<li>Object 클래스는 가장 상위클래스이다.</li>
+<li>즉 모든 클래스들은 Object클래스를 상속받고 필요에 의해 Object Class의 Method를 재정의하여 사용할 수 있다.</li>
+<li>Compiler는 Compile시에 Extends Object를 추가한다</li>
+</ul>
+<h3 id="Object-Class-Method"><a href="#Object-Class-Method" class="headerlink" title="Object Class Method"></a>Object Class Method</h3><h4 id="override-toString"><a href="#override-toString" class="headerlink" title="override toString()"></a>override toString()</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AnimalTest</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Animal</span> dog <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token string">"Dog"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> test <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"test"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dog<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>test<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>코드의 결과는 다음과 같다 <img src="/image/OOP-java-11_images/animaltest.png"></p>
+</li>
+<li><p>test의 toString()은 이미 재정의 되어있기때문에 test를 바로 출력하지만</p>
+</li>
+<li><p>Animal 클래스는 그렇지않기때문에 16진수의 주소값을 출력한다.<br><img src="/image/OOP-java-11_images/tostringoveride.png"></p>
+</li>
+<li><p>따라서 Animal class 또한 object를 상속받았기때문에 toString()을 오버라이드 할 수 있다.</p>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AnimalTest</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">,</span> <span class="token keyword">int</span> age<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token string">"Animal&#123;"</span> <span class="token operator">+</span>
+                    <span class="token string">"name='"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">'\''</span> <span class="token operator">+</span>
+                    <span class="token string">", age="</span> <span class="token operator">+</span> age <span class="token operator">+</span>
+                    <span class="token string">'&#125;'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/image/OOP-java-11_images/2a3ceefb.png"></p>
+<h4 id="equals"><a href="#equals" class="headerlink" title="equals()"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals(java.lang.Object)">equals()</a></h4><ul>
+<li>equals() 메소드는 두 인스턴스 주소 값을 비교하여 True/False를 반환한다</li>
+<li>인스턴스가 달라도 논리적으로 같다면 true를 반환할 수 있도록 재정의가 가능하다.</li>
+</ul>
+<h4 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#hashCode()">hashCode()</a></h4><ul>
+<li>Java에서는 Heap메모리를 관리할때 Hash함수를 이용한다.</li>
+<li>hasCode()는 인스턴스에대한 저장 주소를 반환한다</li>
+<li>equals()를 위와같이 재정의 할때 hash Key값을 Primary Key같은 것으로 사용한다</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/18/OOP-java-10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -221,7 +358,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/18/OOP-java-10/" class="post-title-link" itemprop="url">객체지향 프로그래밍 10</a>
+          <a href="/2021/08/18/OOP-java-10/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - Interface</a>
         </h2>
 
         <div class="post-meta-container">
@@ -233,7 +370,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-08-18 14:11:22 / Modified: 14:33:17" itemprop="dateCreated datePublished" datetime="2021-08-18T14:11:22+09:00">2021-08-18</time>
+      <time title="Created: 2021-08-18 14:11:22 / Modified: 17:25:10" itemprop="dateCreated datePublished" datetime="2021-08-18T14:11:22+09:00">2021-08-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -330,10 +467,210 @@
 <li>따라서 클라이언트는 인터페이스를 보고 그것을 구현한 다양한 객체들을 사용 할 수 있음 (다형성)</li>
 <li>ex)JDBC 인터페이스 (oracle , mysql , mssql)</li>
 </ul>
-<pre class="mermaid">graph TD;
-A --> B
-A --> C
-A --> Dh</pre>
+<pre class="mermaid">graph BT;
+Q[Quick Sort] -.-> S[Sorting]
+B[Buuble Sort] -.-> S
+H[Heap Sort] -.-> S</pre>
+
+<h2 id="인터페이스를-활용해서-DAO-구현하기"><a href="#인터페이스를-활용해서-DAO-구현하기" class="headerlink" title="인터페이스를 활용해서 DAO 구현하기"></a>인터페이스를 활용해서 DAO 구현하기</h2><pre class="mermaid">graph BT;
+A[USER] -- Uses --> B[Userinfo]
+
+subgraph one [DAO]
+C1[oracle] --implement--> B
+C2[mysql] --> B
+C3[mssql] --> B
+end</pre>
+
+<ul>
+<li>DB에 회원 정보를 넣는 data access object를 여러 종류의 DB제품이 지원될 수 있게 구현</li>
+<li>환경파일에서 DB의 종류를 읽고 그에 맞게 dao 인스턴스를 생성 &amp; 실행</li>
+</ul>
+<h3 id="구현"><a href="#구현" class="headerlink" title="구현"></a>구현</h3><ul>
+<li>Hierarchy <img src="/image/OOP-java-10_images/hier.png"></li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserInfoDao</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> <span class="token function">insertUserinfo</span><span class="token punctuation">(</span><span class="token class-name">UserInfo</span> userInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">deleteUserinfo</span><span class="token punctuation">(</span><span class="token class-name">UserInfo</span> userInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">updateUserinfo</span><span class="token punctuation">(</span><span class="token class-name">UserInfo</span> userInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>interface에서는 추상메소드만 선언한다</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserInfoOracleDao</span> <span class="token keyword">implements</span> <span class="token class-name">UserInfoDao</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">insertUserinfo</span><span class="token punctuation">(</span><span class="token class-name">UserInfo</span> userInfo<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Insert into ORACLE DB userID - "</span> <span class="token operator">+</span> userInfo<span class="token punctuation">.</span><span class="token function">getUserID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deleteUserinfo</span><span class="token punctuation">(</span><span class="token class-name">UserInfo</span> userInfo<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Delete into ORACLE DB userID - "</span> <span class="token operator">+</span> userInfo<span class="token punctuation">.</span><span class="token function">getUserID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateUserinfo</span><span class="token punctuation">(</span><span class="token class-name">UserInfo</span> userInfo<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Update into ORACLE DB userID - "</span> <span class="token operator">+</span> userInfo<span class="token punctuation">.</span><span class="token function">getUserID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserInfo</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> userID<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> password<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> userName<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getUserID</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> userID<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setUserID</span><span class="token punctuation">(</span><span class="token class-name">String</span> userID<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userID <span class="token operator">=</span> userID<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> password<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token class-name">String</span> password<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>password <span class="token operator">=</span> password<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getUserName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> userName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setUserName</span><span class="token punctuation">(</span><span class="token class-name">String</span> userName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>userName <span class="token operator">=</span> userName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserInfoClient</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">FileInputStream</span> fis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span><span class="token string">"db.properties"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Properties</span> prop <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Properties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        prop<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>fis<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">String</span> dbType <span class="token operator">=</span> prop<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token string">"DBTYPE"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">UserInfo</span> userInfo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userInfo<span class="token punctuation">.</span><span class="token function">setUserID</span><span class="token punctuation">(</span><span class="token string">"1000"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userInfo<span class="token punctuation">.</span><span class="token function">setUserName</span><span class="token punctuation">(</span><span class="token string">"Kim"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userInfo<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token string">"12345678"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">UserInfoDao</span> userInfoDao <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>dbType<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"ORACLE"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            userInfoDao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserInfoOracleDao</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>dbType<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"MYSQL"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            userInfoDao <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UserInfoMySqlDao</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        userInfoDao<span class="token punctuation">.</span><span class="token function">insertUserinfo</span><span class="token punctuation">(</span>userInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>client 에서는 구현된 interface 변수를 생성하고 propties에 맞게 인스턴스를 생성하고 메소드를 사용한다.</li>
+</ul>
+<h2 id="인터페이스의-여러요소"><a href="#인터페이스의-여러요소" class="headerlink" title="인터페이스의 여러요소"></a>인터페이스의 여러요소</h2><ul>
+<li>Static Method : 인스턴스 유무와 관계없이 사용할 수 있는 메소드 <code>Interface.StaticMethod();</code> 방식으로 사용가능 </li>
+<li>Default Method : 추상메소드와 달리 구현부를 가지며 구현하는 클래스가 재정의를 하지 않아도 인터페이스 인스턴스 실행 할 수있다. 재정의 하지않을 경우 이 메소드가 실행 된다.</li>
+<li>private Method : 재정의 할 수없으며 인터페이스 내에서만 사용할 수 있는 메소드</li>
+</ul>
+<h2 id="인터페이스-다중구현-amp-상속"><a href="#인터페이스-다중구현-amp-상속" class="headerlink" title="인터페이스 다중구현 &amp; 상속"></a>인터페이스 다중구현 &amp; 상속</h2><ul>
+<li>클래스는 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multiple_inheritance">Diamond Problem</a>과 같은문제로 인하여 다중상속을 할 수 없지만</li>
+<li>인터페이스의 경우 다중구현이 가능하다 하지만 Default Method가 중복되는경우 재정의가 필요하다</li>
+<li>인터페이스도 상속이 가능하다 클래스와 마찬가지로 <code>extends</code> 키워드를 사용<ul>
+<li>또한 인터페이스는 다중 상속이 가능하고 구현 코드의 상속이 아니므로 타입상속이라고 한다.</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">X</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> x <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Y</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> y <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">MyInterface</span> <span class="token keyword">extends</span> <span class="token class-name">X</span><span class="token punctuation">,</span><span class="token class-name">Y</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token keyword">implements</span> <span class="token class-name">MyInterface</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> <span class="token class-name">X</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// TODO: 2021/08/18  </span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">void</span> <span class="token class-name">Y</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// TODO: 2021/08/18  </span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">void</span> <span class="token function">myMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// TODO: 2021/08/18  </span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="클래스-상속과-인터페이스-동시-구현"><a href="#클래스-상속과-인터페이스-동시-구현" class="headerlink" title="클래스 상속과 인터페이스 동시 구현"></a>클래스 상속과 인터페이스 동시 구현</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Book</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Shelf</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">protected</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Book</span><span class="token punctuation">></span></span> shelf<span class="token punctuation">;</span>
+
+    <span class="token class-name">Shelf</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        shelf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Book</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Book</span><span class="token punctuation">></span></span> <span class="token function">getShelf</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> shelf<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> shelf<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Queue</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> <span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token class-name">T</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">T</span> <span class="token function">deQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">getSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BookShelf</span> <span class="token keyword">extends</span> <span class="token class-name">Shelf</span> <span class="token keyword">implements</span> <span class="token class-name">Queue</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token class-name">Object</span> item<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        shelf<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Book</span><span class="token punctuation">)</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">deQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> shelf<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">BookShelfTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">BookShelf</span> bookQueue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BookShelf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bookQueue<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token string">"책1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bookQueue<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token string">"책2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bookQueue<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token string">"책3"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bookQueue<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token string">"책4"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bookQueue<span class="token punctuation">.</span><span class="token function">enQueue</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Book</span><span class="token punctuation">(</span><span class="token string">"책5"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bookQueue<span class="token punctuation">.</span><span class="token function">deQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bookQueue<span class="token punctuation">.</span><span class="token function">deQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bookQueue<span class="token punctuation">.</span><span class="token function">deQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bookQueue<span class="token punctuation">.</span><span class="token function">deQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bookQueue<span class="token punctuation">.</span><span class="token function">deQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
       
     </div>
@@ -373,7 +710,7 @@ A --> Dh</pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/17/OOP-java-9/" class="post-title-link" itemprop="url">객체지향 프로그래밍 9</a>
+          <a href="/2021/08/17/OOP-java-9/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - Abstract Method</a>
         </h2>
 
         <div class="post-meta-container">
@@ -391,7 +728,7 @@ A --> Dh</pre>
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-18 14:11:16" itemprop="dateModified" datetime="2021-08-18T14:11:16+09:00">2021-08-18</time>
+        <time title="Modified: 2021-08-18 16:27:41" itemprop="dateModified" datetime="2021-08-18T16:27:41+09:00">2021-08-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -508,7 +845,7 @@ A --> Dh</pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/17/OOP-java-8/" class="post-title-link" itemprop="url">객체지향 프로그래밍 8</a>
+          <a href="/2021/08/17/OOP-java-8/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - Polymorphism</a>
         </h2>
 
         <div class="post-meta-container">
@@ -518,10 +855,16 @@ A --> Dh</pre>
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-17 19:36:48 / Modified: 23:01:16" itemprop="dateCreated datePublished" datetime="2021-08-17T19:36:48+09:00">2021-08-17</time>
+      <time title="Created: 2021-08-17 19:36:48" itemprop="dateCreated datePublished" datetime="2021-08-17T19:36:48+09:00">2021-08-17</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-18 16:27:41" itemprop="dateModified" datetime="2021-08-18T16:27:41+09:00">2021-08-18</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -658,7 +1001,7 @@ A --> Dh</pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/17/OOP-java-7/" class="post-title-link" itemprop="url">객체지향 프로그래밍 7</a>
+          <a href="/2021/08/17/OOP-java-7/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - Inheritance</a>
         </h2>
 
         <div class="post-meta-container">
@@ -668,10 +1011,16 @@ A --> Dh</pre>
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-17 16:06:15 / Modified: 19:48:35" itemprop="dateCreated datePublished" datetime="2021-08-17T16:06:15+09:00">2021-08-17</time>
+      <time title="Created: 2021-08-17 16:06:15" itemprop="dateCreated datePublished" datetime="2021-08-17T16:06:15+09:00">2021-08-17</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-18 16:27:41" itemprop="dateModified" datetime="2021-08-18T16:27:41+09:00">2021-08-18</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -876,7 +1225,7 @@ A --> Dh</pre>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/14/OOP-java-6/" class="post-title-link" itemprop="url">객체지향 프로그래밍 6</a>
+          <a href="/2021/08/14/OOP-java-6/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - List</a>
         </h2>
 
         <div class="post-meta-container">
@@ -894,7 +1243,7 @@ A --> Dh</pre>
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-17 15:50:23" itemprop="dateModified" datetime="2021-08-17T15:50:23+09:00">2021-08-17</time>
+        <time title="Modified: 2021-08-18 16:28:06" itemprop="dateModified" datetime="2021-08-18T16:28:06+09:00">2021-08-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1182,7 +1531,7 @@ FATAL <span class="token punctuation">&#123;</span>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/13/OOP-java-5/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 5</a>
+          <a href="/2021/08/13/OOP-java-5/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - Static</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1200,7 +1549,7 @@ FATAL <span class="token punctuation">&#123;</span>
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-14 16:03:21" itemprop="dateModified" datetime="2021-08-14T16:03:21+09:00">2021-08-14</time>
+        <time title="Modified: 2021-08-18 16:28:14" itemprop="dateModified" datetime="2021-08-18T16:28:14+09:00">2021-08-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1356,7 +1705,7 @@ FATAL <span class="token punctuation">&#123;</span>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/13/OOP-java-4/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 4</a>
+          <a href="/2021/08/13/OOP-java-4/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - 접근 제어자</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1374,7 +1723,7 @@ FATAL <span class="token punctuation">&#123;</span>
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-14 15:53:16" itemprop="dateModified" datetime="2021-08-14T15:53:16+09:00">2021-08-14</time>
+        <time title="Modified: 2021-08-18 16:28:22" itemprop="dateModified" datetime="2021-08-18T16:28:22+09:00">2021-08-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1475,7 +1824,7 @@ FATAL <span class="token punctuation">&#123;</span>
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/12/OOP-java-3/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 3</a>
+          <a href="/2021/08/12/OOP-java-3/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - 자료형</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1493,7 +1842,7 @@ FATAL <span class="token punctuation">&#123;</span>
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-14 15:53:32" itemprop="dateModified" datetime="2021-08-14T15:53:32+09:00">2021-08-14</time>
+        <time title="Modified: 2021-08-18 16:28:52" itemprop="dateModified" datetime="2021-08-18T16:28:52+09:00">2021-08-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1551,125 +1900,6 @@ FATAL <span class="token punctuation">&#123;</span>
 </li>
 <li><p>따라서 스택에 직접 값을 할당하는것이 아니라 스택에는 힙영역의 주소를 참조하고있고 실제 값은 힙영역에 올라간다.</p>
 </li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/12/OOP-java-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/12/OOP-java-2/" class="post-title-link" itemprop="url">객체 지향 프로그래밍</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-12 20:55:44" itemprop="dateCreated datePublished" datetime="2021-08-12T20:55:44+09:00">2021-08-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-13 04:00:23" itemprop="dateModified" datetime="2021-08-13T04:00:23+09:00">2021-08-13</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="인스턴스-생성과-힙-메모리"><a href="#인스턴스-생성과-힙-메모리" class="headerlink" title="인스턴스 생성과 힙 메모리"></a>인스턴스 생성과 힙 메모리</h1><h2 id="인스턴스-Instance"><a href="#인스턴스-Instance" class="headerlink" title="인스턴스 (Instance)"></a>인스턴스 (Instance)</h2><ul>
-<li><p>객체의 속성과 기능을 구현한 상태의 클래스를 기반으로 생성된 객체를 인스턴스라고한다</p>
-</li>
-<li><p>각 인스턴스는 서로 다른 멤버 변수 값을 가질 수 있음</p>
-</li>
-<li><p>new 키워드를 사용하여 인스턴스 생성</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Student</span> bob <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
-<h2 id="힙-메모리-Heap-Memory"><a href="#힙-메모리-Heap-Memory" class="headerlink" title="힙 메모리 (Heap Memory)"></a>힙 메모리 (Heap Memory)</h2><ul>
-<li>생성된 인스턴스는 동적 메모리에 할당된다</li>
-<li>자바는 가비지 컬렉터가 쓰지않는 메모리를 해제한다</li>
-<li>각 인스턴스는 다른 메모리 주소를 갖는다</li>
-</ul>
-<h2 id="생성자-Constructor"><a href="#생성자-Constructor" class="headerlink" title="생성자 (Constructor)"></a>생성자 (Constructor)</h2><ul>
-<li><p>객체를 생성할 때 사용되는 함수</p>
-</li>
-<li><p>객체가 생성될 때 객체의 속성을 초기화 하거나 다른 기능을 수행하는 메소드를 호출함</p>
-</li>
-<li><p>생성자는 반환값이 없고 클래스 이름과 동일함</p>
-</li>
-<li><p>생성자를 구현하지 않았을 때에는 Default Constructor가 호출된다</p>
-</li>
-<li><p>생성자는 메소도 오버로딩을 하여 구현할 수 있다</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token class-name">StudentNumber</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> <span class="token class-name">StudentName</span><span class="token punctuation">;</span>
-  
-    <span class="token keyword">public</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// Default Constructor</span>
-    <span class="token punctuation">&#125;</span>
-    
-    <span class="token keyword">public</span> <span class="token class-name">Student</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name"><span class="token namespace">this<span class="token punctuation">.</span></span>StudentNumber</span> <span class="token operator">=</span> num<span class="token punctuation">;</span>
-        <span class="token class-name"><span class="token namespace">this<span class="token punctuation">.</span></span>StudentName</span> <span class="token operator">=</span> name<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>     
-<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 
       
