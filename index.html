@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,162 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/19/OOP-java-12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/19/OOP-java-12/" class="post-title-link" itemprop="url">JAVA - Collection Framework</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-08-19 16:41:24 / Modified: 20:42:36" itemprop="dateCreated datePublished" datetime="2021-08-19T16:41:24+09:00">2021-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JAVA-Collection-Framework"><a href="#JAVA-Collection-Framework" class="headerlink" title="JAVA Collection Framework"></a>JAVA Collection Framework</h1><ul>
+<li>컬렉션 프레임워크란 자료구조를 정의해 놓은 JDK 라이브러리 이다</li>
+<li>java.util 패키지에 구현되어있다</li>
+</ul>
+<pre class="mermaid">
+graph BT
+ArrayList --> List
+Vector --> List
+LinkedList --> List
+HashSet --> Set
+TreeSet --> Set
+List --> Collection
+Set --> Collection
+
+HashTable --> Map
+TreeMap --> Map
+HashMap --> Map</pre>
+
+<h2 id="Collection-Interface"><a href="#Collection-Interface" class="headerlink" title="Collection Interface"></a>Collection Interface</h2><ul>
+<li>객체를 관리하기위한 메소드들이 선언된 인터페이스</li>
+<li>List와 Set인터페이스가 있다</li>
+</ul>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">List</a></h3><ul>
+<li>객체를 <strong>순서</strong>에따라 저장하고 관리하는데 필요한 메소드가 선언되어있는 인터페이스이다</li>
+<li>중복을 허용한다</li>
+<li>ArrayList, Vetor, Stack, Queue 등 자료구조리스트를 구현하기위한 인터페이스이다</li>
+</ul>
+<h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterator</a></h4><ul>
+<li>컬렉션 프레임워크에 저장된 요소들을 하나씩</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//Member.java</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Member</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+    
+    <span class="token comment">// 생략...getter/setter </span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MemberArrayList.java</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MemberArrayList</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span> arrayList<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">MemberArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        arrayList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token class-name">MemberArrayList</span> <span class="token punctuation">(</span><span class="token keyword">int</span> size<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        arrayList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addMember</span><span class="token punctuation">(</span><span class="token class-name">Member</span> member<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        arrayList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">removeMember</span><span class="token punctuation">(</span><span class="token keyword">int</span> memberID<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arrayList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">Member</span> member <span class="token operator">=</span> arrayList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> tempId <span class="token operator">=</span> member<span class="token punctuation">.</span><span class="token function">getMemberId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>tempId <span class="token operator">==</span> memberID<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                arrayList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><ul>
+<li><strong>순서와 관계없이 중복을 허용하지 않고</strong> 유일한 값을 관리하는데 필요한 메소드가 선언되어있는 인터페이스이다.</li>
+<li>출력시 순서가 일정하지 않음</li>
+<li>HashSet , TreeSet 등이 있음</li>
+</ul>
+<h4 id="HashSet-Class"><a href="#HashSet-Class" class="headerlink" title="HashSet Class"></a>HashSet Class</h4><ul>
+<li>Set은 객체의 중복을 허용하지 않기때문에 인스턴스의 동일성을 확인해야 한다</li>
+<li>동일성을 확인하기위해 equals()와 hashCode() 메소드를 재정의 해야한다</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MemberHashSet.java</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MemberHashSet</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Hash</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><ul>
+<li>Key 와 Value 쌍으로 이루어진 객체를 관리하는데 사용하는 메서드들이 선언된 인터페이스</li>
+<li>Key는 중복을 허용하지 않음</li>
+<li>HashTable, HashMap,TreeMap 등이 Map 인터페이스를 구현한다 </li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1803,124 +1959,8 @@ FATAL <span class="token punctuation">&#123;</span>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/12/OOP-java-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/12/OOP-java-3/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - 자료형</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-12 21:25:31" itemprop="dateCreated datePublished" datetime="2021-08-12T21:25:31+09:00">2021-08-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-18 16:28:52" itemprop="dateModified" datetime="2021-08-18T16:28:52+09:00">2021-08-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="참조-자료형-변수"><a href="#참조-자료형-변수" class="headerlink" title="참조 자료형 변수"></a>참조 자료형 변수</h1><h2 id="참조-자료형-Reference-Data-Type"><a href="#참조-자료형-Reference-Data-Type" class="headerlink" title="참조 자료형 (Reference Data Type)"></a>참조 자료형 (Reference Data Type)</h2><ul>
-<li><p>자바에서의 자료형은 크게 두가지로 </p>
-</li>
-<li><p>byte,short,int,char,float,double,boolean과 같은 기본 자료형이 있고</p>
-</li>
-<li><p>String과 Date등 또는 원하는 클래스를 구현하여 참조 자료형으로 만들 수 있다.</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Subject.java</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Subject</span> <span class="token punctuation">&#123;</span>
-    <span class="token class-name">String</span> subjectName<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> score<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> subjectID<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// Student.java</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token class-name">StudentNumber</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> <span class="token class-name">StudentName</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Subject</span> <span class="token class-name">Math</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Subject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// Default Constructor</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Student</span> <span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name"><span class="token namespace">this<span class="token punctuation">.</span></span>StudentNumber</span> <span class="token operator">=</span> num<span class="token punctuation">;</span>
-        <span class="token class-name"><span class="token namespace">this<span class="token punctuation">.</span></span>StudentName</span> <span class="token operator">=</span> name<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>위 예시처럼 클래스로 만들 수 있다</p>
-</li>
-<li><p>참조 자료형은 new키워드로 생성한다.</p>
-</li>
-<li><p>따라서 스택에 직접 값을 할당하는것이 아니라 스택에는 힙영역의 주소를 참조하고있고 실제 값은 힙영역에 올라간다.</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>

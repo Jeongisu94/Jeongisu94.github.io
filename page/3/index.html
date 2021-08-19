@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,202 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/29/System-Programming-IPC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/29/System-Programming-IPC/" class="post-title-link" itemprop="url">System Programming - IPC</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-29 19:20:30" itemprop="dateCreated datePublished" datetime="2021-07-29T19:20:30+09:00">2021-07-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-05 01:30:16" itemprop="dateModified" datetime="2021-08-05T01:30:16+09:00">2021-08-05</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/System-Programming/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><h2 id="IPC란"><a href="#IPC란" class="headerlink" title="IPC란"></a>IPC란</h2><ul>
+<li><p>OS에서 할당받은 독립적인 공간을 갖는 Process는 서로 물리적인 주소를 접근 할 수 </p>
+<p>없어서 프로세스간 통신을 하는데 어려움을 겪는다 이때 사용하는 기술이 IPC이다!</p>
+</li>
+</ul>
+<h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><ul>
+<li>두 프로세스 모두 저장매체를 접근 할 수 있기 때문에 파일을 통해서 통신할 수 있다.</li>
+<li>+가장 간단한 방법</li>
+<li>-서로 접근하고 있는지 확인할 방법이 없다</li>
+</ul>
+<h2 id="Others-IPC"><a href="#Others-IPC" class="headerlink" title="Others IPC"></a>Others IPC</h2><ul>
+<li>프로세스들의 커널공간은 공유한다는 아이디어를 기반으로<br>페이지테이블에 같은 물리주소를 가리킴으로써 다양한 IPC기법이 개발되었다.</li>
+</ul>
+<h3 id="PIPE"><a href="#PIPE" class="headerlink" title="PIPE"></a>PIPE</h3><ul>
+<li>fork()를 통해 자식 프로세스를 만들었을때 부모와 자식간의 통신</li>
+<li>단방향 통신</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MSGSIZE</span> <span class="token expression"><span class="token number">255</span></span></span>
+
+<span class="token keyword">char</span><span class="token operator">*</span> msg <span class="token operator">=</span> <span class="token string">"Hello Child"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">char</span> buf<span class="token punctuation">[</span><span class="token number">255</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">int</span> fd<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pid<span class="token punctuation">,</span> nbyes<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">pipe</span><span class="token punctuation">(</span>fd<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 커널영역에 pipe 생성하고 오류시 exit(1)</span>
+  
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>pid <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 부모 프로세스이면 pid값을 출력</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"praent PID:%d, child PID:%d\n"</span><span class="token punctuation">,</span> <span class="token function">getpid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">write</span><span class="token punctuation">(</span>fd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> msg<span class="token punctuation">,</span> MSGSIZE<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// fd[1]에 메시지를 씀</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// 정상 종료  </span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span>"child PID <span class="token operator">%</span>d\n<span class="token punctuation">,</span> <span class="token function">getpid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    nbytes<span class="token operator">=</span> <span class="token function">read</span><span class="token punctuation">(</span>fd<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> buf <span class="token punctuation">,</span> MSGSIZE<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 파일을 읽는 시스템콜 공란에 255사이즈데이터를 읽음 </span>
+                                        <span class="token comment">// 동일한 커널영역에 들어가서 buf에 넣어주게됨 </span>
+    <span class="token function">printf</span><span class="token punctuation">(</span>"<span class="token operator">%</span>d <span class="token operator">%</span>s\n<span class="token punctuation">,</span> nbytes<span class="token punctuation">,</span> buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h3><ul>
+<li>선입선출 방식으로 데이터를 전송</li>
+<li>파이프와 다르게 양방향 통신도 가능하며 부모 자식간 프로세스가 아니어도 가능하다</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token variable">$ipcs</span> <span class="token comment"># 이 명령어를 통해 메시지를 포함한 ipc 정보를 확인할 수 있다</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/image/System-Programming-IPC_images/ipcs.png"></p>
+<p>메시지를 보낼떄의 예</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">msqid <span class="token operator">=</span> <span class="token function">msgget</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> msgflg<span class="token punctuation">)</span> <span class="token comment">// 다른 메시지큐와 구분될 key , 메시지 큐의 옵션을 인자로 갖는다</span>
+<span class="token function">msgsnd</span><span class="token punctuation">(</span>msqid<span class="token punctuation">,</span> <span class="token operator">&amp;</span>sbuf<span class="token punctuation">,</span> buf_length<span class="token punctuation">,</span> IPC_NOWAIT<span class="token punctuation">)</span> <span class="token comment">// 메시지를 보낼때의 함수</span>
+ <span class="token comment">//IPC_NOWAIT은 읽지않더라도 다음 코드를 실행할때 사용, 0이면 실행할떄까지 기다린다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/msg.h></span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">msgbuf</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span>
+  <span class="token keyword">long</span> type<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> text<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">int</span> msgid<span class="token punctuation">,</span> len<span class="token punctuation">;</span>
+  MsgBuf msg<span class="token punctuation">;</span>
+  Key_t key <span class="token operator">=</span> <span class="token number">1111</span><span class="token punctuation">;</span>
+  msgid <span class="token operator">=</span> <span class="token function">msgget</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> IPC_CREAT<span class="token operator">|</span><span class="token number">0644</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 메시지를 0644권한으로 새로 만든다</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>msgid <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 메시지생성에 실패했을경우</span>
+    <span class="token function">perror</span><span class="token punctuation">(</span><span class="token string">"msgget"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> 
+  msg<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token function">strcpy</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token string">"Hello Message Queue\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 메시지 구조체에 텍스트를 넣는다</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">msgsnd</span><span class="token punctuation">(</span>msgid<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>msg<span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> IPC_NOWAIT<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 메시지를 보내며 에러 확인</span>
+    <span class="token comment">// 메시지의 아이디, 구조체의 주소, 사이즈를 인자로 보낸다</span>
+    <span class="token function">perror</span><span class="token punctuation">(</span><span class="token string">"msgsnd"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>메시지를 받을떄의 예</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">sszie_t</span> <span class="token function">msgrcv</span><span class="token punctuation">(</span><span class="token keyword">int</span> msqid<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span>msgp<span class="token punctuation">,</span> <span class="token class-name">size_t</span> msgsz<span class="token punctuation">,</span> <span class="token keyword">long</span> msgtyp<span class="token punctuation">,</span> <span class="token keyword">int</span> msgflg<span class="token punctuation">)</span>
+<span class="token function">msgrcv</span><span class="token punctuation">(</span>msqid<span class="token punctuation">,</span> <span class="token operator">&amp;</span>rbuf<span class="token punctuation">,</span> MSGSZ<span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// msgtype 0: 첫번째메시지 다른 양수이면 일치하는 첫번째 메시지</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/msg.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">msgbuf</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span>
+  <span class="token keyword">long</span> type<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> text<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  MsgBuf msg<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> msgid<span class="token punctuation">,</span> len<span class="token punctuation">;</span>
+  <span class="token class-name">key_t</span> key <span class="token operator">=</span> <span class="token number">1111</span><span class="token punctuation">;</span> <span class="token comment">// snd할때 키값과 동일해야한다.</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>msgid <span class="token operator">==</span> <span class="token function">msgget</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> IPC_CREAT<span class="token operator">|</span><span class="token number">0644</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">perror</span><span class="token punctuation">(</span><span class="token string">"msgget"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  len <span class="token operator">=</span> <span class="token function">msgrcv</span><span class="token punctuation">(</span>msgid<span class="token punctuation">,</span> <span class="token operator">&amp;</span>msg<span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// (메시지id, size , type, wait);</span>
+  <span class="token comment">//type에 일치하는 가장먼저오는 메시지를 수신한다</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Received Message is [%d] %s]\n"</span><span class="token punctuation">,</span> len<span class="token punctuation">,</span> msg<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1491,189 +1687,8 @@ $ <span class="token function">rm</span> -rf directory <span class="token commen
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/21/HTML_Basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/21/HTML_Basic/" class="post-title-link" itemprop="url">HTML 기초</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-21 01:19:30" itemprop="dateCreated datePublished" datetime="2021-07-21T01:19:30+09:00">2021-07-21</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-30 02:42:45" itemprop="dateModified" datetime="2021-07-30T02:42:45+09:00">2021-07-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="HTML-기초"><a href="#HTML-기초" class="headerlink" title="HTML 기초"></a>HTML 기초</h1><h2 id="HTML의-기본형태"><a href="#HTML의-기본형태" class="headerlink" title="HTML의 기본형태"></a>HTML의 기본형태</h2><p>HTML의 TAG</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TAG</span><span class="token punctuation">></span></span>Content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TAG</span><span class="token punctuation">></span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ul>
-<li>이러한 형태를 요소(Element)라고하는데 TAG와 크게 구분짓지 않는다. 앞쪽의 태그는 open 또는 start 뒤쪽의태그는 close 또는 end라고 한다.</li>
-</ul>
-<p>TAG는 각 의미를 가진다.</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span> Element <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>태그에는 속성(Attribute)과 값(Value) 을 추가 할 수 있다.</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TAG</span> <span class="token attr-name">속성</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>값<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TAG</span><span class="token punctuation">></span></span>
-
-<span class="token comment">&lt;!-- 예시 --></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./image_directory.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>alternate text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Value<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>위의 img태그의 경우 닫히는 태그가 없는데 이것을 빈 태그 (Empty Tag)라고 한다.</p>
-<h3 id="빈태그"><a href="#빈태그" class="headerlink" title="빈태그"></a>빈태그</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- /가 없는 빈 태그 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TAG</span><span class="token punctuation">></span></span>
-
-<span class="token comment">&lt;!-- /가 있는 빈태그 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TAG</span><span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TAG</span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>/는 붙이거나 안붙이거나 큰 차이는 없지만 혼용하지만 않으면 된다.</p>
-<p>빈태그의 경우 “속성”과 “값”을 가지는 경우가 많다.</p>
-<h3 id="부모와-자식-요소"><a href="#부모와-자식-요소" class="headerlink" title="부모와 자식 요소"></a>부모와 자식 요소</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>부모</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>자식</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>자식</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>부모</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>하나의 태그가 다른태그의 콘텐츠로 사용되면 부모 자식 관계를 가진다.</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>animal<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>동물 목록<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>사자<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>호랑이<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>개<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>다음 HTML에서 섹션의 자식은 h1과 ul이며 동물목록의 부모는 section이 된다.</p>
-<h1 id="HTML-문서의-범위"><a href="#HTML-문서의-범위" class="headerlink" title="HTML 문서의 범위"></a>HTML 문서의 범위</h1><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>author<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>이름<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>description<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>사이트 설명<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>사이트의 이름<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./css/main.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scripte</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./js/main.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>html태그는 해당 문서의 시작과 끝을 가리킨다.</p>
-<h3 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h3><p>DOCTYPE(DTD, Document Type Definition)은 HTML문서를 어떤 버전의 해석방식을 구조화하면 되는지 알려준다. 위의 경우 HTML 5이다.</p>
-<h2 id="head-tag"><a href="#head-tag" class="headerlink" title="head tag"></a>head tag</h2><p>  head태그에는 문서에대한 정보를 가진다.</p>
-<h3 id="Meta"><a href="#Meta" class="headerlink" title="Meta"></a>Meta</h3><p>해당 HTML문서의 인코딩 방식, 제작자, 내용, 키워드등을 검색엔진이나 브라우저에 제공하는 빈 태그이다.</p>
-<p><a target="_blank" rel="noopener" href="https://www.notion.so/8349936cddce4a7a96fef529f1b9e199">meta</a></p>
-<h3 id="LINK-CSS-불러오기"><a href="#LINK-CSS-불러오기" class="headerlink" title="LINK(CSS 불러오기)"></a>LINK(CSS 불러오기)</h3><p>html, css , favicon(아이콘), Java Script 등 외부 문서를 연결할 때 사용하는 빈태그 이다.</p>
-<p><a target="_blank" rel="noopener" href="https://www.notion.so/39e41ea57beb411e8dd5cc814449bd1b">link</a></p>
-<h3 id="STYLE-CSS-작성"><a href="#STYLE-CSS-작성" class="headerlink" title="STYLE(CSS 작성)"></a>STYLE(CSS 작성)</h3><p>외부에서 CSS를 가져오지 않고 내부 문서내에서 스타일을 작성 할 수있다.</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-<span class="token selector">img</span> <span class="token punctuation">&#123;</span>
-	<span class="token property">width</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
-	<span class="token property">height</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="SCRIPTE-Java-Script-불러오거나-작성"><a href="#SCRIPTE-Java-Script-불러오거나-작성" class="headerlink" title="SCRIPTE(Java Script 불러오거나 작성)"></a>SCRIPTE(Java Script 불러오거나 작성)</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- 외부에서 불러오기 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scripte</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./js/main.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token comment">&lt;!-- 문서 내부에서 직접 작성하기 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-	<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token constant">TODO</span> <span class="token operator">--</span><span class="token operator">></span>
-	<span class="token punctuation">&#125;</span> 
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
-<h2 id="body-tag"><a href="#body-tag" class="headerlink" title="body tag"></a>body tag</h2><p>HTML 문서의 구조를 나타내는 태그들을 담고있다.</p>
-<h3 id="DIV"><a href="#DIV" class="headerlink" title="DIV"></a>DIV</h3><p>division의 약자로 분할을 뜻한다 문서의 부분이나 섹션을 정의하나 명확한 의미를 가지지 않기때문에 특정범위를 묶는 용도로 사용한다.</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>
-			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="IMG"><a href="#IMG" class="headerlink" title="IMG"></a>IMG</h3><p><img>는 html에 이미지를 삽입할때 사용하는 태그이다. </p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./img.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>alternative text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>위에서 살펴봤듯이 img태그는 빈태그이기때문에 이미지를 삽입한다는 의미를 가지기때문에 실질적인 명시가 없기 때문에 <strong>이미지의 경로와 댁체텍스트</strong>를 <strong>반드시</strong>(웹표준) 설정해주어야 한다.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
