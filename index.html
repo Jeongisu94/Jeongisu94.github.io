@@ -231,10 +231,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-19 16:41:24 / Modified: 20:42:36" itemprop="dateCreated datePublished" datetime="2021-08-19T16:41:24+09:00">2021-08-19</time>
+      <time title="Created: 2021-08-19 16:41:24" itemprop="dateCreated datePublished" datetime="2021-08-19T16:41:24+09:00">2021-08-19</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-21 17:44:51" itemprop="dateModified" datetime="2021-08-21T17:44:51+09:00">2021-08-21</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -282,9 +288,6 @@ HashMap --> Map</pre>
 <li>중복을 허용한다</li>
 <li>ArrayList, Vetor, Stack, Queue 등 자료구조리스트를 구현하기위한 인터페이스이다</li>
 </ul>
-<h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterator</a></h4><ul>
-<li>컬렉션 프레임워크에 저장된 요소들을 하나씩</li>
-</ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//Member.java</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Member</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
@@ -323,16 +326,61 @@ HashMap --> Map</pre>
 <li>출력시 순서가 일정하지 않음</li>
 <li>HashSet , TreeSet 등이 있음</li>
 </ul>
+<h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterator</a></h4><ul>
+<li>컬렉션 프레임워크에 저장된 요소들을 순회 참조하기 위하여 사용됨</li>
+<li>Set의 경우 index가 없으므로 iterator를 이용하여 순회해야한다</li>
+<li>Iterator 객체의 <code>boolean hasNext()</code> 와 <code>E next()</code> 를 사용한다</li>
+</ul>
 <h4 id="HashSet-Class"><a href="#HashSet-Class" class="headerlink" title="HashSet Class"></a>HashSet Class</h4><ul>
 <li>Set은 객체의 중복을 허용하지 않기때문에 인스턴스의 동일성을 확인해야 한다</li>
 <li>동일성을 확인하기위해 equals()와 hashCode() 메소드를 재정의 해야한다</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MemberHashSet.java</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MemberHashSet</span> <span class="token punctuation">&#123;</span>
-    <span class="token class-name">Hash</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MemberHashSet</span>  <span class="token punctuation">&#123;</span>
+    <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span> hashSet<span class="token punctuation">;</span>
 
+    <span class="token keyword">public</span> <span class="token class-name">MemberHashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        hashSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MemberHashSet</span><span class="token punctuation">(</span><span class="token keyword">int</span> size<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        hashSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addMember</span><span class="token punctuation">(</span><span class="token class-name">Member</span> member<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"MemberHashSet&#123;"</span> <span class="token operator">+</span>
+                <span class="token string">"hashSet="</span> <span class="token operator">+</span> hashSet <span class="token operator">+</span>
+                <span class="token string">'&#125;'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">hash</span><span class="token punctuation">(</span>hashSet<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MemberHashSetTest.java</span>
+<span class="token keyword">class</span> <span class="token class-name">MemberHashSetTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span> hashSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">"Apple"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">"Apple"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span> <span class="token string">"Grape"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1003</span><span class="token punctuation">,</span> <span class="token string">"Peach"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hashSet<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>코드의 결과는 다음과 같다 </li>
+<li><code>[Member&#123;ID=1000, name=&#39;Apple&#39;&#125;, Member&#123;ID=1003, name=&#39;Peach&#39;&#125;, Member&#123;ID=1000, name=&#39;Apple&#39;&#125;, Member&#123;ID=1002, name=&#39;Grape&#39;&#125;]</code></li>
+</ul>
 <h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><ul>
 <li>Key 와 Value 쌍으로 이루어진 객체를 관리하는데 사용하는 메서드들이 선언된 인터페이스</li>
 <li>Key는 중복을 허용하지 않음</li>
