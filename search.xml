@@ -1,88 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Cloud Computing AWS 시작하기</title>
-    <url>/2021/07/21/Cloud-Computing-AWS-EC2/</url>
-    <content><![CDATA[<h1 id="AWS-Amazon-Web-Service"><a href="#AWS-Amazon-Web-Service" class="headerlink" title="AWS(Amazon Web Service)"></a>AWS(Amazon Web Service)</h1><h2 id="EC2-elastic-computer-생성하기"><a href="#EC2-elastic-computer-생성하기" class="headerlink" title="EC2(elastic computer) 생성하기"></a>EC2(elastic computer) 생성하기</h2><ol>
-<li>Region은 서울로 설정</li>
-</ol>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled.png"></p>
-<ul>
-<li>생성했던 지역에서 다른지역으로 옮기면 EC2가 보이지 않는다.</li>
-</ul>
-<ol>
-<li>EC2 검색</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-07-22_%EC%98%A4%ED%9B%84_3.34.22.png"></p>
-<ol start="2">
-<li>인스턴스 시작</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled1.png"></p>
-<ul>
-<li><p>설치할 이미지 선택</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled2.png"></p>
-</li>
-<li><p>체험판 인스턴스 유형 선택</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled3.png"></p>
-</li>
-</ul>
-<ul>
-<li><p>스토리지 추가</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled4.png"></p>
-<p>체험판은 최대 스토리지를 30GB까지 사용 가능하므로 30GB로 설정.</p>
-</li>
-<li><p>보안 그룹 설정</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled5.png"></p>
-<pre><code>    SSH로 접속하기위해 프로토콜과 포트범위를 정한다.
-</code></pre>
-</li>
-<li><p>인스턴스 시작 검토</p>
-<p>  인스턴스에 대한 세부정보를 확인 할 수 있다.</p>
-</li>
-<li><p>키페어 생성</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled6.png"></p>
-<p>최초접속시에는 새 키페어 생성을 해주며 다운받은 키페어는 유출에 유의하여 저장한다.</p>
-</li>
-</ul>
-<ol>
-<li><p>고정IP로 변경</p>
-<p> 동적IP를 사용할 경우 요금이 부과 될 수 있다.</p>
-</li>
-</ol>
-<ul>
-<li><p>자신의 콘솔로 로그인하여 EC2 메뉴 접속 및 IP주소 할당</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled7.png"></p>
-<p>대시보드의 Elastic IP(탄력적 IP)선택후 새 IP주소를 할당한다.</p>
-</li>
-<li><p>할당받은 IP주소와 자신의 인스턴스와 연결</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled8.png"></p>
-<p>인스턴스를 입력하고 연결한다.</p>
-</li>
-</ul>
-<ol>
-<li>대시보드의 인스턴스 메뉴를 통해 인스턴스를 확인 할 수 있다.</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled9.png"></p>
-<ol>
-<li>Terminal을 사용하여 AWS에 접속</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> <span class="token number">400</span> <span class="token punctuation">&#123;</span>pemfile<span class="token punctuation">&#125;</span>.pem // 보안을위해 퍼미션을 제한.
-<span class="token function">ssh</span> -i <span class="token punctuation">&#123;</span>pemfile<span class="token punctuation">&#125;</span>.pem ubuntu@<span class="token punctuation">&#123;</span>public IPv4 Address<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
-<p>접속이 된것을 확인 할 수 있다.</p>
-]]></content>
-      <categories>
-        <category>Cloud Computing</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-        <tag>TIL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CSS 기초</title>
     <url>/2021/07/21/CSS_Basic/</url>
     <content><![CDATA[<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">&#123;</span>
@@ -159,9 +77,91 @@
         <category>CSS</category>
       </categories>
       <tags>
-        <tag>TIL</tag>
         <tag>CSS</tag>
         <tag>Web</tag>
+        <tag>TIL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cloud Computing AWS 시작하기</title>
+    <url>/2021/07/21/Cloud-Computing-AWS-EC2/</url>
+    <content><![CDATA[<h1 id="AWS-Amazon-Web-Service"><a href="#AWS-Amazon-Web-Service" class="headerlink" title="AWS(Amazon Web Service)"></a>AWS(Amazon Web Service)</h1><h2 id="EC2-elastic-computer-생성하기"><a href="#EC2-elastic-computer-생성하기" class="headerlink" title="EC2(elastic computer) 생성하기"></a>EC2(elastic computer) 생성하기</h2><ol>
+<li>Region은 서울로 설정</li>
+</ol>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled.png"></p>
+<ul>
+<li>생성했던 지역에서 다른지역으로 옮기면 EC2가 보이지 않는다.</li>
+</ul>
+<ol>
+<li>EC2 검색</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-07-22_%EC%98%A4%ED%9B%84_3.34.22.png"></p>
+<ol start="2">
+<li>인스턴스 시작</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled1.png"></p>
+<ul>
+<li><p>설치할 이미지 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled2.png"></p>
+</li>
+<li><p>체험판 인스턴스 유형 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled3.png"></p>
+</li>
+</ul>
+<ul>
+<li><p>스토리지 추가</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled4.png"></p>
+<p>체험판은 최대 스토리지를 30GB까지 사용 가능하므로 30GB로 설정.</p>
+</li>
+<li><p>보안 그룹 설정</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled5.png"></p>
+<pre><code>    SSH로 접속하기위해 프로토콜과 포트범위를 정한다.
+</code></pre>
+</li>
+<li><p>인스턴스 시작 검토</p>
+<p>  인스턴스에 대한 세부정보를 확인 할 수 있다.</p>
+</li>
+<li><p>키페어 생성</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled6.png"></p>
+<p>최초접속시에는 새 키페어 생성을 해주며 다운받은 키페어는 유출에 유의하여 저장한다.</p>
+</li>
+</ul>
+<ol>
+<li><p>고정IP로 변경</p>
+<p> 동적IP를 사용할 경우 요금이 부과 될 수 있다.</p>
+</li>
+</ol>
+<ul>
+<li><p>자신의 콘솔로 로그인하여 EC2 메뉴 접속 및 IP주소 할당</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled7.png"></p>
+<p>대시보드의 Elastic IP(탄력적 IP)선택후 새 IP주소를 할당한다.</p>
+</li>
+<li><p>할당받은 IP주소와 자신의 인스턴스와 연결</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled8.png"></p>
+<p>인스턴스를 입력하고 연결한다.</p>
+</li>
+</ul>
+<ol>
+<li>대시보드의 인스턴스 메뉴를 통해 인스턴스를 확인 할 수 있다.</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled9.png"></p>
+<ol>
+<li>Terminal을 사용하여 AWS에 접속</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> <span class="token number">400</span> <span class="token punctuation">&#123;</span>pemfile<span class="token punctuation">&#125;</span>.pem // 보안을위해 퍼미션을 제한.
+<span class="token function">ssh</span> -i <span class="token punctuation">&#123;</span>pemfile<span class="token punctuation">&#125;</span>.pem ubuntu@<span class="token punctuation">&#123;</span>public IPv4 Address<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
+<p>접속이 된것을 확인 할 수 있다.</p>
+]]></content>
+      <categories>
+        <category>Cloud Computing</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
       </tags>
   </entry>
   <entry>
@@ -274,8 +274,8 @@
         <category>HTML</category>
       </categories>
       <tags>
-        <tag>TIL</tag>
         <tag>Web</tag>
+        <tag>TIL</tag>
         <tag>HTML</tag>
       </tags>
   </entry>
@@ -388,9 +388,9 @@ $ <span class="token function">rm</span> -rf directory <span class="token commen
         <category>Linux</category>
       </categories>
       <tags>
+        <tag>TIL</tag>
         <tag>Linux</tag>
         <tag>Shell</tag>
-        <tag>TIL</tag>
       </tags>
   </entry>
   <entry>
@@ -447,6 +447,126 @@ $ <span class="token function">rm</span> -rf directory <span class="token commen
 <li>cat 명령을 통한 출력내용이 grep 명령의 입력 스트림으로 들어간다.</li>
 <li>grep case 는 grep 명령의 입력스을 검색해서 cat의 출력내용에 case가 있는 라인만 출력한다</li>
 </ol>
+]]></content>
+      <categories>
+        <category>Shell</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+        <tag>Bash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux의 파일 시스템</title>
+    <url>/2021/07/23/Linux-FileSystem/</url>
+    <content><![CDATA[<h1 id="Linux-파일-시스템"><a href="#Linux-파일-시스템" class="headerlink" title="Linux 파일 시스템"></a>Linux 파일 시스템</h1><p>리눅스는 모든 것은 파일이라는 철학에따라 모든 인터랙션은 파일을 읽고 쓰는 것처럼 이루어져있다.<br>따라서 모든 자원에 대한 추상화 인터페이스로 파일 인터페이스를 활용한다.</p>
+<p>네트워크,마우스,키보드, 저장매체들과 운영체제간에 IO로 이루어져있어<br>가장 간단한 인터페이스인 File Interface를 추상화하여 다룬다.</p>
+<p>##File namespace</p>
+<ul>
+<li>Linux는 전역 네임스페이스를 사용한다</li>
+<li>/directory1/sub/image.jpg</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">cat</span> <span class="token function">tty</span> <span class="token comment"># 가상파일 시스템 인터페이스 - 가상터미널환경 - input(키보드)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="슈퍼블록-inode"><a href="#슈퍼블록-inode" class="headerlink" title="슈퍼블록 , inode"></a>슈퍼블록 , inode</h2><h3 id="슈퍼블록"><a href="#슈퍼블록" class="headerlink" title="슈퍼블록"></a>슈퍼블록</h3><ul>
+<li>파일 시스템에 관한 정보(전체사이즈, 어떤 FS Algorithms을 썻는지 등)</li>
+</ul>
+<h3 id="파일"><a href="#파일" class="headerlink" title="파일"></a>파일</h3><ul>
+<li>프로세스는 pid와 매핑되어있는 것 처럼 각각의 파일은 inode와 매핑이 되어있다.</li>
+<li>파일시스템에서는 inode를 기반으로 파일을 엑세스함</li>
+<li>프로세스의 정보를 저장해놓은 PCB처럼 inode의 정보를 기반으로 요약해놓은 정보를 메타데이터라고 함</li>
+</ul>
+<p><img src="/image/Linux-FileSystem/52dcd856.png"></p>
+<p><em>inode 기반 메타 데이터</em></p>
+<ol>
+<li>Mode 소유자</li>
+<li>Owner info 소유자 정보</li>
+<li>Size 파일의 사이즈</li>
+<li>Timestamps 생성시간</li>
+<li>Direct Blocks 파일을 블록이라는 작은단위로 나눈 것을 엑세스 할 수 있는 첫번쨰 주소를 저장해놓음</li>
+<li>indirect blocks , double indirect , triple indirect 간접적으로 블록에 접근할 수 있는 주소</li>
+</ol>
+<h2 id="File-inode"><a href="#File-inode" class="headerlink" title="File inode"></a>File inode</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/home/ubuntu/link.txt <span class="token comment"># '/' 가 덴트리이다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>dentry(directory entry)</p>
+<ul>
+<li>각 덴트리는 해당 디렉토리 파일과 정보를 가지고 있다</li>
+<li>탐색할때 각 덴트리에서 inode를 찾아 계층적으로 탐색한다</li>
+</ul>
+<h2 id="Hard-Link-VS-Soft-Link"><a href="#Hard-Link-VS-Soft-Link" class="headerlink" title="Hard Link VS Soft Link"></a>Hard Link VS Soft Link</h2><ul>
+<li>다른 디렉토리에서 접근 할 수 있게끔 파일에 연결하는 것을 link라고하는데<br>방법에따라 Hard Link와 Soft Link로 나뉜다.</li>
+</ul>
+<p><img src="/image/Linux-FileSystem/hardsoftlink.png"></p>
+<h3 id="Hard-link"><a href="#Hard-link" class="headerlink" title="Hard link"></a>Hard link</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ln</span> <span class="token punctuation">[</span>Original File<span class="token punctuation">]</span> <span class="token punctuation">[</span>Link File<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Hard link를 하게되면 파일이 생기는데 그때의 inode의 번호는 Original File을 따라간다. </p>
+<p><img src="/image/Linux-FileSystem/hardlink.png"></p>
+<p>Original File을 삭제해도 inode구조는 삭제되지 않기때문에<br>Hard Link한 파일은 여전히 접근 가능하다.<br>w</p>
+<h3 id="Soft-Link-Symbolic-Link"><a href="#Soft-Link-Symbolic-Link" class="headerlink" title="Soft Link (Symbolic Link)"></a>Soft Link (Symbolic Link)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> -s <span class="token punctuation">[</span>File1<span class="token punctuation">]</span> <span class="token punctuation">[</span>File2<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/image/Linux-FileSystem/softlink_.png"></p>
+<ul>
+<li>Windows OS의 바로가기와 기능상 동일하다.</li>
+<li>Soft link의 inode구조체에는 원본파일의 주소가 있어 리디렉션을해 원본파일이 삭제되면 접근할 수 없게된다.<h3 id="Copy"><a href="#Copy" class="headerlink" title="Copy"></a>Copy</h3></li>
+</ul>
+<p>copy의경우 파일의 내용 전체를 복사하기때문에 그만큼 용량도 두배로 늘어나게 된다.</p>
+<hr>
+<h2 id="특수파일"><a href="#특수파일" class="headerlink" title="특수파일"></a>특수파일</h2><h3 id="디바이스"><a href="#디바이스" class="headerlink" title="디바이스"></a>디바이스</h3><ul>
+<li>블록디바이스 <ul>
+<li>HDD같이 블록이나 섹터 등 정해진 단위로 데이터 전송</li>
+</ul>
+</li>
+<li>캐릭터 디바이스<ul>
+<li>키보드 마우스등 byte 단위 데이터 전송 </li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shell 사용법 2</title>
+    <url>/2021/07/23/Linux-How_to_use_shell/</url>
+    <content><![CDATA[<p>#Shell 사용법</p>
+<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
+<li>바이너리는 실행할 수 있는 파일</li>
+<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
+<li>메모리와 관련된 상태정보 (PCB)</li>
+<li>시스템 리소스</li>
+<li>스케쥴링 단위</li>
+</ul>
+</li>
+</ul>
+<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
+<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
+<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
+</ul>
+<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
+<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
+<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
+<li>서버 데몬, 백신 프로그램, etc..</li>
+</ul>
+<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">find</span> / -name <span class="token string">'*.py'</span> <span class="token operator">></span> list.txt <span class="token operator">&amp;</span>
+<span class="token punctuation">[</span>job number<span class="token punctuation">]</span> process ID <span class="token comment">## result</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
+<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">^Z <span class="token comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span>
+^C <span class="token comment">## 포어그라운드 프로세스 종료</span>
+<span class="token function">jobs</span> <span class="token comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span>
+<span class="token function">ps</span> <span class="token comment">## 실행중인 프로세스 출력 </span>
+<span class="token function">kill</span> -9 <span class="token punctuation">[</span>PID<span class="token punctuation">]</span> <span class="token comment">## PID해당하는 프로세스 죽이기</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
+<hr>
+<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
+<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
 ]]></content>
       <categories>
         <category>Shell</category>
@@ -541,79 +661,6 @@ $ <span class="token function">rm</span> -rf directory <span class="token commen
       <tags>
         <tag>java</tag>
         <tag>oop</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux의 파일 시스템</title>
-    <url>/2021/07/23/Linux-FileSystem/</url>
-    <content><![CDATA[<h1 id="Linux-파일-시스템"><a href="#Linux-파일-시스템" class="headerlink" title="Linux 파일 시스템"></a>Linux 파일 시스템</h1><p>리눅스는 모든 것은 파일이라는 철학에따라 모든 인터랙션은 파일을 읽고 쓰는 것처럼 이루어져있다.<br>따라서 모든 자원에 대한 추상화 인터페이스로 파일 인터페이스를 활용한다.</p>
-<p>네트워크,마우스,키보드, 저장매체들과 운영체제간에 IO로 이루어져있어<br>가장 간단한 인터페이스인 File Interface를 추상화하여 다룬다.</p>
-<p>##File namespace</p>
-<ul>
-<li>Linux는 전역 네임스페이스를 사용한다</li>
-<li>/directory1/sub/image.jpg</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">cat</span> <span class="token function">tty</span> <span class="token comment"># 가상파일 시스템 인터페이스 - 가상터미널환경 - input(키보드)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="슈퍼블록-inode"><a href="#슈퍼블록-inode" class="headerlink" title="슈퍼블록 , inode"></a>슈퍼블록 , inode</h2><h3 id="슈퍼블록"><a href="#슈퍼블록" class="headerlink" title="슈퍼블록"></a>슈퍼블록</h3><ul>
-<li>파일 시스템에 관한 정보(전체사이즈, 어떤 FS Algorithms을 썻는지 등)</li>
-</ul>
-<h3 id="파일"><a href="#파일" class="headerlink" title="파일"></a>파일</h3><ul>
-<li>프로세스는 pid와 매핑되어있는 것 처럼 각각의 파일은 inode와 매핑이 되어있다.</li>
-<li>파일시스템에서는 inode를 기반으로 파일을 엑세스함</li>
-<li>프로세스의 정보를 저장해놓은 PCB처럼 inode의 정보를 기반으로 요약해놓은 정보를 메타데이터라고 함</li>
-</ul>
-<p><img src="/image/Linux-FileSystem/52dcd856.png"></p>
-<p><em>inode 기반 메타 데이터</em></p>
-<ol>
-<li>Mode 소유자</li>
-<li>Owner info 소유자 정보</li>
-<li>Size 파일의 사이즈</li>
-<li>Timestamps 생성시간</li>
-<li>Direct Blocks 파일을 블록이라는 작은단위로 나눈 것을 엑세스 할 수 있는 첫번쨰 주소를 저장해놓음</li>
-<li>indirect blocks , double indirect , triple indirect 간접적으로 블록에 접근할 수 있는 주소</li>
-</ol>
-<h2 id="File-inode"><a href="#File-inode" class="headerlink" title="File inode"></a>File inode</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/home/ubuntu/link.txt <span class="token comment"># '/' 가 덴트리이다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>dentry(directory entry)</p>
-<ul>
-<li>각 덴트리는 해당 디렉토리 파일과 정보를 가지고 있다</li>
-<li>탐색할때 각 덴트리에서 inode를 찾아 계층적으로 탐색한다</li>
-</ul>
-<h2 id="Hard-Link-VS-Soft-Link"><a href="#Hard-Link-VS-Soft-Link" class="headerlink" title="Hard Link VS Soft Link"></a>Hard Link VS Soft Link</h2><ul>
-<li>다른 디렉토리에서 접근 할 수 있게끔 파일에 연결하는 것을 link라고하는데<br>방법에따라 Hard Link와 Soft Link로 나뉜다.</li>
-</ul>
-<p><img src="/image/Linux-FileSystem/hardsoftlink.png"></p>
-<h3 id="Hard-link"><a href="#Hard-link" class="headerlink" title="Hard link"></a>Hard link</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ln</span> <span class="token punctuation">[</span>Original File<span class="token punctuation">]</span> <span class="token punctuation">[</span>Link File<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>Hard link를 하게되면 파일이 생기는데 그때의 inode의 번호는 Original File을 따라간다. </p>
-<p><img src="/image/Linux-FileSystem/hardlink.png"></p>
-<p>Original File을 삭제해도 inode구조는 삭제되지 않기때문에<br>Hard Link한 파일은 여전히 접근 가능하다.<br>w</p>
-<h3 id="Soft-Link-Symbolic-Link"><a href="#Soft-Link-Symbolic-Link" class="headerlink" title="Soft Link (Symbolic Link)"></a>Soft Link (Symbolic Link)</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ln</span> -s <span class="token punctuation">[</span>File1<span class="token punctuation">]</span> <span class="token punctuation">[</span>File2<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/image/Linux-FileSystem/softlink_.png"></p>
-<ul>
-<li>Windows OS의 바로가기와 기능상 동일하다.</li>
-<li>Soft link의 inode구조체에는 원본파일의 주소가 있어 리디렉션을해 원본파일이 삭제되면 접근할 수 없게된다.<h3 id="Copy"><a href="#Copy" class="headerlink" title="Copy"></a>Copy</h3></li>
-</ul>
-<p>copy의경우 파일의 내용 전체를 복사하기때문에 그만큼 용량도 두배로 늘어나게 된다.</p>
-<hr>
-<h2 id="특수파일"><a href="#특수파일" class="headerlink" title="특수파일"></a>특수파일</h2><h3 id="디바이스"><a href="#디바이스" class="headerlink" title="디바이스"></a>디바이스</h3><ul>
-<li>블록디바이스 <ul>
-<li>HDD같이 블록이나 섹터 등 정해진 단위로 데이터 전송</li>
-</ul>
-</li>
-<li>캐릭터 디바이스<ul>
-<li>키보드 마우스등 byte 단위 데이터 전송 </li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>TIL</tag>
       </tags>
   </entry>
   <entry>
@@ -904,53 +951,6 @@ end</pre>
       </tags>
   </entry>
   <entry>
-    <title>Shell 사용법 2</title>
-    <url>/2021/07/23/Linux-How_to_use_shell/</url>
-    <content><![CDATA[<p>#Shell 사용법</p>
-<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
-<li>바이너리는 실행할 수 있는 파일</li>
-<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
-<li>메모리와 관련된 상태정보 (PCB)</li>
-<li>시스템 리소스</li>
-<li>스케쥴링 단위</li>
-</ul>
-</li>
-</ul>
-<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
-<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
-<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
-</ul>
-<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
-<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
-<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
-<li>서버 데몬, 백신 프로그램, etc..</li>
-</ul>
-<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">find</span> / -name <span class="token string">'*.py'</span> <span class="token operator">></span> list.txt <span class="token operator">&amp;</span>
-<span class="token punctuation">[</span>job number<span class="token punctuation">]</span> process ID <span class="token comment">## result</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">^Z <span class="token comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span>
-^C <span class="token comment">## 포어그라운드 프로세스 종료</span>
-<span class="token function">jobs</span> <span class="token comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span>
-<span class="token function">ps</span> <span class="token comment">## 실행중인 프로세스 출력 </span>
-<span class="token function">kill</span> -9 <span class="token punctuation">[</span>PID<span class="token punctuation">]</span> <span class="token comment">## PID해당하는 프로세스 죽이기</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
-]]></content>
-      <categories>
-        <category>Shell</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-        <tag>Bash</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java - Object Class</title>
     <url>/2021/08/18/OOP-java-11/</url>
     <content><![CDATA[<h1 id="Object-Class"><a href="#Object-Class" class="headerlink" title="Object Class"></a>Object Class</h1><h2 id="Object-Class-1"><a href="#Object-Class-1" class="headerlink" title="Object Class"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html">Object Class</a></h2><ul>
@@ -1118,36 +1118,148 @@ HashMap --> Map</pre>
         hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token punctuation">&#125;</span>
-
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token string">"MemberHashSet&#123;"</span> <span class="token operator">+</span>
-                <span class="token string">"hashSet="</span> <span class="token operator">+</span> hashSet <span class="token operator">+</span>
-                <span class="token string">'&#125;'</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showAllMember</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span> ir <span class="token operator">=</span> hashSet<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>ir<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">Member</span> member <span class="token operator">=</span> ir<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
-
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">hash</span><span class="token punctuation">(</span>hashSet<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MemberHashSetTest.java</span>
 <span class="token keyword">class</span> <span class="token class-name">MemberHashSetTest</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span> hashSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">"Apple"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">"Apple"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span> <span class="token string">"Grape"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        hashSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1003</span><span class="token punctuation">,</span> <span class="token string">"Peach"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">MemberHashSet</span> hashSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MemberHashSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">"Apple"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">"Apple"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span> <span class="token string">"Grape"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1003</span><span class="token punctuation">,</span> <span class="token string">"Peach"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hashSet<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashSet<span class="token punctuation">.</span><span class="token function">showAllMember</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>코드의 결과는 다음과 같다 </li>
 <li><code>[Member&#123;ID=1000, name=&#39;Apple&#39;&#125;, Member&#123;ID=1003, name=&#39;Peach&#39;&#125;, Member&#123;ID=1000, name=&#39;Apple&#39;&#125;, Member&#123;ID=1002, name=&#39;Grape&#39;&#125;]</code></li>
+<li>정렬없이 중복해서 1000과 Apple 맴버객체가 들어있는데 이 이유는 생성된 인스턴스의 hashCode가 다르기 떄문이다</li>
+<li>이를 위해서 equals()와 hashCode()를 Override해줄 필요가 있다.</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//Member.java</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">==</span> o<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> <span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> o<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token class-name">Member</span> member <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Member</span><span class="token punctuation">)</span> o<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>ID<span class="token punctuation">,</span> member<span class="token punctuation">.</span>ID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">hash</span><span class="token punctuation">(</span>ID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>다음과 같이 ID를 Hash한 값이 같으면 같은 객체임을 구현해주면 해결할 수 있다.<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Member</span><span class="token punctuation">&#123;</span>ID<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'Apple'</span><span class="token punctuation">&#125;</span>
+<span class="token class-name">Member</span><span class="token punctuation">&#123;</span>ID<span class="token operator">=</span><span class="token number">1002</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'Grape'</span><span class="token punctuation">&#125;</span>
+<span class="token class-name">Member</span><span class="token punctuation">&#123;</span>ID<span class="token operator">=</span><span class="token number">1003</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'Peach'</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="Tree-Set"><a href="#Tree-Set" class="headerlink" title="Tree Set"></a>Tree Set</h4><ul>
+<li>객체의 정렬을 위해 사용되는 클래스이고 내부적으로는 이진 검색트리로 구현되어있다.</li>
+<li>객체의 비교를 위해 객채에 Comparable 또는 Comparator 인터페이스를 구현햐애햐 한다.</li>
+</ul>
+<h5 id="Comparable"><a href="#Comparable" class="headerlink" title="Comparable"></a>Comparable</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MemberTreeSet.java</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MemberTreeSet</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">TreeSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span> treeSet<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MemberTreeSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> treeSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addMember</span><span class="token punctuation">(</span><span class="token class-name">Member</span> member<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        treeSet<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">removeMember</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span> ir <span class="token operator">=</span> treeSet<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>ir<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">Member</span> member <span class="token operator">=</span> ir<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>member<span class="token punctuation">.</span><span class="token function">getID</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                treeSet<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showAllMember</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Member</span> member <span class="token operator">:</span> treeSet <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MemberTreeSetTest.java</span>
+<span class="token keyword">class</span> <span class="token class-name">MemberTreeSetTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">MemberTreeSet</span> treeSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MemberTreeSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        treeSet<span class="token punctuation">.</span><span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1004</span><span class="token punctuation">,</span><span class="token string">"Apple"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treeSet<span class="token punctuation">.</span><span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">"kiwi"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treeSet<span class="token punctuation">.</span><span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">"Melon"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treeSet<span class="token punctuation">.</span><span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">"Peach"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        treeSet<span class="token punctuation">.</span><span class="token function">addMember</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token number">1005</span><span class="token punctuation">,</span><span class="token string">"Grape"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        treeSet<span class="token punctuation">.</span><span class="token function">showAllMember</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>다음 테스트 코드의 결과는 <code>Exception in thread &quot;main&quot; java.lang.ClassCastException: class treesetexample.Member cannot be cast to class java.lang.Comparable (treesetexample.Member is in unnamed module of loader &#39;app&#39;; java.lang.Comparable is in module java.base of loader &#39;bootstrap&#39;) </code> 이러한 오류가 발생하는데</p>
+</li>
+<li><p>addMember할때 비교할 객체에대한 비교가 명시되어있지 않기 때문이다.</p>
+</li>
+<li><p>따라서 Member.java에서 Comparable 인터페이스를 구현해야한다</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Member</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token class-name">Member</span> member<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">-</span> member<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>자신과 들어온 argument와 비교를해서 자신보다 큰경우 양수, 작으면 음수 같으면 0을 반환한다</p>
+</li>
+</ul>
+<h5 id="Comparator"><a href="#Comparator" class="headerlink" title="Comparator"></a>Comparator</h5><ul>
+<li><p>Comparator 인터페이스를 사용할때도 마찬가지로 객체클래스에서 구현해주면 된다.</p>
+</li>
+<li><p>이때는 Compare(arg1 ,arg2) 메소드를 오버라이드 해준다.</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//Member.java</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Member</span> <span class="token keyword">implements</span> <span class="token class-name">Comparator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token class-name">Member</span> o1<span class="token punctuation">,</span> <span class="token class-name">Member</span> o2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> o1<span class="token punctuation">.</span><span class="token function">getID</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> o2<span class="token punctuation">.</span><span class="token function">getID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>이렇게 구현 후 실행하면 <code>Exception in thread &quot;main&quot; java.lang.ClassCastException: class treesetexample.Member cannot be cast to class java.lang.Comparable (treesetexample.Member is in unnamed module of loader &#39;app&#39;; java.lang.Comparable is in module java.base of loader &#39;bootstrap&#39;) </code> 다음과 같은 오류가 발생한다 </p>
+</li>
+<li><p>TreeSet의 인스턴스를 생성할때 <code>Comparator</code>를 구현한 클래스를 명시해주어야한다</p>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MemberTreeSet.java</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">public</span> <span class="token class-name">MemberTreeSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> treeSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Member</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Member</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Member</span><span class="token punctuation">&#123;</span>ID<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'Melon'</span><span class="token punctuation">&#125;</span>
+<span class="token class-name">Member</span><span class="token punctuation">&#123;</span>ID<span class="token operator">=</span><span class="token number">1001</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'kiwi'</span><span class="token punctuation">&#125;</span>
+<span class="token class-name">Member</span><span class="token punctuation">&#123;</span>ID<span class="token operator">=</span><span class="token number">1004</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'Apple'</span><span class="token punctuation">&#125;</span>
+<span class="token class-name">Member</span><span class="token punctuation">&#123;</span>ID<span class="token operator">=</span><span class="token number">1005</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'Grape'</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h6 id="활용"><a href="#활용" class="headerlink" title="활용"></a>활용</h6><ul>
+<li>String의 경우 java내부에서 이미 comparator 인터페이스가 구현이 되어있는데 다른 방식으로도 구현할 수 있다.<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">MyCompare</span> <span class="token keyword">implements</span> <span class="token class-name">Comparator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Overide</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token class-name">String</span> s1<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> s1<span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 결과 값의 부호반대 => 역순</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><ul>
 <li>Key 와 Value 쌍으로 이루어진 객체를 관리하는데 사용하는 메서드들이 선언된 인터페이스</li>
@@ -1307,6 +1419,124 @@ HashMap --> Map</pre>
         <tag>java</tag>
         <tag>access modifier</tag>
         <tag>capsulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>객체지향 프로그래밍 - List</title>
+    <url>/2021/08/14/OOP-java-6/</url>
+    <content><![CDATA[<h1 id="Array-List"><a href="#Array-List" class="headerlink" title="Array List"></a>Array List</h1><h2 id="Array-List-1"><a href="#Array-List-1" class="headerlink" title="Array List"></a>Array List</h2><ul>
+<li>자바에서 기본 배열은 선언 또는 사용시 길이를 정해줘야해야하며 요소가 그 길이보다 크게되면<br>배열을 재 할당하고 복사해야 하는등 불편함이 있다</li>
+<li>또 배열의 요소에 추가하거나 삭제할때 요소들의 이동에 관한 구현을 해야한다</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">메소드</th>
+<th align="left">설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">boolean add(E e)</td>
+<td align="left">배열에 요소를 추가한다</td>
+</tr>
+<tr>
+<td align="center">int size()</td>
+<td align="left">요소의 전채 개수 반환한다.</td>
+</tr>
+<tr>
+<td align="center">E get(int index)</td>
+<td align="left">해당 인덱스의 값을 반환한다.</td>
+</tr>
+<tr>
+<td align="center">E remove(int index)</td>
+<td align="left">해당 인덱스의 값을 제거하고 반환한다.</td>
+</tr>
+<tr>
+<td align="center">boolean isEmpty()</td>
+<td align="left">배열이 비어있는지 확인한다. 비어있으면 true</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">></span></span> arrayList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+arrayList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Element</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="예제-코드"><a href="#예제-코드" class="headerlink" title="예제 코드"></a>예제 코드</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">
+<span class="token keyword">package</span> <span class="token class-name">ArrayListTest</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Subject</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> subjectScore<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> subjectName<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Subject</span><span class="token punctuation">(</span><span class="token keyword">int</span> subjectScore<span class="token punctuation">,</span> <span class="token class-name">String</span> subjectName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectScore <span class="token operator">=</span> subjectScore<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectName <span class="token operator">=</span> subjectName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setSubjectScore</span><span class="token punctuation">(</span><span class="token keyword">int</span> subjectScore<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectScore <span class="token operator">=</span> subjectScore<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setSubjectName</span><span class="token punctuation">(</span><span class="token class-name">String</span> subjectName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectName <span class="token operator">=</span> subjectName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getSubjectScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> subjectScore<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getSubjectName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> subjectName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token class-name">ArrayListTest</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> studentID<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> studentName<span class="token punctuation">;</span>
+    <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Subject</span><span class="token punctuation">></span></span> subjectList<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token keyword">int</span> studentID<span class="token punctuation">,</span> <span class="token class-name">String</span> studentName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>studentID <span class="token operator">=</span> studentID<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>studentName <span class="token operator">=</span> studentName<span class="token punctuation">;</span>
+        subjectList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Subject</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addSubject</span><span class="token punctuation">(</span><span class="token keyword">int</span> score<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        subjectList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Subject</span><span class="token punctuation">(</span>score<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printAllScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>studentID <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> studentName <span class="token operator">+</span> <span class="token string">"의 성적표 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Subject</span> subject<span class="token operator">:</span> subjectList <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>subject<span class="token punctuation">.</span><span class="token function">getSubjectName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" : "</span> <span class="token operator">+</span> subject<span class="token punctuation">.</span><span class="token function">getSubjectScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"점 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Student</span> kim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">"kim"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Student</span> park <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">"park"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Student</span> jeong <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span><span class="token string">"jeong"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        kim<span class="token punctuation">.</span><span class="token function">addSubject</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token string">"수학"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        kim<span class="token punctuation">.</span><span class="token function">addSubject</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token string">"영어"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        kim<span class="token punctuation">.</span><span class="token function">printAllScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>list</tag>
+        <tag>array list</tag>
       </tags>
   </entry>
   <entry>
@@ -1500,112 +1730,59 @@ HashMap --> Map</pre>
       </tags>
   </entry>
   <entry>
-    <title>객체지향 프로그래밍 - List</title>
-    <url>/2021/08/14/OOP-java-6/</url>
-    <content><![CDATA[<h1 id="Array-List"><a href="#Array-List" class="headerlink" title="Array List"></a>Array List</h1><h2 id="Array-List-1"><a href="#Array-List-1" class="headerlink" title="Array List"></a>Array List</h2><ul>
-<li>자바에서 기본 배열은 선언 또는 사용시 길이를 정해줘야해야하며 요소가 그 길이보다 크게되면<br>배열을 재 할당하고 복사해야 하는등 불편함이 있다</li>
-<li>또 배열의 요소에 추가하거나 삭제할때 요소들의 이동에 관한 구현을 해야한다</li>
+    <title>객체지향 프로그래밍 - Abstract Method</title>
+    <url>/2021/08/17/OOP-java-9/</url>
+    <content><![CDATA[<h1 id="추상-클래스"><a href="#추상-클래스" class="headerlink" title="추상 클래스"></a>추상 클래스</h1><h2 id="추상-클래스란"><a href="#추상-클래스란" class="headerlink" title="추상 클래스란"></a>추상 클래스란</h2><ul>
+<li><p>추상 클래스는 상속을 위해 존재한다</p>
+</li>
+<li><p>구현 코드 없이 선언만 있는 추상 메소드를 포함한 클래스</p>
+</li>
+<li><p>추상메소드는 구현부 없이 반환타입, 메소드 이름, 파라미터로 구성된다.</p>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token keyword">int</span> bar<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>추상 클래스는 abstract 예약어를 사용하고 new를 사용할 수 없다.</p>
+</li>
+<li><p>추상메소드의 구현은 하위 클래스가 상속받아 구현한다 </p>
+</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th align="center">메소드</th>
-<th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">boolean add(E e)</td>
-<td align="left">배열에 요소를 추가한다</td>
-</tr>
-<tr>
-<td align="center">int size()</td>
-<td align="left">요소의 전채 개수 반환한다.</td>
-</tr>
-<tr>
-<td align="center">E get(int index)</td>
-<td align="left">해당 인덱스의 값을 반환한다.</td>
-</tr>
-<tr>
-<td align="center">E remove(int index)</td>
-<td align="left">해당 인덱스의 값을 제거하고 반환한다.</td>
-</tr>
-<tr>
-<td align="center">boolean isEmpty()</td>
-<td align="left">배열이 비어있는지 확인한다. 비어있으면 true</td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">></span></span> arrayList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">E</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h2 id="추상-클래스의-응용"><a href="#추상-클래스의-응용" class="headerlink" title="추상 클래스의 응용"></a>추상 클래스의 응용</h2><h3 id="템플릿-메소드"><a href="#템플릿-메소드" class="headerlink" title="템플릿 메소드"></a>템플릿 메소드</h3><ul>
+<li>템플릿 메소드는 프레임워크에서 많이 사용되는 패턴이다</li>
+<li>정의된 시나리오에 흐름에따른 추상 메소드를 구현함</li>
+<li>탬플릿 흐름은 변하면 안되기 때문에 final로 선언하여 하위 클래스에서 재정의가 불가능하게 한다</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">&#123;</span>
+	
+	<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">drive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"시동을 켭니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">turnOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"시동을 끕니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+			
+	<span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">startCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">drive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">turnOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-arrayList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Element</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AICar</span> <span class="token keyword">extends</span> <span class="token class-name">Car</span><span class="token punctuation">&#123;</span>
 
-<h4 id="예제-코드"><a href="#예제-코드" class="headerlink" title="예제 코드"></a>예제 코드</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java">
-<span class="token keyword">package</span> <span class="token class-name">ArrayListTest</span><span class="token punctuation">;</span>
+	<span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">drive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"자율 주행합니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"자동차가 스스로 방향을 바꿉니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Subject</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> subjectScore<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> subjectName<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Subject</span><span class="token punctuation">(</span><span class="token keyword">int</span> subjectScore<span class="token punctuation">,</span> <span class="token class-name">String</span> subjectName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectScore <span class="token operator">=</span> subjectScore<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectName <span class="token operator">=</span> subjectName<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setSubjectScore</span><span class="token punctuation">(</span><span class="token keyword">int</span> subjectScore<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectScore <span class="token operator">=</span> subjectScore<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setSubjectName</span><span class="token punctuation">(</span><span class="token class-name">String</span> subjectName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>subjectName <span class="token operator">=</span> subjectName<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getSubjectScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> subjectScore<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getSubjectName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> subjectName<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token class-name">ArrayListTest</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> studentID<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> studentName<span class="token punctuation">;</span>
-    <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Subject</span><span class="token punctuation">></span></span> subjectList<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token keyword">int</span> studentID<span class="token punctuation">,</span> <span class="token class-name">String</span> studentName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>studentID <span class="token operator">=</span> studentID<span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>studentName <span class="token operator">=</span> studentName<span class="token punctuation">;</span>
-        subjectList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Subject</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addSubject</span><span class="token punctuation">(</span><span class="token keyword">int</span> score<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        subjectList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Subject</span><span class="token punctuation">(</span>score<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printAllScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>studentID <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> studentName <span class="token operator">+</span> <span class="token string">"의 성적표 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Subject</span> subject<span class="token operator">:</span> subjectList <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>subject<span class="token punctuation">.</span><span class="token function">getSubjectName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" : "</span> <span class="token operator">+</span> subject<span class="token punctuation">.</span><span class="token function">getSubjectScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"점 "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Student</span> kim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">"kim"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Student</span> park <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">"park"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Student</span> jeong <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">,</span><span class="token string">"jeong"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        kim<span class="token punctuation">.</span><span class="token function">addSubject</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token string">"수학"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        kim<span class="token punctuation">.</span><span class="token function">addSubject</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span><span class="token string">"영어"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        kim<span class="token punctuation">.</span><span class="token function">printAllScore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	<span class="token annotation punctuation">@Override</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"스스로 멈춥니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 ]]></content>
       <categories>
@@ -1613,8 +1790,9 @@ arrayList<span class="token punctuation">.</span><span class="token function">ad
         <category>java</category>
       </categories>
       <tags>
-        <tag>list</tag>
-        <tag>array list</tag>
+        <tag>interface</tag>
+        <tag>abstract class</tag>
+        <tag>template method</tag>
       </tags>
   </entry>
   <entry>
@@ -1773,72 +1951,6 @@ arrayList<span class="token punctuation">.</span><span class="token function">ad
       </tags>
   </entry>
   <entry>
-    <title>객체지향 프로그래밍 - Abstract Method</title>
-    <url>/2021/08/17/OOP-java-9/</url>
-    <content><![CDATA[<h1 id="추상-클래스"><a href="#추상-클래스" class="headerlink" title="추상 클래스"></a>추상 클래스</h1><h2 id="추상-클래스란"><a href="#추상-클래스란" class="headerlink" title="추상 클래스란"></a>추상 클래스란</h2><ul>
-<li><p>추상 클래스는 상속을 위해 존재한다</p>
-</li>
-<li><p>구현 코드 없이 선언만 있는 추상 메소드를 포함한 클래스</p>
-</li>
-<li><p>추상메소드는 구현부 없이 반환타입, 메소드 이름, 파라미터로 구성된다.</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token keyword">int</span> bar<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>추상 클래스는 abstract 예약어를 사용하고 new를 사용할 수 없다.</p>
-</li>
-<li><p>추상메소드의 구현은 하위 클래스가 상속받아 구현한다 </p>
-</li>
-</ul>
-<h2 id="추상-클래스의-응용"><a href="#추상-클래스의-응용" class="headerlink" title="추상 클래스의 응용"></a>추상 클래스의 응용</h2><h3 id="템플릿-메소드"><a href="#템플릿-메소드" class="headerlink" title="템플릿 메소드"></a>템플릿 메소드</h3><ul>
-<li>템플릿 메소드는 프레임워크에서 많이 사용되는 패턴이다</li>
-<li>정의된 시나리오에 흐름에따른 추상 메소드를 구현함</li>
-<li>탬플릿 흐름은 변하면 안되기 때문에 final로 선언하여 하위 클래스에서 재정의가 불가능하게 한다</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token punctuation">&#123;</span>
-	
-	<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">drive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	
-	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"시동을 켭니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-	
-	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">turnOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"시동을 끕니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-			
-	<span class="token keyword">final</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token function">startCar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token function">drive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token function">turnOff</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AICar</span> <span class="token keyword">extends</span> <span class="token class-name">Car</span><span class="token punctuation">&#123;</span>
-
-	<span class="token annotation punctuation">@Override</span>
-	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">drive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"자율 주행합니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"자동차가 스스로 방향을 바꿉니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token punctuation">&#125;</span>
-
-	<span class="token annotation punctuation">@Override</span>
-	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"스스로 멈춥니다."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		
-	<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>oop</category>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>interface</tag>
-        <tag>abstract class</tag>
-        <tag>template method</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ShellScript-Basic(2)</title>
     <url>/2021/08/05/ShellScript-Basic-2/</url>
     <content><![CDATA[<h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
@@ -1892,6 +2004,27 @@ DELDAY <span class="token operator">=</span> <span class="token number">2</span>
       <tags>
         <tag>Linux</tag>
         <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System Programming - ABI</title>
+    <url>/2021/07/28/System-Programming-ABI/</url>
+    <content><![CDATA[<h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
+<li>Application Binary Interface</li>
+<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
+<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
+<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
+<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>System Programming</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>ABI</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
       </tags>
   </entry>
   <entry>
@@ -2041,27 +2174,6 @@ index <span class="token operator">=</span> <span class="token number">0</span><
       </tags>
   </entry>
   <entry>
-    <title>System Programming - ABI</title>
-    <url>/2021/07/28/System-Programming-ABI/</url>
-    <content><![CDATA[<h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
-<li>Application Binary Interface</li>
-<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
-<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
-<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
-<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>System Programming</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>ABI</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>System-Programming-IPC(2)</title>
     <url>/2021/08/04/System-Programming-IPC-2/</url>
     <content><![CDATA[<p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
@@ -2162,159 +2274,11 @@ buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>TIL</tag>
+        <tag>Linux</tag>
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>Shared Memory</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>System-Programming-Pthread</title>
-    <url>/2021/08/05/System-Programming-Pthread/</url>
-    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
-<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
-<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
-</ul>
-<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
-<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
-</li>
-<li><p>모든 함수는 pthread_ 로 시작</p>
-</li>
-<li><p>크게 두가지로 분류 된다</p>
-<ul>
-<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
-<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
-</ul>
-</li>
-<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
-<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
-</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gcc -pthread test.c -o <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pthread_create</span> <span class="token punctuation">(</span><span class="token class-name">pthread_t</span> <span class="token operator">*</span>thread<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token class-name">pthread_attr_t</span> <span class="token operator">*</span>attr<span class="token punctuation">,</span>
-                    <span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">*</span>start_routine<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">void</span><span class="token operator">*</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">/* thread: 생성된 스레드 식별자
-   attr: 스레드 특징 설정
-   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)
-   arg: 스레드 함수 인자 */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">pthread_t</span> thread1<span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">thread_function</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>ptr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-ret <span class="token operator">=</span> <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>thread1<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span> thread_function<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>message1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// return갑은 성공하면 0 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
-<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">pthread_exit</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>retaval<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
-<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
-<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
-<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
-</li>
-</ul>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pthread_join</span> <span class="token punctuation">(</span><span class="token class-name">pthread_t</span> thread<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span><span class="token operator">*</span>thread_return<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">pthread_join</span> <span class="token punctuation">(</span>p_thread<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span>
-
-<span class="token function">prtinf</span><span class="token punctuation">(</span><span class="token string">"thread join %d\n"</span> <span class="token punctuation">,</span> status<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
-<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
-<ul>
-<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
-</ul>
-</li>
-<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
-<ul>
-<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
-<li>detach는 해당 스레드가 종료되면 바로 해제</li>
-</ul>
-</li>
-</ul>
-<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
-<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
-</ul>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">pthread_mutext_t</span> mutex_lock <span class="token operator">=</span> PTHREAD_MUTEX_INITIALIZER<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token class-name">pthread_mutex_t</span> <span class="token operator">*</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token class-name">pthread_mutex_t</span> <span class="token operator">*</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">inlcude</span> <span class="token expression"><span class="token operator">&lt;</span>pthread<span class="token punctuation">.</span>h<span class="token operator">></span></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
-
-<span class="token class-name">pthread_mutex_t</span> mutex_lock <span class="token operator">=</span> PTHREAD_MUTEX_INITIALIZER<span class="token punctuation">;</span>
-<span class="token keyword">int</span> g_count <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-
-<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">t_function</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 스레드 함수</span>
-  <span class="token keyword">char</span><span class="token operator">*</span> thread_name <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>data<span class="token punctuation">;</span>
-  <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex_lock<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Mutex로 락</span>
-  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s start\n"</span><span class="token punctuation">,</span> thread_name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10000000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    g_count<span class="token operator">++</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s, g_count = %d\n"</span> thread_name<span class="token punctuation">,</span> g_count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex_lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token class-name">pthread_t</span> p_thread1<span class="token punctuation">,</span> p_thread2<span class="token punctuation">;</span>
-  <span class="token keyword">int</span> status<span class="token punctuation">;</span>
-  <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>p_thread1<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> t_function<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token string">"Thread1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>p_thread2<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> t_function<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token string">"Thread2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">pthread_join</span><span class="token punctuation">(</span>p_thread1<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">pthread_join</span><span class="token punctuation">(</span>p_thread2<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span>  
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-  </entry>
-  <entry>
-    <title>System Programming - Scheduling</title>
-    <url>/2021/07/29/System-Programming-Scheduling/</url>
-    <content><![CDATA[<h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
-<li>정적 우선순위<ul>
-<li>프로세스마다 우선순위를 미리 지정</li>
-</ul>
-</li>
-<li>동적 우선순위<ul>
-<li>상황에 따라 스케쥴러가 우선순위를 동적으로 변경</li>
-</ul>
-</li>
-</ul>
-<h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><ul>
-<li><p>Portable Operating system interface의 약자로</p>
-<p>  서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 Application 규격이다.</p>
-</li>
-<li><p>리눅스는 POSIX에서 정한 규격으로 시스템콜을 정의했다</p>
-</li>
-</ul>
-<h2 id="우선순위-관련-System-Call"><a href="#우선순위-관련-System-Call" class="headerlink" title="우선순위 관련 System Call"></a>우선순위 관련 System Call</h2><h3 id="nice"><a href="#nice" class="headerlink" title="nice()"></a>nice()</h3><ul>
-<li>root가 소유한 프로세스만 우선순위를 높일 수 있고 </li>
-</ul>
-<p>그외 다른 프로세스의 우선순위는 낮출수만 있다.</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
-<span class="token keyword">int</span> <span class="token function">nice</span> <span class="token punctuation">(</span><span class="token keyword">int</span> inc<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-
-<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/resource.h></span></span>
-<span class="token keyword">int</span> <span class="token function">getpriority</span><span class="token punctuation">(</span><span class="token keyword">int</span> which<span class="token punctuation">,</span> <span class="token class-name">id_t</span> who<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> <span class="token function">setpriority</span><span class="token punctuation">(</span><span class="token keyword">int</span> which<span class="token punctuation">,</span> <span class="token class-name">in_t</span> who<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>이름에도 알 수 있듯이 프로세스의 우선순위를 가져오거나 정할 수 있다.</li>
-<li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
-<li>who는 process ID (0을 넣으면 현재 프로세스이다), value는 우선순위로 인자를 갖는다</li>
-</ul>
-]]></content>
-      <categories>
-        <category>System Programming</category>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -2439,8 +2403,8 @@ ret <span class="token operator">=</span> <span class="token function">pthread_c
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>TIL</tag>
+        <tag>Linux</tag>
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>File</tag>
@@ -2600,8 +2564,8 @@ ret <span class="token operator">=</span> <span class="token function">pthread_c
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>TIL</tag>
+        <tag>Linux</tag>
         <tag>C</tag>
         <tag>System Programming</tag>
       </tags>
@@ -2696,11 +2660,159 @@ ret <span class="token operator">=</span> <span class="token function">pthread_c
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>TIL</tag>
+        <tag>Linux</tag>
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>Signal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System-Programming-Pthread</title>
+    <url>/2021/08/05/System-Programming-Pthread/</url>
+    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
+<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
+<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
+</ul>
+<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
+<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
+</li>
+<li><p>모든 함수는 pthread_ 로 시작</p>
+</li>
+<li><p>크게 두가지로 분류 된다</p>
+<ul>
+<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
+<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
+</ul>
+</li>
+<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
+<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gcc -pthread test.c -o <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pthread_create</span> <span class="token punctuation">(</span><span class="token class-name">pthread_t</span> <span class="token operator">*</span>thread<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token class-name">pthread_attr_t</span> <span class="token operator">*</span>attr<span class="token punctuation">,</span>
+                    <span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">*</span>start_routine<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">void</span><span class="token operator">*</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/* thread: 생성된 스레드 식별자
+   attr: 스레드 특징 설정
+   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)
+   arg: 스레드 함수 인자 */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">pthread_t</span> thread1<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">thread_function</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>ptr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ret <span class="token operator">=</span> <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>thread1<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span> thread_function<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span><span class="token punctuation">)</span>message1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// return갑은 성공하면 0 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
+<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">pthread_exit</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>retaval<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
+<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
+<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
+<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
+</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pthread_join</span> <span class="token punctuation">(</span><span class="token class-name">pthread_t</span> thread<span class="token punctuation">,</span> <span class="token keyword">void</span> <span class="token operator">*</span><span class="token operator">*</span>thread_return<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">pthread_join</span> <span class="token punctuation">(</span>p_thread<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span>
+
+<span class="token function">prtinf</span><span class="token punctuation">(</span><span class="token string">"thread join %d\n"</span> <span class="token punctuation">,</span> status<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
+<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
+<ul>
+<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
+</ul>
+</li>
+<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
+<ul>
+<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
+<li>detach는 해당 스레드가 종료되면 바로 해제</li>
+</ul>
+</li>
+</ul>
+<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
+<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
+</ul>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token class-name">pthread_mutext_t</span> mutex_lock <span class="token operator">=</span> PTHREAD_MUTEX_INITIALIZER<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token class-name">pthread_mutex_t</span> <span class="token operator">*</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token class-name">pthread_mutex_t</span> <span class="token operator">*</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">inlcude</span> <span class="token expression"><span class="token operator">&lt;</span>pthread<span class="token punctuation">.</span>h<span class="token operator">></span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+
+<span class="token class-name">pthread_mutex_t</span> mutex_lock <span class="token operator">=</span> PTHREAD_MUTEX_INITIALIZER<span class="token punctuation">;</span>
+<span class="token keyword">int</span> g_count <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">t_function</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 스레드 함수</span>
+  <span class="token keyword">char</span><span class="token operator">*</span> thread_name <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>data<span class="token punctuation">;</span>
+  <span class="token function">pthread_mutex_lock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex_lock<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Mutex로 락</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s start\n"</span><span class="token punctuation">,</span> thread_name<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10000000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    g_count<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s, g_count = %d\n"</span> thread_name<span class="token punctuation">,</span> g_count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pthread_mutex_unlock</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mutex_lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token class-name">pthread_t</span> p_thread1<span class="token punctuation">,</span> p_thread2<span class="token punctuation">;</span>
+  <span class="token keyword">int</span> status<span class="token punctuation">;</span>
+  <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>p_thread1<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> t_function<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token string">"Thread1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pthread_create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>p_thread2<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">,</span> t_function<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token string">"Thread2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pthread_join</span><span class="token punctuation">(</span>p_thread1<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">pthread_join</span><span class="token punctuation">(</span>p_thread2<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+  </entry>
+  <entry>
+    <title>System Programming - Scheduling</title>
+    <url>/2021/07/29/System-Programming-Scheduling/</url>
+    <content><![CDATA[<h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
+<li>정적 우선순위<ul>
+<li>프로세스마다 우선순위를 미리 지정</li>
+</ul>
+</li>
+<li>동적 우선순위<ul>
+<li>상황에 따라 스케쥴러가 우선순위를 동적으로 변경</li>
+</ul>
+</li>
+</ul>
+<h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><ul>
+<li><p>Portable Operating system interface의 약자로</p>
+<p>  서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 Application 규격이다.</p>
+</li>
+<li><p>리눅스는 POSIX에서 정한 규격으로 시스템콜을 정의했다</p>
+</li>
+</ul>
+<h2 id="우선순위-관련-System-Call"><a href="#우선순위-관련-System-Call" class="headerlink" title="우선순위 관련 System Call"></a>우선순위 관련 System Call</h2><h3 id="nice"><a href="#nice" class="headerlink" title="nice()"></a>nice()</h3><ul>
+<li>root가 소유한 프로세스만 우선순위를 높일 수 있고 </li>
+</ul>
+<p>그외 다른 프로세스의 우선순위는 낮출수만 있다.</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
+<span class="token keyword">int</span> <span class="token function">nice</span> <span class="token punctuation">(</span><span class="token keyword">int</span> inc<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/resource.h></span></span>
+<span class="token keyword">int</span> <span class="token function">getpriority</span><span class="token punctuation">(</span><span class="token keyword">int</span> which<span class="token punctuation">,</span> <span class="token class-name">id_t</span> who<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">setpriority</span><span class="token punctuation">(</span><span class="token keyword">int</span> which<span class="token punctuation">,</span> <span class="token class-name">in_t</span> who<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>이름에도 알 수 있듯이 프로세스의 우선순위를 가져오거나 정할 수 있다.</li>
+<li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
+<li>who는 process ID (0을 넣으면 현재 프로세스이다), value는 우선순위로 인자를 갖는다</li>
+</ul>
+]]></content>
+      <categories>
+        <category>System Programming</category>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -2755,25 +2867,6 @@ FATAL <span class="token punctuation">&#123;</span>
       <tags>
         <tag>Trouble Shooting</tag>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git ignore 적용 안될때</title>
-    <url>/2021/08/06/git-add/</url>
-    <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
-<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
-<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">git add * The following paths are ignored by one of your .gitignore files: git-add&#x2F;ignore.txt
-Use -f if you really want to add them.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
-<p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
-<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Trouble Shooting</tag>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -2848,6 +2941,25 @@ Use -f if you really want to add them.<span aria-hidden="true" class="line-numbe
         <tag>setting</tag>
         <tag>zsh</tag>
         <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git ignore 적용 안될때</title>
+    <url>/2021/08/06/git-add/</url>
+    <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
+<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
+<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">git add * The following paths are ignored by one of your .gitignore files: git-add&#x2F;ignore.txt
+Use -f if you really want to add them.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
+<p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
+<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Trouble Shooting</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>
