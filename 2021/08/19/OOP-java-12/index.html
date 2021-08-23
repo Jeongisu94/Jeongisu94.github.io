@@ -28,7 +28,7 @@
 <meta property="og:description" content="JAVA Collection Framework 컬렉션 프레임워크란 자료구조를 정의해 놓은 JDK 라이브러리 이다 java.util 패키지에 구현되어있다   graph BT ArrayList --&gt; List Vector --&gt; List LinkedList --&gt; List HashSet --&gt; Set TreeSet --&gt; Set List --&gt; Collecti">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-19T07:41:24.000Z">
-<meta property="article:modified_time" content="2021-08-22T10:33:05.338Z">
+<meta property="article:modified_time" content="2021-08-23T06:40:07.043Z">
 <meta property="article:author" content="Jeongisu">
 <meta property="article:tag" content="collection">
 <meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-Collection-Framework"><span class="nav-number">1.</span> <span class="nav-text">JAVA Collection Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-Interface"><span class="nav-number">1.1.</span> <span class="nav-text">Collection Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">1.1.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.1.2.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Iterator"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Iterator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashSet-Class"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">HashSet Class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tree-Set"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Tree Set</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Comparable"><span class="nav-number">1.1.2.3.1.</span> <span class="nav-text">Comparable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Comparator"><span class="nav-number">1.1.2.3.2.</span> <span class="nav-text">Comparator</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%ED%99%9C%EC%9A%A9"><span class="nav-number">1.1.2.3.2.1.</span> <span class="nav-text">활용</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.1.3.</span> <span class="nav-text">Map</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-Collection-Framework"><span class="nav-number">1.</span> <span class="nav-text">JAVA Collection Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-Interface"><span class="nav-number">1.1.</span> <span class="nav-text">Collection Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">1.1.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.1.2.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Iterator"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Iterator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashSet-Class"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">HashSet Class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tree-Set"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Tree Set</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Comparable"><span class="nav-number">1.1.2.3.1.</span> <span class="nav-text">Comparable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Comparator"><span class="nav-number">1.1.2.3.2.</span> <span class="nav-text">Comparator</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%ED%99%9C%EC%9A%A9"><span class="nav-number">1.1.2.3.2.1.</span> <span class="nav-text">활용</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.1.3.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeMap"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">TreeMap</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -244,7 +244,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-22 19:33:05" itemprop="dateModified" datetime="2021-08-22T19:33:05+09:00">2021-08-22</time>
+        <time title="Modified: 2021-08-23 15:40:07" itemprop="dateModified" datetime="2021-08-23T15:40:07+09:00">2021-08-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -498,10 +498,56 @@ HashMap --> Map</pre>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">Map</a></h3><ul>
 <li>Key 와 Value 쌍으로 이루어진 객체를 관리하는데 사용하는 메서드들이 선언된 인터페이스</li>
-<li>Key는 중복을 허용하지 않음</li>
-<li>HashTable, HashMap,TreeMap 등이 Map 인터페이스를 구현한다 </li>
+<li>Key를 이용하여 Value를 꺼내오는 방식</li>
+<li>Key는 중복을 허용하지 않음<ul>
+<li>따라서 Key의 유일성 비교를 위한 equals()와 hashCode() 메소드의 구현이 요구된다.</li>
+</ul>
+</li>
+<li>put(K ,V)로 값을 넣을 수 있다.</li>
+<li>key를 set로 불러오는 keySet()과 values()를 이용해 Collection 형태로 값을 불러올 수 있다.</li>
+<li>HashTable, HashMap,TreeMap 등이 Map 인터페이스를 구현한다</li>
+</ul>
+<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MemberHashMap.java</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MemberHashMap</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Member</span><span class="token punctuation">></span></span> hashMap<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">MemberHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addMember</span><span class="token punctuation">(</span><span class="token class-name">Member</span> member<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        hashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>member<span class="token punctuation">.</span><span class="token function">getID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">removeMember</span><span class="token punctuation">(</span><span class="token keyword">int</span> memberID<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>hashMap<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>memberID<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            hashMap<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>memberID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">removeMember</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> key<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>hashMap<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            hashMap<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">showAllMember</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> ir <span class="token operator">=</span> hashMap<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>ir<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">Integer</span> key <span class="token operator">=</span> ir<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Member</span> member <span class="token operator">=</span> hashMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h4><ul>
+<li>Tree Map 클래스는 key에 대한 정렬을 구현할 수 있다</li>
+<li>key가 되는 클래스에 Comparable이나 Comparator 인터페이스를 구현해서 key값으로 기준으로 정렬할 수 있다.</li>
 </ul>
 
     </div>
@@ -524,6 +570,9 @@ HashMap --> Map</pre>
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/08/23/OOP-java-13/" rel="next" title="자바의 내부 클래스">
+                  자바의 내부 클래스 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

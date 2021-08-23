@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,299 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/13/OOP-java-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/13/OOP-java-5/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - Static</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-13 20:59:48" itemprop="dateCreated datePublished" datetime="2021-08-13T20:59:48+09:00">2021-08-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-18 16:28:14" itemprop="dateModified" datetime="2021-08-18T16:28:14+09:00">2021-08-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/oop/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h1><h2 id="Static-변수"><a href="#Static-변수" class="headerlink" title="Static 변수"></a>Static 변수</h2><ul>
+<li><p>static은 변수앞에 붙는 키워드로 인스턴스가 생성될 떄 만들어지는 변수가 아닌 처음 프로그램이 메모리에 로딩 될때 메모리에 할당된다.</p>
+</li>
+<li><p>클래스 변수, 정적변수라고도 한다</p>
+</li>
+<li><p>메모리의 데이터영역에 저장된다. *인스턴스는 힙영역</p>
+</li>
+<li><p>인스턴스 생성과 상관없이 사용가능해서 클래스 이름으로 접근이 가능하다</p>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">staticTest</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Employee</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> serialNum <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">int</span> employeeId<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> employeeName<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> department<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token class-name">String</span> employeeName<span class="token punctuation">,</span> <span class="token class-name">String</span> department<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>employeeName <span class="token operator">=</span> employeeName<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>department <span class="token operator">=</span> department<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>employeeId <span class="token operator">=</span> <span class="token operator">++</span>serialNum<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setEmployeeName</span><span class="token punctuation">(</span><span class="token class-name">String</span> employeeName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>employeeName <span class="token operator">=</span> employeeName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setDepartment</span><span class="token punctuation">(</span><span class="token class-name">String</span> department<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>department <span class="token operator">=</span> department<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getEmployeeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> employeeName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> department<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getEmployeeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> employeeId<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">staticTest</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">Assertions</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">EmployeeTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Employee</span> kim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token string">"kim"</span><span class="token punctuation">,</span><span class="token string">"hs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Employee</span> woo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token string">"woo"</span><span class="token punctuation">,</span><span class="token string">"dev"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Employee</span> choi <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Employee</span><span class="token punctuation">(</span><span class="token string">"choi"</span><span class="token punctuation">,</span><span class="token string">"man"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>kim<span class="token punctuation">.</span><span class="token function">getEmployeeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>woo<span class="token punctuation">.</span><span class="token function">getEmployeeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>choi<span class="token punctuation">.</span><span class="token function">getEmployeeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>1001</p>
+<p>1002</p>
+<p>1003</p>
+</li>
+</ul>
+<h2 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h2><ul>
+<li><p>스태틱 메소드는 instance변수를 사용할 수 없다</p>
+</li>
+<li><p>스태틱 키워드는 인스턴스의 생성과 무관하게 사용할 수 있기 때문에 당연히</p>
+</li>
+<li><p>힙영역에 메모리가 존재하지 않아, 인스턴스를 필요로하는 일반 멤버 변수를 사용 할 수 없다.</p>
+</li>
+</ul>
+<h2 id="Static-응용-Singleton-패턴"><a href="#Static-응용-Singleton-패턴" class="headerlink" title="Static 응용 - Singleton 패턴"></a>Static 응용 - Singleton 패턴</h2><ul>
+<li><p>싱글톤 패턴이란 프로그램에서 인스턴스가 단 한개만 생성되어야 하는 경우 사용되는 디자인 패턴이다.</p>
+</li>
+<li><p>static 키워드를 활용하여 구현할 수 있다</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//생성자를 private로 선언</span>
+<span class="token keyword">private</span> <span class="token class-name">Company</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token comment">//클래스 내부에 유일한 private 인스턴스 생성</span>
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Compnay</span> singleInstance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Company</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//외부에서 유일한 인스턴스를 참조 할 수 있는 public 메소드를 구현</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Company</span> <span class="token function">getInstace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token comment">// 외부에서 인스턴스 생성 없이 접근할 수 있어야하기때문에 static 메소드</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> singleInstance <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      singleInstance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Compay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 인스턴스가 없는경우 생성</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> singleInstance<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/13/OOP-java-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/13/OOP-java-4/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - 접근 제어자</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-13 03:34:16" itemprop="dateCreated datePublished" datetime="2021-08-13T03:34:16+09:00">2021-08-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-18 16:28:22" itemprop="dateModified" datetime="2021-08-18T16:28:22+09:00">2021-08-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/oop/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="접근-제어자와-정보-은닉"><a href="#접근-제어자와-정보-은닉" class="headerlink" title="접근 제어자와 정보 은닉"></a>접근 제어자와 정보 은닉</h1><h2 id="접근-제어-지시자-access-modifier"><a href="#접근-제어-지시자-access-modifier" class="headerlink" title="접근 제어 지시자(access modifier)"></a>접근 제어 지시자(access modifier)</h2><ul>
+<li><p>접근제어지시자를 통해 정보은닉을 활용한 캡슐화가 구현이 된다.</p>
+</li>
+<li><p>클래스의 외부에서 클래스 내의 멤버변수, 메서드 , 생성자를 사용여부를 나타내는 키워드</p>
+<ul>
+<li>private 같은 클래스 내부에서만 접근 가능</li>
+<li>default(아무것도 안쓴경우) 같은 패키지 내부에서만 접근 가능</li>
+<li>protected 같은 패키지나 상속관계의 클래스에서 접근 가능</li>
+<li>public 클래스의 외부 어디서나 접근 할 수 있음</li>
+</ul>
+</li>
+<li><p>public get()/set() 메소드를 통하여 private한 멤버변수를 접근한다</p>
+</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>name<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 정보를 보호함과 동시에 유효성을 검사 할 수 있다.</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="정보-은닉을-활용한-캡슐화"><a href="#정보-은닉을-활용한-캡슐화" class="headerlink" title="정보 은닉을 활용한 캡슐화"></a>정보 은닉을 활용한 캡슐화</h2><ul>
+<li><p>캡슐화는 슈퍼클래스로부터 자식 클래스를 외부로 은닉하는 행위</p>
+</li>
+<li><p>꼭 필요한 정보와 기능만 외부에 오픈함으로써 메서드나 멤버변수의 접근하면서 발생 할 수있는<br>오류를 최소화 한다.</p>
+</li>
+<li><p>캡슐화는 객체간 소통시 세부사항을 알 필요 없어서 낮은 결합도를 제공함</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1316,323 +1609,6 @@ index <span class="token operator">=</span> <span class="token number">0</span><
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/image/System-Programming-Signal_images/sigexam.png"><br>다음과 같이 원래 SIGINT의 디폴트는 종료이지만 종료하지않고<br>재정의한대로 메시지가 출력된다.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/04/System-Programming-IPC-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/04/System-Programming-IPC-2/" class="post-title-link" itemprop="url">System-Programming-IPC(2)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-04 17:43:04" itemprop="dateCreated datePublished" datetime="2021-08-04T17:43:04+09:00">2021-08-04</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-06 20:32:03" itemprop="dateModified" datetime="2021-08-06T20:32:03+09:00">2021-08-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">msgctl</span><span class="token punctuation">(</span>msgid<span class="token punctuation">,</span> PIC_RMID<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//삭제예시, 메시지 아이디와 컨트롤에대한 인자를 받는다. </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ipcs <span class="token comment">#명령어를 통해 확인 할 수 있다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="공유메모리-Shared-Memory"><a href="#공유메모리-Shared-Memory" class="headerlink" title="공유메모리 (Shared Memory)"></a>공유메모리 (Shared Memory)</h2><ul>
-<li>모든 프로세스는 커널영역을 공유한다는 점을 이용하여<br>커널에 공간을 확보하여 그 공간을 변수처럼 사용하는 방식이다</li>
-<li>큐와 다르게 주소를 변수처럼 접근한다</li>
-<li>공유 메모리 Key를 통하여 여러 프로세스가 접근이 가능하다</li>
-</ul>
-<h3 id="공유-메모리-생성"><a href="#공유-메모리-생성" class="headerlink" title="공유 메모리 생성"></a>공유 메모리 생성</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/ipc.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/shm.h></span></span>
-<span class="token comment">/*
-key: 임의의 숫자 또는 ftok 함수로 생성한 키 값
-size: 공유 메모리의 크기
-shmflg: 공유 메모리의 속성
-return value : 공유 메모리 식별자 리턴
-*/</span>
-<span class="token keyword">int</span> <span class="token function">shmget</span><span class="token punctuation">(</span><span class="token class-name">key_t</span> key<span class="token punctuation">,</span> <span class="token class-name">size_t</span><span class="token punctuation">,</span> <span class="token keyword">int</span> shmflg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-shmid <span class="token operator">=</span> <span class="token function">shmget</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">key_t</span><span class="token punctuation">)</span><span class="token number">1234</span><span class="token punctuation">,</span>SIZE <span class="token punctuation">,</span> IPC_CREAT<span class="token operator">|</span><span class="token number">0666</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="공유-메모리-연결"><a href="#공유-메모리-연결" class="headerlink" title="공유 메모리 연결"></a>공유 메모리 연결</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/shm.h></span></span>
-<span class="token comment">/*
-shmid: shmget 함수로 생성한 공유 메모리 식별자
-shmaddr : 공유 메모리 연결 주소 (char *) NULL로 설정하면 적절한 주소로 연결된다
-shmflg: 공유 메모리의 권한 설정 (0이면 읽기쓰기, SHM_RDONLY면 읽기만)
-return value: 연결이 성공하면 메모리의 시작 주소를 리턴
-*/</span>
-<span class="token keyword">void</span> <span class="token operator">*</span><span class="token function">shmat</span><span class="token punctuation">(</span><span class="token keyword">int</span> shmid<span class="token punctuation">,</span> <span class="token keyword">const</span> <span class="token keyword">void</span> <span class="token operator">*</span>shamddr<span class="token punctuation">,</span> <span class="token keyword">int</span> shmflg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-shmaddr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">shmat</span><span class="token punctuation">(</span>shmid<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="공유-메모리-해제"><a href="#공유-메모리-해제" class="headerlink" title="공유 메모리 해제"></a>공유 메모리 해제</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/shm.h></span></span>
-
-<span class="token keyword">int</span> <span class="token function">shmdt</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span> shmaddr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 공유 메모리 연결 주소로 인자를 갖는다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="공유-메모리-읽기-쓰기"><a href="#공유-메모리-읽기-쓰기" class="headerlink" title="공유 메모리 읽기/쓰기"></a>공유 메모리 읽기/쓰기</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"%s"</span> \n"<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>shmaddr<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token function">strcpy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token operator">*</span><span class="token punctuation">)</span>shmaddr<span class="token punctuation">,</span> <span class="token string">"to write"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="공유-메모리-컨트롤"><a href="#공유-메모리-컨트롤" class="headerlink" title="공유 메모리 컨트롤"></a>공유 메모리 컨트롤</h3><p>커널영역을 끊임없이 만들 수 없기때문에 메모리를 컨트롤해줘야한다</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/ipc.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/shm.h></span></span>
-<span class="token comment">/*
-shmid: shmget 함수로 생성한 공유 메모리 식별자
-cmd: 수행할 컨트롤 (ex: IPC_RMID - shmid로 지정한 공유 메모리 제거)
-buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조
-*/</span>
-
-<span class="token keyword">int</span> <span class="token function">shmctl</span><span class="token punctuation">(</span><span class="token keyword">int</span> shmid<span class="token punctuation">,</span> <span class="token keyword">int</span> cmd<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">shmid_ds</span> <span class="token operator">*</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">shmctl</span><span class="token punctuation">(</span>shmid<span class="token punctuation">,</span> IPC_RMID<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">shmid_ds</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="활용-예시"><a href="#활용-예시" class="headerlink" title="활용 예시"></a>활용 예시</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/types.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/ipc.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/shm.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/wait.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;unistd.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> shmid<span class="token punctuation">,</span> pid<span class="token punctuation">;</span>
-    <span class="token keyword">char</span> <span class="token operator">*</span>shmaddr_parent<span class="token punctuation">,</span> <span class="token operator">*</span>shmaddr_child<span class="token punctuation">;</span>
-    shmid <span class="token operator">=</span> <span class="token function">shmget</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">key_t</span><span class="token punctuation">)</span><span class="token number">1234</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> IPC_CREAT<span class="token operator">|</span><span class="token number">0644</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>shmid <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// ocurred error</span>
-            <span class="token function">perror</span><span class="token punctuation">(</span><span class="token string">"shmget err"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    pid <span class="token operator">=</span> <span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>pid <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// parent process</span>
-            <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            shmaddr_parent <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">shmat</span><span class="token punctuation">(</span>shmid<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token constant">NULL</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> shmaddr_parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">shmdt</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>shmaddr_parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-            shmaddr_child <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">shmat</span><span class="token punctuation">(</span>shmid<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token constant">NULL</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">strcpy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>shmaddr_child<span class="token punctuation">,</span> <span class="token string">"Hello Parent!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">shmdt</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>shmaddr_child<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token comment">// shmctl(shmid, IPC_RMID, (struct shmid_ds *)NULL); ipcs로 확인하기위해 삭제하지 않았음.</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/image/System-Programming-IPC-2_images/example.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/30/mac-setting-iterm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/30/mac-setting-iterm/" class="post-title-link" itemprop="url">내 개발환경 셋팅하기 Oh My ZSH , iTerm2 , power10k</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-30 21:59:39" itemprop="dateCreated datePublished" datetime="2021-07-30T21:59:39+09:00">2021-07-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-04 21:56:52" itemprop="dateModified" datetime="2021-08-04T21:56:52+09:00">2021-08-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/mac/setting/" itemprop="url" rel="index"><span itemprop="name">setting</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>모종의 이유로 맥 셋팅을 처음부터 다시 하게되는 경우가 생긴다.<br>Time Machine이나 Migration을 사용하기엔 레거시가 남을 것 같아 찝찝한 기분이 들어 일일히 한땀한땀 셋팅을 한다.<br>그렇기 때문에 구글링하고 여러 블로그를 서핑하면서 셋팅하는데 꽤 많은 시간을 소비하게 된다..<br>그래서 그 시간을 줄이기위해 나의 맥 셋팅을 포스팅를 하게 되었다.</p>
-<h2 id="🍺-Homebrew"><a href="#🍺-Homebrew" class="headerlink" title="🍺 Homebrew"></a>🍺 <a target="_blank" rel="noopener" href="https://brew.sh/index_ko">Homebrew</a></h2><ul>
-<li>포멧을하고나서 가장 먼저 설치하는 MacOS 전용 패키기 관리자이다.<br> 앱을 설치하기 위해서는 App Store서 설치하거나<br> 앱을 배포하는 공식 홈페이지에서 다운받아서 Application 폴더에 옮겨줘야하는 귀찮은 작업을 해야하지만<br> Homebrew를 이용하면 간단한 명령어를 통해서 등록된 앱들을 설치, 업데이트, 삭제 할 수 있다! 🙃</li>
-</ul>
-<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
-<li>설치법은 매우간단하다 터미널 앱을 켜서 다음 명령어를 입력해주면 된다.</li>
-</ul>
-<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">&#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>homebrew를 설치했으면 다음은 gui에서 사용가능한 앱을 설치해주는 패키지인 cask를 설치해야한다</p>
-<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">brew install cask<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>cask를 설치헀으면 <code>brew list</code> 명령어를 통하여 설치한 앱을 확인 할 수 있다. </p>
-<p>그리고 웹서버로부터 콘텐츠를 가져오는 프로그램인 ‘wget’을 설치해야한다</p>
-<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">brew install wget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>gui프로그램이 아니므로 –cask 옵션을 사용하지 않는다</p>
-<p><img src="/image/mac-setting-iterm_images/img.png"></p>
-<p>원하는 앱을 찾고싶을땐 <code>brew search &#123;appname&#125;</code>으로 검색하여 설치 할 수 있다.</p>
-<h2 id="iterm2"><a href="#iterm2" class="headerlink" title=" iterm2"></a><img src="/image/mac-setting-iterm_images/icon_iterm.png" style="float:left;"> <a target="_blank" rel="noopener" href="https://iterm2.com/">iterm2</a></h2><ul>
-<li>정말 기본 쉘명령어만 사용할 수 있는 기본 terminal에 iterm은 테마를 적용시켜 가독성뿐만 아니라<br>  예쁜 UI를 가질 수 있고 split view나 리소스 모니터링등 여러가지 기능을 제공한다</li>
-</ul>
-<h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><ul>
-<li>위에서 설치한 homebrew를 패키지 관리자를 통해서 설치 할 수있다 다음의 명령어를 복사해서 입력해보자</li>
-</ul>
-<pre class="line-numbers language-szsh" data-language="szsh"><code class="language-szsh">homebrew install --cask iterm2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="Setting"><a href="#Setting" class="headerlink" title="Setting"></a>Setting</h3><h4 id="Font"><a href="#Font" class="headerlink" title="Font"></a>Font</h4><ul>
-<li>iterm을 설치했으면 이제 차례차레 셋팅을 해줄 차례가 된다. 가독성이 떨어지는 기본 폰트부터 바꿔보자<br>  내가 사용하는 폰트는 <a target="_blank" rel="noopener" href="https://github.com/naver/d2codingfont">D2 Coding</a> 이다 이 폰트는 i,l,1,I와 0,o,O,ㅇ과 같이 구분하기 힘든 폰트들을<br>  나눔바른고딕을 기반으로 수정한 폰트이다.</li>
-</ul>
-<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">wget -P .&#x2F;Downloads -L https:&#x2F;&#x2F;github.com&#x2F;naver&#x2F;d2codingfont&#x2F;raw&#x2F;master&#x2F;D2Coding-Ver1.3.2-20180524.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ul>
-<li><p>다운로드 폴더에서 다운받은 .zip 파일을 압축해제하고 D2Coding-Ver1.3.2-20180524-all.ttc를 실행하여 폰트를 설치하자</p>
-<p>  그 후 Preferences (cmd + ,)에서 Profile - Default - text - font를 D2Coding으로 변경한다</p>
-</li>
-</ul>
-<p><img src="/image/mac-setting-iterm_images/font.png"></p>
-<ul>
-<li>그러면 훨씬 보기 좋은 글씨체로 변경된다! 👍</li>
-</ul>
-<h2 id="OH-MY-ZSH"><a href="#OH-MY-ZSH" class="headerlink" title=" OH MY ZSH"></a><img src="/image/mac-setting-iterm_images/ohmyzsh.png" style="float:left;"> <a target="_blank" rel="noopener" href="https://ohmyz.sh/">OH MY ZSH</a></h2><ul>
-<li><em>oh my zsh</em> 은 zsh쉘 터미널 환경을 플러그인 프레임워크이다 내장 플러그인과 테마도 갖추고있고<br>  필요에따라서 다양한 플러그인을 설치하여 사용 할 수 있다</li>
-</ul>
-<h3 id="Install-2"><a href="#Install-2" class="headerlink" title="Install"></a>Install</h3><ul>
-<li>마찬가지로 다음 명령어를 복사하여 입력해 설치하자!<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">sh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.github.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
-<h3 id="Setting-1"><a href="#Setting-1" class="headerlink" title="Setting"></a>Setting</h3><p>Oh my zsh를 설치후엔 플러그인과 테마를 적용해주도록 한다</p>
-<h4 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h4><p>현재사용 하고있는 플러그인은 다음과 같다</p>
-<ol>
-<li>zsh-completions : 자동완성 기능을 제공한다<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">brew install zsh zsh-completions<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>zsh-autosuggestions : 과거에 썻던 명령어를 기반으로 명령어를 추천해준다<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-autosuggestions $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-autosuggestions<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<p>이렇게 설치한 플러그인들은 <code>vi ~/.zshrc</code> 명령어를 통해 plugins에 다음 그림과 같이 입력해주도록 한다.</p>
-<p><img src="/image/mac-setting-iterm_images/zshrc.png"></p>
-<h4 id="Theme"><a href="#Theme" class="headerlink" title="Theme"></a>Theme</h4><p>현재 사용하는 테마는 powerlevel10k이다.<br>이 테마는 쉘을 입력한 시간, 현재 위치, 브랜치 등등 다양한 정보를 가독성 높게 표현해준다</p>
-<p>다음 명령어를 복사해서 입력해주자</p>
-<pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">git clone --depth&#x3D;1 https:&#x2F;&#x2F;github.com&#x2F;romkatv&#x2F;powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;themes&#x2F;powerlevel10k<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>설치후에 <code>vi ~/.zshrc</code> 명령어를 통해 zshrc파일에 <code>ZSH_THEME</code>에<br><code>=&quot;powerlevel10k/powerlevel10k&quot;</code> 를 입력후 저장하고 iterm을 재실행 해주면 설정이 시작된다.</p>
 
       
     </div>

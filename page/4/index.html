@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,305 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/21/Cloud-Computing-AWS-EC2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/21/Cloud-Computing-AWS-EC2/" class="post-title-link" itemprop="url">Cloud Computing AWS 시작하기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-21 19:20:30" itemprop="dateCreated datePublished" datetime="2021-07-21T19:20:30+09:00">2021-07-21</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-07-30 02:36:57" itemprop="dateModified" datetime="2021-07-30T02:36:57+09:00">2021-07-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cloud-Computing/" itemprop="url" rel="index"><span itemprop="name">Cloud Computing</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cloud-Computing/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="AWS-Amazon-Web-Service"><a href="#AWS-Amazon-Web-Service" class="headerlink" title="AWS(Amazon Web Service)"></a>AWS(Amazon Web Service)</h1><h2 id="EC2-elastic-computer-생성하기"><a href="#EC2-elastic-computer-생성하기" class="headerlink" title="EC2(elastic computer) 생성하기"></a>EC2(elastic computer) 생성하기</h2><ol>
+<li>Region은 서울로 설정</li>
+</ol>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled.png"></p>
+<ul>
+<li>생성했던 지역에서 다른지역으로 옮기면 EC2가 보이지 않는다.</li>
+</ul>
+<ol>
+<li>EC2 검색</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-07-22_%EC%98%A4%ED%9B%84_3.34.22.png"></p>
+<ol start="2">
+<li>인스턴스 시작</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled1.png"></p>
+<ul>
+<li><p>설치할 이미지 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled2.png"></p>
+</li>
+<li><p>체험판 인스턴스 유형 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled3.png"></p>
+</li>
+</ul>
+<ul>
+<li><p>스토리지 추가</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled4.png"></p>
+<p>체험판은 최대 스토리지를 30GB까지 사용 가능하므로 30GB로 설정.</p>
+</li>
+<li><p>보안 그룹 설정</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled5.png"></p>
+<pre><code>    SSH로 접속하기위해 프로토콜과 포트범위를 정한다.
+</code></pre>
+</li>
+<li><p>인스턴스 시작 검토</p>
+<p>  인스턴스에 대한 세부정보를 확인 할 수 있다.</p>
+</li>
+<li><p>키페어 생성</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled6.png"></p>
+<p>최초접속시에는 새 키페어 생성을 해주며 다운받은 키페어는 유출에 유의하여 저장한다.</p>
+</li>
+</ul>
+<ol>
+<li><p>고정IP로 변경</p>
+<p> 동적IP를 사용할 경우 요금이 부과 될 수 있다.</p>
+</li>
+</ol>
+<ul>
+<li><p>자신의 콘솔로 로그인하여 EC2 메뉴 접속 및 IP주소 할당</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled7.png"></p>
+<p>대시보드의 Elastic IP(탄력적 IP)선택후 새 IP주소를 할당한다.</p>
+</li>
+<li><p>할당받은 IP주소와 자신의 인스턴스와 연결</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled8.png"></p>
+<p>인스턴스를 입력하고 연결한다.</p>
+</li>
+</ul>
+<ol>
+<li>대시보드의 인스턴스 메뉴를 통해 인스턴스를 확인 할 수 있다.</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled9.png"></p>
+<ol>
+<li>Terminal을 사용하여 AWS에 접속</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> <span class="token number">400</span> <span class="token punctuation">&#123;</span>pemfile<span class="token punctuation">&#125;</span>.pem // 보안을위해 퍼미션을 제한.
+<span class="token function">ssh</span> -i <span class="token punctuation">&#123;</span>pemfile<span class="token punctuation">&#125;</span>.pem ubuntu@<span class="token punctuation">&#123;</span>public IPv4 Address<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
+<p>접속이 된것을 확인 할 수 있다.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/21/CSS_Basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/21/CSS_Basic/" class="post-title-link" itemprop="url">CSS 기초</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-21 01:20:30" itemprop="dateCreated datePublished" datetime="2021-07-21T01:20:30+09:00">2021-07-21</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-07-30 02:40:16" itemprop="dateModified" datetime="2021-07-30T02:40:16+09:00">2021-07-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">font-size</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>선택자 안에 속성과 값을 정의한다.</p>
+<h3 id="선택자-selector"><a href="#선택자-selector" class="headerlink" title="선택자 (selector)"></a>선택자 (selector)</h3><p>선택자는 HTML에 CSS를 적용하기 위한 HTML의 특정한 요소를 선택하여 명시해주는  역할을 한다.</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">h1</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">p</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>다음과 같이 사용할 수 있다.</p>
+<h3 id="클래스-선택자"><a href="#클래스-선택자" class="headerlink" title="클래스 선택자"></a>클래스 선택자</h3><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* class.css */</span>
+<span class="token comment">/* class="title" */</span>
+<span class="token selector">.title</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.main-text</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- html file  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> title <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>main-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> main text <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>. 을 이용해서 클래스임을 나타낸다.</p>
+<p>선택자 없이 인라인 방식으로 직접 작성 할 수있다</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>직접 손으로 작성할 때 코드가 길어질 수록  하드코딩 해야하고 수정시 굉장히 번거로워 질 수있어서 지양해야한다.</p>
+<h3 id="HTML에-Embed하기"><a href="#HTML에-Embed하기" class="headerlink" title="HTML에 Embed하기"></a>HTML에 Embed하기</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+		<span class="token selector">div</span> <span class="token punctuation">&#123;</span>
+			<span class="token property">속성</span><span class="token punctuation">:</span> 값<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>content 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>content 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>content 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="HTML-외부에서-불러오기-link-태그-이용"><a href="#HTML-외부에서-불러오기-link-태그-이용" class="headerlink" title="HTML 외부에서 불러오기 ( link 태그 이용)"></a>HTML 외부에서 불러오기 ( link 태그 이용)</h3><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/css/main.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* main.css */</span>
+<span class="token selector">div</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">color</span> <span class="token punctuation">:</span>red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>rel은 현재 HTML의 문서와 불러오는 문서와의 관계를 나타내며 href는 그 문서의 경로이다. </p>
+<p>CSS를 외부에서 불러올 경우 재사용에 용이하다.</p>
+<h2 id="속성-Properties-과-값-Value"><a href="#속성-Properties-과-값-Value" class="headerlink" title="속성(Properties)과 값(Value)"></a>속성(Properties)과 값(Value)</h2><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">&#123;</span>
+	<span class="token property">속성1</span><span class="token punctuation">:</span> 값<span class="token punctuation">;</span>
+	<span class="token property">속성2</span><span class="token punctuation">:</span> 값<span class="token punctuation">;</span>
+	...
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/f15d9b6e6cb0493cbdf1d2aff4413b80">속성과 값의 종류</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
