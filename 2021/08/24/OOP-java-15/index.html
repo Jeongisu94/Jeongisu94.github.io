@@ -22,15 +22,16 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="Stream 스트림이란 자료의 대상과 관계없이 동일한 연산을 제공하는 것  배열이나 컬렉션 대상으로 연산을 수행함  한번 사용된 스트림은 재사용 할 수 없고 다른 연산을 수행하려면 다시 스트림을 생성해야한다  스트림 연산은 중간 연산과 최종연산으로 구분됨  중간연산은 여러개의 연산이 적용됨 최종연산은 마지막에 한번만 적용되며 최종연산이 호출되어야 중간 연산">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Stream">
+<meta property="og:title" content="Java - Stream">
 <meta property="og:url" content="https://jeongisu94.github.io/2021/08/24/OOP-java-15/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
 <meta property="og:description" content="Stream 스트림이란 자료의 대상과 관계없이 동일한 연산을 제공하는 것  배열이나 컬렉션 대상으로 연산을 수행함  한번 사용된 스트림은 재사용 할 수 없고 다른 연산을 수행하려면 다시 스트림을 생성해야한다  스트림 연산은 중간 연산과 최종연산으로 구분됨  중간연산은 여러개의 연산이 적용됨 최종연산은 마지막에 한번만 적용되며 최종연산이 호출되어야 중간 연산">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://jeongisu94.github.io/image/OOP-java-15_images/streamresult.png">
 <meta property="og:image" content="https://jeongisu94.github.io/2021/08/24/image/OOP-java-15_images/47770e11.png">
+<meta property="og:image" content="https://jeongisu94.github.io/2021/08/24/image/OOP-java-15_images/68826378.png">
 <meta property="article:published_time" content="2021-08-24T07:24:37.000Z">
-<meta property="article:modified_time" content="2021-08-24T13:33:31.139Z">
+<meta property="article:modified_time" content="2021-08-25T10:23:39.108Z">
 <meta property="article:author" content="Jeongisu">
 <meta property="article:tag" content="Stream">
 <meta name="twitter:card" content="summary">
@@ -41,10 +42,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/08/24/OOP-java-15/","path":"2021/08/24/OOP-java-15/","title":"Stream"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/08/24/OOP-java-15/","path":"2021/08/24/OOP-java-15/","title":"Java - Stream"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Stream | ISU's Blog</title>
+<title>Java - Stream | ISU's Blog</title>
   
 
 
@@ -151,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Stream"><span class="nav-number">1.</span> <span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A4%91%EA%B0%84%EC%97%B0%EC%82%B0-amp-%EC%B5%9C%EC%A2%85%EC%97%B0%EC%82%B0"><span class="nav-number">1.1.</span> <span class="nav-text">중간연산 &amp; 최종연산</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Stream"><span class="nav-number">1.</span> <span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A4%91%EA%B0%84%EC%97%B0%EC%82%B0-amp-%EC%B5%9C%EC%A2%85%EC%97%B0%EC%82%B0"><span class="nav-number">1.1.</span> <span class="nav-text">중간연산 &amp; 최종연산</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reduce"><span class="nav-number">1.1.1.</span> <span class="nav-text">Reduce()</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -229,7 +230,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Stream
+          Java - Stream
         </h1>
 
         <div class="post-meta-container">
@@ -239,10 +240,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-08-24 16:24:37 / Modified: 22:33:31" itemprop="dateCreated datePublished" datetime="2021-08-24T16:24:37+09:00">2021-08-24</time>
+      <time title="Created: 2021-08-24 16:24:37" itemprop="dateCreated datePublished" datetime="2021-08-24T16:24:37+09:00">2021-08-24</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-25 19:23:39" itemprop="dateModified" datetime="2021-08-25T19:23:39+09:00">2021-08-25</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -309,12 +316,15 @@
 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"count = "</span> <span class="token operator">+</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h2 id="중간연산-amp-최종연산"><a href="#중간연산-amp-최종연산" class="headerlink" title="중간연산 &amp; 최종연산"></a>중간연산 &amp; 최종연산</h2><ul>
-<li>중간연산은 filter(), map(), sorted()… 이있다.</li>
+<li>중간연산은 filter(), map(), sorted()… 이있다.<ul>
+<li>👀필터와 맵의 차이점은 map 다양한 문자,숫자,배열등 다양한 타입을 반환하는 것이 가능하지만 filter 경우 boolean타입으로만 반환한다는 점이다.</li>
+</ul>
+</li>
 <li>ex: <code>Arrays.stream(arr).filter(num -&gt; num &lt; 3).forEach(num-&gt; System.out.println(num));</code><ul>
 <li><code>filter</code>는 중간연산 <code>forEach</code>는 최종연산에 해당된다</li>
 </ul>
 </li>
-<li>최종연산은 forEach() , count(), sum()</li>
+<li>최종연산은 forEach() , count(), sum(), reduce()</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArrayListStreamTest</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -344,7 +354,86 @@
 <ul>
 <li>해당 예제에서 sorted()를 사용했어도 원래 리스트에서는 값이 변하지 않는다</li>
 </ul>
+<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce()"></a>Reduce()</h3><ul>
+<li>정의된 연산이 아닌 프로그래머가 직접 구현한 연산을 적용</li>
+<li><code>T reduce (T identify, BinaryOperator&lt;T&gt; accumulator)</code> </li>
+<li>첫번째 인자는 초기값, 두번째 인자는 람다식</li>
+<li><em>accumulator</em>에 람다식을 직접구현하거나 람다식이 길어질경우 BinaryOperator를 구현한 클래스를 사용한다</li>
+</ul>
+<p>가장 긴 문자열 찾기 예제</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//ReduceTest.java</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ReduceTest</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> fruits <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"Apple"</span><span class="token punctuation">,</span> <span class="token string">"Avocado"</span><span class="token punctuation">,</span> <span class="token string">"Watermelon"</span><span class="token punctuation">,</span> <span class="token string">"Tomato"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> s2<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> s2<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?</span> s <span class="token operator">:</span> s2<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>BinaryOperator를 구현하여 사용해도 같은 결과가 나온다</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//FindLongString.java</span>
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>function<span class="token punctuation">.</span></span><span class="token class-name">BinaryOperator</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FindLongString</span> <span class="token keyword">implements</span> <span class="token class-name">BinaryOperator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">apply</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">,</span> <span class="token class-name">String</span> s2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> s2<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> s<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> s2<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ReduceTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> fruits <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"Apple"</span><span class="token punctuation">,</span> <span class="token string">"Avocado"</span><span class="token punctuation">,</span> <span class="token string">"Watermelon"</span><span class="token punctuation">,</span> <span class="token string">"Tomato"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//        System.out.println(Arrays.stream(fruits).reduce("",(s, s2) -> &#123;return s.length() > s2.length() ? s : s2;&#125;));</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FindLongString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><img src="../image/OOP-java-15_images/68826378.png">  인자가 하나일 경우엔 Accmulator를 받는다</p>
+</li>
+</ul>
+<p>예제</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//TravelCustomer.java</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TravelCustomer</span> <span class="token punctuation">&#123;</span>
+  <span class="token annotation punctuation">@Constrctor</span>
+  <span class="token annotation punctuation">@Getter</span>
+  <span class="token annotation punctuation">@Setter</span>
+  <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> <span class="token keyword">int</span> price<span class="token punctuation">;</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//TravelCustomerTest.java</span>
+<span class="token keyword">class</span> <span class="token class-name">TravelCustomerTest</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">TravelCustomer</span> kim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TravelCustomer</span><span class="token punctuation">(</span><span class="token string">"Kim"</span><span class="token punctuation">,</span><span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">TravelCustomer</span> park <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TravelCustomer</span><span class="token punctuation">(</span><span class="token string">"Park"</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">TravelCustomer</span> jeong <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TravelCustomer</span><span class="token punctuation">(</span><span class="token string">"Jeong"</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TravelCustomer</span><span class="token punctuation">></span></span> cList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>kim<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>park<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>jeong<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>travelCustomer <span class="token operator">-></span> travelCustomer<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Integer</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>cList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mapToInt</span><span class="token punctuation">(</span>c<span class="token operator">-></span> c<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"20세 미만고객"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>travelCustomer <span class="token operator">-></span> travelCustomer<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>c <span class="token operator">-></span> c<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
     </div>
 
     
@@ -360,11 +449,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/23/OOP-java-14/" rel="prev" title="Lambda Expression">
-                  <i class="fa fa-chevron-left"></i> Lambda Expression
+                <a href="/2021/08/23/OOP-java-14/" rel="prev" title="Java - Lambda Expression">
+                  <i class="fa fa-chevron-left"></i> Java - Lambda Expression
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/08/25/OOP-java-16/" rel="next" title="Java - Exception Handling">
+                  Java - Exception Handling <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

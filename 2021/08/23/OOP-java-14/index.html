@@ -22,13 +22,13 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="람다식함수형 프로그래밍 함수는 받아온 매개변수를 기반으로 구현하고 실행됨으로써 Side Effect가 발생하지 않도록 하는 방식이다 이러한 함수를 기반으로 하는 프로그래밍이고 입력 받은 자료 이외에 외부 자료를 사용하지 않아 여러 자료를 동시에수행되는 병렬 처리가 가능하다.   람다식 문법 함수 이름없이 매개 변수와 매개변수를 이용한 실행문 (매개변수) -">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lambda Expression">
+<meta property="og:title" content="Java - Lambda Expression">
 <meta property="og:url" content="https://jeongisu94.github.io/2021/08/23/OOP-java-14/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
 <meta property="og:description" content="람다식함수형 프로그래밍 함수는 받아온 매개변수를 기반으로 구현하고 실행됨으로써 Side Effect가 발생하지 않도록 하는 방식이다 이러한 함수를 기반으로 하는 프로그래밍이고 입력 받은 자료 이외에 외부 자료를 사용하지 않아 여러 자료를 동시에수행되는 병렬 처리가 가능하다.   람다식 문법 함수 이름없이 매개 변수와 매개변수를 이용한 실행문 (매개변수) -">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-23T07:55:25.000Z">
-<meta property="article:modified_time" content="2021-08-24T07:24:14.495Z">
+<meta property="article:modified_time" content="2021-08-25T10:23:44.844Z">
 <meta property="article:author" content="Jeongisu">
 <meta property="article:tag" content="Lambda">
 <meta name="twitter:card" content="summary">
@@ -38,10 +38,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/08/23/OOP-java-14/","path":"2021/08/23/OOP-java-14/","title":"Lambda Expression"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/08/23/OOP-java-14/","path":"2021/08/23/OOP-java-14/","title":"Java - Lambda Expression"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Lambda Expression | ISU's Blog</title>
+<title>Java - Lambda Expression | ISU's Blog</title>
   
 
 
@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -226,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Lambda Expression
+          Java - Lambda Expression
         </h1>
 
         <div class="post-meta-container">
@@ -244,7 +244,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-24 16:24:14" itemprop="dateModified" datetime="2021-08-24T16:24:14+09:00">2021-08-24</time>
+        <time title="Modified: 2021-08-25 19:23:44" itemprop="dateModified" datetime="2021-08-25T19:23:44+09:00">2021-08-25</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -333,13 +333,13 @@ str <span class="token operator">-></span> str<span class="token punctuation">.<
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/23/OOP-java-13/" rel="prev" title="자바의 내부 클래스">
-                  <i class="fa fa-chevron-left"></i> 자바의 내부 클래스
+                <a href="/2021/08/23/OOP-java-13/" rel="prev" title="Java - 자바의 내부 클래스">
+                  <i class="fa fa-chevron-left"></i> Java - 자바의 내부 클래스
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/24/OOP-java-15/" rel="next" title="Stream">
-                  Stream <i class="fa fa-chevron-right"></i>
+                <a href="/2021/08/24/OOP-java-15/" rel="next" title="Java - Stream">
+                  Java - Stream <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
