@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -199,6 +199,126 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/05/ShellScript-Basic-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/05/ShellScript-Basic-2/" class="post-title-link" itemprop="url">ShellScript-Basic(2)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-08-05 17:23:06 / Modified: 19:59:18" itemprop="dateCreated datePublished" datetime="2021-08-05T17:23:06+09:00">2021-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
+<li>디렉토리내의 하부디렉토리 또는 파일들을 주기적으로 백업하는 쉘 스크립트<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -z <span class="token variable">$1</span> <span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span> -z <span class="token variable">$2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token comment"># 인자 2개를 받아서 하나라도 NULL이면 참이면</span>
+  ehco usage: <span class="token variable">$0</span> sourcedir targetdir <span class="token comment"># 쉘 이름과 사용법을 출력</span>
+<span class="token keyword">else</span>
+  <span class="token assign-left variable">SRCDIR</span><span class="token operator">=</span><span class="token variable">$1</span>
+  <span class="token assign-left variable">DSTDIR</span><span class="token operator">=</span><span class="token variable">$2</span>
+  <span class="token assign-left variable">BACKUPFILE</span><span class="token operator">=</span>backup.<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%y%m%d%H%M%S<span class="token variable">)</span></span>.tar.gz <span class="token comment"># date 쉘명령어를 사용하여 날짜와 시간을 기록하여 백업파일을 생성</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> -d <span class="token variable">$DSTDIR</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token comment"># DSTDIR가 디렉토리이면 </span>
+    <span class="token function">tar</span> -cvzf <span class="token variable">$DSTDIR</span>/<span class="token variable">$BACKUPFILE</span> <span class="token variable">$SRCDIR</span> <span class="token comment"># 압축</span>
+  <span class="token keyword">else</span>
+    <span class="token function">mkdir</span> <span class="token variable">$DSTDIR</span> <span class="token comment"># 디렉토리가 없으면 생성하고 압축</span>
+    <span class="token function">tar</span> -cvzf <span class="token variable">$DSTDIR</span>/<span class="token variable">$BACKUPFILE</span> <span class="token variable">$SRCDIR</span> 
+  <span class="token keyword">fi</span> 
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h4 id="tar-명령어"><a href="#tar-명령어" class="headerlink" title="tar 명령어"></a>tar 명령어</h4><ul>
+<li>기존의 tar는 하나의 파일로 묶기만 가능했는데gzip이라는 압축명령이 많이 쓰이게되면서 tar라는 명령에 묶기가 아닌 압축도 할 수있 게끔 옵션을 제공하여gzip을 활용해서 묶고 압축 할 수 있다.</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">x  <span class="token comment">#묶음 해제</span>
+c  <span class="token comment">#파일 묶음</span>
+<span class="token function">v</span>  <span class="token comment">#묶음 해제 과정 출력</span>
+z  <span class="token comment">#gunzip을 사용</span>
+f  <span class="token comment">#파일 이름을 지정</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -cvzf <span class="token punctuation">[</span>압축된 파일 이름<span class="token punctuation">]</span> <span class="token punctuation">[</span>압축할 파일이나 폴더명<span class="token punctuation">]</span>
+<span class="token function">tar</span> -xvzf <span class="token punctuation">[</span>압축 해제할 압축 아카이브 이름<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> <span class="token builtin class-name">.</span> -type -f -name <span class="token string">'filename'</span> -exec <span class="token function">bash</span> -c <span class="token string">"shell1, shell2, shell3 "</span> <span class="token punctuation">\</span><span class="token punctuation">;</span>
+<span class="token comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span>
+<span class="token comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token assign-left variable">LOGDIR</span><span class="token operator">=</span>/var/log
+GZIPDAY <span class="token operator">=</span> <span class="token number">1</span>
+DELDAY <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token builtin class-name">cd</span> %LOGDIR
+<span class="token builtin class-name">echo</span> <span class="token string">"cd <span class="token variable">$LOGDIR</span>"</span>
+
+<span class="token function">sudo</span> <span class="token function">find</span> ./path -type f -name <span class="token string">'*log.?'</span> -mtime +<span class="token variable">$GZIPDAY</span> -exec <span class="token function">bash</span> -c <span class="token string">"gzip &#123;&#125;"</span> <span class="token punctuation">\</span><span class="token punctuation">;</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>
+<span class="token comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span>
+<span class="token function">sudo</span> <span class="token function">find</span> ./path -type f -name <span class="token string">'*gz.?'</span> -mtime +<span class="token variable">$DELSDAY</span> -exec <span class="token function">bash</span> -c <span class="token string">"rm -f &#123;&#125;"</span> <span class="token punctuation">\</span><span class="token punctuation">;</span> <span class="token operator"><span class="token file-descriptor important">2</span>></span>
+<span class="token comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1637,122 +1757,6 @@ buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조
 </ul>
 <hr>
 <p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/23/Linux-How_to_use_shell/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/23/Linux-How_to_use_shell/" class="post-title-link" itemprop="url">Shell 사용법 2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-23 01:20:30" itemprop="dateCreated datePublished" datetime="2021-07-23T01:20:30+09:00">2021-07-23</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-04 21:56:20" itemprop="dateModified" datetime="2021-08-04T21:56:20+09:00">2021-08-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>#Shell 사용법</p>
-<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
-<li>바이너리는 실행할 수 있는 파일</li>
-<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
-<li>메모리와 관련된 상태정보 (PCB)</li>
-<li>시스템 리소스</li>
-<li>스케쥴링 단위</li>
-</ul>
-</li>
-</ul>
-<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
-<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
-<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
-</ul>
-<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
-<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
-<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
-<li>서버 데몬, 백신 프로그램, etc..</li>
-</ul>
-<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">find</span> / -name <span class="token string">'*.py'</span> <span class="token operator">></span> list.txt <span class="token operator">&amp;</span>
-<span class="token punctuation">[</span>job number<span class="token punctuation">]</span> process ID <span class="token comment">## result</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">^Z <span class="token comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span>
-^C <span class="token comment">## 포어그라운드 프로세스 종료</span>
-<span class="token function">jobs</span> <span class="token comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span>
-<span class="token function">ps</span> <span class="token comment">## 실행중인 프로세스 출력 </span>
-<span class="token function">kill</span> -9 <span class="token punctuation">[</span>PID<span class="token punctuation">]</span> <span class="token comment">## PID해당하는 프로세스 죽이기</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-<p><a target="_blank" rel="noopener" href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
 
       
     </div>
