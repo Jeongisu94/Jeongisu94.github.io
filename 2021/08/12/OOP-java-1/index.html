@@ -297,14 +297,7 @@
 </ul>
 <h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><ul>
 <li><p>어떠한 객체를 추상화하여 해당 사물이 가져야하는 속성(feild)나 행위(method)로 구성된다.</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> studentNumber<span class="token punctuation">;</span>
-    <span class="token class-name">String</span> studentName<span class="token punctuation">;</span>
-    
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">study</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">//TODO</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> studentNumber;</span><br><span class="line">    String studentName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="Convention"><a href="#Convention" class="headerlink" title="Convention"></a>Convention</h3><ul>
 <li>협력을 위해 다음과 같은 관습이 존재한다.</li>
@@ -321,14 +314,7 @@
 <li><p>구현된 함수는 여러 곳에서 동일한 방식으로 호출되어 사용 할 수있음</p>
 </li>
 <li><p>모듈화를 위해 낮은 결합도와 높은 응집도를 갖도록 설계하기위해 기능별로 구현하는 것이 좋다</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> add <span class="token punctuation">(</span><span class="token keyword">int</span> nmu1<span class="token punctuation">,</span> <span class="token keyword">int</span> num2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 반환 데이터 함수이름 파라미터순으로 작성한다</span>
-    <span class="token keyword">int</span> result<span class="token punctuation">;</span> 
-    <span class="token keyword">return</span> result<span class="token punctuation">;</span> <span class="token comment">//반환 값이 있는경우</span>
-<span class="token punctuation">&#125;</span>
-  
-<span class="token keyword">void</span> <span class="token function">helloWolrd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello Wolrd!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 반환 값이 없는경우</span>
-<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span> <span class="params">(<span class="keyword">int</span> nmu1, <span class="keyword">int</span> num2)</span> </span>&#123; <span class="comment">// 반환 데이터 함수이름 파라미터순으로 작성한다</span></span><br><span class="line">    <span class="keyword">int</span> result; </span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">//반환 값이 있는경우</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">helloWolrd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">&quot;Hello Wolrd!&quot;</span>); <span class="comment">// 반환 값이 없는경우</span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></li>
 <li><p>함수가 호출될 때 지역 변수들은 스택에 쌓인다. 함수 수행이 끝나면 자동으로 반환된다.</p>
 </li>
 </ul>
@@ -338,17 +324,7 @@
 <li><p>멤버함수라고도 한다</p>
 </li>
 <li><p>메소드의 이름은 객체에 맞게 짓는 것이 좋다 ex) setID(param1),getID()…</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">private</span> <span class="token keyword">int</span> studentNumber<span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> studentName<span class="token punctuation">;</span>
-  
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getStudentName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> studentName<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setStudentNumber</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>studentName <span class="token operator">=</span> name<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span> 
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> studentNumber;</span><br><span class="line">    <span class="keyword">private</span> String studentName;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getStudentName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> studentName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStudentNumber</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.studentName = name;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>

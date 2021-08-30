@@ -20,12 +20,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="ShellShell은 사용자와 하드웨어 또는 OS간의 인터페이스이다.![](&#x2F;image&#x2F;Linux Shell Basic&#x2F;R800x0.jpeg)  명령어를 해석하여 커널에 명령어를 요청하여 프로그램을 실행  Shell 명령어다중사용자에 관한 명령어$ whoami #로그인되어있는 사용자 ID를 출력 ubuntu  $ passwd #현재 사용자의 비밀번호 변경">
+<meta name="description" content="ShellShell은 사용자와 하드웨어 또는 OS간의 인터페이스이다.![](&#x2F;image&#x2F;Linux Shell Basic&#x2F;R800x0.jpeg)  명령어를 해석하여 커널에 명령어를 요청하여 프로그램을 실행  Shell 명령어다중사용자에 관한 명령어12$ whoami #로그인되어있는 사용자 ID를 출력ubuntu  1$ passwd #현재 사용자의 비밀번호 변">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux - Shell basic">
 <meta property="og:url" content="https://jeongisu94.github.io/2021/07/22/Linux%20-%20Shell%20Basic/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
-<meta property="og:description" content="ShellShell은 사용자와 하드웨어 또는 OS간의 인터페이스이다.![](&#x2F;image&#x2F;Linux Shell Basic&#x2F;R800x0.jpeg)  명령어를 해석하여 커널에 명령어를 요청하여 프로그램을 실행  Shell 명령어다중사용자에 관한 명령어$ whoami #로그인되어있는 사용자 ID를 출력 ubuntu  $ passwd #현재 사용자의 비밀번호 변경">
+<meta property="og:description" content="ShellShell은 사용자와 하드웨어 또는 OS간의 인터페이스이다.![](&#x2F;image&#x2F;Linux Shell Basic&#x2F;R800x0.jpeg)  명령어를 해석하여 커널에 명령어를 요청하여 프로그램을 실행  Shell 명령어다중사용자에 관한 명령어12$ whoami #로그인되어있는 사용자 ID를 출력ubuntu  1$ passwd #현재 사용자의 비밀번호 변">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://jeongisu94.github.io/image/Linux%20Shell%20Basic/Untitled.png">
 <meta property="og:image" content="https://jeongisu94.github.io/image/Linux%20Shell%20Basic/Untitled%201.png">
@@ -283,23 +283,16 @@
 <ul>
 <li>명령어를 해석하여 커널에 명령어를 요청하여 프로그램을 실행</li>
 </ul>
-<h2 id="Shell-명령어"><a href="#Shell-명령어" class="headerlink" title="Shell 명령어"></a>Shell 명령어</h2><h3 id="다중사용자에-관한-명령어"><a href="#다중사용자에-관한-명령어" class="headerlink" title="다중사용자에 관한 명령어"></a>다중사용자에 관한 명령어</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">whoami</span> <span class="token comment">#로그인되어있는 사용자 ID를 출력</span>
-ubuntu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="Shell-명령어"><a href="#Shell-명령어" class="headerlink" title="Shell 명령어"></a>Shell 명령어</h2><h3 id="다중사용자에-관한-명령어"><a href="#다중사용자에-관한-명령어" class="headerlink" title="다중사용자에 관한 명령어"></a>다중사용자에 관한 명령어</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ whoami <span class="comment">#로그인되어있는 사용자 ID를 출력</span></span><br><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">passwd</span> <span class="token comment">#현재 사용자의 비밀번호 변경</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ passwd <span class="comment">#현재 사용자의 비밀번호 변경</span></span><br></pre></td></tr></table></figure>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#두 명령어엔 기본 설정에 대한 차이가 존재한다.</span>
-$ <span class="token function">useradd</span> <span class="token comment">#사용자 기본 설정을 해야한다.</span>
-$ adduser <span class="token comment">#기본설정을 자동으로 수행</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#두 명령어엔 기본 설정에 대한 차이가 존재한다.</span></span><br><span class="line">$ useradd <span class="comment">#사용자 기본 설정을 해야한다.</span></span><br><span class="line">$ adduser <span class="comment">#기본설정을 자동으로 수행</span></span><br></pre></td></tr></table></figure>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#su: 사용자 변경</span>
-<span class="token function">su</span> root <span class="token comment"># 현재 사용자의 환경설정 기반으로 root로 변경</span>
-<span class="token function">su</span> - root <span class="token comment">#변경되는 사용자의 환경설정을 기반으로 root로 전환</span>
-
-<span class="token comment">#사용자의 홈 디렉토리에 있는 .bashrc 와 .profile에는 환경설정이 존재한다.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#su: 사용자 변경</span></span><br><span class="line">su root <span class="comment"># 현재 사용자의 환경설정 기반으로 root로 변경</span></span><br><span class="line">su - root <span class="comment">#변경되는 사용자의 환경설정을 기반으로 root로 전환</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#사용자의 홈 디렉토리에 있는 .bashrc 와 .profile에는 환경설정이 존재한다.</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="권한에-관한-명령어"><a href="#권한에-관한-명령어" class="headerlink" title="권한에 관한 명령어"></a>권한에 관한 명령어</h2><h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><p>root 계정에 로그인 하지 않은 상태에서 root권한으로 명령어를 실행</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">vim</span> sudoers <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim sudoers </span><br></pre></td></tr></table></figure>
 
 <p>User privilege specification 밑에 자신의 계정과 권한을 입력한다.</p>
 <p><img src="/image/Linux%20Shell%20Basic/Untitled.png"><br><img src="/image/Linux%20Shell%20Basic/Untitled%201.png"><br>권한거부없이 sudoers를 수정 할 수 있다</p>
@@ -321,9 +314,7 @@ $ adduser <span class="token comment">#기본설정을 자동으로 수행</span
 <p>  <a target="_blank" rel="noopener" href="https://www.notion.so/a32632cdbdf64bc1a70133ab8a0c9765">Untitled</a></p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chmod</span> g+rx file.a <span class="token comment"># file.a라는 파일에대해서 그룹사용자에게 읽기와 실행권한을 추가</span>
-$ <span class="token function">chmod</span> ug+rw file.a <span class="token comment"># file.a라는 파일에 유저와 그룹에 읽기와 쓰기 권한을 준다.</span>
-$ <span class="token function">chmod</span> <span class="token assign-left variable">u</span><span class="token operator">=</span>rwx, <span class="token assign-left variable">o</span><span class="token operator">=</span>rx test.c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ chmod g+rx file.a <span class="comment"># file.a라는 파일에대해서 그룹사용자에게 읽기와 실행권한을 추가</span></span><br><span class="line">$ chmod ug+rw file.a <span class="comment"># file.a라는 파일에 유저와 그룹에 읽기와 쓰기 권한을 준다.</span></span><br><span class="line">$ chmod u=rwx, o=rx test.c</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>숫자를 사용</p>
@@ -332,30 +323,21 @@ $ <span class="token function">chmod</span> <span class="token assign-left varia
 <p>  ex)chmod 777 file : 소유자 그룹 다른사용자에게 읽기 쓰기 실행권한 부여 </p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chmod</span> <span class="token number">400</span> isudev.pem <span class="token comment"># 소유자에게만 읽기권한만 설정</span>
-$ <span class="token function">chmod</span> -R <span class="token number">777</span> directory <span class="token comment"># 하위디렉토리를 포함하여 권한 부여</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 400 isudev.pem <span class="comment"># 소유자에게만 읽기권한만 설정</span></span><br><span class="line">$ chmod -R 777 directory <span class="comment"># 하위디렉토리를 포함하여 권한 부여</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h2><ul>
 <li>소유자 변경 명령어</li>
 <li>chown [옵션] [소유자:소유그룹] [파일]</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">chown</span> root:root <span class="token function">file</span>
-$ <span class="token function">chown</span> root: <span class="token function">file</span>
-$ <span class="token function">chown</span> :root <span class="token function">file</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ chown root:root file</span><br><span class="line">$ chown root: file</span><br><span class="line">$ chown :root file</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="파일에-관한-명령어"><a href="#파일에-관한-명령어" class="headerlink" title="파일에 관한 명령어"></a>파일에 관한 명령어</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">pwd</span> <span class="token comment"># print working directory의 약어, 현재 작업중인 디렉토리를 출력</span>
-/pwd/devisu
-$ <span class="token builtin class-name">cd</span> <span class="token comment">#change directory 디렉토리 이동</span>
-$ <span class="token function">ls</span> <span class="token comment"># list directory contents의 약어 </span>
-		 <span class="token comment"># -al옵션을 추가해서 숨김파일을 볼 수 있다.</span>
-/etc$ <span class="token function">ls</span> host*  <span class="token comment"># *나 ?같은 와일드카드를 이용하여 쉽게 list할 수 있다.</span>
-host.conf  <span class="token function">hostname</span>  hosts  hosts.allow  hosts.deny<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="파일에-관한-명령어"><a href="#파일에-관한-명령어" class="headerlink" title="파일에 관한 명령어"></a>파일에 관한 명령어</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">pwd</span> <span class="comment"># print working directory의 약어, 현재 작업중인 디렉토리를 출력</span></span><br><span class="line">/<span class="built_in">pwd</span>/devisu</span><br><span class="line">$ <span class="built_in">cd</span> <span class="comment">#change directory 디렉토리 이동</span></span><br><span class="line">$ ls <span class="comment"># list directory contents의 약어 </span></span><br><span class="line">		 <span class="comment"># -al옵션을 추가해서 숨김파일을 볼 수 있다.</span></span><br><span class="line">/etc$ ls host*  <span class="comment"># *나 ?같은 와일드카드를 이용하여 쉽게 list할 수 있다.</span></span><br><span class="line">host.conf  hostname  hosts  hosts.allow  hosts.deny</span><br></pre></td></tr></table></figure>
 
 <h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><ul>
 <li>파일의 내용을 출력한다</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">cat</span> test.c<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat test.c</span><br></pre></td></tr></table></figure>
 
 <h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><ul>
 <li>파일의 첫 10줄을 출력한다</li>
@@ -369,14 +351,13 @@ host.conf  <span class="token function">hostname</span>  hosts  hosts.allow  hos
 <h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><ul>
 <li>파일을 삭제하는 명령어</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">rm</span> test.c <span class="token comment"># 파일 삭제</span>
-$ <span class="token function">rm</span> -rf directory <span class="token comment"># 디렉토리를 삭제하고 -r:하위 디렉토리도 모두 삭제  -f: 묻지않고 강제 삭제</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rm test.c <span class="comment"># 파일 삭제</span></span><br><span class="line">$ rm -rf directory <span class="comment"># 디렉토리를 삭제하고 -r:하위 디렉토리도 모두 삭제  -f: 묻지않고 강제 삭제</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><ul>
 <li>검색명령어</li>
 <li>grep [-옵션] [패턴] [파일]</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">grep</span> banana ./fruits.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep banana ./fruits.txt</span><br></pre></td></tr></table></figure>
 
 <p>현재 디렉토리에있는 fruits.txt에 있는 banana가 써있는 Line만 출력</p>
 <hr>
