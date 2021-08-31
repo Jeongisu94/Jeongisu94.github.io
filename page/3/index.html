@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -199,6 +199,137 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/12/OOP-java-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/12/OOP-java-1/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - Basic 1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-12 20:23:44" itemprop="dateCreated datePublished" datetime="2021-08-12T20:23:44+09:00">2021-08-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-18 16:29:03" itemprop="dateModified" datetime="2021-08-18T16:29:03+09:00">2021-08-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="객체지향-프로그래밍-Object-Oriented-Programming"><a href="#객체지향-프로그래밍-Object-Oriented-Programming" class="headerlink" title="객체지향 프로그래밍(Object Oriented Programming)"></a>객체지향 프로그래밍(Object Oriented Programming)</h1><h2 id="객체지향-프로그래밍"><a href="#객체지향-프로그래밍" class="headerlink" title="객체지향 프로그래밍?"></a>객체지향 프로그래밍?</h2><ul>
+<li><p>순서대로 실행되는 절차지향적인 C언어와 달리<br>객체의 관점에서 프로그래밍 하는 것 </p>
+</li>
+<li><p>여기서 객체란 의사나 행위가 미치는 대상이며 즉, 구체적 추상적 데이터의 단위이다.</p>
+</li>
+<li><p>객체지향의 목적은 추상화, 캡슐화, 상속 ,다형성을 특징으로 가진다</p>
+</li>
+<li><p>OOP는 5가지의 원칙을 준수해야한다</p>
+<ol>
+<li>SRP (single responsibility principle) : 단일 책임 원칙, 한 클래스는 한가지의 책임만 갖고있어야 한다</li>
+<li>OCP (Open/Closed Principle) : 개방 폐쇄 원칙, 확장에는 열려있고 변경에는 닫혀있어야 한다</li>
+<li>LSP (Liskov’s Substitution Principle) 리스코프 치환 법칙, 서브타입은 언제나 부모 타입으로 교체 될 수 있어야 한다</li>
+<li>ISP (interface segregation principle): 인터페이스 분리원칙, 자신이 사용하지 않는 인터페이스는 구현하지 않아야함</li>
+<li>DIP (Dependency Inversion Principle): 의존성 역전 원칙, 하위 레벨 모듈의 변경이 상위 레벨 변경을 요구하는 위계관계를 끊는 의미의 역전</li>
+</ol>
+</li>
+</ul>
+<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><ul>
+<li><p>어떠한 객체를 추상화하여 해당 사물이 가져야하는 속성(feild)나 행위(method)로 구성된다.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> studentNumber;</span><br><span class="line">    String studentName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Convention"><a href="#Convention" class="headerlink" title="Convention"></a>Convention</h3><ul>
+<li>협력을 위해 다음과 같은 관습이 존재한다.</li>
+</ul>
+<ol>
+<li>Class는 대문자로 시작한다</li>
+<li>한 java파일 하나에 클래스는 여러개가 있을 수 있지만 public class는 하나이고 그 클래스와 .java파일의 이름을 동일하</li>
+<li>camel notation 방식으로 명명한다</li>
+<li>변수이름과 메소드는 소문자로 시작한다</li>
+</ol>
+<h2 id="함수-Function"><a href="#함수-Function" class="headerlink" title="함수 (Function)"></a>함수 (Function)</h2><ul>
+<li><p>하나의 기능을 수행하는 일련의 코드</p>
+</li>
+<li><p>구현된 함수는 여러 곳에서 동일한 방식으로 호출되어 사용 할 수있음</p>
+</li>
+<li><p>모듈화를 위해 낮은 결합도와 높은 응집도를 갖도록 설계하기위해 기능별로 구현하는 것이 좋다</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span> <span class="params">(<span class="keyword">int</span> nmu1, <span class="keyword">int</span> num2)</span> </span>&#123; <span class="comment">// 반환 데이터 함수이름 파라미터순으로 작성한다</span></span><br><span class="line">    <span class="keyword">int</span> result; </span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">//반환 값이 있는경우</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">helloWolrd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">&quot;Hello Wolrd!&quot;</span>); <span class="comment">// 반환 값이 없는경우</span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></li>
+<li><p>함수가 호출될 때 지역 변수들은 스택에 쌓인다. 함수 수행이 끝나면 자동으로 반환된다.</p>
+</li>
+</ul>
+<h2 id="메소드-Method"><a href="#메소드-Method" class="headerlink" title="메소드 (Method)"></a>메소드 (Method)</h2><ul>
+<li><p>객체의 기능을 구현하기 위해 클래스 내부에 구현되는 함수</p>
+</li>
+<li><p>멤버함수라고도 한다</p>
+</li>
+<li><p>메소드의 이름은 객체에 맞게 짓는 것이 좋다 ex) setID(param1),getID()…</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> studentNumber;</span><br><span class="line">    <span class="keyword">private</span> String studentName;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getStudentName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> studentName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStudentNumber</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.studentName = name;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1213,205 +1344,6 @@
 <li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
 <li>who는 process ID (0을 넣으면 현재 프로세스이다), value는 우선순위로 인자를 갖는다</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/28/System-Programming-Process/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/28/System-Programming-Process/" class="post-title-link" itemprop="url">System Programming - Process</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-28 16:45:57" itemprop="dateCreated datePublished" datetime="2021-07-28T16:45:57+09:00">2021-07-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-04 21:54:28" itemprop="dateModified" datetime="2021-08-04T21:54:28+09:00">2021-08-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Program-Process-Thread의-개념"><a href="#Program-Process-Thread의-개념" class="headerlink" title="Program , Process ,Thread의 개념"></a>Program , Process ,Thread의 개념</h1><h2 id="프로그램"><a href="#프로그램" class="headerlink" title="프로그램"></a>프로그램</h2><ul>
-<li>특정한 일을 수행하기위한 명령어로 구성된 실행 가능한 파일</li>
-<li>바이너리, 코드이미지 , Application …</li>
-</ul>
-<h2 id="프로세스"><a href="#프로세스" class="headerlink" title="프로세스"></a>프로세스</h2><ul>
-<li>실행중인 프로그램 (메모리 적재+ 프로세스 상태 정보 포함)<br><img src="/image/System-Programming-Process_images/processMemeryStructure.png"></li>
-</ul>
-<h2 id="스레드"><a href="#스레드" class="headerlink" title="스레드"></a>스레드</h2><ul>
-<li>가장 최소 단위의 실행가능한 프로세스<br><img src="/image/System-Programming-Process_images/processthread.png"></li>
-</ul>
-<h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><h2 id="Process-ID"><a href="#Process-ID" class="headerlink" title="Process ID"></a>Process ID</h2><ul>
-<li>각 프로세스 해당 시점에 유니크한 pid를 가진다</li>
-<li>pid는 Linux에서는 signed 16비트 정수값을 사용하여 최대 32678이다<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /proc/sys/kernel/pid_max <span class="comment"># 명령어를 통하여 확인 가능</span></span><br><span class="line">32768</span><br></pre></td></tr></table></figure>
-<h2 id="Process-계층"><a href="#Process-계층" class="headerlink" title="Process 계층"></a>Process 계층</h2></li>
-<li>최초 프로세스는 init 프로세스 (pid : 1)</li>
-<li>init 프로세스는 운영체제가 생성한다.</li>
-<li>다른 프로세스는 또 다른 프로세스로부터 생성되어 계층 구조를 가진다</li>
-<li>ppid 값이 부모 프로세스의 pid를 뜻한다<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef <span class="comment"># -e 시스템상의 모든 프로세스 -f UID,PID PPID등 모든 정보 출력</span></span><br></pre></td></tr></table></figure>
-<img src="/image/System-Programming-Process_images/psef_result.png"></li>
-</ul>
-<h2 id="Process와-Owner-관리"><a href="#Process와-Owner-관리" class="headerlink" title="Process와 Owner 관리"></a>Process와 Owner 관리</h2><p>리눅스에서 File은 inode 프로세스는 pid로 관리하듯이</p>
-<p>프로세스의 소유자와 그룹또한 UID / GID로 관리된다.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/passwd <span class="comment">#uid와 gid및 사용자에 관한 정보들이 출력된다.</span></span><br></pre></td></tr></table></figure>
-<p><img src="/image/System-Programming-Process_images/passwd.png"> </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cat /etc/shadow <span class="comment">#암호화된 상태의 password가 적혀있음</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Process관리-관련-시스템콜"><a href="#Process관리-관련-시스템콜" class="headerlink" title="Process관리 관련 시스템콜"></a>Process관리 관련 시스템콜</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pid=%d\n&quot;</span>), getpid();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;ppid=%d\n&quot;</span>), getppid();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/System-Programming-Process_images/pidinfo.png"></p>
-<ul>
-<li>실행할때마다 pid가 1씩 순차적으로 증가하는것을 확인 할 수 있다</li>
-</ul>
-<h2 id="Process-생성"><a href="#Process-생성" class="headerlink" title="Process 생성"></a>Process 생성</h2><ul>
-<li>process 생성 과정 <ol>
-<li>TEXT,DATA,BSS같은 정적인 공간을 먼저 확보</li>
-<li>실행하면서 STACK과 HEAP의 공간을 생성한다</li>
-</ol>
-</li>
-</ul>
-<h1 id="fork-amp-exec"><a href="#fork-amp-exec" class="headerlink" title="fork() &amp; exec()"></a>fork() &amp; exec()</h1><h2 id="fork-시스템콜"><a href="#fork-시스템콜" class="headerlink" title="fork() 시스템콜"></a>fork() 시스템콜</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">fork</span><span class="params">(<span class="keyword">void</span>)</span></span>; <span class="comment">// 부모 프로세스를 그대로 복사하기떄문에 인자가 없다. </span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>새로운 프로세스 공간을 별도로 만들고 실행중이였던 부모 프로세스 모든 내용을 복사</li>
-<li>자식 프로세스는 부모프로세스 공간을 모두 복사 후 fork() 시스템콜 이후 코드부터 실행된다.</li>
-<li>자식 프로세스는 pid가 0으로 리턴되며 부모 프로세스는 실제 pid를 리턴</li>
-<li>부모자식간의 플세스의  변수와 Program Count 값은 동일하다</li>
-</ul>
-<h2 id="execl-execp-execle"><a href="#execl-execp-execle" class="headerlink" title="execl() execp() execle()"></a>execl() execp() execle()</h2><ul>
-<li><p>exec() 시스템콜을 호출한 프로세스의 공간의 TEXT,DATA,BSS영역을</p>
-<p>새로운 프로세스의 이미지로 덮어 씌움</p>
-</li>
-<li><p>별도의 프로세스 공간을 만들지 않음 </p>
-</li>
-<li><p>부모 프로세스가 사라짐.</p>
-</li>
-</ul>
-<p>execl.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;excute ls\n&quot;</span>);</span><br><span class="line">  execl(<span class="string">&quot;/bin/ls&quot;</span>, <span class="string">&quot;ls&quot;</span> , <span class="string">&quot;-l&quot;</span>, <span class="literal">NULL</span>); <span class="comment">// 실행파일의 이름, argv[0], argv[1]... , NULL) </span></span><br><span class="line">  perror(<span class="string">&quot;execl is failed\n&quot;</span>);</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>execl이 실행되면 코드영역이 ls로 덮어 씌워지게 되고<br>밑의 코드는 실행되지 않는다.<br><img src="/image/System-Programming-Process_images/execl.png"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">execl(<span class="string">&quot;디렉토리와 파일 이름이 합친 전체이름&quot;</span>,<span class="string">&quot;명령어 리스트&quot;</span>, <span class="literal">NULL</span>);</span><br><span class="line">execp(<span class="string">&quot;파일 이름&quot;</span>, <span class="string">&quot;명령어 인수 리스트&quot;</span>, <span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
-<p>execp의 execl과의 차이점은 파일 이름을 해당 프로세스를 실행한 프로세스 환경변수를 검색한다.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *evmp[] = &#123;<span class="string">&quot;USER=name&quot;</span>, <span class="string">&quot;PATH=/bin&quot;</span>, (<span class="keyword">char</span> *)<span class="number">0</span>&#125;;</span><br><span class="line">execle(<span class="string">&quot;ls, &quot;</span>ls<span class="string">&quot;, &quot;</span>-al<span class="string">&quot; NULL, envp);</span></span><br></pre></td></tr></table></figure>
-<p>환경 변수를 지정하고자 할때는 execle을 사용한다.</p>
-<h3 id="execv-execvp-execve-시스템콜"><a href="#execv-execvp-execve-시스템콜" class="headerlink" title="execv(),execvp(),execve() 시스템콜"></a>execv(),execvp(),execve() 시스템콜</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *envp[] = &#123;<span class="string">&quot;USER=NAME&quot;</span>, <span class="string">&quot;PATH=/bin&quot;</span>, (<span class="keyword">char</span>*<span class="number">0</span>); <span class="comment">// 환경변수 배열</span></span><br><span class="line"><span class="keyword">char</span> *arg[] &#123;<span class="string">&quot;ls&quot;</span>, <span class="string">&quot;-al&quot;</span> ,<span class="literal">NULL</span>&#125;; <span class="comment">// 인수 리스트 배열</span></span><br><span class="line"></span><br><span class="line">execv(<span class="string">&quot;/bin/ls&quot;</span> arg);</span><br><span class="line">exevp(<span class="string">&quot;ls&quot;</span>,arg);</span><br><span class="line">exeve(<span class="string">&quot;ls&quot;</span>,arg)</span><br></pre></td></tr></table></figure>
-
-<h2 id="wait-시스템콜"><a href="#wait-시스템콜" class="headerlink" title="wait() 시스템콜"></a>wait() 시스템콜</h2><ul>
-<li>wait()을 사용하면 fork() 호출 시 자식 프로세스가 종료할 때 까지 부모 프로세스가 기다린다.</li>
-<li>부자 프로세스간의 동기화와 고아 프로세스가 생기는 것을 방지 할 수있다.</li>
-</ul>
-<p><img src="/image/System-Programming-Process_images/wait.png"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">wait</span> <span class="params">(<span class="keyword">int</span> *status)</span> <span class="comment">// wait 시스템 콜은 자식 프로세스의 pid를 반환한다</span></span></span><br><span class="line"><span class="function">                         <span class="comment">// 자식 프로세스의 종료 상태값을 인자로 갖는다.</span></span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">WIFEXITED</span><span class="params">(status)</span></span>; <span class="comment">// 자식 프로세스의 정상 종료 시 리턴값은 0이 아닌값</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="fork-execl-wait-정리"><a href="#fork-execl-wait-정리" class="headerlink" title="fork, execl wait 정리"></a>fork, execl wait 정리</h2><p>execl()만 사용하면 부모프로세스가 사라지므로<br>이를 유지하기위해 fork로 새로운 프로세스 공간후 execl을 호출한다<br>wait함수를 사용해서 부모 프로세스가 자식 프로세스가 끝날 떄 까지 기다릴 수 있음.</p>
-<h1 id="copy-on-write"><a href="#copy-on-write" class="headerlink" title="copy on write"></a>copy on write</h1><ul>
-<li><p>fork()는 새로운 프로세스 공간 생성 후 부모의 프로세스 공간을 모두 복사한다</p>
-</li>
-<li><p>메모리를 모두 복사하려면 시간이 오래 걸린다.</p>
-</li>
-<li><p>자식프로세스 생성시 부모 프로세스 페이지를 우선 사용한다.</p>
-</li>
-<li><p>이때 자식 프로세스에 쓰기가 발생할때 해당 페이지만 복사하고 분리한다</p>
-<ul>
-<li>+모두 복사하지 않기 때문에 프로세스 생성 시간을 줄일 수 있음</li>
-<li>+새로 생성된 프로세스에 할당되어야하는 페이지수도 최소화 할 수 있음</li>
-<li><img src="/image/System-Programming-Process_images/cowr.png"><br><img src="/image/System-Programming-Process_images/coww.png"></li>
-</ul>
-</li>
-<li><p>커널공간을 공유하여 읽기만 있을때에는 복사 없이 Process A에서 사용 하고있던 물리주소를 그대로 사용한다.</p>
-</li>
-<li><p>코드 실행중 write를 요청하게되면 그 시점에 child process가 복사하여 페이지 포인터를 변경하여 사용한다</p>
-</li>
-</ul>
-<h1 id="Process-종료"><a href="#Process-종료" class="headerlink" title="Process 종료"></a>Process 종료</h1><h2 id="exit"><a href="#exit" class="headerlink" title="exit()"></a>exit()</h2><p>프로세스를 종료하는 시스템콜</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span><span class="params">(<span class="keyword">int</span> status)</span></span>; <span class="comment">// 프로세스 종료 상태 번호를 인자로 갖는다</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>main함수의 return  와 exit(0)의 차이는 </p>
-<p>exit()는 즉시 프로세스를 종료한다<br>return 0는 함수를 종료한다.</p>
-<p>  main에서 return시에는 C언어 실행파일에 기본으로 포함된 _start() 함수를 호출하고</p>
-<p>  그함수는 main을 실행하고 모두 실행후 exit()를 호출하게 된다.</p>
-</li>
-<li><p>exit를 실행하면 </p>
-<ul>
-<li>atexit()에 등록된 함수 실행</li>
-<li>열려 있는 모든 입출력 스트림 버퍼 삭제 (stdin, stdout, stderr)</li>
-<li>프로세스가 오픈한 파일을 모두 닫음</li>
-<li>tmpfile()함수를 통해 생성된 임시 파일들 삭제</li>
-</ul>
-</li>
-</ul>
-<h2 id="atexit"><a href="#atexit" class="headerlink" title="atexit()"></a>atexit()</h2><p>프로세스가 종료될때 실행될 함수를 등록하는 함수이다.<br>스택형식으로 등록되어 들어온순의 역순으로 실행된다.</p>
-<hr>
-<p>출처 :<br>본 내용은 Fastcampus KDT BE과정 수업을 기반으로 작성되었음을 알립니다. </p>
-<p>기타 출처:<br><a target="_blank" rel="noopener" href="https://kyu9341.github.io/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/2020/10/04/OS_Process_Structure/">https://kyu9341.github.io/운영체제/2020/10/04/OS_Process_Structure/</a></p>
 
       
     </div>
