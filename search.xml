@@ -43,6 +43,87 @@
       </tags>
   </entry>
   <entry>
+    <title>Cloud Computing AWS 시작하기</title>
+    <url>/2021/07/21/Cloud-Computing-AWS-EC2/</url>
+    <content><![CDATA[<h1 id="AWS-Amazon-Web-Service"><a href="#AWS-Amazon-Web-Service" class="headerlink" title="AWS(Amazon Web Service)"></a>AWS(Amazon Web Service)</h1><h2 id="EC2-elastic-computer-생성하기"><a href="#EC2-elastic-computer-생성하기" class="headerlink" title="EC2(elastic computer) 생성하기"></a>EC2(elastic computer) 생성하기</h2><ol>
+<li>Region은 서울로 설정</li>
+</ol>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled.png"></p>
+<ul>
+<li>생성했던 지역에서 다른지역으로 옮기면 EC2가 보이지 않는다.</li>
+</ul>
+<ol>
+<li>EC2 검색</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-07-22_%EC%98%A4%ED%9B%84_3.34.22.png"></p>
+<ol start="2">
+<li>인스턴스 시작</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled1.png"></p>
+<ul>
+<li><p>설치할 이미지 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled2.png"></p>
+</li>
+<li><p>체험판 인스턴스 유형 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled3.png"></p>
+</li>
+</ul>
+<ul>
+<li><p>스토리지 추가</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled4.png"></p>
+<p>체험판은 최대 스토리지를 30GB까지 사용 가능하므로 30GB로 설정.</p>
+</li>
+<li><p>보안 그룹 설정</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled5.png"></p>
+<pre><code>    SSH로 접속하기위해 프로토콜과 포트범위를 정한다.
+</code></pre>
+</li>
+<li><p>인스턴스 시작 검토</p>
+<p>  인스턴스에 대한 세부정보를 확인 할 수 있다.</p>
+</li>
+<li><p>키페어 생성</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled6.png"></p>
+<p>최초접속시에는 새 키페어 생성을 해주며 다운받은 키페어는 유출에 유의하여 저장한다.</p>
+</li>
+</ul>
+<ol>
+<li><p>고정IP로 변경</p>
+<p> 동적IP를 사용할 경우 요금이 부과 될 수 있다.</p>
+</li>
+</ol>
+<ul>
+<li><p>자신의 콘솔로 로그인하여 EC2 메뉴 접속 및 IP주소 할당</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled7.png"></p>
+<p>대시보드의 Elastic IP(탄력적 IP)선택후 새 IP주소를 할당한다.</p>
+</li>
+<li><p>할당받은 IP주소와 자신의 인스턴스와 연결</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled8.png"></p>
+<p>인스턴스를 입력하고 연결한다.</p>
+</li>
+</ul>
+<ol>
+<li>대시보드의 인스턴스 메뉴를 통해 인스턴스를 확인 할 수 있다.</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled9.png"></p>
+<ol>
+<li>Terminal을 사용하여 AWS에 접속</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod 400 &#123;pemfile&#125;.pem // 보안을위해 퍼미션을 제한.</span><br><span class="line">ssh -i &#123;pemfile&#125;.pem ubuntu@&#123;public IPv4 Address&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
+<p>접속이 된것을 확인 할 수 있다.</p>
+]]></content>
+      <categories>
+        <category>Cloud Computing</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML 기초</title>
     <url>/2021/07/21/HTML_Basic/</url>
     <content><![CDATA[<h1 id="HTML-기초"><a href="#HTML-기초" class="headerlink" title="HTML 기초"></a>HTML 기초</h1><h2 id="HTML의-기본형태"><a href="#HTML의-기본형태" class="headerlink" title="HTML의 기본형태"></a>HTML의 기본형태</h2><p>HTML의 TAG</p>
@@ -197,6 +278,65 @@
       </tags>
   </entry>
   <entry>
+    <title>Shell 사용법 1</title>
+    <url>/2021/07/22/Linux%20-%20Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95%20/</url>
+    <content><![CDATA[<h1 id="Shell-사용법"><a href="#Shell-사용법" class="headerlink" title="Shell 사용법"></a>Shell 사용법</h1><h2 id="Standard-Stream-표준-입출력"><a href="#Standard-Stream-표준-입출력" class="headerlink" title="Standard Stream (표준 입출력)"></a>Standard Stream (표준 입출력)</h2><ul>
+<li>리눅스환경에서는  command로 실행되는 프로세스는 세가지 스트림을 가진다<ul>
+<li>표준 입력 스트림 - stdin</li>
+<li>표준 출력 스트림 - stdout</li>
+<li>표준 오류 스트림 - stderr</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled.png"></p>
+<p>ex) ls -al 은 stdin에 해당하고 stdout은 그에따른 결과에 해당한다고 할 수 있다.</p>
+<hr>
+<h2 id="Redirection-리디렉션"><a href="#Redirection-리디렉션" class="headerlink" title="Redirection (리디렉션)"></a>Redirection (리디렉션)</h2><ul>
+<li><p>표준 스트림을 바꿔 줄 수 있다.</p>
+<p>   [ &lt; , &gt; , &lt;&lt; , &gt;&gt; ]를 사용한다.</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls &gt; file.txt <span class="comment"># 출력내용을 터미널의 console에 출력이 아닌 file.txt에 저장시킴</span></span><br><span class="line"></span><br><span class="line">head &lt; file.txt <span class="comment"># file.txt내용의 10줄이 입력으로 사용 된다.ead &lt; files.txt &gt; files2.txt</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ head &lt;.bashrc &gt; test.txt </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>이 명령어는 다음과 같이 작동한다.<ol>
+<li>head &lt; .bashrc</li>
+<li>1의 결과 &gt; test.txt에 저장</li>
+</ol>
+<ul>
+<li>출력화면</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled%201.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls -al &gt;&gt; test1.txt <span class="comment"># 기존의 내용을 삭제하지않고 추가한다.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Pipe-파이프"><a href="#Pipe-파이프" class="headerlink" title="Pipe (파이프)"></a>Pipe (파이프)</h2><ul>
+<li><p>여러개의 프로세스 사이에서 앞의 프로세스의 출력을 그 뒤의 프로세스의 입력으로 사용 하는 것.</p>
+<p>  [ | ] 를 사용한다.</p>
+</li>
+</ul>
+<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/%ED%8C%8C%EC%9D%B4%ED%94%84.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat .bashrc | grep <span class="keyword">case</span></span><br><span class="line"><span class="keyword">case</span> $- <span class="keyword">in</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">	<span class="comment"># a case would tend to support setf rather than setaf.)</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>cat 명령을 통한 출력내용이 grep 명령의 입력 스트림으로 들어간다.</li>
+<li>grep case 는 grep 명령의 입력스을 검색해서 cat의 출력내용에 case가 있는 라인만 출력한다</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Shell</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+        <tag>Bash</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux의 파일 시스템</title>
     <url>/2021/07/23/Linux-FileSystem/</url>
     <content><![CDATA[<h1 id="Linux-파일-시스템"><a href="#Linux-파일-시스템" class="headerlink" title="Linux 파일 시스템"></a>Linux 파일 시스템</h1><p>리눅스는 모든 것은 파일이라는 철학에따라 모든 인터랙션은 파일을 읽고 쓰는 것처럼 이루어져있다.<br>따라서 모든 자원에 대한 추상화 인터페이스로 파일 인터페이스를 활용한다.</p>
@@ -270,146 +410,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Shell 사용법 1</title>
-    <url>/2021/07/22/Linux%20-%20Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95%20/</url>
-    <content><![CDATA[<h1 id="Shell-사용법"><a href="#Shell-사용법" class="headerlink" title="Shell 사용법"></a>Shell 사용법</h1><h2 id="Standard-Stream-표준-입출력"><a href="#Standard-Stream-표준-입출력" class="headerlink" title="Standard Stream (표준 입출력)"></a>Standard Stream (표준 입출력)</h2><ul>
-<li>리눅스환경에서는  command로 실행되는 프로세스는 세가지 스트림을 가진다<ul>
-<li>표준 입력 스트림 - stdin</li>
-<li>표준 출력 스트림 - stdout</li>
-<li>표준 오류 스트림 - stderr</li>
-</ul>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled.png"></p>
-<p>ex) ls -al 은 stdin에 해당하고 stdout은 그에따른 결과에 해당한다고 할 수 있다.</p>
-<hr>
-<h2 id="Redirection-리디렉션"><a href="#Redirection-리디렉션" class="headerlink" title="Redirection (리디렉션)"></a>Redirection (리디렉션)</h2><ul>
-<li><p>표준 스트림을 바꿔 줄 수 있다.</p>
-<p>   [ &lt; , &gt; , &lt;&lt; , &gt;&gt; ]를 사용한다.</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls &gt; file.txt <span class="comment"># 출력내용을 터미널의 console에 출력이 아닌 file.txt에 저장시킴</span></span><br><span class="line"></span><br><span class="line">head &lt; file.txt <span class="comment"># file.txt내용의 10줄이 입력으로 사용 된다.ead &lt; files.txt &gt; files2.txt</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ head &lt;.bashrc &gt; test.txt </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>이 명령어는 다음과 같이 작동한다.<ol>
-<li>head &lt; .bashrc</li>
-<li>1의 결과 &gt; test.txt에 저장</li>
-</ol>
-<ul>
-<li>출력화면</li>
-</ul>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled%201.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls -al &gt;&gt; test1.txt <span class="comment"># 기존의 내용을 삭제하지않고 추가한다.</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Pipe-파이프"><a href="#Pipe-파이프" class="headerlink" title="Pipe (파이프)"></a>Pipe (파이프)</h2><ul>
-<li><p>여러개의 프로세스 사이에서 앞의 프로세스의 출력을 그 뒤의 프로세스의 입력으로 사용 하는 것.</p>
-<p>  [ | ] 를 사용한다.</p>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/%ED%8C%8C%EC%9D%B4%ED%94%84.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat .bashrc | grep <span class="keyword">case</span></span><br><span class="line"><span class="keyword">case</span> $- <span class="keyword">in</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">	<span class="comment"># a case would tend to support setf rather than setaf.)</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>cat 명령을 통한 출력내용이 grep 명령의 입력 스트림으로 들어간다.</li>
-<li>grep case 는 grep 명령의 입력스을 검색해서 cat의 출력내용에 case가 있는 라인만 출력한다</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Shell</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-        <tag>Bash</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cloud Computing AWS 시작하기</title>
-    <url>/2021/07/21/Cloud-Computing-AWS-EC2/</url>
-    <content><![CDATA[<h1 id="AWS-Amazon-Web-Service"><a href="#AWS-Amazon-Web-Service" class="headerlink" title="AWS(Amazon Web Service)"></a>AWS(Amazon Web Service)</h1><h2 id="EC2-elastic-computer-생성하기"><a href="#EC2-elastic-computer-생성하기" class="headerlink" title="EC2(elastic computer) 생성하기"></a>EC2(elastic computer) 생성하기</h2><ol>
-<li>Region은 서울로 설정</li>
-</ol>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled.png"></p>
-<ul>
-<li>생성했던 지역에서 다른지역으로 옮기면 EC2가 보이지 않는다.</li>
-</ul>
-<ol>
-<li>EC2 검색</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-07-22_%EC%98%A4%ED%9B%84_3.34.22.png"></p>
-<ol start="2">
-<li>인스턴스 시작</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled1.png"></p>
-<ul>
-<li><p>설치할 이미지 선택</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled2.png"></p>
-</li>
-<li><p>체험판 인스턴스 유형 선택</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled3.png"></p>
-</li>
-</ul>
-<ul>
-<li><p>스토리지 추가</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled4.png"></p>
-<p>체험판은 최대 스토리지를 30GB까지 사용 가능하므로 30GB로 설정.</p>
-</li>
-<li><p>보안 그룹 설정</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled5.png"></p>
-<pre><code>    SSH로 접속하기위해 프로토콜과 포트범위를 정한다.
-</code></pre>
-</li>
-<li><p>인스턴스 시작 검토</p>
-<p>  인스턴스에 대한 세부정보를 확인 할 수 있다.</p>
-</li>
-<li><p>키페어 생성</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled6.png"></p>
-<p>최초접속시에는 새 키페어 생성을 해주며 다운받은 키페어는 유출에 유의하여 저장한다.</p>
-</li>
-</ul>
-<ol>
-<li><p>고정IP로 변경</p>
-<p> 동적IP를 사용할 경우 요금이 부과 될 수 있다.</p>
-</li>
-</ol>
-<ul>
-<li><p>자신의 콘솔로 로그인하여 EC2 메뉴 접속 및 IP주소 할당</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled7.png"></p>
-<p>대시보드의 Elastic IP(탄력적 IP)선택후 새 IP주소를 할당한다.</p>
-</li>
-<li><p>할당받은 IP주소와 자신의 인스턴스와 연결</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled8.png"></p>
-<p>인스턴스를 입력하고 연결한다.</p>
-</li>
-</ul>
-<ol>
-<li>대시보드의 인스턴스 메뉴를 통해 인스턴스를 확인 할 수 있다.</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled9.png"></p>
-<ol>
-<li>Terminal을 사용하여 AWS에 접속</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod 400 &#123;pemfile&#125;.pem // 보안을위해 퍼미션을 제한.</span><br><span class="line">ssh -i &#123;pemfile&#125;.pem ubuntu@&#123;public IPv4 Address&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
-<p>접속이 된것을 확인 할 수 있다.</p>
-]]></content>
-      <categories>
-        <category>Cloud Computing</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Shell 사용법 2</title>
     <url>/2021/07/23/Linux-How_to_use_shell/</url>
     <content><![CDATA[<p>#Shell 사용법</p>
@@ -449,6 +449,67 @@
         <tag>Linux</tag>
         <tag>Shell</tag>
         <tag>Bash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>객체 지향 프로그래밍 - Basic 1</title>
+    <url>/2021/08/12/OOP-java-1/</url>
+    <content><![CDATA[<h1 id="객체지향-프로그래밍-Object-Oriented-Programming"><a href="#객체지향-프로그래밍-Object-Oriented-Programming" class="headerlink" title="객체지향 프로그래밍(Object Oriented Programming)"></a>객체지향 프로그래밍(Object Oriented Programming)</h1><h2 id="객체지향-프로그래밍"><a href="#객체지향-프로그래밍" class="headerlink" title="객체지향 프로그래밍?"></a>객체지향 프로그래밍?</h2><ul>
+<li><p>순서대로 실행되는 절차지향적인 C언어와 달리<br>객체의 관점에서 프로그래밍 하는 것 </p>
+</li>
+<li><p>여기서 객체란 의사나 행위가 미치는 대상이며 즉, 구체적 추상적 데이터의 단위이다.</p>
+</li>
+<li><p>객체지향의 목적은 추상화, 캡슐화, 상속 ,다형성을 특징으로 가진다</p>
+</li>
+<li><p>OOP는 5가지의 원칙을 준수해야한다</p>
+<ol>
+<li>SRP (single responsibility principle) : 단일 책임 원칙, 한 클래스는 한가지의 책임만 갖고있어야 한다</li>
+<li>OCP (Open/Closed Principle) : 개방 폐쇄 원칙, 확장에는 열려있고 변경에는 닫혀있어야 한다</li>
+<li>LSP (Liskov’s Substitution Principle) 리스코프 치환 법칙, 서브타입은 언제나 부모 타입으로 교체 될 수 있어야 한다</li>
+<li>ISP (interface segregation principle): 인터페이스 분리원칙, 자신이 사용하지 않는 인터페이스는 구현하지 않아야함</li>
+<li>DIP (Dependency Inversion Principle): 의존성 역전 원칙, 하위 레벨 모듈의 변경이 상위 레벨 변경을 요구하는 위계관계를 끊는 의미의 역전</li>
+</ol>
+</li>
+</ul>
+<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><ul>
+<li><p>어떠한 객체를 추상화하여 해당 사물이 가져야하는 속성(feild)나 행위(method)로 구성된다.</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> studentNumber;</span><br><span class="line">    String studentName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Convention"><a href="#Convention" class="headerlink" title="Convention"></a>Convention</h3><ul>
+<li>협력을 위해 다음과 같은 관습이 존재한다.</li>
+</ul>
+<ol>
+<li>Class는 대문자로 시작한다</li>
+<li>한 java파일 하나에 클래스는 여러개가 있을 수 있지만 public class는 하나이고 그 클래스와 .java파일의 이름을 동일하</li>
+<li>camel notation 방식으로 명명한다</li>
+<li>변수이름과 메소드는 소문자로 시작한다</li>
+</ol>
+<h2 id="함수-Function"><a href="#함수-Function" class="headerlink" title="함수 (Function)"></a>함수 (Function)</h2><ul>
+<li><p>하나의 기능을 수행하는 일련의 코드</p>
+</li>
+<li><p>구현된 함수는 여러 곳에서 동일한 방식으로 호출되어 사용 할 수있음</p>
+</li>
+<li><p>모듈화를 위해 낮은 결합도와 높은 응집도를 갖도록 설계하기위해 기능별로 구현하는 것이 좋다</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span> <span class="params">(<span class="keyword">int</span> nmu1, <span class="keyword">int</span> num2)</span> </span>&#123; <span class="comment">// 반환 데이터 함수이름 파라미터순으로 작성한다</span></span><br><span class="line">    <span class="keyword">int</span> result; </span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">//반환 값이 있는경우</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">helloWolrd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">&quot;Hello Wolrd!&quot;</span>); <span class="comment">// 반환 값이 없는경우</span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></li>
+<li><p>함수가 호출될 때 지역 변수들은 스택에 쌓인다. 함수 수행이 끝나면 자동으로 반환된다.</p>
+</li>
+</ul>
+<h2 id="메소드-Method"><a href="#메소드-Method" class="headerlink" title="메소드 (Method)"></a>메소드 (Method)</h2><ul>
+<li><p>객체의 기능을 구현하기 위해 클래스 내부에 구현되는 함수</p>
+</li>
+<li><p>멤버함수라고도 한다</p>
+</li>
+<li><p>메소드의 이름은 객체에 맞게 짓는 것이 좋다 ex) setID(param1),getID()…</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> studentNumber;</span><br><span class="line">    <span class="keyword">private</span> String studentName;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getStudentName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> studentName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStudentNumber</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.studentName = name;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>oop</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>oop</tag>
       </tags>
   </entry>
   <entry>
@@ -553,67 +614,6 @@ end</pre>
       </categories>
       <tags>
         <tag>interface</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>객체 지향 프로그래밍 - Basic 1</title>
-    <url>/2021/08/12/OOP-java-1/</url>
-    <content><![CDATA[<h1 id="객체지향-프로그래밍-Object-Oriented-Programming"><a href="#객체지향-프로그래밍-Object-Oriented-Programming" class="headerlink" title="객체지향 프로그래밍(Object Oriented Programming)"></a>객체지향 프로그래밍(Object Oriented Programming)</h1><h2 id="객체지향-프로그래밍"><a href="#객체지향-프로그래밍" class="headerlink" title="객체지향 프로그래밍?"></a>객체지향 프로그래밍?</h2><ul>
-<li><p>순서대로 실행되는 절차지향적인 C언어와 달리<br>객체의 관점에서 프로그래밍 하는 것 </p>
-</li>
-<li><p>여기서 객체란 의사나 행위가 미치는 대상이며 즉, 구체적 추상적 데이터의 단위이다.</p>
-</li>
-<li><p>객체지향의 목적은 추상화, 캡슐화, 상속 ,다형성을 특징으로 가진다</p>
-</li>
-<li><p>OOP는 5가지의 원칙을 준수해야한다</p>
-<ol>
-<li>SRP (single responsibility principle) : 단일 책임 원칙, 한 클래스는 한가지의 책임만 갖고있어야 한다</li>
-<li>OCP (Open/Closed Principle) : 개방 폐쇄 원칙, 확장에는 열려있고 변경에는 닫혀있어야 한다</li>
-<li>LSP (Liskov’s Substitution Principle) 리스코프 치환 법칙, 서브타입은 언제나 부모 타입으로 교체 될 수 있어야 한다</li>
-<li>ISP (interface segregation principle): 인터페이스 분리원칙, 자신이 사용하지 않는 인터페이스는 구현하지 않아야함</li>
-<li>DIP (Dependency Inversion Principle): 의존성 역전 원칙, 하위 레벨 모듈의 변경이 상위 레벨 변경을 요구하는 위계관계를 끊는 의미의 역전</li>
-</ol>
-</li>
-</ul>
-<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><ul>
-<li><p>어떠한 객체를 추상화하여 해당 사물이 가져야하는 속성(feild)나 행위(method)로 구성된다.</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> studentNumber;</span><br><span class="line">    String studentName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Convention"><a href="#Convention" class="headerlink" title="Convention"></a>Convention</h3><ul>
-<li>협력을 위해 다음과 같은 관습이 존재한다.</li>
-</ul>
-<ol>
-<li>Class는 대문자로 시작한다</li>
-<li>한 java파일 하나에 클래스는 여러개가 있을 수 있지만 public class는 하나이고 그 클래스와 .java파일의 이름을 동일하</li>
-<li>camel notation 방식으로 명명한다</li>
-<li>변수이름과 메소드는 소문자로 시작한다</li>
-</ol>
-<h2 id="함수-Function"><a href="#함수-Function" class="headerlink" title="함수 (Function)"></a>함수 (Function)</h2><ul>
-<li><p>하나의 기능을 수행하는 일련의 코드</p>
-</li>
-<li><p>구현된 함수는 여러 곳에서 동일한 방식으로 호출되어 사용 할 수있음</p>
-</li>
-<li><p>모듈화를 위해 낮은 결합도와 높은 응집도를 갖도록 설계하기위해 기능별로 구현하는 것이 좋다</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span> <span class="params">(<span class="keyword">int</span> nmu1, <span class="keyword">int</span> num2)</span> </span>&#123; <span class="comment">// 반환 데이터 함수이름 파라미터순으로 작성한다</span></span><br><span class="line">    <span class="keyword">int</span> result; </span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">//반환 값이 있는경우</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">helloWolrd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">&quot;Hello Wolrd!&quot;</span>); <span class="comment">// 반환 값이 없는경우</span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></li>
-<li><p>함수가 호출될 때 지역 변수들은 스택에 쌓인다. 함수 수행이 끝나면 자동으로 반환된다.</p>
-</li>
-</ul>
-<h2 id="메소드-Method"><a href="#메소드-Method" class="headerlink" title="메소드 (Method)"></a>메소드 (Method)</h2><ul>
-<li><p>객체의 기능을 구현하기 위해 클래스 내부에 구현되는 함수</p>
-</li>
-<li><p>멤버함수라고도 한다</p>
-</li>
-<li><p>메소드의 이름은 객체에 맞게 짓는 것이 좋다 ex) setID(param1),getID()…</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> studentNumber;</span><br><span class="line">    <span class="keyword">private</span> String studentName;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getStudentName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> studentName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStudentNumber</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.studentName = name;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>oop</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>oop</tag>
       </tags>
   </entry>
   <entry>
@@ -1057,7 +1057,7 @@ Exception --> Throwable;</pre>
       </tags>
   </entry>
   <entry>
-    <title>IO Stream</title>
+    <title>JAVA - IO Stream - Byte단위 스트림</title>
     <url>/2021/08/26/OOP-java-18/</url>
     <content><![CDATA[<h1 id="입출력을-위한-I-O-Stream"><a href="#입출력을-위한-I-O-Stream" class="headerlink" title="입출력을 위한 I/O Stream"></a>입출력을 위한 I/O Stream</h1><h2 id="입출력-스트림-특징"><a href="#입출력-스트림-특징" class="headerlink" title="입출력 스트림 특징"></a>입출력 스트림 특징</h2><ul>
 <li>자바는 다양한 입출력(File Disk, 키보드 , 마우스 , 네트워크 등)에 대하여  일관성 있는 입출력 스트림을 제공한다.</li>
@@ -1196,13 +1196,173 @@ File -- input Stream --> JAVA</pre>
 
 <p>for문을 read의 반환값만큼 실행함으로써 해결할 수있다.</p>
 <p><img src="/image/OOP-java-18_images/a11f82f8.png"></p>
-<h3 id="Output-Stream"><a href="#Output-Stream" class="headerlink" title="Output Stream"></a><a href="https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html">Output Stream</a></h3>]]></content>
+<h3 id="Output-Stream"><a href="#Output-Stream" class="headerlink" title="Output Stream"></a><a href="https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html">Output Stream</a></h3><ul>
+<li><p>Byte 단위 출력 스트림의 최상위 추상 클래스</p>
+</li>
+<li><p>주요 하위 클래스</p>
+<table>
+<thead>
+<tr>
+<th>Stream Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileOutputStream</td>
+<td>파일에서 바이트 단위로 자료를 쓴다</td>
+</tr>
+<tr>
+<td>ByteArrayOutputStream</td>
+<td>byte 배열 메모리에서 바이트 단위로 자료를 쓴다</td>
+</tr>
+<tr>
+<td>FilterOutputStream</td>
+<td>스트림 자료를 쓸 떄 추가 기능을 제공하는 보조 스트림의 상위 클래스</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>주요 메소드</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void write(int c)</td>
+<td>출력 스트림으로 한 문자(2byte)를 전달</td>
+</tr>
+<tr>
+<td>void write(byte[] buf)</td>
+<td>출력 스트림으로 주어진 문자 배열 cbuf를 모두 전달</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>버퍼에 남아있는 모든 문자열을 출력</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>출력 스트림과 연결된 대상 리소스를 닫으며 출력 버퍼가 비워진다</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileOutputStreamTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;src/streamtest/input.txt&quot;</span>, <span class="keyword">true</span>);</span><br><span class="line">            <span class="comment">// path, append(Default:false)</span></span><br><span class="line">            fos.write(<span class="number">65</span>);</span><br><span class="line">            fos.write(<span class="number">66</span>);</span><br><span class="line">            fos.write(<span class="number">67</span>);</span><br><span class="line">            fos.write(<span class="number">68</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileOutputStreamTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> FileNotFoundException </span>&#123;</span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;src/streamtest/output.txt&quot;</span>, <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">try</span> (fos)&#123;</span><br><span class="line">            <span class="keyword">byte</span>[] bytes = &#123;<span class="string">&#x27;H&#x27;</span>,<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;O&#x27;</span>&#125;;</span><br><span class="line">            fos.write(bytes);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-18_images/5ebf020b.png"></p>
+]]></content>
       <categories>
         <category>java</category>
       </categories>
       <tags>
         <tag>io stream</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>JAVA - IO Stream - 문자단위 스트림</title>
+    <url>/2021/08/31/OOP-java-19/</url>
+    <content><![CDATA[<h2 id="Reader"><a href="#Reader" class="headerlink" title="Reader"></a>Reader</h2><ul>
+<li><p>문자 단위 입력 스트림의 최상위 추상 클래스 </p>
+</li>
+<li><p>주요 하위 클래스</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileReader</td>
+<td>파일에서 문자 단위로 읽는 스트림 클래스</td>
+</tr>
+<tr>
+<td>InputStreamReader</td>
+<td>바이트 단위의 자료를 문자로 변환해주는 보조 스트림 클래스</td>
+</tr>
+<tr>
+<td>BufferReader</td>
+<td>문자로 읽을 때 배열을 제공하여 한번에 읽을 수 있는 기능을 제공하는 보조 스트림 클래스</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>주요 메소드</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int read()</td>
+<td>한 문자씩 읽어들임</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>입력 스트림과 연결된 대상 리소스를 닫음</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReaderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>(FileReader fis = <span class="keyword">new</span> FileReader(<span class="string">&quot;src/streamtest/reader.txt&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">int</span> i ;</span><br><span class="line">            <span class="keyword">while</span> ( ( i = fis.read()) != -<span class="number">1</span>)  &#123;</span><br><span class="line">                System.out.print((<span class="keyword">char</span>) i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Writer"><a href="#Writer" class="headerlink" title="Writer"></a>Writer</h2><ul>
+<li><p>문자 단위 출력 스트림의 최상위 추상 클래스</p>
+</li>
+<li><p>주요 하위 클래스</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileWriter</td>
+<td>파일에서 문자 단위로 출력하는 스트림 클래스</td>
+</tr>
+<tr>
+<td>InputStreamReader</td>
+<td>바이트 단위의 자료를 문자로 변환해 출력하는 보조 스트림 클래스</td>
+</tr>
+<tr>
+<td>BufferReader</td>
+<td>문자로 쓸 때 배열을 제공하여 한번에 읽을 수 있는 기능을 제공하는 보조 스트림 클래스</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>주요 메소드</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void write(int c)</td>
+<td>한 문자를 파일에 쓴다</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf,int off, int len)</td>
+<td>받아온 cbuf를 off부터 len개 파일에 쓴다</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>버퍼에 있는 데이터를 모두 파일로 옮김</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>출력 스트림과 연결된 대상 리소스를 닫음</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WriterTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (FileWriter fw = <span class="keyword">new</span> FileWriter(<span class="string">&quot;src/streamtest/writer.txt&quot;</span>,<span class="keyword">true</span>)) &#123;</span><br><span class="line">            fw.write(<span class="string">&#x27;H&#x27;</span>);</span><br><span class="line">            <span class="keyword">char</span>[] cbuf = &#123;<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;O&#x27;</span>&#125;;</span><br><span class="line">            String s = <span class="string">&quot;WORLD&quot;</span>;</span><br><span class="line">            fw.write(cbuf);</span><br><span class="line">            fw.write(s);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>객체 지향 프로그래밍 - Basic 2</title>
@@ -1307,6 +1467,50 @@ File -- input Stream --> JAVA</pre>
         <tag>java</tag>
         <tag>access modifier</tag>
         <tag>capsulation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>객체 지향 프로그래밍 - Static</title>
+    <url>/2021/08/13/OOP-java-5/</url>
+    <content><![CDATA[<h1 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h1><h2 id="Static-변수"><a href="#Static-변수" class="headerlink" title="Static 변수"></a>Static 변수</h2><ul>
+<li><p>static은 변수앞에 붙는 키워드로 인스턴스가 생성될 떄 만들어지는 변수가 아닌 처음 프로그램이 메모리에 로딩 될때 메모리에 할당된다.</p>
+</li>
+<li><p>클래스 변수, 정적변수라고도 한다</p>
+</li>
+<li><p>메모리의 데이터영역에 저장된다. *인스턴스는 힙영역</p>
+</li>
+<li><p>인스턴스 생성과 상관없이 사용가능해서 클래스 이름으로 접근이 가능하다</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> staticTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> serialNum = <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> employeeId;</span><br><span class="line">    <span class="keyword">private</span> String employeeName;</span><br><span class="line">    <span class="keyword">private</span> String department;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">(String employeeName, String department)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.employeeName = employeeName;</span><br><span class="line">        <span class="keyword">this</span>.department = department;</span><br><span class="line">        <span class="keyword">this</span>.employeeId = ++serialNum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmployeeName</span><span class="params">(String employeeName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.employeeName = employeeName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDepartment</span><span class="params">(String department)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.department = department;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getEmployeeName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employeeName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDepartment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> department;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getEmployeeId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employeeId;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> staticTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.jupiter.api.Assertions.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmployeeTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Employee kim = <span class="keyword">new</span> Employee(<span class="string">&quot;kim&quot;</span>,<span class="string">&quot;hs&quot;</span>);</span><br><span class="line">        Employee woo = <span class="keyword">new</span> Employee(<span class="string">&quot;woo&quot;</span>,<span class="string">&quot;dev&quot;</span>);</span><br><span class="line">        Employee choi = <span class="keyword">new</span> Employee(<span class="string">&quot;choi&quot;</span>,<span class="string">&quot;man&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(kim.getEmployeeId());</span><br><span class="line">        System.out.println(woo.getEmployeeId());</span><br><span class="line">        System.out.println(choi.getEmployeeId());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1001</p>
+<p>1002</p>
+<p>1003</p>
+</li>
+</ul>
+<h2 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h2><ul>
+<li><p>스태틱 메소드는 instance변수를 사용할 수 없다</p>
+</li>
+<li><p>스태틱 키워드는 인스턴스의 생성과 무관하게 사용할 수 있기 때문에 당연히</p>
+</li>
+<li><p>힙영역에 메모리가 존재하지 않아, 인스턴스를 필요로하는 일반 멤버 변수를 사용 할 수 없다.</p>
+</li>
+</ul>
+<h2 id="Static-응용-Singleton-패턴"><a href="#Static-응용-Singleton-패턴" class="headerlink" title="Static 응용 - Singleton 패턴"></a>Static 응용 - Singleton 패턴</h2><ul>
+<li><p>싱글톤 패턴이란 프로그램에서 인스턴스가 단 한개만 생성되어야 하는 경우 사용되는 디자인 패턴이다.</p>
+</li>
+<li><p>static 키워드를 활용하여 구현할 수 있다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//생성자를 private로 선언</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Company</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">//클래스 내부에 유일한 private 인스턴스 생성</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Compnay singleInstance = <span class="keyword">new</span> Company();</span><br><span class="line"><span class="comment">//외부에서 유일한 인스턴스를 참조 할 수 있는 public 메소드를 구현</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Company <span class="title">getInstace</span><span class="params">()</span></span>&#123; <span class="comment">// 외부에서 인스턴스 생성 없이 접근할 수 있어야하기때문에 static 메소드</span></span><br><span class="line">    <span class="keyword">if</span>( singleInstance == <span class="keyword">null</span> ) &#123;</span><br><span class="line">      singleInstance = <span class="keyword">new</span> Compay(); <span class="comment">// 인스턴스가 없는경우 생성</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> singleInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>oop</tag>
+        <tag>static</tag>
       </tags>
   </entry>
   <entry>
@@ -1437,50 +1641,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>객체 지향 프로그래밍 - Static</title>
-    <url>/2021/08/13/OOP-java-5/</url>
-    <content><![CDATA[<h1 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h1><h2 id="Static-변수"><a href="#Static-변수" class="headerlink" title="Static 변수"></a>Static 변수</h2><ul>
-<li><p>static은 변수앞에 붙는 키워드로 인스턴스가 생성될 떄 만들어지는 변수가 아닌 처음 프로그램이 메모리에 로딩 될때 메모리에 할당된다.</p>
-</li>
-<li><p>클래스 변수, 정적변수라고도 한다</p>
-</li>
-<li><p>메모리의 데이터영역에 저장된다. *인스턴스는 힙영역</p>
-</li>
-<li><p>인스턴스 생성과 상관없이 사용가능해서 클래스 이름으로 접근이 가능하다</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> staticTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> serialNum = <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> employeeId;</span><br><span class="line">    <span class="keyword">private</span> String employeeName;</span><br><span class="line">    <span class="keyword">private</span> String department;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">(String employeeName, String department)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.employeeName = employeeName;</span><br><span class="line">        <span class="keyword">this</span>.department = department;</span><br><span class="line">        <span class="keyword">this</span>.employeeId = ++serialNum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmployeeName</span><span class="params">(String employeeName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.employeeName = employeeName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDepartment</span><span class="params">(String department)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.department = department;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getEmployeeName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employeeName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDepartment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> department;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getEmployeeId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employeeId;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> staticTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.jupiter.api.Assertions.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmployeeTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Employee kim = <span class="keyword">new</span> Employee(<span class="string">&quot;kim&quot;</span>,<span class="string">&quot;hs&quot;</span>);</span><br><span class="line">        Employee woo = <span class="keyword">new</span> Employee(<span class="string">&quot;woo&quot;</span>,<span class="string">&quot;dev&quot;</span>);</span><br><span class="line">        Employee choi = <span class="keyword">new</span> Employee(<span class="string">&quot;choi&quot;</span>,<span class="string">&quot;man&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(kim.getEmployeeId());</span><br><span class="line">        System.out.println(woo.getEmployeeId());</span><br><span class="line">        System.out.println(choi.getEmployeeId());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>1001</p>
-<p>1002</p>
-<p>1003</p>
-</li>
-</ul>
-<h2 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h2><ul>
-<li><p>스태틱 메소드는 instance변수를 사용할 수 없다</p>
-</li>
-<li><p>스태틱 키워드는 인스턴스의 생성과 무관하게 사용할 수 있기 때문에 당연히</p>
-</li>
-<li><p>힙영역에 메모리가 존재하지 않아, 인스턴스를 필요로하는 일반 멤버 변수를 사용 할 수 없다.</p>
-</li>
-</ul>
-<h2 id="Static-응용-Singleton-패턴"><a href="#Static-응용-Singleton-패턴" class="headerlink" title="Static 응용 - Singleton 패턴"></a>Static 응용 - Singleton 패턴</h2><ul>
-<li><p>싱글톤 패턴이란 프로그램에서 인스턴스가 단 한개만 생성되어야 하는 경우 사용되는 디자인 패턴이다.</p>
-</li>
-<li><p>static 키워드를 활용하여 구현할 수 있다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//생성자를 private로 선언</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Company</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">//클래스 내부에 유일한 private 인스턴스 생성</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Compnay singleInstance = <span class="keyword">new</span> Company();</span><br><span class="line"><span class="comment">//외부에서 유일한 인스턴스를 참조 할 수 있는 public 메소드를 구현</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Company <span class="title">getInstace</span><span class="params">()</span></span>&#123; <span class="comment">// 외부에서 인스턴스 생성 없이 접근할 수 있어야하기때문에 static 메소드</span></span><br><span class="line">    <span class="keyword">if</span>( singleInstance == <span class="keyword">null</span> ) &#123;</span><br><span class="line">      singleInstance = <span class="keyword">new</span> Compay(); <span class="comment">// 인스턴스가 없는경우 생성</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> singleInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>oop</category>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>oop</tag>
-        <tag>static</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>객체지향 프로그래밍 - Polymorphism</title>
     <url>/2021/08/17/OOP-java-8/</url>
     <content><![CDATA[<h1 id="다형성"><a href="#다형성" class="headerlink" title="다형성"></a>다형성</h1><h2 id="다형성이란"><a href="#다형성이란" class="headerlink" title="다형성이란"></a>다형성이란</h2><ul>
@@ -1558,52 +1718,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>ShellScript-Basic(2)</title>
-    <url>/2021/08/05/ShellScript-Basic-2/</url>
-    <content><![CDATA[<h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
-<li>디렉토리내의 하부디렉토리 또는 파일들을 주기적으로 백업하는 쉘 스크립트<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="variable">$1</span> ] || [ -z <span class="variable">$2</span>]; <span class="keyword">then</span> <span class="comment"># 인자 2개를 받아서 하나라도 NULL이면 참이면</span></span><br><span class="line">  ehco usage: <span class="variable">$0</span> sourcedir targetdir <span class="comment"># 쉘 이름과 사용법을 출력</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  SRCDIR=<span class="variable">$1</span></span><br><span class="line">  DSTDIR=<span class="variable">$2</span></span><br><span class="line">  BACKUPFILE=backup.$(date +%y%m%d%H%M%S).tar.gz <span class="comment"># date 쉘명령어를 사용하여 날짜와 시간을 기록하여 백업파일을 생성</span></span><br><span class="line">  <span class="keyword">if</span> [ -d <span class="variable">$DSTDIR</span> ]; <span class="keyword">then</span> <span class="comment"># DSTDIR가 디렉토리이면 </span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> <span class="comment"># 압축</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    mkdir <span class="variable">$DSTDIR</span> <span class="comment"># 디렉토리가 없으면 생성하고 압축</span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> </span><br><span class="line">  <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="tar-명령어"><a href="#tar-명령어" class="headerlink" title="tar 명령어"></a>tar 명령어</h4><ul>
-<li>기존의 tar는 하나의 파일로 묶기만 가능했는데gzip이라는 압축명령이 많이 쓰이게되면서 tar라는 명령에 묶기가 아닌 압축도 할 수있 게끔 옵션을 제공하여gzip을 활용해서 묶고 압축 할 수 있다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">x  <span class="comment">#묶음 해제</span></span><br><span class="line">c  <span class="comment">#파일 묶음</span></span><br><span class="line">v  <span class="comment">#묶음 해제 과정 출력</span></span><br><span class="line">z  <span class="comment">#gunzip을 사용</span></span><br><span class="line">f  <span class="comment">#파일 이름을 지정</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf [압축된 파일 이름] [압축할 파일이나 폴더명]</span><br><span class="line">tar -xvzf [압축 해제할 압축 아카이브 이름]</span><br></pre></td></tr></table></figure>
-
-<h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> -f -name <span class="string">&#x27;filename&#x27;</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;shell1, shell2, shell3 &quot;</span> \;</span><br><span class="line"><span class="comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span></span><br><span class="line"><span class="comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">LOGDIR=/var/<span class="built_in">log</span></span><br><span class="line">GZIPDAY = 1</span><br><span class="line">DELDAY = 2</span><br><span class="line"><span class="built_in">cd</span> %LOGDIR</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cd <span class="variable">$LOGDIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*log.?&#x27;</span> -mtime +<span class="variable">$GZIPDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;gzip &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*gz.?&#x27;</span> -mtime +<span class="variable">$DELSDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;rm -f &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Shell</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>System Programming - ABI</title>
-    <url>/2021/07/28/System-Programming-ABI/</url>
-    <content><![CDATA[<h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
-<li>Application Binary Interface</li>
-<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
-<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
-<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
-<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>System Programming</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>ABI</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ShellScript-Basic</title>
     <url>/2021/08/04/ShellScript-Basic/</url>
     <content><![CDATA[<h1 id="Shell-Script"><a href="#Shell-Script" class="headerlink" title="Shell Script"></a>Shell Script</h1><h2 id="기본-문법"><a href="#기본-문법" class="headerlink" title="기본 문법"></a>기본 문법</h2><ul>
@@ -1675,6 +1789,154 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>ShellScript-Basic(2)</title>
+    <url>/2021/08/05/ShellScript-Basic-2/</url>
+    <content><![CDATA[<h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
+<li>디렉토리내의 하부디렉토리 또는 파일들을 주기적으로 백업하는 쉘 스크립트<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="variable">$1</span> ] || [ -z <span class="variable">$2</span>]; <span class="keyword">then</span> <span class="comment"># 인자 2개를 받아서 하나라도 NULL이면 참이면</span></span><br><span class="line">  ehco usage: <span class="variable">$0</span> sourcedir targetdir <span class="comment"># 쉘 이름과 사용법을 출력</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  SRCDIR=<span class="variable">$1</span></span><br><span class="line">  DSTDIR=<span class="variable">$2</span></span><br><span class="line">  BACKUPFILE=backup.$(date +%y%m%d%H%M%S).tar.gz <span class="comment"># date 쉘명령어를 사용하여 날짜와 시간을 기록하여 백업파일을 생성</span></span><br><span class="line">  <span class="keyword">if</span> [ -d <span class="variable">$DSTDIR</span> ]; <span class="keyword">then</span> <span class="comment"># DSTDIR가 디렉토리이면 </span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> <span class="comment"># 압축</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    mkdir <span class="variable">$DSTDIR</span> <span class="comment"># 디렉토리가 없으면 생성하고 압축</span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> </span><br><span class="line">  <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="tar-명령어"><a href="#tar-명령어" class="headerlink" title="tar 명령어"></a>tar 명령어</h4><ul>
+<li>기존의 tar는 하나의 파일로 묶기만 가능했는데gzip이라는 압축명령이 많이 쓰이게되면서 tar라는 명령에 묶기가 아닌 압축도 할 수있 게끔 옵션을 제공하여gzip을 활용해서 묶고 압축 할 수 있다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">x  <span class="comment">#묶음 해제</span></span><br><span class="line">c  <span class="comment">#파일 묶음</span></span><br><span class="line">v  <span class="comment">#묶음 해제 과정 출력</span></span><br><span class="line">z  <span class="comment">#gunzip을 사용</span></span><br><span class="line">f  <span class="comment">#파일 이름을 지정</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf [압축된 파일 이름] [압축할 파일이나 폴더명]</span><br><span class="line">tar -xvzf [압축 해제할 압축 아카이브 이름]</span><br></pre></td></tr></table></figure>
+
+<h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> -f -name <span class="string">&#x27;filename&#x27;</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;shell1, shell2, shell3 &quot;</span> \;</span><br><span class="line"><span class="comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span></span><br><span class="line"><span class="comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">LOGDIR=/var/<span class="built_in">log</span></span><br><span class="line">GZIPDAY = 1</span><br><span class="line">DELDAY = 2</span><br><span class="line"><span class="built_in">cd</span> %LOGDIR</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cd <span class="variable">$LOGDIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*log.?&#x27;</span> -mtime +<span class="variable">$GZIPDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;gzip &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*gz.?&#x27;</span> -mtime +<span class="variable">$DELSDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;rm -f &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Shell</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System Programming - ABI</title>
+    <url>/2021/07/28/System-Programming-ABI/</url>
+    <content><![CDATA[<h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
+<li>Application Binary Interface</li>
+<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
+<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
+<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
+<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>System Programming</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>ABI</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System-Programming-IPC(2)</title>
+    <url>/2021/08/04/System-Programming-IPC-2/</url>
+    <content><![CDATA[<p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msgctl(msgid, PIC_RMID,<span class="number">0</span>); <span class="comment">//삭제예시, 메시지 아이디와 컨트롤에대한 인자를 받는다. </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ipcs <span class="comment">#명령어를 통해 확인 할 수 있다.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="공유메모리-Shared-Memory"><a href="#공유메모리-Shared-Memory" class="headerlink" title="공유메모리 (Shared Memory)"></a>공유메모리 (Shared Memory)</h2><ul>
+<li>모든 프로세스는 커널영역을 공유한다는 점을 이용하여<br>커널에 공간을 확보하여 그 공간을 변수처럼 사용하는 방식이다</li>
+<li>큐와 다르게 주소를 변수처럼 접근한다</li>
+<li>공유 메모리 Key를 통하여 여러 프로세스가 접근이 가능하다</li>
+</ul>
+<h3 id="공유-메모리-생성"><a href="#공유-메모리-생성" class="headerlink" title="공유 메모리 생성"></a>공유 메모리 생성</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">key: 임의의 숫자 또는 ftok 함수로 생성한 키 값</span></span><br><span class="line"><span class="comment">size: 공유 메모리의 크기</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 속성</span></span><br><span class="line"><span class="comment">return value : 공유 메모리 식별자 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">size_t</span>, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line">shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>,SIZE , IPC_CREAT|<span class="number">0666</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-연결"><a href="#공유-메모리-연결" class="headerlink" title="공유 메모리 연결"></a>공유 메모리 연결</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">shmaddr : 공유 메모리 연결 주소 (char *) NULL로 설정하면 적절한 주소로 연결된다</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 권한 설정 (0이면 읽기쓰기, SHM_RDONLY면 읽기만)</span></span><br><span class="line"><span class="comment">return value: 연결이 성공하면 메모리의 시작 주소를 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">shmat</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">const</span> <span class="keyword">void</span> *shamddr, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line"></span><br><span class="line">shmaddr = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-해제"><a href="#공유-메모리-해제" class="headerlink" title="공유 메모리 해제"></a>공유 메모리 해제</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmdt</span><span class="params">(<span class="keyword">char</span> * shmaddr)</span></span>; <span class="comment">// 공유 메모리 연결 주소로 인자를 갖는다.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-읽기-쓰기"><a href="#공유-메모리-읽기-쓰기" class="headerlink" title="공유 메모리 읽기/쓰기"></a>공유 메모리 읽기/쓰기</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;%s&quot;</span> \n<span class="string">&quot;), (char *)shmaddr); </span></span><br><span class="line"><span class="string">strcpy((char*)shmaddr, &quot;</span>to write<span class="string">&quot;);</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-컨트롤"><a href="#공유-메모리-컨트롤" class="headerlink" title="공유 메모리 컨트롤"></a>공유 메모리 컨트롤</h3><p>커널영역을 끊임없이 만들 수 없기때문에 메모리를 컨트롤해줘야한다</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">cmd: 수행할 컨트롤 (ex: IPC_RMID - shmid로 지정한 공유 메모리 제거)</span></span><br><span class="line"><span class="comment">buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmctl</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">int</span> cmd, struct shmid_ds *buf)</span></span>;</span><br><span class="line"></span><br><span class="line">shmctl(shmid, IPC_RMID, (struct shmid_ds *)<span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="활용-예시"><a href="#활용-예시" class="headerlink" title="활용 예시"></a>활용 예시</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shmid, pid;</span><br><span class="line">    <span class="keyword">char</span> *shmaddr_parent, *shmaddr_child;</span><br><span class="line">    shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>, <span class="number">10</span>, IPC_CREAT|<span class="number">0644</span>);</span><br><span class="line">    <span class="keyword">if</span>(shmid == <span class="number">-1</span>) &#123; <span class="comment">// ocurred error</span></span><br><span class="line">            perror(<span class="string">&quot;shmget err&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// parent process</span></span><br><span class="line">            wait(<span class="number">0</span>);</span><br><span class="line">            shmaddr_parent = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>,<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, shmaddr_parent);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_parent);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            shmaddr_child = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="built_in">strcpy</span>((<span class="keyword">char</span> *)shmaddr_child, <span class="string">&quot;Hello Parent!&quot;</span>);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_child);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// shmctl(shmid, IPC_RMID, (struct shmid_ds *)NULL); ipcs로 확인하기위해 삭제하지 않았음.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/System-Programming-IPC-2_images/example.png"></p>
+]]></content>
+      <categories>
+        <category>System Programming</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>Shared Memory</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System-Programming-Pthread</title>
+    <url>/2021/08/05/System-Programming-Pthread/</url>
+    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
+<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
+<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
+</ul>
+<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
+<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
+</li>
+<li><p>모든 함수는 pthread_ 로 시작</p>
+</li>
+<li><p>크게 두가지로 분류 된다</p>
+<ul>
+<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
+<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
+</ul>
+</li>
+<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
+<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
+<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
+<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
+<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
+<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
+
+<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
+<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
+<ul>
+<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
+</ul>
+</li>
+<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
+<ul>
+<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
+<li>detach는 해당 스레드가 종료되면 바로 해제</li>
+</ul>
+</li>
+</ul>
+<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
+<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>System Programming - IPC</title>
     <url>/2021/07/29/System-Programming-IPC/</url>
     <content><![CDATA[<h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><h2 id="IPC란"><a href="#IPC란" class="headerlink" title="IPC란"></a>IPC란</h2><ul>
@@ -1727,46 +1989,6 @@ File -- input Stream --> JAVA</pre>
         <tag>File</tag>
         <tag>Pipe</tag>
         <tag>Message Queue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>System-Programming-IPC(2)</title>
-    <url>/2021/08/04/System-Programming-IPC-2/</url>
-    <content><![CDATA[<p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msgctl(msgid, PIC_RMID,<span class="number">0</span>); <span class="comment">//삭제예시, 메시지 아이디와 컨트롤에대한 인자를 받는다. </span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ipcs <span class="comment">#명령어를 통해 확인 할 수 있다.</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="공유메모리-Shared-Memory"><a href="#공유메모리-Shared-Memory" class="headerlink" title="공유메모리 (Shared Memory)"></a>공유메모리 (Shared Memory)</h2><ul>
-<li>모든 프로세스는 커널영역을 공유한다는 점을 이용하여<br>커널에 공간을 확보하여 그 공간을 변수처럼 사용하는 방식이다</li>
-<li>큐와 다르게 주소를 변수처럼 접근한다</li>
-<li>공유 메모리 Key를 통하여 여러 프로세스가 접근이 가능하다</li>
-</ul>
-<h3 id="공유-메모리-생성"><a href="#공유-메모리-생성" class="headerlink" title="공유 메모리 생성"></a>공유 메모리 생성</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">key: 임의의 숫자 또는 ftok 함수로 생성한 키 값</span></span><br><span class="line"><span class="comment">size: 공유 메모리의 크기</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 속성</span></span><br><span class="line"><span class="comment">return value : 공유 메모리 식별자 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">size_t</span>, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line">shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>,SIZE , IPC_CREAT|<span class="number">0666</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="공유-메모리-연결"><a href="#공유-메모리-연결" class="headerlink" title="공유 메모리 연결"></a>공유 메모리 연결</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">shmaddr : 공유 메모리 연결 주소 (char *) NULL로 설정하면 적절한 주소로 연결된다</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 권한 설정 (0이면 읽기쓰기, SHM_RDONLY면 읽기만)</span></span><br><span class="line"><span class="comment">return value: 연결이 성공하면 메모리의 시작 주소를 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">shmat</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">const</span> <span class="keyword">void</span> *shamddr, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line"></span><br><span class="line">shmaddr = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="공유-메모리-해제"><a href="#공유-메모리-해제" class="headerlink" title="공유 메모리 해제"></a>공유 메모리 해제</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmdt</span><span class="params">(<span class="keyword">char</span> * shmaddr)</span></span>; <span class="comment">// 공유 메모리 연결 주소로 인자를 갖는다.</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="공유-메모리-읽기-쓰기"><a href="#공유-메모리-읽기-쓰기" class="headerlink" title="공유 메모리 읽기/쓰기"></a>공유 메모리 읽기/쓰기</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;%s&quot;</span> \n<span class="string">&quot;), (char *)shmaddr); </span></span><br><span class="line"><span class="string">strcpy((char*)shmaddr, &quot;</span>to write<span class="string">&quot;);</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="공유-메모리-컨트롤"><a href="#공유-메모리-컨트롤" class="headerlink" title="공유 메모리 컨트롤"></a>공유 메모리 컨트롤</h3><p>커널영역을 끊임없이 만들 수 없기때문에 메모리를 컨트롤해줘야한다</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">cmd: 수행할 컨트롤 (ex: IPC_RMID - shmid로 지정한 공유 메모리 제거)</span></span><br><span class="line"><span class="comment">buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmctl</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">int</span> cmd, struct shmid_ds *buf)</span></span>;</span><br><span class="line"></span><br><span class="line">shmctl(shmid, IPC_RMID, (struct shmid_ds *)<span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="활용-예시"><a href="#활용-예시" class="headerlink" title="활용 예시"></a>활용 예시</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shmid, pid;</span><br><span class="line">    <span class="keyword">char</span> *shmaddr_parent, *shmaddr_child;</span><br><span class="line">    shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>, <span class="number">10</span>, IPC_CREAT|<span class="number">0644</span>);</span><br><span class="line">    <span class="keyword">if</span>(shmid == <span class="number">-1</span>) &#123; <span class="comment">// ocurred error</span></span><br><span class="line">            perror(<span class="string">&quot;shmget err&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// parent process</span></span><br><span class="line">            wait(<span class="number">0</span>);</span><br><span class="line">            shmaddr_parent = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>,<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, shmaddr_parent);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_parent);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            shmaddr_child = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="built_in">strcpy</span>((<span class="keyword">char</span> *)shmaddr_child, <span class="string">&quot;Hello Parent!&quot;</span>);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_child);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// shmctl(shmid, IPC_RMID, (struct shmid_ds *)NULL); ipcs로 확인하기위해 삭제하지 않았음.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/System-Programming-IPC-2_images/example.png"></p>
-]]></content>
-      <categories>
-        <category>System Programming</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Linux</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-        <tag>Shared Memory</tag>
       </tags>
   </entry>
   <entry>
@@ -1901,68 +2123,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>System-Programming-Pthread</title>
-    <url>/2021/08/05/System-Programming-Pthread/</url>
-    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
-<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
-<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
-</ul>
-<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
-<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
-</li>
-<li><p>모든 함수는 pthread_ 로 시작</p>
-</li>
-<li><p>크게 두가지로 분류 된다</p>
-<ul>
-<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
-<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
-</ul>
-</li>
-<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
-<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
-<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
-<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
-<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
-<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
-<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
-
-<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
-<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
-<ul>
-<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
-</ul>
-</li>
-<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
-<ul>
-<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
-<li>detach는 해당 스레드가 종료되면 바로 해제</li>
-</ul>
-</li>
-</ul>
-<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
-<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
     <title>System Programming - Scheduling</title>
     <url>/2021/07/29/System-Programming-Scheduling/</url>
     <content><![CDATA[<h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
@@ -2005,6 +2165,68 @@ File -- input Stream --> JAVA</pre>
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo Deploy시 Spawn Failed 오류해결 방법</title>
+    <url>/2021/08/14/blog-Spawn-Failed/</url>
+    <content><![CDATA[<h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="문제-인식"><a href="#문제-인식" class="headerlink" title="문제 인식"></a>문제 인식</h2><ul>
+<li><p>여느때와 같게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">remote: Support <span class="keyword">for</span> password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br><span class="line">remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="keyword">for</span> more information.</span><br><span class="line">fatal: unable to access <span class="string">&#x27;https://github.com/Jeongisu94/Jeongisu94.github.io.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/Users/jeong-isu/dev/blog/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:394:28)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (node:internal/child_process:290:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></table></figure></li>
+<li><p>대충 보아하니 작성일(210814)기준으로 어제 비밀번호가 만료됐으니까 비번말고 대신 토큰써라 하는 내용이다</p>
+</li>
+</ul>
+<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
+<li><p>github.com의 프로필 사진을 클릭하여 Setting - Development Setting - Personal Access Token에 들어가자</p>
+<p><img src="/image/blog-Spawn-Failed_images/personal_access_token.png"></p>
+</li>
+<li><p>Generate new toekn을 클릭하여 토큰을 생성하자</p>
+<p><img src="/image/blog-Spawn-Failed_images/genToken.png"></p>
+<ul>
+<li>노트에는 어떤 토큰인지 설명과 만료기한을 설정해주자 Repo에 접근해야하니 Repo도 체크해주자</li>
+</ul>
+</li>
+<li><p>Generate Token을 누르면 토큰이 생성됨과 동시에 토큰이 나오는데 이 토큰은 한번밖에 알려주지 않으니 클립보드에 복사해두자</p>
+</li>
+</ul>
+<h3 id="configure-yml-파일-수정하기"><a href="#configure-yml-파일-수정하기" class="headerlink" title="_configure.yml 파일 수정하기"></a>_configure.yml 파일 수정하기</h3><ul>
+<li>hexo 설정파일인 _config.yml파일에서 repo설정을 다음과 같이바꿔준다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">repo: https:<span class="comment">//&#123;githubID&#125;:&#123;Token&#125;@github.com/&#123;GithubID&#125;/githubID.github.io.git</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>그 후 hexo clean &amp;&amp; hexo deploy를 하면 오류 없이 잘 배치 된다.</p>
+<p><img src="/image/blog-Spawn-Failed_images/complete.png"></p>
+</li>
+<li><p>토큰이 외부에 노출되지 않도록 주의하자! </p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>blog</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>Trouble Shooting</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git ignore 적용 안될때</title>
+    <url>/2021/08/06/git-add/</url>
+    <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
+<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
+<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">git add * The following paths are ignored by one of your .gitignore files: git-add/ignore.txt</span><br><span class="line">Use -f <span class="keyword">if</span> you really want to add them.</span><br></pre></td></tr></table></figure>
+<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
+<p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
+<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Trouble Shooting</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -2058,24 +2280,6 @@ File -- input Stream --> JAVA</pre>
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>Signal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git ignore 적용 안될때</title>
-    <url>/2021/08/06/git-add/</url>
-    <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
-<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
-<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">git add * The following paths are ignored by one of your .gitignore files: git-add/ignore.txt</span><br><span class="line">Use -f <span class="keyword">if</span> you really want to add them.</span><br></pre></td></tr></table></figure>
-<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
-<p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
-<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Git</tag>
-        <tag>Trouble Shooting</tag>
       </tags>
   </entry>
   <entry>
@@ -2150,50 +2354,6 @@ File -- input Stream --> JAVA</pre>
         <tag>setting</tag>
         <tag>zsh</tag>
         <tag>terminal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo Deploy시 Spawn Failed 오류해결 방법</title>
-    <url>/2021/08/14/blog-Spawn-Failed/</url>
-    <content><![CDATA[<h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="문제-인식"><a href="#문제-인식" class="headerlink" title="문제 인식"></a>문제 인식</h2><ul>
-<li><p>여느때와 같게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">remote: Support <span class="keyword">for</span> password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br><span class="line">remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="keyword">for</span> more information.</span><br><span class="line">fatal: unable to access <span class="string">&#x27;https://github.com/Jeongisu94/Jeongisu94.github.io.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/Users/jeong-isu/dev/blog/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:394:28)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (node:internal/child_process:290:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></table></figure></li>
-<li><p>대충 보아하니 작성일(210814)기준으로 어제 비밀번호가 만료됐으니까 비번말고 대신 토큰써라 하는 내용이다</p>
-</li>
-</ul>
-<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
-<li><p>github.com의 프로필 사진을 클릭하여 Setting - Development Setting - Personal Access Token에 들어가자</p>
-<p><img src="/image/blog-Spawn-Failed_images/personal_access_token.png"></p>
-</li>
-<li><p>Generate new toekn을 클릭하여 토큰을 생성하자</p>
-<p><img src="/image/blog-Spawn-Failed_images/genToken.png"></p>
-<ul>
-<li>노트에는 어떤 토큰인지 설명과 만료기한을 설정해주자 Repo에 접근해야하니 Repo도 체크해주자</li>
-</ul>
-</li>
-<li><p>Generate Token을 누르면 토큰이 생성됨과 동시에 토큰이 나오는데 이 토큰은 한번밖에 알려주지 않으니 클립보드에 복사해두자</p>
-</li>
-</ul>
-<h3 id="configure-yml-파일-수정하기"><a href="#configure-yml-파일-수정하기" class="headerlink" title="_configure.yml 파일 수정하기"></a>_configure.yml 파일 수정하기</h3><ul>
-<li>hexo 설정파일인 _config.yml파일에서 repo설정을 다음과 같이바꿔준다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">repo: https:<span class="comment">//&#123;githubID&#125;:&#123;Token&#125;@github.com/&#123;GithubID&#125;/githubID.github.io.git</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>그 후 hexo clean &amp;&amp; hexo deploy를 하면 오류 없이 잘 배치 된다.</p>
-<p><img src="/image/blog-Spawn-Failed_images/complete.png"></p>
-</li>
-<li><p>토큰이 외부에 노출되지 않도록 주의하자! </p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>blog</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>Trouble Shooting</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
