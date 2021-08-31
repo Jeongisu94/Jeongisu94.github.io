@@ -43,6 +43,87 @@
       </tags>
   </entry>
   <entry>
+    <title>Cloud Computing AWS 시작하기</title>
+    <url>/2021/07/21/Cloud-Computing-AWS-EC2/</url>
+    <content><![CDATA[<h1 id="AWS-Amazon-Web-Service"><a href="#AWS-Amazon-Web-Service" class="headerlink" title="AWS(Amazon Web Service)"></a>AWS(Amazon Web Service)</h1><h2 id="EC2-elastic-computer-생성하기"><a href="#EC2-elastic-computer-생성하기" class="headerlink" title="EC2(elastic computer) 생성하기"></a>EC2(elastic computer) 생성하기</h2><ol>
+<li>Region은 서울로 설정</li>
+</ol>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled.png"></p>
+<ul>
+<li>생성했던 지역에서 다른지역으로 옮기면 EC2가 보이지 않는다.</li>
+</ul>
+<ol>
+<li>EC2 검색</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-07-22_%EC%98%A4%ED%9B%84_3.34.22.png"></p>
+<ol start="2">
+<li>인스턴스 시작</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled1.png"></p>
+<ul>
+<li><p>설치할 이미지 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled2.png"></p>
+</li>
+<li><p>체험판 인스턴스 유형 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled3.png"></p>
+</li>
+</ul>
+<ul>
+<li><p>스토리지 추가</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled4.png"></p>
+<p>체험판은 최대 스토리지를 30GB까지 사용 가능하므로 30GB로 설정.</p>
+</li>
+<li><p>보안 그룹 설정</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled5.png"></p>
+<pre><code>    SSH로 접속하기위해 프로토콜과 포트범위를 정한다.
+</code></pre>
+</li>
+<li><p>인스턴스 시작 검토</p>
+<p>  인스턴스에 대한 세부정보를 확인 할 수 있다.</p>
+</li>
+<li><p>키페어 생성</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled6.png"></p>
+<p>최초접속시에는 새 키페어 생성을 해주며 다운받은 키페어는 유출에 유의하여 저장한다.</p>
+</li>
+</ul>
+<ol>
+<li><p>고정IP로 변경</p>
+<p> 동적IP를 사용할 경우 요금이 부과 될 수 있다.</p>
+</li>
+</ol>
+<ul>
+<li><p>자신의 콘솔로 로그인하여 EC2 메뉴 접속 및 IP주소 할당</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled7.png"></p>
+<p>대시보드의 Elastic IP(탄력적 IP)선택후 새 IP주소를 할당한다.</p>
+</li>
+<li><p>할당받은 IP주소와 자신의 인스턴스와 연결</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled8.png"></p>
+<p>인스턴스를 입력하고 연결한다.</p>
+</li>
+</ul>
+<ol>
+<li>대시보드의 인스턴스 메뉴를 통해 인스턴스를 확인 할 수 있다.</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled9.png"></p>
+<ol>
+<li>Terminal을 사용하여 AWS에 접속</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod 400 &#123;pemfile&#125;.pem // 보안을위해 퍼미션을 제한.</span><br><span class="line">ssh -i &#123;pemfile&#125;.pem ubuntu@&#123;public IPv4 Address&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
+<p>접속이 된것을 확인 할 수 있다.</p>
+]]></content>
+      <categories>
+        <category>Cloud Computing</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML 기초</title>
     <url>/2021/07/21/HTML_Basic/</url>
     <content><![CDATA[<h1 id="HTML-기초"><a href="#HTML-기초" class="headerlink" title="HTML 기초"></a>HTML 기초</h1><h2 id="HTML의-기본형태"><a href="#HTML의-기본형태" class="headerlink" title="HTML의 기본형태"></a>HTML의 기본형태</h2><p>HTML의 TAG</p>
@@ -197,87 +278,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Cloud Computing AWS 시작하기</title>
-    <url>/2021/07/21/Cloud-Computing-AWS-EC2/</url>
-    <content><![CDATA[<h1 id="AWS-Amazon-Web-Service"><a href="#AWS-Amazon-Web-Service" class="headerlink" title="AWS(Amazon Web Service)"></a>AWS(Amazon Web Service)</h1><h2 id="EC2-elastic-computer-생성하기"><a href="#EC2-elastic-computer-생성하기" class="headerlink" title="EC2(elastic computer) 생성하기"></a>EC2(elastic computer) 생성하기</h2><ol>
-<li>Region은 서울로 설정</li>
-</ol>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled.png"></p>
-<ul>
-<li>생성했던 지역에서 다른지역으로 옮기면 EC2가 보이지 않는다.</li>
-</ul>
-<ol>
-<li>EC2 검색</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-07-22_%EC%98%A4%ED%9B%84_3.34.22.png"></p>
-<ol start="2">
-<li>인스턴스 시작</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled1.png"></p>
-<ul>
-<li><p>설치할 이미지 선택</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled2.png"></p>
-</li>
-<li><p>체험판 인스턴스 유형 선택</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled3.png"></p>
-</li>
-</ul>
-<ul>
-<li><p>스토리지 추가</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled4.png"></p>
-<p>체험판은 최대 스토리지를 30GB까지 사용 가능하므로 30GB로 설정.</p>
-</li>
-<li><p>보안 그룹 설정</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled5.png"></p>
-<pre><code>    SSH로 접속하기위해 프로토콜과 포트범위를 정한다.
-</code></pre>
-</li>
-<li><p>인스턴스 시작 검토</p>
-<p>  인스턴스에 대한 세부정보를 확인 할 수 있다.</p>
-</li>
-<li><p>키페어 생성</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled6.png"></p>
-<p>최초접속시에는 새 키페어 생성을 해주며 다운받은 키페어는 유출에 유의하여 저장한다.</p>
-</li>
-</ul>
-<ol>
-<li><p>고정IP로 변경</p>
-<p> 동적IP를 사용할 경우 요금이 부과 될 수 있다.</p>
-</li>
-</ol>
-<ul>
-<li><p>자신의 콘솔로 로그인하여 EC2 메뉴 접속 및 IP주소 할당</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled7.png"></p>
-<p>대시보드의 Elastic IP(탄력적 IP)선택후 새 IP주소를 할당한다.</p>
-</li>
-<li><p>할당받은 IP주소와 자신의 인스턴스와 연결</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled8.png"></p>
-<p>인스턴스를 입력하고 연결한다.</p>
-</li>
-</ul>
-<ol>
-<li>대시보드의 인스턴스 메뉴를 통해 인스턴스를 확인 할 수 있다.</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled9.png"></p>
-<ol>
-<li>Terminal을 사용하여 AWS에 접속</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod 400 &#123;pemfile&#125;.pem // 보안을위해 퍼미션을 제한.</span><br><span class="line">ssh -i &#123;pemfile&#125;.pem ubuntu@&#123;public IPv4 Address&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
-<p>접속이 된것을 확인 할 수 있다.</p>
-]]></content>
-      <categories>
-        <category>Cloud Computing</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Shell 사용법 1</title>
     <url>/2021/07/22/Linux%20-%20Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95%20/</url>
     <content><![CDATA[<h1 id="Shell-사용법"><a href="#Shell-사용법" class="headerlink" title="Shell 사용법"></a>Shell 사용법</h1><h2 id="Standard-Stream-표준-입출력"><a href="#Standard-Stream-표준-입출력" class="headerlink" title="Standard Stream (표준 입출력)"></a>Standard Stream (표준 입출력)</h2><ul>
@@ -410,48 +410,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Shell 사용법 2</title>
-    <url>/2021/07/23/Linux-How_to_use_shell/</url>
-    <content><![CDATA[<p>#Shell 사용법</p>
-<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
-<li>바이너리는 실행할 수 있는 파일</li>
-<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
-<li>메모리와 관련된 상태정보 (PCB)</li>
-<li>시스템 리소스</li>
-<li>스케쥴링 단위</li>
-</ul>
-</li>
-</ul>
-<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
-<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
-<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
-</ul>
-<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
-<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
-<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
-<li>서버 데몬, 백신 프로그램, etc..</li>
-</ul>
-<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
-<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
-]]></content>
-      <categories>
-        <category>Shell</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-        <tag>Bash</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>객체 지향 프로그래밍 - Basic 1</title>
     <url>/2021/08/12/OOP-java-1/</url>
     <content><![CDATA[<h1 id="객체지향-프로그래밍-Object-Oriented-Programming"><a href="#객체지향-프로그래밍-Object-Oriented-Programming" class="headerlink" title="객체지향 프로그래밍(Object Oriented Programming)"></a>객체지향 프로그래밍(Object Oriented Programming)</h1><h2 id="객체지향-프로그래밍"><a href="#객체지향-프로그래밍" class="headerlink" title="객체지향 프로그래밍?"></a>객체지향 프로그래밍?</h2><ul>
@@ -513,44 +471,45 @@
       </tags>
   </entry>
   <entry>
-    <title>Java - Object Class</title>
-    <url>/2021/08/18/OOP-java-11/</url>
-    <content><![CDATA[<h1 id="Object-Class"><a href="#Object-Class" class="headerlink" title="Object Class"></a>Object Class</h1><h2 id="Object-Class-1"><a href="#Object-Class-1" class="headerlink" title="Object Class"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html">Object Class</a></h2><ul>
-<li>Object 클래스는 가장 상위클래스이다.</li>
-<li>즉 모든 클래스들은 Object클래스를 상속받고 필요에 의해 Object Class의 Method를 재정의하여 사용할 수 있다.</li>
-<li>Compiler는 Compile시에 Extends Object를 추가한다</li>
+    <title>Shell 사용법 2</title>
+    <url>/2021/07/23/Linux-How_to_use_shell/</url>
+    <content><![CDATA[<p>#Shell 사용법</p>
+<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
+<li>바이너리는 실행할 수 있는 파일</li>
+<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
+<li>메모리와 관련된 상태정보 (PCB)</li>
+<li>시스템 리소스</li>
+<li>스케쥴링 단위</li>
 </ul>
-<h3 id="Object-Class-Method"><a href="#Object-Class-Method" class="headerlink" title="Object Class Method"></a>Object Class Method</h3><h4 id="override-toString"><a href="#override-toString" class="headerlink" title="override toString()"></a>override toString()</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Animal(<span class="string">&quot;Dog&quot;</span>, <span class="number">2</span>);</span><br><span class="line">        String test = <span class="keyword">new</span> String(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        System.out.println(dog);</span><br><span class="line">        System.out.println(test);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
+<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
+<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
+</ul>
+<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
+<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
+<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
+<li>서버 데몬, 백신 프로그램, etc..</li>
+</ul>
+<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
+<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
+<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>코드의 결과는 다음과 같다 <img src="/image/OOP-java-11_images/animaltest.png"></p>
-</li>
-<li><p>test의 toString()은 이미 재정의 되어있기때문에 test를 바로 출력하지만</p>
-</li>
-<li><p>Animal 클래스는 그렇지않기때문에 16진수의 주소값을 출력한다.<br><img src="/image/OOP-java-11_images/tostringoveride.png"></p>
-</li>
-<li><p>따라서 Animal class 또한 object를 상속받았기때문에 toString()을 오버라이드 할 수 있다.</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Animal&#123;&quot;</span> +</span><br><span class="line">                    <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                    <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                    <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-11_images/2a3ceefb.png"></p>
-<h4 id="equals"><a href="#equals" class="headerlink" title="equals()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals(java.lang.Object)">equals()</a></h4><ul>
-<li>equals() 메소드는 두 인스턴스 주소 값을 비교하여 True/False를 반환한다</li>
-<li>인스턴스가 달라도 논리적으로 같다면 true를 반환할 수 있도록 재정의가 가능하다.</li>
-</ul>
-<h4 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#hashCode()">hashCode()</a></h4><ul>
-<li>Java에서는 Heap메모리를 관리할때 Hash함수를 이용한다.</li>
-<li>hasCode()는 인스턴스에대한 저장 주소를 반환한다</li>
-<li>equals()를 위와같이 재정의 할때 hash Key값을 Primary Key같은 것으로 사용한다</li>
-</ul>
+<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
+<hr>
+<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
+<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
 ]]></content>
       <categories>
-        <category>java</category>
+        <category>Shell</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>class</tag>
-        <tag>object</tag>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+        <tag>Bash</tag>
       </tags>
   </entry>
   <entry>
@@ -655,6 +614,47 @@ end</pre>
       </categories>
       <tags>
         <tag>interface</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java - Object Class</title>
+    <url>/2021/08/18/OOP-java-11/</url>
+    <content><![CDATA[<h1 id="Object-Class"><a href="#Object-Class" class="headerlink" title="Object Class"></a>Object Class</h1><h2 id="Object-Class-1"><a href="#Object-Class-1" class="headerlink" title="Object Class"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html">Object Class</a></h2><ul>
+<li>Object 클래스는 가장 상위클래스이다.</li>
+<li>즉 모든 클래스들은 Object클래스를 상속받고 필요에 의해 Object Class의 Method를 재정의하여 사용할 수 있다.</li>
+<li>Compiler는 Compile시에 Extends Object를 추가한다</li>
+</ul>
+<h3 id="Object-Class-Method"><a href="#Object-Class-Method" class="headerlink" title="Object Class Method"></a>Object Class Method</h3><h4 id="override-toString"><a href="#override-toString" class="headerlink" title="override toString()"></a>override toString()</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Animal(<span class="string">&quot;Dog&quot;</span>, <span class="number">2</span>);</span><br><span class="line">        String test = <span class="keyword">new</span> String(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        System.out.println(dog);</span><br><span class="line">        System.out.println(test);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>코드의 결과는 다음과 같다 <img src="/image/OOP-java-11_images/animaltest.png"></p>
+</li>
+<li><p>test의 toString()은 이미 재정의 되어있기때문에 test를 바로 출력하지만</p>
+</li>
+<li><p>Animal 클래스는 그렇지않기때문에 16진수의 주소값을 출력한다.<br><img src="/image/OOP-java-11_images/tostringoveride.png"></p>
+</li>
+<li><p>따라서 Animal class 또한 object를 상속받았기때문에 toString()을 오버라이드 할 수 있다.</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Animal&#123;&quot;</span> +</span><br><span class="line">                    <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                    <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                    <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-11_images/2a3ceefb.png"></p>
+<h4 id="equals"><a href="#equals" class="headerlink" title="equals()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals(java.lang.Object)">equals()</a></h4><ul>
+<li>equals() 메소드는 두 인스턴스 주소 값을 비교하여 True/False를 반환한다</li>
+<li>인스턴스가 달라도 논리적으로 같다면 true를 반환할 수 있도록 재정의가 가능하다.</li>
+</ul>
+<h4 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#hashCode()">hashCode()</a></h4><ul>
+<li>Java에서는 Heap메모리를 관리할때 Hash함수를 이용한다.</li>
+<li>hasCode()는 인스턴스에대한 저장 주소를 반환한다</li>
+<li>equals()를 위와같이 재정의 할때 hash Key값을 Primary Key같은 것으로 사용한다</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>class</tag>
+        <tag>object</tag>
       </tags>
   </entry>
   <entry>
@@ -1019,44 +1019,6 @@ Exception --> Throwable;</pre>
       </tags>
   </entry>
   <entry>
-    <title>Java - Exception Handling2</title>
-    <url>/2021/08/25/OOP-java-17/</url>
-    <content><![CDATA[<h1 id="Exception-활용"><a href="#Exception-활용" class="headerlink" title="Exception 활용"></a>Exception 활용</h1><ul>
-<li>자바에서 제공되는 여러 Exception Class들이 존재하지만 사용자가 직접 정의하여 사용 할 수 있다.</li>
-<li>최상위 Exception 클래스를 상속받거나 유사한 Exception 클래스를 상속받아 예외 클래스를 정의할 수 있다</li>
-</ul>
-<h2 id="패스워드에-대한-예외-처리"><a href="#패스워드에-대한-예외-처리" class="headerlink" title="패스워드에 대한 예외 처리"></a>패스워드에 대한 예외 처리</h2><ul>
-<li><p>암호는 여러 가지 요구조건을 만족해야 한다.</p>
-<ol>
-<li>암호는 Not null이어야 한다.</li>
-<li>암호는 5글자 이상이어야 한다.</li>
-<li>암호는 영문으로만 구성될 수 없다.</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PasswordTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span> <span class="params">(String pw)</span> <span class="keyword">throws</span> PasswordException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pw == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 Null일 수 없다&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pw.length() &lt; <span class="number">5</span> )&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 5자 이상이어야 한다&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pw.matches(<span class="string">&quot;[a-zAZ]+&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 숫자를 포함해야한다&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.password = pw;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        PasswordTest passwordTest = <span class="keyword">new</span> PasswordTest();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            passwordTest.setPassword(<span class="keyword">null</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;오류 없음!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (PasswordException e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-17_images/317bb89d.png"></p>
-<h1 id="Logging"><a href="#Logging" class="headerlink" title="Logging"></a>Logging</h1><h2 id="오류를-Log로-남기기"><a href="#오류를-Log로-남기기" class="headerlink" title="오류를 Log로 남기기"></a>오류를 Log로 남기기</h2><ul>
-<li>프로그램에서의 오류는 재현이 힘들다 따라서 시스템 운영에 대한 기록을 남겨서 오류가 발생했을 때 그 기록을 확인하여 디버깅을 해야한다</li>
-<li>디버깅,에러 추적, 성능 향상들을 위해 사용된다</li>
-<li>로그가 너무 적거나 많으면 시스템 상황을 파악하기 어려우니 꼭 필요한 정보만 로깅하도록 한다</li>
-</ul>
-<h2 id="java-util-logging"><a href="#java-util-logging" class="headerlink" title="java.util.logging"></a>java.util.logging</h2><ul>
-<li>자바에서는 기본적으로 제공되는 log 패키지가 있다</li>
-<li>이 패키지에서 제공하는 로그레벨은 severe, warning, info, config, finer, finest가 있다</li>
-<li>기본 패키지 이외에 log4j(log for java)라는 오픈소스가 있다 </li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>exception</tag>
-        <tag>error</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JAVA - IO Stream - Byte단위 스트림</title>
     <url>/2021/08/26/OOP-java-18/</url>
     <content><![CDATA[<h1 id="입출력을-위한-I-O-Stream"><a href="#입출력을-위한-I-O-Stream" class="headerlink" title="입출력을 위한 I/O Stream"></a>입출력을 위한 I/O Stream</h1><h2 id="입출력-스트림-특징"><a href="#입출력-스트림-특징" class="headerlink" title="입출력 스트림 특징"></a>입출력 스트림 특징</h2><ul>
@@ -1259,6 +1221,44 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>io stream</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java - Exception Handling2</title>
+    <url>/2021/08/25/OOP-java-17/</url>
+    <content><![CDATA[<h1 id="Exception-활용"><a href="#Exception-활용" class="headerlink" title="Exception 활용"></a>Exception 활용</h1><ul>
+<li>자바에서 제공되는 여러 Exception Class들이 존재하지만 사용자가 직접 정의하여 사용 할 수 있다.</li>
+<li>최상위 Exception 클래스를 상속받거나 유사한 Exception 클래스를 상속받아 예외 클래스를 정의할 수 있다</li>
+</ul>
+<h2 id="패스워드에-대한-예외-처리"><a href="#패스워드에-대한-예외-처리" class="headerlink" title="패스워드에 대한 예외 처리"></a>패스워드에 대한 예외 처리</h2><ul>
+<li><p>암호는 여러 가지 요구조건을 만족해야 한다.</p>
+<ol>
+<li>암호는 Not null이어야 한다.</li>
+<li>암호는 5글자 이상이어야 한다.</li>
+<li>암호는 영문으로만 구성될 수 없다.</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PasswordTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span> <span class="params">(String pw)</span> <span class="keyword">throws</span> PasswordException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pw == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 Null일 수 없다&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pw.length() &lt; <span class="number">5</span> )&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 5자 이상이어야 한다&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pw.matches(<span class="string">&quot;[a-zAZ]+&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 숫자를 포함해야한다&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.password = pw;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        PasswordTest passwordTest = <span class="keyword">new</span> PasswordTest();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            passwordTest.setPassword(<span class="keyword">null</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;오류 없음!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (PasswordException e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-17_images/317bb89d.png"></p>
+<h1 id="Logging"><a href="#Logging" class="headerlink" title="Logging"></a>Logging</h1><h2 id="오류를-Log로-남기기"><a href="#오류를-Log로-남기기" class="headerlink" title="오류를 Log로 남기기"></a>오류를 Log로 남기기</h2><ul>
+<li>프로그램에서의 오류는 재현이 힘들다 따라서 시스템 운영에 대한 기록을 남겨서 오류가 발생했을 때 그 기록을 확인하여 디버깅을 해야한다</li>
+<li>디버깅,에러 추적, 성능 향상들을 위해 사용된다</li>
+<li>로그가 너무 적거나 많으면 시스템 상황을 파악하기 어려우니 꼭 필요한 정보만 로깅하도록 한다</li>
+</ul>
+<h2 id="java-util-logging"><a href="#java-util-logging" class="headerlink" title="java.util.logging"></a>java.util.logging</h2><ul>
+<li>자바에서는 기본적으로 제공되는 log 패키지가 있다</li>
+<li>이 패키지에서 제공하는 로그레벨은 severe, warning, info, config, finer, finest가 있다</li>
+<li>기본 패키지 이외에 log4j(log for java)라는 오픈소스가 있다 </li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>exception</tag>
+        <tag>error</tag>
       </tags>
   </entry>
   <entry>
@@ -1466,6 +1466,46 @@ File -- input Stream --> JAVA</pre>
 ]]></content>
   </entry>
   <entry>
+    <title>Java - Serialization</title>
+    <url>/2021/08/31/OOP-java-21/</url>
+    <content><![CDATA[<h1 id="Serialization"><a href="#Serialization" class="headerlink" title="Serialization"></a>Serialization</h1><ul>
+<li>직렬화란 데이터 구조나 오브젝트 상태를 동일하거나 다른 컴퓨터 환경에 저장하고 나중에 재구성 할 수 있는 포맷으로 변환하는 과정</li>
+<li>이때 저장하는 과정을 Serialization 재구성하는 것을 Deserialization이라 함</li>
+<li>자바에서는 보조 스트림을 활용하여 직렬화를 제공한다<ul>
+<li><a href="https://docs.oracle.com/javase/7/docs/api/java/io/ObjectInputStream.html">ObjectInputStream</a> &amp; <a href="https://docs.oracle.com/javase/7/docs/api/java/io/ObjectOutputStream.html">ObjectOutputStream</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Serializable-Interface"><a href="#Serializable-Interface" class="headerlink" title="Serializable Interface"></a>Serializable Interface</h2><ul>
+<li>직렬화는 인스턴스를 외부로 보내는 과정이기 때문에 해당 인스턴스에대한 직렬화 의도를 명시해야함</li>
+<li>구현 코드가 없는 marker interface</li>
+<li>transient: 직렬화 하지 않으려는 멤버 변수에 사용 (Socket 등 직렬화 할 수 없는 객체)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Person.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  String job;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, String job)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Person&#123;&quot;</span> +</span><br><span class="line">            <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">            <span class="string">&quot;, job=&#x27;&quot;</span> + job + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">            <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SerializationTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Person kim = <span class="keyword">new</span> Person(<span class="string">&quot;Kim&quot;</span>, <span class="string">&quot;PM&quot;</span>);</span><br><span class="line">    Person park = <span class="keyword">new</span> Person(<span class="string">&quot;Park&quot;</span>, <span class="string">&quot;Programmer&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> (FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;src/serializationTest/serial.txt&quot;</span>);</span><br><span class="line">         ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(fos)) &#123;</span><br><span class="line">      oos.writeObject(kim);</span><br><span class="line">      oos.writeObject(park);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e ) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> (FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;src/serializationTest/serial.txt&quot;</span>);</span><br><span class="line">         ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(fis) ) &#123;</span><br><span class="line">      Person pKim = (Person) ois.readObject(); <span class="comment">// readObjec할때 클래스에대한 정보가 없을 수 있으므로 CNFE 예외가 발생할 수 있다.</span></span><br><span class="line">      Person pPark = (Person) ois.readObject();</span><br><span class="line"></span><br><span class="line">      System.out.println(pPark);</span><br><span class="line">      System.out.println(pKim);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-21_images/c8ae371a.png"></p>
+<ul>
+<li>이러한 오류를 뿜는 이유는 <code>writeObject()</code> 할 때 인스턴스가 Serializable하지 않기 때문이다</li>
+<li>따라서 Person클래스에 Serializable Interface를 명시해줘야 한다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-21_images/152f4643.png"></p>
+<ul>
+<li><code>Socket</code>같은 직렬화가 불가능한 멤버의 경우 transient 예약어를 사용하면 직렬화 할때 해당 멤버를 무시할 수 있다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">transient</span> String job;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-21_images/adf3e981.png"></p>
+<h2 id="Externalizable-Interface"><a href="#Externalizable-Interface" class="headerlink" title="Externalizable Interface"></a>Externalizable Interface</h2><ul>
+<li>프로그래머가 Object를 직접 객체를 읽고쓰는 코드를 구현할 수있다</li>
+<li>writeExternal() , readExternal() 메소드를 구현해야함</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Person.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Externalizable</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeExternal</span><span class="params">(ObjectOutput out)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    out.writeUTF(name);</span><br><span class="line">    out.writeUTF(job);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readExternal</span><span class="params">(ObjectInput in)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line">    name = in.readUTF();</span><br><span class="line">    job = in.readUTF();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>객체 지향 프로그래밍 - 자료형</title>
     <url>/2021/08/12/OOP-java-3/</url>
     <content><![CDATA[<h1 id="참조-자료형-변수"><a href="#참조-자료형-변수" class="headerlink" title="참조 자료형 변수"></a>참조 자료형 변수</h1><h2 id="참조-자료형-Reference-Data-Type"><a href="#참조-자료형-Reference-Data-Type" class="headerlink" title="참조 자료형 (Reference Data Type)"></a>참조 자료형 (Reference Data Type)</h2><ul>
@@ -1490,6 +1530,44 @@ File -- input Stream --> JAVA</pre>
       <tags>
         <tag>java</tag>
         <tag>oop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>객체 지향 프로그래밍 - 접근 제어자</title>
+    <url>/2021/08/13/OOP-java-4/</url>
+    <content><![CDATA[<h1 id="접근-제어자와-정보-은닉"><a href="#접근-제어자와-정보-은닉" class="headerlink" title="접근 제어자와 정보 은닉"></a>접근 제어자와 정보 은닉</h1><h2 id="접근-제어-지시자-access-modifier"><a href="#접근-제어-지시자-access-modifier" class="headerlink" title="접근 제어 지시자(access modifier)"></a>접근 제어 지시자(access modifier)</h2><ul>
+<li><p>접근제어지시자를 통해 정보은닉을 활용한 캡슐화가 구현이 된다.</p>
+</li>
+<li><p>클래스의 외부에서 클래스 내의 멤버변수, 메서드 , 생성자를 사용여부를 나타내는 키워드</p>
+<ul>
+<li>private 같은 클래스 내부에서만 접근 가능</li>
+<li>default(아무것도 안쓴경우) 같은 패키지 내부에서만 접근 가능</li>
+<li>protected 같은 패키지나 상속관계의 클래스에서 접근 가능</li>
+<li>public 클래스의 외부 어디서나 접근 할 수 있음</li>
+</ul>
+</li>
+<li><p>public get()/set() 메소드를 통하여 private한 멤버변수를 접근한다</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(name.length() &lt; <span class="number">10</span>) &#123; <span class="comment">// 정보를 보호함과 동시에 유효성을 검사 할 수 있다.</span></span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="정보-은닉을-활용한-캡슐화"><a href="#정보-은닉을-활용한-캡슐화" class="headerlink" title="정보 은닉을 활용한 캡슐화"></a>정보 은닉을 활용한 캡슐화</h2><ul>
+<li><p>캡슐화는 슈퍼클래스로부터 자식 클래스를 외부로 은닉하는 행위</p>
+</li>
+<li><p>꼭 필요한 정보와 기능만 외부에 오픈함으로써 메서드나 멤버변수의 접근하면서 발생 할 수있는<br>오류를 최소화 한다.</p>
+</li>
+<li><p>캡슐화는 객체간 소통시 세부사항을 알 필요 없어서 낮은 결합도를 제공함</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>access modifier</tag>
+        <tag>capsulation</tag>
       </tags>
   </entry>
   <entry>
@@ -1534,44 +1612,6 @@ File -- input Stream --> JAVA</pre>
         <tag>java</tag>
         <tag>oop</tag>
         <tag>static</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>객체 지향 프로그래밍 - 접근 제어자</title>
-    <url>/2021/08/13/OOP-java-4/</url>
-    <content><![CDATA[<h1 id="접근-제어자와-정보-은닉"><a href="#접근-제어자와-정보-은닉" class="headerlink" title="접근 제어자와 정보 은닉"></a>접근 제어자와 정보 은닉</h1><h2 id="접근-제어-지시자-access-modifier"><a href="#접근-제어-지시자-access-modifier" class="headerlink" title="접근 제어 지시자(access modifier)"></a>접근 제어 지시자(access modifier)</h2><ul>
-<li><p>접근제어지시자를 통해 정보은닉을 활용한 캡슐화가 구현이 된다.</p>
-</li>
-<li><p>클래스의 외부에서 클래스 내의 멤버변수, 메서드 , 생성자를 사용여부를 나타내는 키워드</p>
-<ul>
-<li>private 같은 클래스 내부에서만 접근 가능</li>
-<li>default(아무것도 안쓴경우) 같은 패키지 내부에서만 접근 가능</li>
-<li>protected 같은 패키지나 상속관계의 클래스에서 접근 가능</li>
-<li>public 클래스의 외부 어디서나 접근 할 수 있음</li>
-</ul>
-</li>
-<li><p>public get()/set() 메소드를 통하여 private한 멤버변수를 접근한다</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(name.length() &lt; <span class="number">10</span>) &#123; <span class="comment">// 정보를 보호함과 동시에 유효성을 검사 할 수 있다.</span></span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="정보-은닉을-활용한-캡슐화"><a href="#정보-은닉을-활용한-캡슐화" class="headerlink" title="정보 은닉을 활용한 캡슐화"></a>정보 은닉을 활용한 캡슐화</h2><ul>
-<li><p>캡슐화는 슈퍼클래스로부터 자식 클래스를 외부로 은닉하는 행위</p>
-</li>
-<li><p>꼭 필요한 정보와 기능만 외부에 오픈함으로써 메서드나 멤버변수의 접근하면서 발생 할 수있는<br>오류를 최소화 한다.</p>
-</li>
-<li><p>캡슐화는 객체간 소통시 세부사항을 알 필요 없어서 낮은 결합도를 제공함</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>oop</category>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>access modifier</tag>
-        <tag>capsulation</tag>
       </tags>
   </entry>
   <entry>
@@ -1779,6 +1819,31 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>ShellScript-Basic(2)</title>
+    <url>/2021/08/05/ShellScript-Basic-2/</url>
+    <content><![CDATA[<h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
+<li>디렉토리내의 하부디렉토리 또는 파일들을 주기적으로 백업하는 쉘 스크립트<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="variable">$1</span> ] || [ -z <span class="variable">$2</span>]; <span class="keyword">then</span> <span class="comment"># 인자 2개를 받아서 하나라도 NULL이면 참이면</span></span><br><span class="line">  ehco usage: <span class="variable">$0</span> sourcedir targetdir <span class="comment"># 쉘 이름과 사용법을 출력</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  SRCDIR=<span class="variable">$1</span></span><br><span class="line">  DSTDIR=<span class="variable">$2</span></span><br><span class="line">  BACKUPFILE=backup.$(date +%y%m%d%H%M%S).tar.gz <span class="comment"># date 쉘명령어를 사용하여 날짜와 시간을 기록하여 백업파일을 생성</span></span><br><span class="line">  <span class="keyword">if</span> [ -d <span class="variable">$DSTDIR</span> ]; <span class="keyword">then</span> <span class="comment"># DSTDIR가 디렉토리이면 </span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> <span class="comment"># 압축</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    mkdir <span class="variable">$DSTDIR</span> <span class="comment"># 디렉토리가 없으면 생성하고 압축</span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> </span><br><span class="line">  <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="tar-명령어"><a href="#tar-명령어" class="headerlink" title="tar 명령어"></a>tar 명령어</h4><ul>
+<li>기존의 tar는 하나의 파일로 묶기만 가능했는데gzip이라는 압축명령이 많이 쓰이게되면서 tar라는 명령에 묶기가 아닌 압축도 할 수있 게끔 옵션을 제공하여gzip을 활용해서 묶고 압축 할 수 있다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">x  <span class="comment">#묶음 해제</span></span><br><span class="line">c  <span class="comment">#파일 묶음</span></span><br><span class="line">v  <span class="comment">#묶음 해제 과정 출력</span></span><br><span class="line">z  <span class="comment">#gunzip을 사용</span></span><br><span class="line">f  <span class="comment">#파일 이름을 지정</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf [압축된 파일 이름] [압축할 파일이나 폴더명]</span><br><span class="line">tar -xvzf [압축 해제할 압축 아카이브 이름]</span><br></pre></td></tr></table></figure>
+
+<h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> -f -name <span class="string">&#x27;filename&#x27;</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;shell1, shell2, shell3 &quot;</span> \;</span><br><span class="line"><span class="comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span></span><br><span class="line"><span class="comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">LOGDIR=/var/<span class="built_in">log</span></span><br><span class="line">GZIPDAY = 1</span><br><span class="line">DELDAY = 2</span><br><span class="line"><span class="built_in">cd</span> %LOGDIR</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cd <span class="variable">$LOGDIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*log.?&#x27;</span> -mtime +<span class="variable">$GZIPDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;gzip &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*gz.?&#x27;</span> -mtime +<span class="variable">$DELSDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;rm -f &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Shell</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ShellScript-Basic</title>
     <url>/2021/08/04/ShellScript-Basic/</url>
     <content><![CDATA[<h1 id="Shell-Script"><a href="#Shell-Script" class="headerlink" title="Shell Script"></a>Shell Script</h1><h2 id="기본-문법"><a href="#기본-문법" class="headerlink" title="기본 문법"></a>기본 문법</h2><ul>
@@ -1871,31 +1936,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>ShellScript-Basic(2)</title>
-    <url>/2021/08/05/ShellScript-Basic-2/</url>
-    <content><![CDATA[<h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
-<li>디렉토리내의 하부디렉토리 또는 파일들을 주기적으로 백업하는 쉘 스크립트<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="variable">$1</span> ] || [ -z <span class="variable">$2</span>]; <span class="keyword">then</span> <span class="comment"># 인자 2개를 받아서 하나라도 NULL이면 참이면</span></span><br><span class="line">  ehco usage: <span class="variable">$0</span> sourcedir targetdir <span class="comment"># 쉘 이름과 사용법을 출력</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  SRCDIR=<span class="variable">$1</span></span><br><span class="line">  DSTDIR=<span class="variable">$2</span></span><br><span class="line">  BACKUPFILE=backup.$(date +%y%m%d%H%M%S).tar.gz <span class="comment"># date 쉘명령어를 사용하여 날짜와 시간을 기록하여 백업파일을 생성</span></span><br><span class="line">  <span class="keyword">if</span> [ -d <span class="variable">$DSTDIR</span> ]; <span class="keyword">then</span> <span class="comment"># DSTDIR가 디렉토리이면 </span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> <span class="comment"># 압축</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    mkdir <span class="variable">$DSTDIR</span> <span class="comment"># 디렉토리가 없으면 생성하고 압축</span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> </span><br><span class="line">  <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="tar-명령어"><a href="#tar-명령어" class="headerlink" title="tar 명령어"></a>tar 명령어</h4><ul>
-<li>기존의 tar는 하나의 파일로 묶기만 가능했는데gzip이라는 압축명령이 많이 쓰이게되면서 tar라는 명령에 묶기가 아닌 압축도 할 수있 게끔 옵션을 제공하여gzip을 활용해서 묶고 압축 할 수 있다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">x  <span class="comment">#묶음 해제</span></span><br><span class="line">c  <span class="comment">#파일 묶음</span></span><br><span class="line">v  <span class="comment">#묶음 해제 과정 출력</span></span><br><span class="line">z  <span class="comment">#gunzip을 사용</span></span><br><span class="line">f  <span class="comment">#파일 이름을 지정</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf [압축된 파일 이름] [압축할 파일이나 폴더명]</span><br><span class="line">tar -xvzf [압축 해제할 압축 아카이브 이름]</span><br></pre></td></tr></table></figure>
-
-<h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> -f -name <span class="string">&#x27;filename&#x27;</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;shell1, shell2, shell3 &quot;</span> \;</span><br><span class="line"><span class="comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span></span><br><span class="line"><span class="comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">LOGDIR=/var/<span class="built_in">log</span></span><br><span class="line">GZIPDAY = 1</span><br><span class="line">DELDAY = 2</span><br><span class="line"><span class="built_in">cd</span> %LOGDIR</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cd <span class="variable">$LOGDIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*log.?&#x27;</span> -mtime +<span class="variable">$GZIPDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;gzip &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*gz.?&#x27;</span> -mtime +<span class="variable">$DELSDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;rm -f &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Shell</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>System-Programming-IPC(2)</title>
     <url>/2021/08/04/System-Programming-IPC-2/</url>
     <content><![CDATA[<p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
@@ -1933,61 +1973,6 @@ File -- input Stream --> JAVA</pre>
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>Shared Memory</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>System Programming - IPC</title>
-    <url>/2021/07/29/System-Programming-IPC/</url>
-    <content><![CDATA[<h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><h2 id="IPC란"><a href="#IPC란" class="headerlink" title="IPC란"></a>IPC란</h2><ul>
-<li><p>OS에서 할당받은 독립적인 공간을 갖는 Process는 서로 물리적인 주소를 접근 할 수 </p>
-<p>없어서 프로세스간 통신을 하는데 어려움을 겪는다 이때 사용하는 기술이 IPC이다!</p>
-</li>
-</ul>
-<h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><ul>
-<li>두 프로세스 모두 저장매체를 접근 할 수 있기 때문에 파일을 통해서 통신할 수 있다.</li>
-<li>+가장 간단한 방법</li>
-<li>-서로 접근하고 있는지 확인할 방법이 없다</li>
-</ul>
-<h2 id="Others-IPC"><a href="#Others-IPC" class="headerlink" title="Others IPC"></a>Others IPC</h2><ul>
-<li>프로세스들의 커널공간은 공유한다는 아이디어를 기반으로<br>페이지테이블에 같은 물리주소를 가리킴으로써 다양한 IPC기법이 개발되었다.</li>
-</ul>
-<h3 id="PIPE"><a href="#PIPE" class="headerlink" title="PIPE"></a>PIPE</h3><ul>
-<li>fork()를 통해 자식 프로세스를 만들었을때 부모와 자식간의 통신</li>
-<li>단방향 통신</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSGSIZE 255</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* msg = <span class="string">&quot;Hello Child&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">255</span>];</span><br><span class="line">  <span class="keyword">int</span> fd[<span class="number">2</span>], pid, nbyes;</span><br><span class="line">  <span class="keyword">if</span> (pipe(fd) &lt; <span class="number">0</span>) <span class="built_in">exit</span>(<span class="number">1</span>); <span class="comment">// 커널영역에 pipe 생성하고 오류시 exit(1)</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// 부모 프로세스이면 pid값을 출력</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;praent PID:%d, child PID:%d\n&quot;</span>, getpid(), pid);</span><br><span class="line">    write(fd[<span class="number">1</span>], msg, MSGSIZE); <span class="comment">// fd[1]에 메시지를 씀</span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>) <span class="comment">// 정상 종료  </span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;child PID %d\n, getpid());</span></span><br><span class="line"><span class="string">    nbytes= read(fd[0], buf , MSGSIZE); // 파일을 읽는 시스템콜 공란에 255사이즈데이터를 읽음 </span></span><br><span class="line"><span class="string">                                        // 동일한 커널영역에 들어가서 buf에 넣어주게됨 </span></span><br><span class="line"><span class="string">    printf(&quot;</span>%d %s\n, nbytes, buf);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h3><ul>
-<li>선입선출 방식으로 데이터를 전송</li>
-<li>파이프와 다르게 양방향 통신도 가능하며 부모 자식간 프로세스가 아니어도 가능하다</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ipcs</span> <span class="comment"># 이 명령어를 통해 메시지를 포함한 ipc 정보를 확인할 수 있다</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/System-Programming-IPC_images/ipcs.png"></p>
-<p>메시지를 보낼떄의 예</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msqid = msgget(key, msgflg) <span class="comment">// 다른 메시지큐와 구분될 key , 메시지 큐의 옵션을 인자로 갖는다</span></span><br><span class="line">msgsnd(msqid, &amp;sbuf, buf_length, IPC_NOWAIT) <span class="comment">// 메시지를 보낼때의 함수</span></span><br><span class="line"> <span class="comment">//IPC_NOWAIT은 읽지않더라도 다음 코드를 실행할때 사용, 0이면 실행할떄까지 기다린다.</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  Key_t key = <span class="number">1111</span>;</span><br><span class="line">  msgid = msgget(key, IPC_CREAT|<span class="number">0644</span>); <span class="comment">// 메시지를 0644권한으로 새로 만든다</span></span><br><span class="line">  <span class="keyword">if</span> (msgid == <span class="number">-1</span>) &#123; <span class="comment">// 메시지생성에 실패했을경우</span></span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125; </span><br><span class="line">  msg.type = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">strcpy</span>(msg.text, <span class="string">&quot;Hello Message Queue\n&quot;</span>); <span class="comment">// 메시지 구조체에 텍스트를 넣는다</span></span><br><span class="line">  <span class="keyword">if</span> (msgsnd(msgid, (<span class="keyword">void</span> *)&amp;msg, <span class="number">50</span>, IPC_NOWAIT) == <span class="number">-1</span>) &#123; <span class="comment">// 메시지를 보내며 에러 확인</span></span><br><span class="line">    <span class="comment">// 메시지의 아이디, 구조체의 주소, 사이즈를 인자로 보낸다</span></span><br><span class="line">    perror(<span class="string">&quot;msgsnd&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>메시지를 받을떄의 예</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">sszie_t</span> <span class="title">msgrcv</span><span class="params">(<span class="keyword">int</span> msqid, <span class="keyword">void</span> *msgp, <span class="keyword">size_t</span> msgsz, <span class="keyword">long</span> msgtyp, <span class="keyword">int</span> msgflg)</span></span></span><br><span class="line"><span class="function"><span class="title">msgrcv</span><span class="params">(msqid, &amp;rbuf, MSGSZ, <span class="number">1</span> ,<span class="number">0</span>)</span> <span class="comment">// msgtype 0: 첫번째메시지 다른 양수이면 일치하는 첫번째 메시지</span></span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  <span class="keyword">key_t</span> key = <span class="number">1111</span>; <span class="comment">// snd할때 키값과 동일해야한다.</span></span><br><span class="line">  <span class="keyword">if</span>((msgid == msgget(key, IPC_CREAT|<span class="number">0644</span>)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  len = msgrcv(msgid, &amp;msg, <span class="number">50</span>, <span class="number">0</span> ,<span class="number">0</span>); <span class="comment">// (메시지id, size , type, wait);</span></span><br><span class="line">  <span class="comment">//type에 일치하는 가장먼저오는 메시지를 수신한다</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Received Message is [%d] %s]\n&quot;</span>, len, msg.text);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>System Programming</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Linux</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-        <tag>File</tag>
-        <tag>Pipe</tag>
-        <tag>Message Queue</tag>
       </tags>
   </entry>
   <entry>
@@ -2279,6 +2264,61 @@ File -- input Stream --> JAVA</pre>
         <tag>C</tag>
         <tag>System Programming</tag>
         <tag>Signal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System Programming - IPC</title>
+    <url>/2021/07/29/System-Programming-IPC/</url>
+    <content><![CDATA[<h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><h2 id="IPC란"><a href="#IPC란" class="headerlink" title="IPC란"></a>IPC란</h2><ul>
+<li><p>OS에서 할당받은 독립적인 공간을 갖는 Process는 서로 물리적인 주소를 접근 할 수 </p>
+<p>없어서 프로세스간 통신을 하는데 어려움을 겪는다 이때 사용하는 기술이 IPC이다!</p>
+</li>
+</ul>
+<h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><ul>
+<li>두 프로세스 모두 저장매체를 접근 할 수 있기 때문에 파일을 통해서 통신할 수 있다.</li>
+<li>+가장 간단한 방법</li>
+<li>-서로 접근하고 있는지 확인할 방법이 없다</li>
+</ul>
+<h2 id="Others-IPC"><a href="#Others-IPC" class="headerlink" title="Others IPC"></a>Others IPC</h2><ul>
+<li>프로세스들의 커널공간은 공유한다는 아이디어를 기반으로<br>페이지테이블에 같은 물리주소를 가리킴으로써 다양한 IPC기법이 개발되었다.</li>
+</ul>
+<h3 id="PIPE"><a href="#PIPE" class="headerlink" title="PIPE"></a>PIPE</h3><ul>
+<li>fork()를 통해 자식 프로세스를 만들었을때 부모와 자식간의 통신</li>
+<li>단방향 통신</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSGSIZE 255</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* msg = <span class="string">&quot;Hello Child&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">255</span>];</span><br><span class="line">  <span class="keyword">int</span> fd[<span class="number">2</span>], pid, nbyes;</span><br><span class="line">  <span class="keyword">if</span> (pipe(fd) &lt; <span class="number">0</span>) <span class="built_in">exit</span>(<span class="number">1</span>); <span class="comment">// 커널영역에 pipe 생성하고 오류시 exit(1)</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// 부모 프로세스이면 pid값을 출력</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;praent PID:%d, child PID:%d\n&quot;</span>, getpid(), pid);</span><br><span class="line">    write(fd[<span class="number">1</span>], msg, MSGSIZE); <span class="comment">// fd[1]에 메시지를 씀</span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>) <span class="comment">// 정상 종료  </span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;child PID %d\n, getpid());</span></span><br><span class="line"><span class="string">    nbytes= read(fd[0], buf , MSGSIZE); // 파일을 읽는 시스템콜 공란에 255사이즈데이터를 읽음 </span></span><br><span class="line"><span class="string">                                        // 동일한 커널영역에 들어가서 buf에 넣어주게됨 </span></span><br><span class="line"><span class="string">    printf(&quot;</span>%d %s\n, nbytes, buf);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h3><ul>
+<li>선입선출 방식으로 데이터를 전송</li>
+<li>파이프와 다르게 양방향 통신도 가능하며 부모 자식간 프로세스가 아니어도 가능하다</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ipcs</span> <span class="comment"># 이 명령어를 통해 메시지를 포함한 ipc 정보를 확인할 수 있다</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/System-Programming-IPC_images/ipcs.png"></p>
+<p>메시지를 보낼떄의 예</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msqid = msgget(key, msgflg) <span class="comment">// 다른 메시지큐와 구분될 key , 메시지 큐의 옵션을 인자로 갖는다</span></span><br><span class="line">msgsnd(msqid, &amp;sbuf, buf_length, IPC_NOWAIT) <span class="comment">// 메시지를 보낼때의 함수</span></span><br><span class="line"> <span class="comment">//IPC_NOWAIT은 읽지않더라도 다음 코드를 실행할때 사용, 0이면 실행할떄까지 기다린다.</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  Key_t key = <span class="number">1111</span>;</span><br><span class="line">  msgid = msgget(key, IPC_CREAT|<span class="number">0644</span>); <span class="comment">// 메시지를 0644권한으로 새로 만든다</span></span><br><span class="line">  <span class="keyword">if</span> (msgid == <span class="number">-1</span>) &#123; <span class="comment">// 메시지생성에 실패했을경우</span></span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125; </span><br><span class="line">  msg.type = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">strcpy</span>(msg.text, <span class="string">&quot;Hello Message Queue\n&quot;</span>); <span class="comment">// 메시지 구조체에 텍스트를 넣는다</span></span><br><span class="line">  <span class="keyword">if</span> (msgsnd(msgid, (<span class="keyword">void</span> *)&amp;msg, <span class="number">50</span>, IPC_NOWAIT) == <span class="number">-1</span>) &#123; <span class="comment">// 메시지를 보내며 에러 확인</span></span><br><span class="line">    <span class="comment">// 메시지의 아이디, 구조체의 주소, 사이즈를 인자로 보낸다</span></span><br><span class="line">    perror(<span class="string">&quot;msgsnd&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>메시지를 받을떄의 예</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">sszie_t</span> <span class="title">msgrcv</span><span class="params">(<span class="keyword">int</span> msqid, <span class="keyword">void</span> *msgp, <span class="keyword">size_t</span> msgsz, <span class="keyword">long</span> msgtyp, <span class="keyword">int</span> msgflg)</span></span></span><br><span class="line"><span class="function"><span class="title">msgrcv</span><span class="params">(msqid, &amp;rbuf, MSGSZ, <span class="number">1</span> ,<span class="number">0</span>)</span> <span class="comment">// msgtype 0: 첫번째메시지 다른 양수이면 일치하는 첫번째 메시지</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  <span class="keyword">key_t</span> key = <span class="number">1111</span>; <span class="comment">// snd할때 키값과 동일해야한다.</span></span><br><span class="line">  <span class="keyword">if</span>((msgid == msgget(key, IPC_CREAT|<span class="number">0644</span>)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  len = msgrcv(msgid, &amp;msg, <span class="number">50</span>, <span class="number">0</span> ,<span class="number">0</span>); <span class="comment">// (메시지id, size , type, wait);</span></span><br><span class="line">  <span class="comment">//type에 일치하는 가장먼저오는 메시지를 수신한다</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Received Message is [%d] %s]\n&quot;</span>, len, msg.text);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>System Programming</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>File</tag>
+        <tag>Pipe</tag>
+        <tag>Message Queue</tag>
       </tags>
   </entry>
   <entry>

@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -199,6 +199,114 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/12/OOP-java-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/12/OOP-java-2/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - Basic 2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-12 20:55:44" itemprop="dateCreated datePublished" datetime="2021-08-12T20:55:44+09:00">2021-08-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-18 16:28:52" itemprop="dateModified" datetime="2021-08-18T16:28:52+09:00">2021-08-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="인스턴스-생성과-힙-메모리"><a href="#인스턴스-생성과-힙-메모리" class="headerlink" title="인스턴스 생성과 힙 메모리"></a>인스턴스 생성과 힙 메모리</h1><h2 id="인스턴스-Instance"><a href="#인스턴스-Instance" class="headerlink" title="인스턴스 (Instance)"></a>인스턴스 (Instance)</h2><ul>
+<li><p>객체의 속성과 기능을 구현한 상태의 클래스를 기반으로 생성된 객체를 인스턴스라고한다</p>
+</li>
+<li><p>각 인스턴스는 서로 다른 멤버 변수 값을 가질 수 있음</p>
+</li>
+<li><p>new 키워드를 사용하여 인스턴스 생성</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student bob = <span class="keyword">new</span> Student();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="힙-메모리-Heap-Memory"><a href="#힙-메모리-Heap-Memory" class="headerlink" title="힙 메모리 (Heap Memory)"></a>힙 메모리 (Heap Memory)</h2><ul>
+<li>생성된 인스턴스는 동적 메모리에 할당된다</li>
+<li>자바는 가비지 컬렉터가 쓰지않는 메모리를 해제한다</li>
+<li>각 인스턴스는 다른 메모리 주소를 갖는다</li>
+</ul>
+<h2 id="생성자-Constructor"><a href="#생성자-Constructor" class="headerlink" title="생성자 (Constructor)"></a>생성자 (Constructor)</h2><ul>
+<li><p>객체를 생성할 때 사용되는 함수</p>
+</li>
+<li><p>객체가 생성될 때 객체의 속성을 초기화 하거나 다른 기능을 수행하는 메소드를 호출함</p>
+</li>
+<li><p>생성자는 반환값이 없고 클래스 이름과 동일함</p>
+</li>
+<li><p>생성자를 구현하지 않았을 때에는 Default Constructor가 호출된다</p>
+</li>
+<li><p>생성자는 메소도 오버로딩을 하여 구현할 수 있다</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> StudentNumber;</span><br><span class="line">    <span class="keyword">private</span> String StudentName;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123; <span class="comment">// Default Constructor</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span> <span class="params">(<span class="keyword">int</span> num, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.StudentNumber = num;</span><br><span class="line">        <span class="keyword">this</span>.StudentName = name;</span><br><span class="line">    &#125;     </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1237,113 +1345,6 @@
 
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  <span class="keyword">key_t</span> key = <span class="number">1111</span>; <span class="comment">// snd할때 키값과 동일해야한다.</span></span><br><span class="line">  <span class="keyword">if</span>((msgid == msgget(key, IPC_CREAT|<span class="number">0644</span>)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  len = msgrcv(msgid, &amp;msg, <span class="number">50</span>, <span class="number">0</span> ,<span class="number">0</span>); <span class="comment">// (메시지id, size , type, wait);</span></span><br><span class="line">  <span class="comment">//type에 일치하는 가장먼저오는 메시지를 수신한다</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Received Message is [%d] %s]\n&quot;</span>, len, msg.text);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/29/System-Programming-Scheduling/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/29/System-Programming-Scheduling/" class="post-title-link" itemprop="url">System Programming - Scheduling</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-07-29 15:30:03 / Modified: 19:20:03" itemprop="dateCreated datePublished" datetime="2021-07-29T15:30:03+09:00">2021-07-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
-<li>정적 우선순위<ul>
-<li>프로세스마다 우선순위를 미리 지정</li>
-</ul>
-</li>
-<li>동적 우선순위<ul>
-<li>상황에 따라 스케쥴러가 우선순위를 동적으로 변경</li>
-</ul>
-</li>
-</ul>
-<h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><ul>
-<li><p>Portable Operating system interface의 약자로</p>
-<p>  서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 Application 규격이다.</p>
-</li>
-<li><p>리눅스는 POSIX에서 정한 규격으로 시스템콜을 정의했다</p>
-</li>
-</ul>
-<h2 id="우선순위-관련-System-Call"><a href="#우선순위-관련-System-Call" class="headerlink" title="우선순위 관련 System Call"></a>우선순위 관련 System Call</h2><h3 id="nice"><a href="#nice" class="headerlink" title="nice()"></a>nice()</h3><ul>
-<li>root가 소유한 프로세스만 우선순위를 높일 수 있고 </li>
-</ul>
-<p>그외 다른 프로세스의 우선순위는 낮출수만 있다.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nice</span> <span class="params">(<span class="keyword">int</span> inc)</span></span>; </span><br></pre></td></tr></table></figure>
-
-
-<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">id_t</span> who)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">in_t</span> who, <span class="keyword">int</span> value)</span></span>; </span><br></pre></td></tr></table></figure>
-<ul>
-<li>이름에도 알 수 있듯이 프로세스의 우선순위를 가져오거나 정할 수 있다.</li>
-<li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
-<li>who는 process ID (0을 넣으면 현재 프로세스이다), value는 우선순위로 인자를 갖는다</li>
-</ul>
 
       
     </div>
