@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,113 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/13/OOP-java-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/13/OOP-java-4/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - 접근 제어자</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-13 03:34:16" itemprop="dateCreated datePublished" datetime="2021-08-13T03:34:16+09:00">2021-08-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-18 16:28:22" itemprop="dateModified" datetime="2021-08-18T16:28:22+09:00">2021-08-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/oop/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="접근-제어자와-정보-은닉"><a href="#접근-제어자와-정보-은닉" class="headerlink" title="접근 제어자와 정보 은닉"></a>접근 제어자와 정보 은닉</h1><h2 id="접근-제어-지시자-access-modifier"><a href="#접근-제어-지시자-access-modifier" class="headerlink" title="접근 제어 지시자(access modifier)"></a>접근 제어 지시자(access modifier)</h2><ul>
+<li><p>접근제어지시자를 통해 정보은닉을 활용한 캡슐화가 구현이 된다.</p>
+</li>
+<li><p>클래스의 외부에서 클래스 내의 멤버변수, 메서드 , 생성자를 사용여부를 나타내는 키워드</p>
+<ul>
+<li>private 같은 클래스 내부에서만 접근 가능</li>
+<li>default(아무것도 안쓴경우) 같은 패키지 내부에서만 접근 가능</li>
+<li>protected 같은 패키지나 상속관계의 클래스에서 접근 가능</li>
+<li>public 클래스의 외부 어디서나 접근 할 수 있음</li>
+</ul>
+</li>
+<li><p>public get()/set() 메소드를 통하여 private한 멤버변수를 접근한다</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(name.length() &lt; <span class="number">10</span>) &#123; <span class="comment">// 정보를 보호함과 동시에 유효성을 검사 할 수 있다.</span></span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="정보-은닉을-활용한-캡슐화"><a href="#정보-은닉을-활용한-캡슐화" class="headerlink" title="정보 은닉을 활용한 캡슐화"></a>정보 은닉을 활용한 캡슐화</h2><ul>
+<li><p>캡슐화는 슈퍼클래스로부터 자식 클래스를 외부로 은닉하는 행위</p>
+</li>
+<li><p>꼭 필요한 정보와 기능만 외부에 오픈함으로써 메서드나 멤버변수의 접근하면서 발생 할 수있는<br>오류를 최소화 한다.</p>
+</li>
+<li><p>캡슐화는 객체간 소통시 세부사항을 알 필요 없어서 낮은 결합도를 제공함</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1180,148 +1287,6 @@
 <h2 id="활용-예시"><a href="#활용-예시" class="headerlink" title="활용 예시"></a>활용 예시</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shmid, pid;</span><br><span class="line">    <span class="keyword">char</span> *shmaddr_parent, *shmaddr_child;</span><br><span class="line">    shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>, <span class="number">10</span>, IPC_CREAT|<span class="number">0644</span>);</span><br><span class="line">    <span class="keyword">if</span>(shmid == <span class="number">-1</span>) &#123; <span class="comment">// ocurred error</span></span><br><span class="line">            perror(<span class="string">&quot;shmget err&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// parent process</span></span><br><span class="line">            wait(<span class="number">0</span>);</span><br><span class="line">            shmaddr_parent = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>,<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, shmaddr_parent);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_parent);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            shmaddr_child = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="built_in">strcpy</span>((<span class="keyword">char</span> *)shmaddr_child, <span class="string">&quot;Hello Parent!&quot;</span>);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_child);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// shmctl(shmid, IPC_RMID, (struct shmid_ds *)NULL); ipcs로 확인하기위해 삭제하지 않았음.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/image/System-Programming-IPC-2_images/example.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/30/mac-setting-iterm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/30/mac-setting-iterm/" class="post-title-link" itemprop="url">내 개발환경 셋팅하기 Oh My ZSH , iTerm2 , power10k</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-30 21:59:39" itemprop="dateCreated datePublished" datetime="2021-07-30T21:59:39+09:00">2021-07-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-04 21:56:52" itemprop="dateModified" datetime="2021-08-04T21:56:52+09:00">2021-08-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/mac/setting/" itemprop="url" rel="index"><span itemprop="name">setting</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>모종의 이유로 맥 셋팅을 처음부터 다시 하게되는 경우가 생긴다.<br>Time Machine이나 Migration을 사용하기엔 레거시가 남을 것 같아 찝찝한 기분이 들어 일일히 한땀한땀 셋팅을 한다.<br>그렇기 때문에 구글링하고 여러 블로그를 서핑하면서 셋팅하는데 꽤 많은 시간을 소비하게 된다..<br>그래서 그 시간을 줄이기위해 나의 맥 셋팅을 포스팅를 하게 되었다.</p>
-<h2 id="🍺-Homebrew"><a href="#🍺-Homebrew" class="headerlink" title="🍺 Homebrew"></a>🍺 <a target="_blank" rel="noopener" href="https://brew.sh/index_ko">Homebrew</a></h2><ul>
-<li>포멧을하고나서 가장 먼저 설치하는 MacOS 전용 패키기 관리자이다.<br> 앱을 설치하기 위해서는 App Store서 설치하거나<br> 앱을 배포하는 공식 홈페이지에서 다운받아서 Application 폴더에 옮겨줘야하는 귀찮은 작업을 해야하지만<br> Homebrew를 이용하면 간단한 명령어를 통해서 등록된 앱들을 설치, 업데이트, 삭제 할 수 있다! 🙃</li>
-</ul>
-<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
-<li>설치법은 매우간단하다 터미널 앱을 켜서 다음 명령어를 입력해주면 된다.</li>
-</ul>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>homebrew를 설치했으면 다음은 gui에서 사용가능한 앱을 설치해주는 패키지인 cask를 설치해야한다</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install cask</span><br></pre></td></tr></table></figure>
-
-<p>cask를 설치헀으면 <code>brew list</code> 명령어를 통하여 설치한 앱을 확인 할 수 있다. </p>
-<p>그리고 웹서버로부터 콘텐츠를 가져오는 프로그램인 ‘wget’을 설치해야한다</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install wget</span><br></pre></td></tr></table></figure>
-
-<p>gui프로그램이 아니므로 –cask 옵션을 사용하지 않는다</p>
-<p><img src="/image/mac-setting-iterm_images/img.png"></p>
-<p>원하는 앱을 찾고싶을땐 <code>brew search &#123;appname&#125;</code>으로 검색하여 설치 할 수 있다.</p>
-<h2 id="iterm2"><a href="#iterm2" class="headerlink" title=" iterm2"></a><img src="/image/mac-setting-iterm_images/icon_iterm.png" style="float:left;"> <a target="_blank" rel="noopener" href="https://iterm2.com/">iterm2</a></h2><ul>
-<li>정말 기본 쉘명령어만 사용할 수 있는 기본 terminal에 iterm은 테마를 적용시켜 가독성뿐만 아니라<br>  예쁜 UI를 가질 수 있고 split view나 리소스 모니터링등 여러가지 기능을 제공한다</li>
-</ul>
-<h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><ul>
-<li>위에서 설치한 homebrew를 패키지 관리자를 통해서 설치 할 수있다 다음의 명령어를 복사해서 입력해보자</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">homebrew install --cask iterm2</span><br></pre></td></tr></table></figure>
-
-<h3 id="Setting"><a href="#Setting" class="headerlink" title="Setting"></a>Setting</h3><h4 id="Font"><a href="#Font" class="headerlink" title="Font"></a>Font</h4><ul>
-<li>iterm을 설치했으면 이제 차례차레 셋팅을 해줄 차례가 된다. 가독성이 떨어지는 기본 폰트부터 바꿔보자<br>  내가 사용하는 폰트는 <a target="_blank" rel="noopener" href="https://github.com/naver/d2codingfont">D2 Coding</a> 이다 이 폰트는 i,l,1,I와 0,o,O,ㅇ과 같이 구분하기 힘든 폰트들을<br>  나눔바른고딕을 기반으로 수정한 폰트이다.</li>
-</ul>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -P ./Downloads -L https://github.com/naver/d2codingfont/raw/master/D2Coding-Ver1.3.2-20180524.zip</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>다운로드 폴더에서 다운받은 .zip 파일을 압축해제하고 D2Coding-Ver1.3.2-20180524-all.ttc를 실행하여 폰트를 설치하자</p>
-<p>  그 후 Preferences (cmd + ,)에서 Profile - Default - text - font를 D2Coding으로 변경한다</p>
-</li>
-</ul>
-<p><img src="/image/mac-setting-iterm_images/font.png"></p>
-<ul>
-<li>그러면 훨씬 보기 좋은 글씨체로 변경된다! 👍</li>
-</ul>
-<h2 id="OH-MY-ZSH"><a href="#OH-MY-ZSH" class="headerlink" title=" OH MY ZSH"></a><img src="/image/mac-setting-iterm_images/ohmyzsh.png" style="float:left;"> <a target="_blank" rel="noopener" href="https://ohmyz.sh/">OH MY ZSH</a></h2><ul>
-<li><em>oh my zsh</em> 은 zsh쉘 터미널 환경을 플러그인 프레임워크이다 내장 플러그인과 테마도 갖추고있고<br>  필요에따라서 다양한 플러그인을 설치하여 사용 할 수 있다</li>
-</ul>
-<h3 id="Install-2"><a href="#Install-2" class="headerlink" title="Install"></a>Install</h3><ul>
-<li>마찬가지로 다음 명령어를 복사하여 입력해 설치하자!<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Setting-1"><a href="#Setting-1" class="headerlink" title="Setting"></a>Setting</h3><p>Oh my zsh를 설치후엔 플러그인과 테마를 적용해주도록 한다</p>
-<h4 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h4><p>현재사용 하고있는 플러그인은 다음과 같다</p>
-<ol>
-<li>zsh-completions : 자동완성 기능을 제공한다<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh zsh-completions</span><br></pre></td></tr></table></figure></li>
-<li>zsh-autosuggestions : 과거에 썻던 명령어를 기반으로 명령어를 추천해준다<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>이렇게 설치한 플러그인들은 <code>vi ~/.zshrc</code> 명령어를 통해 plugins에 다음 그림과 같이 입력해주도록 한다.</p>
-<p><img src="/image/mac-setting-iterm_images/zshrc.png"></p>
-<h4 id="Theme"><a href="#Theme" class="headerlink" title="Theme"></a>Theme</h4><p>현재 사용하는 테마는 powerlevel10k이다.<br>이 테마는 쉘을 입력한 시간, 현재 위치, 브랜치 등등 다양한 정보를 가독성 높게 표현해준다</p>
-<p>다음 명령어를 복사해서 입력해주자</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
-<p>설치후에 <code>vi ~/.zshrc</code> 명령어를 통해 zshrc파일에 <code>ZSH_THEME</code>에<br><code>=&quot;powerlevel10k/powerlevel10k&quot;</code> 를 입력후 저장하고 iterm을 재실행 해주면 설정이 시작된다.</p>
 
       
     </div>
