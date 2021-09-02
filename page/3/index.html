@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -199,6 +199,120 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/14/blog-Spawn-Failed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/14/blog-Spawn-Failed/" class="post-title-link" itemprop="url">Hexo Deploy시 Spawn Failed 오류해결 방법</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-14 17:02:23" itemprop="dateCreated datePublished" datetime="2021-08-14T17:02:23+09:00">2021-08-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-02 17:00:19" itemprop="dateModified" datetime="2021-09-02T17:00:19+09:00">2021-09-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/blog/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="문제-인식"><a href="#문제-인식" class="headerlink" title="문제 인식"></a>문제 인식</h2><ul>
+<li><p>여느때와 같게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">remote: Support <span class="keyword">for</span> password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br><span class="line">remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="keyword">for</span> more information.</span><br><span class="line">fatal: unable to access <span class="string">&#x27;https://github.com/Jeongisu94/Jeongisu94.github.io.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/Users/jeong-isu/dev/blog/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:394:28)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (node:internal/child_process:290:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></table></figure></li>
+<li><p>대충 보아하니 작성일(210814)기준으로 어제 비밀번호가 만료됐으니까 비번말고 대신 토큰써라 하는 내용이다</p>
+</li>
+</ul>
+<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
+<li><p>github.com의 프로필 사진을 클릭하여 Setting - Development Setting - Personal Access Token에 들어가자</p>
+<p><img src="/image/blog-Spawn-Failed_images/personal_access_token.png"></p>
+</li>
+<li><p>Generate new toekn을 클릭하여 토큰을 생성하자</p>
+<p><img src="/image/blog-Spawn-Failed_images/genToken.png"></p>
+<ul>
+<li>노트에는 어떤 토큰인지 설명과 만료기한을 설정해주자 Repo에 접근해야하니 Repo도 체크해주자</li>
+</ul>
+</li>
+<li><p>Generate Token을 누르면 토큰이 생성됨과 동시에 토큰이 나오는데 이 토큰은 한번밖에 알려주지 않으니 클립보드에 복사해두자</p>
+</li>
+</ul>
+<h3 id="configure-yml-파일-수정하기"><a href="#configure-yml-파일-수정하기" class="headerlink" title="_configure.yml 파일 수정하기"></a>_configure.yml 파일 수정하기</h3><ul>
+<li>hexo 설정파일인 _config.yml파일에서 repo설정을 다음과 같이바꿔준다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: https:<span class="comment">//&#123;githubID&#125;:&#123;Token&#125;@github.com/&#123;GithubID&#125;/githubID.github.io.git</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>그 후 hexo clean &amp;&amp; hexo deploy를 하면 오류 없이 잘 배치 된다.</p>
+<p><img src="/image/blog-Spawn-Failed_images/complete.png"></p>
+</li>
+<li><p>토큰이 외부에 노출되지 않도록 주의하자! </p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1180,126 +1294,6 @@
 <h3 id="While-반복문"><a href="#While-반복문" class="headerlink" title="While 반복문"></a>While 반복문</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> [ 조건문 ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  TODO</span><br><span class="line"><span class="keyword">while</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">list=$(ls) <span class="comment"># list변수에 ls명령의 결과를 저장</span></span><br><span class="line">num=<span class="variable">$&#123;#lists[@]&#125;</span> <span class="comment"># 리스트의 갯수를 저장</span></span><br><span class="line">index = 0;</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$num</span> -ge 0 ] <span class="comment"># num &gt;= 0</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  ehco <span class="variable">$&#123;list[$index]&#125;</span></span><br><span class="line">  index=`expr <span class="variable">$index</span> + 1`</span><br><span class="line">  num=`expr <span class="variable">$num</span> -1`</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/04/System-Programming-Signal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/04/System-Programming-Signal/" class="post-title-link" itemprop="url">System-Programming-Signal</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-04 19:35:39" itemprop="dateCreated datePublished" datetime="2021-08-04T19:35:39+09:00">2021-08-04</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-06 20:32:03" itemprop="dateModified" datetime="2021-08-06T20:32:03+09:00">2021-08-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="시그널-signal"><a href="#시그널-signal" class="headerlink" title="시그널 (signal)"></a>시그널 (signal)</h1><ul>
-<li>유닉스에서 사용되는 커널 또는 프로세스에서 다른 프로세스에 어떤 이벤트가 발생되었는지를 알려주는 기법</li>
-<li>ex) Ctrl + C 프로세스 종료 , Ctrl + Z 프로세스를 백그라운드로</li>
-</ul>
-<h2 id="주요-Signal"><a href="#주요-Signal" class="headerlink" title="주요 Signal"></a>주요 Signal</h2><ul>
-<li>시그널 종류와 각 시그널에 따라 기능이 매핑되어있음<ul>
-<li>SIGKILL : 프로세스를 죽임</li>
-<li>SIGALARM: 알람 발생</li>
-<li>SIGSTP : 프로세스 멈춤 (= ctrl + Z)</li>
-<li>SIGCONT: 멈춰진 프로세스 재개</li>
-<li>SIGINT : 프로세스에 인터럽트를 보내고 죽임 (=Ctrl + C)</li>
-<li>SIGSEGV: 프로세스가 다른 메모리영역을 침법</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$kill</span> -l <span class="comment">#명령어를 통해 시그널 명령어들을 볼 수 있음 </span></span><br></pre></td></tr></table></figure>
-<p><img src="/image/System-Programming-Signal_images/killll.png"></p>
-<h2 id="Signal-동작"><a href="#Signal-동작" class="headerlink" title="Signal 동작"></a>Signal 동작</h2><ul>
-<li>프로그램에서 특정 시그널의 기본 동작대신 다른 동작하도록 재정의가 가능하다.</li>
-<li>각 프로세스에서  시그널 처리에 대해 다음과 같은 동작 설정 가능하다.<ol>
-<li>시그널 무시</li>
-<li>시그널 블록</li>
-<li>프로그램 안에 등록된 시그널 핸들러로 재정의한 특정 동작 수행</li>
-</ol>
-</li>
-</ul>
-<h2 id="Send-Signal"><a href="#Send-Signal" class="headerlink" title="Send Signal"></a>Send Signal</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span> </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kill</span><span class="params">(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> sig)</span> <span class="comment">// pid와 sig#를 인자로 받는다 </span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="받은-Signal-기본-동작-재정의"><a href="#받은-Signal-기본-동작-재정의" class="headerlink" title="받은 Signal 기본 동작 재정의"></a>받은 Signal 기본 동작 재정의</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="keyword">void</span> (*signal(<span class="keyword">int</span> signum, <span class="keyword">void</span> (*handler)(<span class="keyword">int</span>)))(<span class="keyword">int</span>);</span><br><span class="line"></span><br><span class="line">singal(SIGINT, SIG_IGN); <span class="comment">// SIGINT를 받으면 SIG_IGN(시그널 무시) 동작</span></span><br><span class="line"></span><br><span class="line">signal(SIGINT, (<span class="keyword">void</span> *)signal_handler); <span class="comment">// SIGINT를 받으면 핸들러를 통해 재정의한 동작을 실행</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h2><p>sigloop.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">signal_handler</span> <span class="params">(<span class="keyword">int</span> signo)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Catch SIGINT!, but no stop\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (signal (SIGINT, signal_handler) == SIG_ERR) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Can&#x27;t catch SIGINT!\n&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span> (<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (;;)</span><br><span class="line">          pause();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>sigkill.c</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> pid, sig_num;</span><br><span class="line">  <span class="keyword">if</span> (argc != <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;usage %s [pid][signum]\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  pid = atoi(argv[<span class="number">1</span>]);</span><br><span class="line">  sig_num = atoi(argv[<span class="number">2</span>]);</span><br><span class="line">  <span class="keyword">if</span> ( kill(pid, sig_num)) &#123; <span class="comment">// Kill 시스템콜을 통해 해당 프로세스에 SIG_NUM을 넘겨줌</span></span><br><span class="line">    perror(<span class="string">&quot;To send Signal is failed\n&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/System-Programming-Signal_images/sigexam.png"><br>다음과 같이 원래 SIGINT의 디폴트는 종료이지만 종료하지않고<br>재정의한대로 메시지가 출력된다.</p>
-
       
     </div>
 
