@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,306 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/06/git-add/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/06/git-add/" class="post-title-link" itemprop="url">Git ignore 적용 안될때</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-06 14:45:00" itemprop="dateCreated datePublished" datetime="2021-08-06T14:45:00+09:00">2021-08-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-02 16:54:10" itemprop="dateModified" datetime="2021-09-02T16:54:10+09:00">2021-09-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
+<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add * The following paths are ignored by one of your .gitignore files: git-add/ignore.txt</span><br><span class="line">Use -f <span class="keyword">if</span> you really want to add them.</span><br></pre></td></tr></table></figure>
+<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
+<p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
+<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/05/System-Programming-Pthread/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/05/System-Programming-Pthread/" class="post-title-link" itemprop="url">System-Programming-Pthread</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-05 20:06:33" itemprop="dateCreated datePublished" datetime="2021-08-05T20:06:33+09:00">2021-08-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-06 20:32:03" itemprop="dateModified" datetime="2021-08-06T20:32:03+09:00">2021-08-06</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
+<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
+<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
+</ul>
+<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
+<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
+</li>
+<li><p>모든 함수는 pthread_ 로 시작</p>
+</li>
+<li><p>크게 두가지로 분류 된다</p>
+<ul>
+<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
+<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
+</ul>
+</li>
+<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
+<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
+<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
+<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
+<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
+<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
+
+<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
+<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
+<ul>
+<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
+</ul>
+</li>
+<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
+<ul>
+<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
+<li>detach는 해당 스레드가 종료되면 바로 해제</li>
+</ul>
+</li>
+</ul>
+<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
+<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/05/ShellScript-Basic-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/05/ShellScript-Basic-2/" class="post-title-link" itemprop="url">ShellScript-Basic(2)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-08-05 17:23:06 / Modified: 19:59:18" itemprop="dateCreated datePublished" datetime="2021-08-05T17:23:06+09:00">2021-08-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
+<li>디렉토리내의 하부디렉토리 또는 파일들을 주기적으로 백업하는 쉘 스크립트<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="variable">$1</span> ] || [ -z <span class="variable">$2</span>]; <span class="keyword">then</span> <span class="comment"># 인자 2개를 받아서 하나라도 NULL이면 참이면</span></span><br><span class="line">  ehco usage: <span class="variable">$0</span> sourcedir targetdir <span class="comment"># 쉘 이름과 사용법을 출력</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  SRCDIR=<span class="variable">$1</span></span><br><span class="line">  DSTDIR=<span class="variable">$2</span></span><br><span class="line">  BACKUPFILE=backup.$(date +%y%m%d%H%M%S).tar.gz <span class="comment"># date 쉘명령어를 사용하여 날짜와 시간을 기록하여 백업파일을 생성</span></span><br><span class="line">  <span class="keyword">if</span> [ -d <span class="variable">$DSTDIR</span> ]; <span class="keyword">then</span> <span class="comment"># DSTDIR가 디렉토리이면 </span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> <span class="comment"># 압축</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    mkdir <span class="variable">$DSTDIR</span> <span class="comment"># 디렉토리가 없으면 생성하고 압축</span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> </span><br><span class="line">  <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="tar-명령어"><a href="#tar-명령어" class="headerlink" title="tar 명령어"></a>tar 명령어</h4><ul>
+<li>기존의 tar는 하나의 파일로 묶기만 가능했는데gzip이라는 압축명령이 많이 쓰이게되면서 tar라는 명령에 묶기가 아닌 압축도 할 수있 게끔 옵션을 제공하여gzip을 활용해서 묶고 압축 할 수 있다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x  <span class="comment">#묶음 해제</span></span><br><span class="line">c  <span class="comment">#파일 묶음</span></span><br><span class="line">v  <span class="comment">#묶음 해제 과정 출력</span></span><br><span class="line">z  <span class="comment">#gunzip을 사용</span></span><br><span class="line">f  <span class="comment">#파일 이름을 지정</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -cvzf [압축된 파일 이름] [압축할 파일이나 폴더명]</span><br><span class="line">tar -xvzf [압축 해제할 압축 아카이브 이름]</span><br></pre></td></tr></table></figure>
+
+<h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> -f -name <span class="string">&#x27;filename&#x27;</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;shell1, shell2, shell3 &quot;</span> \;</span><br><span class="line"><span class="comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span></span><br><span class="line"><span class="comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">LOGDIR=/var/<span class="built_in">log</span></span><br><span class="line">GZIPDAY = 1</span><br><span class="line">DELDAY = 2</span><br><span class="line"><span class="built_in">cd</span> %LOGDIR</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cd <span class="variable">$LOGDIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*log.?&#x27;</span> -mtime +<span class="variable">$GZIPDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;gzip &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*gz.?&#x27;</span> -mtime +<span class="variable">$DELSDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;rm -f &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1118,343 +1418,6 @@
 <hr>
 <p>출처 :<br>본 내용은 Fastcampus KDT BE과정 수업을 기반으로 작성되었음을 알립니다. </p>
 <p>기타 출처:<br><a target="_blank" rel="noopener" href="https://kyu9341.github.io/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/2020/10/04/OS_Process_Structure/">https://kyu9341.github.io/운영체제/2020/10/04/OS_Process_Structure/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/28/System-Programming-ABI/" class="post-title-link" itemprop="url">System Programming - ABI</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-28 14:50:44" itemprop="dateCreated datePublished" datetime="2021-07-28T14:50:44+09:00">2021-07-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-30 20:10:18" itemprop="dateModified" datetime="2021-07-30T20:10:18+09:00">2021-07-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="ABI"><a href="#ABI" class="headerlink" title="ABI"></a>ABI</h1><h2 id="ABI란"><a href="#ABI란" class="headerlink" title="ABI란?"></a>ABI란?</h2><ul>
-<li>Application Binary Interface</li>
-<li>함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스</li>
-<li>응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의 </li>
-<li>함수의 파라미터들을 어떤 레지스터에 넣을지 정의</li>
-<li>컴파일 , 링커 ,툴체인에서 제공 한다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/23/Linux-FileSystem/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/23/Linux-FileSystem/" class="post-title-link" itemprop="url">Linux의 파일 시스템</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-23 19:20:30" itemprop="dateCreated datePublished" datetime="2021-07-23T19:20:30+09:00">2021-07-23</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-05 01:26:10" itemprop="dateModified" datetime="2021-08-05T01:26:10+09:00">2021-08-05</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Linux-파일-시스템"><a href="#Linux-파일-시스템" class="headerlink" title="Linux 파일 시스템"></a>Linux 파일 시스템</h1><p>리눅스는 모든 것은 파일이라는 철학에따라 모든 인터랙션은 파일을 읽고 쓰는 것처럼 이루어져있다.<br>따라서 모든 자원에 대한 추상화 인터페이스로 파일 인터페이스를 활용한다.</p>
-<p>네트워크,마우스,키보드, 저장매체들과 운영체제간에 IO로 이루어져있어<br>가장 간단한 인터페이스인 File Interface를 추상화하여 다룬다.</p>
-<p>##File namespace</p>
-<ul>
-<li>Linux는 전역 네임스페이스를 사용한다</li>
-<li>/directory1/sub/image.jpg</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat tty <span class="comment"># 가상파일 시스템 인터페이스 - 가상터미널환경 - input(키보드)</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="슈퍼블록-inode"><a href="#슈퍼블록-inode" class="headerlink" title="슈퍼블록 , inode"></a>슈퍼블록 , inode</h2><h3 id="슈퍼블록"><a href="#슈퍼블록" class="headerlink" title="슈퍼블록"></a>슈퍼블록</h3><ul>
-<li>파일 시스템에 관한 정보(전체사이즈, 어떤 FS Algorithms을 썻는지 등)</li>
-</ul>
-<h3 id="파일"><a href="#파일" class="headerlink" title="파일"></a>파일</h3><ul>
-<li>프로세스는 pid와 매핑되어있는 것 처럼 각각의 파일은 inode와 매핑이 되어있다.</li>
-<li>파일시스템에서는 inode를 기반으로 파일을 엑세스함</li>
-<li>프로세스의 정보를 저장해놓은 PCB처럼 inode의 정보를 기반으로 요약해놓은 정보를 메타데이터라고 함</li>
-</ul>
-<p><img src="/image/Linux-FileSystem/52dcd856.png"></p>
-<p><em>inode 기반 메타 데이터</em></p>
-<ol>
-<li>Mode 소유자</li>
-<li>Owner info 소유자 정보</li>
-<li>Size 파일의 사이즈</li>
-<li>Timestamps 생성시간</li>
-<li>Direct Blocks 파일을 블록이라는 작은단위로 나눈 것을 엑세스 할 수 있는 첫번쨰 주소를 저장해놓음</li>
-<li>indirect blocks , double indirect , triple indirect 간접적으로 블록에 접근할 수 있는 주소</li>
-</ol>
-<h2 id="File-inode"><a href="#File-inode" class="headerlink" title="File inode"></a>File inode</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/ubuntu/link.txt <span class="comment"># &#x27;/&#x27; 가 덴트리이다.</span></span><br></pre></td></tr></table></figure>
-<p>dentry(directory entry)</p>
-<ul>
-<li>각 덴트리는 해당 디렉토리 파일과 정보를 가지고 있다</li>
-<li>탐색할때 각 덴트리에서 inode를 찾아 계층적으로 탐색한다</li>
-</ul>
-<h2 id="Hard-Link-VS-Soft-Link"><a href="#Hard-Link-VS-Soft-Link" class="headerlink" title="Hard Link VS Soft Link"></a>Hard Link VS Soft Link</h2><ul>
-<li>다른 디렉토리에서 접근 할 수 있게끔 파일에 연결하는 것을 link라고하는데<br>방법에따라 Hard Link와 Soft Link로 나뉜다.</li>
-</ul>
-<p><img src="/image/Linux-FileSystem/hardsoftlink.png"></p>
-<h3 id="Hard-link"><a href="#Hard-link" class="headerlink" title="Hard link"></a>Hard link</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ln [Original File] [Link File]</span><br></pre></td></tr></table></figure>
-<p>Hard link를 하게되면 파일이 생기는데 그때의 inode의 번호는 Original File을 따라간다. </p>
-<p><img src="/image/Linux-FileSystem/hardlink.png"></p>
-<p>Original File을 삭제해도 inode구조는 삭제되지 않기때문에<br>Hard Link한 파일은 여전히 접근 가능하다.<br>w</p>
-<h3 id="Soft-Link-Symbolic-Link"><a href="#Soft-Link-Symbolic-Link" class="headerlink" title="Soft Link (Symbolic Link)"></a>Soft Link (Symbolic Link)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s [File1] [File2]</span><br></pre></td></tr></table></figure>
-<p><img src="/image/Linux-FileSystem/softlink_.png"></p>
-<ul>
-<li>Windows OS의 바로가기와 기능상 동일하다.</li>
-<li>Soft link의 inode구조체에는 원본파일의 주소가 있어 리디렉션을해 원본파일이 삭제되면 접근할 수 없게된다.<h3 id="Copy"><a href="#Copy" class="headerlink" title="Copy"></a>Copy</h3></li>
-</ul>
-<p>copy의경우 파일의 내용 전체를 복사하기때문에 그만큼 용량도 두배로 늘어나게 된다.</p>
-<hr>
-<h2 id="특수파일"><a href="#특수파일" class="headerlink" title="특수파일"></a>특수파일</h2><h3 id="디바이스"><a href="#디바이스" class="headerlink" title="디바이스"></a>디바이스</h3><ul>
-<li>블록디바이스 <ul>
-<li>HDD같이 블록이나 섹터 등 정해진 단위로 데이터 전송</li>
-</ul>
-</li>
-<li>캐릭터 디바이스<ul>
-<li>키보드 마우스등 byte 단위 데이터 전송 </li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/23/Linux-How_to_use_shell/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/23/Linux-How_to_use_shell/" class="post-title-link" itemprop="url">Shell 사용법 2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-23 01:20:30" itemprop="dateCreated datePublished" datetime="2021-07-23T01:20:30+09:00">2021-07-23</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-04 21:56:20" itemprop="dateModified" datetime="2021-08-04T21:56:20+09:00">2021-08-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>#Shell 사용법</p>
-<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
-<li>바이너리는 실행할 수 있는 파일</li>
-<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
-<li>메모리와 관련된 상태정보 (PCB)</li>
-<li>시스템 리소스</li>
-<li>스케쥴링 단위</li>
-</ul>
-</li>
-</ul>
-<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
-<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
-<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
-</ul>
-<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
-<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
-<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
-<li>서버 데몬, 백신 프로그램, etc..</li>
-</ul>
-<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
-<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-<p><a target="_blank" rel="noopener" href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
 
       
     </div>
