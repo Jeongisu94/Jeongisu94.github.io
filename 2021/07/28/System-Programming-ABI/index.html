@@ -22,16 +22,15 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="ABIABI란? Application Binary Interface 함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스 응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의  함수의 파라미터들을 어떤 레지스터에 넣을지 정의 컴파일 , 링커 ,툴체인에서 제공 한다.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="System Programming - ABI">
+<meta property="og:title" content="system programming - ABI">
 <meta property="og:url" content="https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
 <meta property="og:description" content="ABIABI란? Application Binary Interface 함수 실행 방식, 레지스터 활용, 시스템콜 실행등 정의해놓은 인터페이스 응용 프로그램과 라이브러리사이의 연결과 통신에 대한 정의  함수의 파라미터들을 어떤 레지스터에 넣을지 정의 컴파일 , 링커 ,툴체인에서 제공 한다.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-28T05:50:44.000Z">
-<meta property="article:modified_time" content="2021-07-30T11:10:18.238Z">
+<meta property="article:modified_time" content="2021-09-06T12:10:35.079Z">
 <meta property="article:author" content="Jeongisu">
-<meta property="article:tag" content="TIL">
-<meta property="article:tag" content="System Programming">
+<meta property="article:tag" content="system programming">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="ABI">
 <meta name="twitter:card" content="summary">
@@ -41,10 +40,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/","path":"2021/07/28/System-Programming-ABI/","title":"System Programming - ABI"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/07/28/System-Programming-ABI/","path":"2021/07/28/System-Programming-ABI/","title":"system programming - ABI"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>System Programming - ABI | ISU's Blog</title>
+<title>system programming - ABI | ISU's Blog</title>
   
 
 
@@ -165,18 +164,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">61</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -229,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          System Programming - ABI
+          system programming - ABI
         </h1>
 
         <div class="post-meta-container">
@@ -247,7 +246,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-07-30 20:10:18" itemprop="dateModified" datetime="2021-07-30T20:10:18+09:00">2021-07-30</time>
+        <time title="Modified: 2021-09-06 21:10:35" itemprop="dateModified" datetime="2021-09-06T21:10:35+09:00">2021-09-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,7 +254,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/System-Programming/" itemprop="url" rel="index"><span itemprop="name">System Programming</span></a>
+          <a href="/categories/system-programming/" itemprop="url" rel="index"><span itemprop="name">system programming</span></a>
         </span>
     </span>
 
@@ -292,8 +291,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/TIL/" rel="tag"># TIL</a>
-              <a href="/tags/System-Programming/" rel="tag"># System Programming</a>
+              <a href="/tags/system-programming/" rel="tag"># system programming</a>
               <a href="/tags/C/" rel="tag"># C</a>
               <a href="/tags/ABI/" rel="tag"># ABI</a>
           </div>

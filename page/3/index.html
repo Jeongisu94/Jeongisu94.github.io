@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">61</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,196 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/19/OOP-java-12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/19/OOP-java-12/" class="post-title-link" itemprop="url">JAVA - Collection Framework</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-19 16:41:24" itemprop="dateCreated datePublished" datetime="2021-08-19T16:41:24+09:00">2021-08-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-23 15:40:07" itemprop="dateModified" datetime="2021-08-23T15:40:07+09:00">2021-08-23</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JAVA-Collection-Framework"><a href="#JAVA-Collection-Framework" class="headerlink" title="JAVA Collection Framework"></a>JAVA Collection Framework</h1><ul>
+<li>컬렉션 프레임워크란 자료구조를 정의해 놓은 JDK 라이브러리 이다</li>
+<li>java.util 패키지에 구현되어있다</li>
+</ul>
+<pre class="mermaid">
+graph BT
+ArrayList --> List
+Vector --> List
+LinkedList --> List
+HashSet --> Set
+TreeSet --> Set
+List --> Collection
+Set --> Collection
+
+HashTable --> Map
+TreeMap --> Map
+HashMap --> Map</pre>
+
+<h2 id="Collection-Interface"><a href="#Collection-Interface" class="headerlink" title="Collection Interface"></a>Collection Interface</h2><ul>
+<li>객체를 관리하기위한 메소드들이 선언된 인터페이스</li>
+<li>List와 Set인터페이스가 있다</li>
+</ul>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">List</a></h3><ul>
+<li>객체를 <strong>순서</strong>에따라 저장하고 관리하는데 필요한 메소드가 선언되어있는 인터페이스이다</li>
+<li>중복을 허용한다</li>
+<li>ArrayList, Vetor, Stack, Queue 등 자료구조리스트를 구현하기위한 인터페이스이다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Member.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Member</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 생략...getter/setter </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MemberArrayList.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemberArrayList</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;Member&gt; arrayList;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MemberArrayList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MemberArrayList</span> <span class="params">(<span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">        arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;(size);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMember</span><span class="params">(Member member)</span> </span>&#123;</span><br><span class="line">        arrayList.add(member);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeMember</span><span class="params">(<span class="keyword">int</span> memberID)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; arrayList.size() &lt; i++) &#123;</span><br><span class="line">            Member member = arrayList.get(i);</span><br><span class="line">            <span class="keyword">int</span> tempId = member.getMemberId();</span><br><span class="line">            <span class="keyword">if</span> (tempId == memberID) &#123;</span><br><span class="line">                arrayList.remove(i);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><ul>
+<li><strong>순서와 관계없이 중복을 허용하지 않고</strong> 유일한 값을 관리하는데 필요한 메소드가 선언되어있는 인터페이스이다.</li>
+<li>출력시 순서가 일정하지 않음</li>
+<li>HashSet , TreeSet 등이 있음</li>
+</ul>
+<h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterator</a></h4><ul>
+<li>컬렉션 프레임워크에 저장된 요소들을 순회 참조하기 위하여 사용됨</li>
+<li>Set의 경우 index가 없으므로 iterator를 이용하여 순회해야한다</li>
+<li>Iterator 객체의 <code>boolean hasNext()</code> 와 <code>E next()</code> 를 사용한다</li>
+</ul>
+<h4 id="HashSet-Class"><a href="#HashSet-Class" class="headerlink" title="HashSet Class"></a>HashSet Class</h4><ul>
+<li>Set은 객체의 중복을 허용하지 않기때문에 인스턴스의 동일성을 확인해야 한다</li>
+<li>동일성을 확인하기위해 equals()와 hashCode() 메소드를 재정의 해야한다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MemberHashSet.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemberHashSet</span>  </span>&#123;</span><br><span class="line">    HashSet&lt;Member&gt; hashSet;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MemberHashSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        hashSet = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MemberHashSet</span><span class="params">(<span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">        hashSet = <span class="keyword">new</span> HashSet&lt;&gt;(size);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMember</span><span class="params">(Member member)</span> </span>&#123;</span><br><span class="line">        hashSet.add(member);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAllMember</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Iterator&lt;Member&gt; ir = hashSet.iterator();</span><br><span class="line">        <span class="keyword">while</span> (ir.hasNext()) &#123;</span><br><span class="line">            Member member = ir.next();</span><br><span class="line">            System.out.println(member);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MemberHashSetTest.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemberHashSetTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MemberHashSet hashSet = <span class="keyword">new</span> MemberHashSet();</span><br><span class="line">        hashSet.addMember(<span class="keyword">new</span> Member(<span class="number">1000</span>, <span class="string">&quot;Apple&quot;</span>));</span><br><span class="line">        hashSet.addMember(<span class="keyword">new</span> Member(<span class="number">1000</span>, <span class="string">&quot;Apple&quot;</span>));</span><br><span class="line">        hashSet.addMember(<span class="keyword">new</span> Member(<span class="number">1002</span>, <span class="string">&quot;Grape&quot;</span>));</span><br><span class="line">        hashSet.addMember(<span class="keyword">new</span> Member(<span class="number">1003</span>, <span class="string">&quot;Peach&quot;</span>));</span><br><span class="line"></span><br><span class="line">        hashSet.showAllMember();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>코드의 결과는 다음과 같다 </li>
+<li><code>[Member&#123;ID=1000, name=&#39;Apple&#39;&#125;, Member&#123;ID=1003, name=&#39;Peach&#39;&#125;, Member&#123;ID=1000, name=&#39;Apple&#39;&#125;, Member&#123;ID=1002, name=&#39;Grape&#39;&#125;]</code></li>
+<li>정렬없이 중복해서 1000과 Apple 맴버객체가 들어있는데 이 이유는 생성된 인스턴스의 hashCode가 다르기 떄문이다</li>
+<li>이를 위해서 equals()와 hashCode()를 Override해줄 필요가 있다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Member.java</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        Member member = (Member) o;</span><br><span class="line">        <span class="keyword">return</span> Objects.equals(ID, member.ID);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(ID);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>다음과 같이 ID를 Hash한 값이 같으면 같은 객체임을 구현해주면 해결할 수 있다.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Member&#123;ID=<span class="number">1000</span>, name=<span class="string">&#x27;Apple&#x27;</span>&#125;</span><br><span class="line">Member&#123;ID=<span class="number">1002</span>, name=<span class="string">&#x27;Grape&#x27;</span>&#125;</span><br><span class="line">Member&#123;ID=<span class="number">1003</span>, name=<span class="string">&#x27;Peach&#x27;</span>&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="Tree-Set"><a href="#Tree-Set" class="headerlink" title="Tree Set"></a>Tree Set</h4><ul>
+<li>객체의 정렬을 위해 사용되는 클래스이고 내부적으로는 이진 검색트리로 구현되어있다.</li>
+<li>객체의 비교를 위해 객채에 Comparable 또는 Comparator 인터페이스를 구현햐애햐 한다.</li>
+</ul>
+<h5 id="Comparable"><a href="#Comparable" class="headerlink" title="Comparable"></a>Comparable</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MemberTreeSet.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemberTreeSet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TreeSet&lt;Member&gt; treeSet;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MemberTreeSet</span><span class="params">()</span> </span>&#123; treeSet = <span class="keyword">new</span> TreeSet&lt;&gt;();&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMember</span><span class="params">(Member member)</span> </span>&#123;</span><br><span class="line">        treeSet.add(member);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeMember</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        Iterator&lt;Member&gt; ir = treeSet.iterator();</span><br><span class="line">        <span class="keyword">while</span>(ir.hasNext()) &#123;</span><br><span class="line">            Member member = ir.next();</span><br><span class="line">            <span class="keyword">if</span>(member.getID() == id) &#123;</span><br><span class="line">                treeSet.remove(member);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAllMember</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Member member : treeSet ) &#123;</span><br><span class="line">            System.out.println(member);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MemberTreeSetTest.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemberTreeSetTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MemberTreeSet treeSet = <span class="keyword">new</span> MemberTreeSet();</span><br><span class="line"></span><br><span class="line">        treeSet.addMember(<span class="keyword">new</span> Member(<span class="number">1004</span>,<span class="string">&quot;Apple&quot;</span>));</span><br><span class="line">        treeSet.addMember(<span class="keyword">new</span> Member(<span class="number">1001</span>,<span class="string">&quot;kiwi&quot;</span>));</span><br><span class="line">        treeSet.addMember(<span class="keyword">new</span> Member(<span class="number">1000</span>,<span class="string">&quot;Melon&quot;</span>));</span><br><span class="line">        treeSet.addMember(<span class="keyword">new</span> Member(<span class="number">1000</span>,<span class="string">&quot;Peach&quot;</span>));</span><br><span class="line">        treeSet.addMember(<span class="keyword">new</span> Member(<span class="number">1005</span>,<span class="string">&quot;Grape&quot;</span>));</span><br><span class="line">        </span><br><span class="line">        treeSet.showAllMember();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>다음 테스트 코드의 결과는 <code>Exception in thread &quot;main&quot; java.lang.ClassCastException: class treesetexample.Member cannot be cast to class java.lang.Comparable (treesetexample.Member is in unnamed module of loader &#39;app&#39;; java.lang.Comparable is in module java.base of loader &#39;bootstrap&#39;) </code> 이러한 오류가 발생하는데</p>
+</li>
+<li><p>addMember할때 비교할 객체에대한 비교가 명시되어있지 않기 때문이다.</p>
+</li>
+<li><p>따라서 Member.java에서 Comparable 인터페이스를 구현해야한다</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Member</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Member</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Member member)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.id - member.id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>자신과 들어온 argument와 비교를해서 자신보다 큰경우 양수, 작으면 음수 같으면 0을 반환한다</p>
+</li>
+</ul>
+<h5 id="Comparator"><a href="#Comparator" class="headerlink" title="Comparator"></a>Comparator</h5><ul>
+<li><p>Comparator 인터페이스를 사용할때도 마찬가지로 객체클래스에서 구현해주면 된다.</p>
+</li>
+<li><p>이때는 Compare(arg1 ,arg2) 메소드를 오버라이드 해준다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Member.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Member</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Member</span>&gt; </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Member o1, Member o2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> o1.getID() - o2.getID();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>이렇게 구현 후 실행하면 <code>Exception in thread &quot;main&quot; java.lang.ClassCastException: class treesetexample.Member cannot be cast to class java.lang.Comparable (treesetexample.Member is in unnamed module of loader &#39;app&#39;; java.lang.Comparable is in module java.base of loader &#39;bootstrap&#39;) </code> 다음과 같은 오류가 발생한다 </p>
+</li>
+<li><p>TreeSet의 인스턴스를 생성할때 <code>Comparator</code>를 구현한 클래스를 명시해주어야한다</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MemberTreeSet.java</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MemberTreeSet</span><span class="params">()</span> </span>&#123; treeSet = <span class="keyword">new</span> TreeSet&lt;Member&gt;(<span class="keyword">new</span> Member());&#125;</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Member&#123;ID=<span class="number">1000</span>, name=<span class="string">&#x27;Melon&#x27;</span>&#125;</span><br><span class="line">Member&#123;ID=<span class="number">1001</span>, name=<span class="string">&#x27;kiwi&#x27;</span>&#125;</span><br><span class="line">Member&#123;ID=<span class="number">1004</span>, name=<span class="string">&#x27;Apple&#x27;</span>&#125;</span><br><span class="line">Member&#123;ID=<span class="number">1005</span>, name=<span class="string">&#x27;Grape&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="활용"><a href="#활용" class="headerlink" title="활용"></a>활용</h6><ul>
+<li>String의 경우 java내부에서 이미 comparator 인터페이스가 구현이 되어있는데 다른 방식으로도 구현할 수 있다.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCompare</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Overide</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(String s1, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s1.compare(s2) * -<span class="number">1</span>; <span class="comment">// 결과 값의 부호반대 =&gt; 역순</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">Map</a></h3><ul>
+<li>Key 와 Value 쌍으로 이루어진 객체를 관리하는데 사용하는 메서드들이 선언된 인터페이스</li>
+<li>Key를 이용하여 Value를 꺼내오는 방식</li>
+<li>Key는 중복을 허용하지 않음<ul>
+<li>따라서 Key의 유일성 비교를 위한 equals()와 hashCode() 메소드의 구현이 요구된다.</li>
+</ul>
+</li>
+<li>put(K ,V)로 값을 넣을 수 있다.</li>
+<li>key를 set로 불러오는 keySet()과 values()를 이용해 Collection 형태로 값을 불러올 수 있다.</li>
+<li>HashTable, HashMap,TreeMap 등이 Map 인터페이스를 구현한다</li>
+</ul>
+<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MemberHashMap.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemberHashMap</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Member&gt; hashMap;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MemberHashMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addMember</span><span class="params">(Member member)</span> </span>&#123;</span><br><span class="line">        hashMap.put(member.getID(),member);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeMember</span><span class="params">(<span class="keyword">int</span> memberID)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (hashMap.containsKey(memberID)) &#123;</span><br><span class="line">            hashMap.remove(memberID);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeMember</span><span class="params">(Integer key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (hashMap.containsKey(key)) &#123;</span><br><span class="line">            hashMap.remove(key);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showAllMember</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Iterator&lt;Integer&gt; ir = hashMap.keySet().iterator();</span><br><span class="line">        <span class="keyword">while</span>(ir.hasNext()) &#123;</span><br><span class="line">            Integer key = ir.next();</span><br><span class="line">            Member member = hashMap.get(key);</span><br><span class="line">            System.out.println(member);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h4><ul>
+<li>Tree Map 클래스는 key에 대한 정렬을 구현할 수 있다</li>
+<li>key가 되는 클래스에 Comparable이나 Comparator 인터페이스를 구현해서 key값으로 기준으로 정렬할 수 있다.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -871,7 +1061,7 @@ end</pre>
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-18 16:28:06" itemprop="dateModified" datetime="2021-08-18T16:28:06+09:00">2021-08-18</time>
+        <time title="Modified: 2021-09-06 21:00:25" itemprop="dateModified" datetime="2021-09-06T21:00:25+09:00">2021-09-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -879,11 +1069,11 @@ end</pre>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/oop/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
         </span>
     </span>
 
@@ -1288,105 +1478,8 @@ end</pre>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/12/OOP-java-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/12/OOP-java-3/" class="post-title-link" itemprop="url">객체 지향 프로그래밍 - 자료형</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-12 21:25:31" itemprop="dateCreated datePublished" datetime="2021-08-12T21:25:31+09:00">2021-08-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-06 20:58:07" itemprop="dateModified" datetime="2021-09-06T20:58:07+09:00">2021-09-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="참조-자료형-변수"><a href="#참조-자료형-변수" class="headerlink" title="참조 자료형 변수"></a>참조 자료형 변수</h1><h2 id="참조-자료형-Reference-Data-Type"><a href="#참조-자료형-Reference-Data-Type" class="headerlink" title="참조 자료형 (Reference Data Type)"></a>참조 자료형 (Reference Data Type)</h2><ul>
-<li><p>자바에서의 자료형은 크게 두가지로 </p>
-</li>
-<li><p>byte,short,int,char,float,double,boolean과 같은 기본 자료형이 있고</p>
-</li>
-<li><p>String과 Date등 또는 원하는 클래스를 구현하여 참조 자료형으로 만들 수 있다.</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Subject.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    String subjectName;</span><br><span class="line">    <span class="keyword">int</span> score;</span><br><span class="line">    <span class="keyword">int</span> subjectID;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Student.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> StudentNumber;</span><br><span class="line">    <span class="keyword">private</span> String StudentName;</span><br><span class="line">    <span class="keyword">private</span> Subject Math = <span class="keyword">new</span> Subject();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123; <span class="comment">// Default Constructor</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span> <span class="params">(<span class="keyword">int</span> num, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.StudentNumber = num;</span><br><span class="line">        <span class="keyword">this</span>.StudentName = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>위 예시처럼 클래스로 만들 수 있다</p>
-</li>
-<li><p>참조 자료형은 new키워드로 생성한다.</p>
-</li>
-<li><p>따라서 스택에 직접 값을 할당하는것이 아니라 스택에는 힙영역의 주소를 참조하고있고 실제 값은 힙영역에 올라간다.</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
