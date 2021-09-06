@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">45</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -199,6 +199,128 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/14/OOP-java-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/14/OOP-java-6/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - List</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-14 18:31:14" itemprop="dateCreated datePublished" datetime="2021-08-14T18:31:14+09:00">2021-08-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-18 16:28:06" itemprop="dateModified" datetime="2021-08-18T16:28:06+09:00">2021-08-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/oop/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Array-List"><a href="#Array-List" class="headerlink" title="Array List"></a>Array List</h1><h2 id="Array-List-1"><a href="#Array-List-1" class="headerlink" title="Array List"></a>Array List</h2><ul>
+<li>자바에서 기본 배열은 선언 또는 사용시 길이를 정해줘야해야하며 요소가 그 길이보다 크게되면<br>배열을 재 할당하고 복사해야 하는등 불편함이 있다</li>
+<li>또 배열의 요소에 추가하거나 삭제할때 요소들의 이동에 관한 구현을 해야한다</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">메소드</th>
+<th align="left">설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">boolean add(E e)</td>
+<td align="left">배열에 요소를 추가한다</td>
+</tr>
+<tr>
+<td align="center">int size()</td>
+<td align="left">요소의 전채 개수 반환한다.</td>
+</tr>
+<tr>
+<td align="center">E get(int index)</td>
+<td align="left">해당 인덱스의 값을 반환한다.</td>
+</tr>
+<tr>
+<td align="center">E remove(int index)</td>
+<td align="left">해당 인덱스의 값을 제거하고 반환한다.</td>
+</tr>
+<tr>
+<td align="center">boolean isEmpty()</td>
+<td align="left">배열이 비어있는지 확인한다. 비어있으면 true</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;E&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;E&gt;();</span><br><span class="line"></span><br><span class="line">arrayList.add(Element);</span><br></pre></td></tr></table></figure>
+
+<h4 id="예제-코드"><a href="#예제-코드" class="headerlink" title="예제 코드"></a>예제 코드</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> ArrayListTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> subjectScore;</span><br><span class="line">    <span class="keyword">private</span> String subjectName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Subject</span><span class="params">(<span class="keyword">int</span> subjectScore, String subjectName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subjectScore = subjectScore;</span><br><span class="line">        <span class="keyword">this</span>.subjectName = subjectName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubjectScore</span><span class="params">(<span class="keyword">int</span> subjectScore)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subjectScore = subjectScore;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubjectName</span><span class="params">(String subjectName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subjectName = subjectName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSubjectScore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> subjectScore;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSubjectName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> subjectName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ArrayListTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> studentID;</span><br><span class="line">    <span class="keyword">private</span> String studentName;</span><br><span class="line">    ArrayList&lt;Subject&gt; subjectList;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(<span class="keyword">int</span> studentID, String studentName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.studentID = studentID;</span><br><span class="line">        <span class="keyword">this</span>.studentName = studentName;</span><br><span class="line">        subjectList = <span class="keyword">new</span> ArrayList&lt;Subject&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addSubject</span><span class="params">(<span class="keyword">int</span> score, String name)</span> </span>&#123;</span><br><span class="line">        subjectList.add(<span class="keyword">new</span> Subject(score,name));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printAllScore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(studentID + <span class="string">&quot; &quot;</span> + studentName + <span class="string">&quot;의 성적표 &quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (Subject subject: subjectList ) &#123;</span><br><span class="line">            System.out.println(subject.getSubjectName() + <span class="string">&quot; : &quot;</span> + subject.getSubjectScore() + <span class="string">&quot;점 &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student kim = <span class="keyword">new</span> Student(<span class="number">1000</span>,<span class="string">&quot;kim&quot;</span>);</span><br><span class="line">        Student park = <span class="keyword">new</span> Student(<span class="number">1001</span>,<span class="string">&quot;park&quot;</span>);</span><br><span class="line">        Student jeong = <span class="keyword">new</span> Student(<span class="number">1002</span>,<span class="string">&quot;jeong&quot;</span>);</span><br><span class="line"></span><br><span class="line">        kim.addSubject(<span class="number">100</span>,<span class="string">&quot;수학&quot;</span>);</span><br><span class="line">        kim.addSubject(<span class="number">80</span>,<span class="string">&quot;영어&quot;</span>);</span><br><span class="line">        kim.printAllScore();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1153,147 +1275,6 @@
 <h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> -f -name <span class="string">&#x27;filename&#x27;</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;shell1, shell2, shell3 &quot;</span> \;</span><br><span class="line"><span class="comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span></span><br><span class="line"><span class="comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">LOGDIR=/var/<span class="built_in">log</span></span><br><span class="line">GZIPDAY = 1</span><br><span class="line">DELDAY = 2</span><br><span class="line"><span class="built_in">cd</span> %LOGDIR</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cd <span class="variable">$LOGDIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*log.?&#x27;</span> -mtime +<span class="variable">$GZIPDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;gzip &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*gz.?&#x27;</span> -mtime +<span class="variable">$DELSDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;rm -f &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/04/ShellScript-Basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/04/ShellScript-Basic/" class="post-title-link" itemprop="url">ShellScript-Basic</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-04 21:25:10" itemprop="dateCreated datePublished" datetime="2021-08-04T21:25:10+09:00">2021-08-04</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-05 17:43:27" itemprop="dateModified" datetime="2021-08-05T17:43:27+09:00">2021-08-05</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Shell/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Shell-Script"><a href="#Shell-Script" class="headerlink" title="Shell Script"></a>Shell Script</h1><h2 id="기본-문법"><a href="#기본-문법" class="headerlink" title="기본 문법"></a>기본 문법</h2><ul>
-<li>쉘 스크립트는 파일로 작성 후 파일을 실행함</li>
-<li>파일의 가장 위으 ㅣ첫 라인은 <code>#!/bin/bash</code>로 시작</li>
-<li>쉘 스크립트 파일은 실행 권한을 갖고있어야함</li>
-</ul>
-<h3 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h3><p>hello.sh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;Hello Bash!&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 hello.sh</span><br><span class="line">$./hello.sh</span><br><span class="line"></span><br><span class="line">Hello bash!</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>echo</code>는 화면에 출력해주는 쉘 명령어</li>
-</ul>
-<h3 id="변수"><a href="#변수" class="headerlink" title="변수"></a>변수</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">mysql_id=<span class="string">&#x27;root&#x27;</span> </span><br><span class="line">mysql_directory=<span class="string">&#x27;/etc/mysql&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$mysql_id</span> <span class="comment"># $변수명으로 사용가능 </span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$mysql_directory</span> </span><br></pre></td></tr></table></figure>
-
-<h3 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">daemons=(<span class="string">&quot;httpd&quot;</span> <span class="string">&quot;mysql&quot;</span> <span class="string">&quot;vsftpd&quot;</span>) <span class="comment"># , 가아닌 띄어쓰기로 구분</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;daemons[1]&#125;</span> <span class="comment"># $&#123;배열명[index]&#125; 형식으로 사용</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;daemons[a]&#125;</span> <span class="comment"># 배열의 모든 데이터 출력</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;daemons[*]&#125;</span> <span class="comment"># 배열의 모든 데이터 출력</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#daemons[@]&#125;</span> <span class="comment"># 배열의 크기 출력 : 3</span></span><br><span class="line"></span><br><span class="line">filelist = ( $(ls) ) <span class="comment"># 괄호안에있는 명령어의 결과값을 배열에 넣는다</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;filelist[*]&#125;</span> <span class="comment"># filelist의 모든 값 출력</span></span><br></pre></td></tr></table></figure>
-
-<p>arraytest.sh</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_info = &#123;<span class="string">&quot;isu&quot;</span> <span class="string">&quot;28&quot;</span> <span class="string">&quot;BE&quot;</span>&#125;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;my_info[0]&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;my_info[*]&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#my_info[@]&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="사전에-정의된-지역-변수"><a href="#사전에-정의된-지역-변수" class="headerlink" title="사전에 정의된 지역 변수"></a>사전에 정의된 지역 변수</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$ <span class="comment"># 쉘의 프로세스 번호 (pid)</span></span><br><span class="line"><span class="variable">$0</span> <span class="comment"># 쉘스크립트 이름 ex) ls </span></span><br><span class="line"><span class="variable">$1</span> ~ <span class="variable">$9</span> <span class="comment"># 명령줄 인수 </span></span><br><span class="line">$* <span class="comment"># 모든 명령줄 인수리스트 ex) -al -z</span></span><br><span class="line"><span class="variable">$#</span> <span class="comment"># 인수의 갯수 ex) 2개 (la -al -z)</span></span><br><span class="line">$? <span class="comment"># 최근 실행한 명령어의 종료 값 0은 성공 나머지는 실패 </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h3><ul>
-<li>expr: 숫자 연산</li>
-<li>expr을 사용하는 경우 backquote를 사용해야함</li>
-<li>연산자 *와 () 앞에는 \를 사용해야함</li>
-<li>숫자,변수,기호 사이에는 space가 있어야 구분됨</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num = `expr \(3 \* 5\) / + 4 + 7 `</span><br><span class="line"><span class="comment"># (3*5)/4+7</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="조건문"><a href="#조건문" class="headerlink" title="조건문"></a>조건문</h3><ul>
-<li><p>if로 시작해서 fi로 끝남</p>
-</li>
-<li><p>indent는 필요없지만 가독성을 위해 써야함 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ state ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="comment">#TODO</span></span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">  <span class="comment">#TODO</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
-<li><p>한줄로 작성하기 위해선 ; 으로 구분함</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ 조건 ]; <span class="keyword">then</span> TODO; <span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>예시</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$1</span> != <span class="variable">$2</span> ] <span class="comment"># 인자를 2개를 받아 비교</span></span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  ehco <span class="string">&quot;different value&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="조건"><a href="#조건" class="headerlink" title="조건"></a>조건</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$1</span> -z <span class="variable">$2</span> ] </span><br><span class="line">-z <span class="comment"># 문자가 null이면 참</span></span><br><span class="line">-n <span class="comment"># 문자가 not null 이면 참 </span></span><br><span class="line">-eq <span class="comment"># equal == </span></span><br><span class="line">-ne <span class="comment"># not equal !=</span></span><br><span class="line">-lt <span class="comment"># less than &lt;</span></span><br><span class="line">-le <span class="comment"># less equal &lt;=</span></span><br><span class="line">-gt <span class="comment"># greater than &gt;</span></span><br><span class="line">-ge <span class="comment"># greater equal &gt;=</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="파일검사-조건"><a href="#파일검사-조건" class="headerlink" title="파일검사 조건"></a>파일검사 조건</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-e <span class="comment"># 파일이 존재하면 참</span></span><br><span class="line">-d <span class="comment"># 파일이 디렉토리이면 참</span></span><br><span class="line">-h <span class="comment"># 심볼릭 링크파일이면 침</span></span><br><span class="line">-f <span class="comment"># 파일이 일반파일이면 참 (directory X)</span></span><br><span class="line">-s <span class="comment"># 파일 크기가 0이 아니면 참</span></span><br><span class="line">-u <span class="comment"># 파일이 set-user-id 설정되면 참</span></span><br><span class="line">-r <span class="comment"># 파일이 읽기 가능 상태이면 참</span></span><br><span class="line">-w <span class="comment"># 파일이 쓰기 가능 상태이면 참</span></span><br><span class="line">-x <span class="comment"># 파일이 실행 가능 상태이면 참</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="명령어-해석"><a href="#명령어-해석" class="headerlink" title="명령어 해석"></a>명령어 해석</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ping -c 1 192.168.0.1 1&gt;/dev/null</span><br><span class="line"><span class="keyword">if</span> [ $? == 0 ]</span><br><span class="line"><span class="keyword">then</span> </span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Success Ping&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Failed Ping&quot;</span></span><br><span class="line"><span class="keyword">fi</span> </span><br></pre></td></tr></table></figure>
-<ul>
-<li>-c 1 : ping을 한번만 보냄</li>
-<li>192.168.0.1 : 타겟 IP</li>
-<li>1&gt;/dev/null : 표준출력을 /dev/null로 리디렉션 따라서 출력내용은 버려짐</li>
-<li>$? ==0 : 가장 최근 인자를 가져옴 </li>
-</ul>
-<h3 id="For-반복문"><a href="#For-반복문" class="headerlink" title="For 반복문"></a>For 반복문</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 변수 <span class="keyword">in</span> 변수값1 변수값2</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  TODO</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> database <span class="keyword">in</span> $(ls)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$database</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="While-반복문"><a href="#While-반복문" class="headerlink" title="While 반복문"></a>While 반복문</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> [ 조건문 ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  TODO</span><br><span class="line"><span class="keyword">while</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">list=$(ls) <span class="comment"># list변수에 ls명령의 결과를 저장</span></span><br><span class="line">num=<span class="variable">$&#123;#lists[@]&#125;</span> <span class="comment"># 리스트의 갯수를 저장</span></span><br><span class="line">index = 0;</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$num</span> -ge 0 ] <span class="comment"># num &gt;= 0</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  ehco <span class="variable">$&#123;list[$index]&#125;</span></span><br><span class="line">  index=`expr <span class="variable">$index</span> + 1`</span><br><span class="line">  num=`expr <span class="variable">$num</span> -1`</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
