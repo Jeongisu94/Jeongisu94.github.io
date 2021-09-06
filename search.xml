@@ -337,6 +337,48 @@
       </tags>
   </entry>
   <entry>
+    <title>Shell 사용법 2</title>
+    <url>/2021/07/23/Linux-How_to_use_shell/</url>
+    <content><![CDATA[<p>#Shell 사용법</p>
+<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
+<li>바이너리는 실행할 수 있는 파일</li>
+<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
+<li>메모리와 관련된 상태정보 (PCB)</li>
+<li>시스템 리소스</li>
+<li>스케쥴링 단위</li>
+</ul>
+</li>
+</ul>
+<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
+<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
+<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
+</ul>
+<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
+<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
+<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
+<li>서버 데몬, 백신 프로그램, etc..</li>
+</ul>
+<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
+<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
+<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
+<hr>
+<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
+<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
+]]></content>
+      <categories>
+        <category>Shell</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+        <tag>Bash</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux의 파일 시스템</title>
     <url>/2021/07/23/Linux-FileSystem/</url>
     <content><![CDATA[<h1 id="Linux-파일-시스템"><a href="#Linux-파일-시스템" class="headerlink" title="Linux 파일 시스템"></a>Linux 파일 시스템</h1><p>리눅스는 모든 것은 파일이라는 철학에따라 모든 인터랙션은 파일을 읽고 쓰는 것처럼 이루어져있다.<br>따라서 모든 자원에 대한 추상화 인터페이스로 파일 인터페이스를 활용한다.</p>
@@ -407,48 +449,6 @@
       <tags>
         <tag>TIL</tag>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shell 사용법 2</title>
-    <url>/2021/07/23/Linux-How_to_use_shell/</url>
-    <content><![CDATA[<p>#Shell 사용법</p>
-<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
-<li>바이너리는 실행할 수 있는 파일</li>
-<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
-<li>메모리와 관련된 상태정보 (PCB)</li>
-<li>시스템 리소스</li>
-<li>스케쥴링 단위</li>
-</ul>
-</li>
-</ul>
-<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
-<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
-<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
-</ul>
-<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
-<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
-<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
-<li>서버 데몬, 백신 프로그램, etc..</li>
-</ul>
-<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
-<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
-]]></content>
-      <categories>
-        <category>Shell</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-        <tag>Bash</tag>
       </tags>
   </entry>
   <entry>
@@ -1363,6 +1363,12 @@ File -- input Stream --> JAVA</pre>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WriterTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (FileWriter fw = <span class="keyword">new</span> FileWriter(<span class="string">&quot;src/streamtest/writer.txt&quot;</span>,<span class="keyword">true</span>)) &#123;</span><br><span class="line">            fw.write(<span class="string">&#x27;H&#x27;</span>);</span><br><span class="line">            <span class="keyword">char</span>[] cbuf = &#123;<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;O&#x27;</span>&#125;;</span><br><span class="line">            String s = <span class="string">&quot;WORLD&quot;</span>;</span><br><span class="line">            fw.write(cbuf);</span><br><span class="line">            fw.write(s);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>io stream</tag>
+      </tags>
   </entry>
   <entry>
     <title>객체 지향 프로그래밍 - Basic 2</title>
@@ -1464,6 +1470,12 @@ File -- input Stream --> JAVA</pre>
 <li>데이터의 형에따라 읽거나 쓰는 바이트 수가 다르기떄문에 반드시 읽거나 쓴 순서를 지켜야 한다 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>io stream</tag>
+      </tags>
   </entry>
   <entry>
     <title>Java - Serialization</title>
@@ -1605,42 +1617,12 @@ File -- input Stream --> JAVA</pre>
 <li>Thread가 무한 루프되는 경우 <code>while(flag)</code> 에서 <strong>flag</strong>를 false로 바꿔 종료함</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Java - Multi Threads &amp; Synchronization</title>
-    <url>/2021/09/01/OOP-java-24/</url>
-    <content><![CDATA[<h1 id="Synchronization"><a href="#Synchronization" class="headerlink" title="Synchronization"></a>Synchronization</h1><h2 id="critical-section-amp-semaphore"><a href="#critical-section-amp-semaphore" class="headerlink" title="critical section &amp; semaphore"></a>critical section &amp; semaphore</h2><ul>
-<li><strong>임계영역(critical section)</strong> 은 두 개 이상의 thread가 동시에 접근 하는 경우 문제가 발생 가능성이 있어 동시에 접근 할 수 없는 영역이다.</li>
-<li><strong>semaphore</strong>는 임계영역에 접근 할 수 있는 권한을 주는 객체이며 get/release하는 두개 기능이 있다</li>
-<li><strong>semaphore</strong>를 가진 Thread만 임계영역에 접근 가능하며 <strong>release</strong>전 까지 나머지 thread들은 <strong>block</strong>상태가 된다</li>
-</ul>
-<p>임계영역을 핸들링 하지 않은 경우</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Bank.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bank</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> Money = <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depositMoney</span><span class="params">(<span class="keyword">int</span> deposit)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = getMoney();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        setMoney(m + deposit);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdrawMoney</span><span class="params">(<span class="keyword">int</span> withdraw)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = getMoney();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">200</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        setMoney(m - withdraw);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMoney</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Money;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMoney</span><span class="params">(<span class="keyword">int</span> money)</span> </span>&#123;</span><br><span class="line">        Money = money;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Alice.java &amp; Bob.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Alice</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Start deposit&quot;</span>);</span><br><span class="line">        SyncMain.myBank.depositMoney(<span class="number">3000</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;deposit (3000) :&quot;</span> + SyncMain.myBank.getMoney());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bob</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Start Withdraw&quot;</span>);</span><br><span class="line">        SyncMain.myBank.withdrawMoney(<span class="number">1000</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;withdraw (1000) :&quot;</span> + SyncMain.myBank.getMoney());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p><img src="/image/OOP-java-24_images/394c3b08.png"> 1000원을 출금하고 3000원을 저축했음에도 13000원이라는 결과가 나왔다</p>
-</li>
-<li><p>Alice가 값을 저장하기전에 Bob이 값을 가져갔기때문이다</p>
-</li>
-<li><p>동기화가 필요한 메소드에 <strong>synchronized</strong> 키워드를 적용시킨다</p>
-<ul>
-<li>해당 메소드가 실행되는 동안 안에있는 인스턴스들이 lock상태가 된다 </li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Bank.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bank</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">depositMoney</span><span class="params">(<span class="keyword">int</span> deposit)</span> </span>&#123; ... &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">withdrawMoney</span><span class="params">(<span class="keyword">int</span> withdraw)</span> </span>&#123; ... &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-24_images/7981f67b.png"></p>
-<ul>
-<li>다른 방식으로는 Synchronized block을 사용해 메소드가 실행되는동안 객체에 block을 걸 수 있다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depositMoney</span><span class="params">(<span class="keyword">int</span> deposit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> m = getMoney();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        setMoney(m + deposit);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>synchonized(mutex)</code> mutex에 공유되는 자원을 넣는다</li>
-<li>synchonized메소드를 다른 synchonized 메소드에서 호출되게 되면 Dead Lock에 빠질 수 있다.</li>
-</ul>
-]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>thread</tag>
+      </tags>
   </entry>
   <entry>
     <title>Java - Synchronization - wait()/notify()</title>
@@ -1691,6 +1673,48 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>synchronization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java - Multi Threads &amp; Synchronization</title>
+    <url>/2021/09/01/OOP-java-24/</url>
+    <content><![CDATA[<h1 id="Synchronization"><a href="#Synchronization" class="headerlink" title="Synchronization"></a>Synchronization</h1><h2 id="critical-section-amp-semaphore"><a href="#critical-section-amp-semaphore" class="headerlink" title="critical section &amp; semaphore"></a>critical section &amp; semaphore</h2><ul>
+<li><strong>임계영역(critical section)</strong> 은 두 개 이상의 thread가 동시에 접근 하는 경우 문제가 발생 가능성이 있어 동시에 접근 할 수 없는 영역이다.</li>
+<li><strong>semaphore</strong>는 임계영역에 접근 할 수 있는 권한을 주는 객체이며 get/release하는 두개 기능이 있다</li>
+<li><strong>semaphore</strong>를 가진 Thread만 임계영역에 접근 가능하며 <strong>release</strong>전 까지 나머지 thread들은 <strong>block</strong>상태가 된다</li>
+</ul>
+<p>임계영역을 핸들링 하지 않은 경우</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Bank.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bank</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> Money = <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depositMoney</span><span class="params">(<span class="keyword">int</span> deposit)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = getMoney();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        setMoney(m + deposit);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdrawMoney</span><span class="params">(<span class="keyword">int</span> withdraw)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = getMoney();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">200</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        setMoney(m - withdraw);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMoney</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Money;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMoney</span><span class="params">(<span class="keyword">int</span> money)</span> </span>&#123;</span><br><span class="line">        Money = money;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Alice.java &amp; Bob.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Alice</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Start deposit&quot;</span>);</span><br><span class="line">        SyncMain.myBank.depositMoney(<span class="number">3000</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;deposit (3000) :&quot;</span> + SyncMain.myBank.getMoney());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bob</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Start Withdraw&quot;</span>);</span><br><span class="line">        SyncMain.myBank.withdrawMoney(<span class="number">1000</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;withdraw (1000) :&quot;</span> + SyncMain.myBank.getMoney());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><img src="/image/OOP-java-24_images/394c3b08.png"> 1000원을 출금하고 3000원을 저축했음에도 13000원이라는 결과가 나왔다</p>
+</li>
+<li><p>Alice가 값을 저장하기전에 Bob이 값을 가져갔기때문이다</p>
+</li>
+<li><p>동기화가 필요한 메소드에 <strong>synchronized</strong> 키워드를 적용시킨다</p>
+<ul>
+<li>해당 메소드가 실행되는 동안 안에있는 인스턴스들이 lock상태가 된다 </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Bank.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bank</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">depositMoney</span><span class="params">(<span class="keyword">int</span> deposit)</span> </span>&#123; ... &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">withdrawMoney</span><span class="params">(<span class="keyword">int</span> withdraw)</span> </span>&#123; ... &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-24_images/7981f67b.png"></p>
+<ul>
+<li>다른 방식으로는 Synchronized block을 사용해 메소드가 실행되는동안 객체에 block을 걸 수 있다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">depositMoney</span><span class="params">(<span class="keyword">int</span> deposit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> m = getMoney();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        setMoney(m + deposit);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>synchonized(mutex)</code> mutex에 공유되는 자원을 넣는다</li>
+<li>synchonized메소드를 다른 synchonized 메소드에서 호출되게 되면 Dead Lock에 빠질 수 있다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>thread</tag>
       </tags>
   </entry>
   <entry>
@@ -2164,6 +2188,68 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>System-Programming-Pthread</title>
+    <url>/2021/08/05/System-Programming-Pthread/</url>
+    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
+<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
+<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
+</ul>
+<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
+<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
+</li>
+<li><p>모든 함수는 pthread_ 로 시작</p>
+</li>
+<li><p>크게 두가지로 분류 된다</p>
+<ul>
+<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
+<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
+</ul>
+</li>
+<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
+<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
+<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
+<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
+<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
+<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
+
+<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
+<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
+<ul>
+<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
+</ul>
+</li>
+<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
+<ul>
+<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
+<li>detach는 해당 스레드가 종료되면 바로 해제</li>
+</ul>
+</li>
+</ul>
+<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
+<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>System Programming - Process</title>
     <url>/2021/07/28/System-Programming-Process/</url>
     <content><![CDATA[<h1 id="Program-Process-Thread의-개념"><a href="#Program-Process-Thread의-개념" class="headerlink" title="Program , Process ,Thread의 개념"></a>Program , Process ,Thread의 개념</h1><h2 id="프로그램"><a href="#프로그램" class="headerlink" title="프로그램"></a>프로그램</h2><ul>
@@ -2295,106 +2381,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>System Programming - IPC</title>
-    <url>/2021/07/29/System-Programming-IPC/</url>
-    <content><![CDATA[<h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><h2 id="IPC란"><a href="#IPC란" class="headerlink" title="IPC란"></a>IPC란</h2><ul>
-<li><p>OS에서 할당받은 독립적인 공간을 갖는 Process는 서로 물리적인 주소를 접근 할 수 </p>
-<p>없어서 프로세스간 통신을 하는데 어려움을 겪는다 이때 사용하는 기술이 IPC이다!</p>
-</li>
-</ul>
-<h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><ul>
-<li>두 프로세스 모두 저장매체를 접근 할 수 있기 때문에 파일을 통해서 통신할 수 있다.</li>
-<li>+가장 간단한 방법</li>
-<li>-서로 접근하고 있는지 확인할 방법이 없다</li>
-</ul>
-<h2 id="Others-IPC"><a href="#Others-IPC" class="headerlink" title="Others IPC"></a>Others IPC</h2><ul>
-<li>프로세스들의 커널공간은 공유한다는 아이디어를 기반으로<br>페이지테이블에 같은 물리주소를 가리킴으로써 다양한 IPC기법이 개발되었다.</li>
-</ul>
-<h3 id="PIPE"><a href="#PIPE" class="headerlink" title="PIPE"></a>PIPE</h3><ul>
-<li>fork()를 통해 자식 프로세스를 만들었을때 부모와 자식간의 통신</li>
-<li>단방향 통신</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSGSIZE 255</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* msg = <span class="string">&quot;Hello Child&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">255</span>];</span><br><span class="line">  <span class="keyword">int</span> fd[<span class="number">2</span>], pid, nbyes;</span><br><span class="line">  <span class="keyword">if</span> (pipe(fd) &lt; <span class="number">0</span>) <span class="built_in">exit</span>(<span class="number">1</span>); <span class="comment">// 커널영역에 pipe 생성하고 오류시 exit(1)</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// 부모 프로세스이면 pid값을 출력</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;praent PID:%d, child PID:%d\n&quot;</span>, getpid(), pid);</span><br><span class="line">    write(fd[<span class="number">1</span>], msg, MSGSIZE); <span class="comment">// fd[1]에 메시지를 씀</span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>) <span class="comment">// 정상 종료  </span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;child PID %d\n, getpid());</span></span><br><span class="line"><span class="string">    nbytes= read(fd[0], buf , MSGSIZE); // 파일을 읽는 시스템콜 공란에 255사이즈데이터를 읽음 </span></span><br><span class="line"><span class="string">                                        // 동일한 커널영역에 들어가서 buf에 넣어주게됨 </span></span><br><span class="line"><span class="string">    printf(&quot;</span>%d %s\n, nbytes, buf);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h3><ul>
-<li>선입선출 방식으로 데이터를 전송</li>
-<li>파이프와 다르게 양방향 통신도 가능하며 부모 자식간 프로세스가 아니어도 가능하다</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ipcs</span> <span class="comment"># 이 명령어를 통해 메시지를 포함한 ipc 정보를 확인할 수 있다</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/System-Programming-IPC_images/ipcs.png"></p>
-<p>메시지를 보낼떄의 예</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msqid = msgget(key, msgflg) <span class="comment">// 다른 메시지큐와 구분될 key , 메시지 큐의 옵션을 인자로 갖는다</span></span><br><span class="line">msgsnd(msqid, &amp;sbuf, buf_length, IPC_NOWAIT) <span class="comment">// 메시지를 보낼때의 함수</span></span><br><span class="line"> <span class="comment">//IPC_NOWAIT은 읽지않더라도 다음 코드를 실행할때 사용, 0이면 실행할떄까지 기다린다.</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  Key_t key = <span class="number">1111</span>;</span><br><span class="line">  msgid = msgget(key, IPC_CREAT|<span class="number">0644</span>); <span class="comment">// 메시지를 0644권한으로 새로 만든다</span></span><br><span class="line">  <span class="keyword">if</span> (msgid == <span class="number">-1</span>) &#123; <span class="comment">// 메시지생성에 실패했을경우</span></span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125; </span><br><span class="line">  msg.type = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">strcpy</span>(msg.text, <span class="string">&quot;Hello Message Queue\n&quot;</span>); <span class="comment">// 메시지 구조체에 텍스트를 넣는다</span></span><br><span class="line">  <span class="keyword">if</span> (msgsnd(msgid, (<span class="keyword">void</span> *)&amp;msg, <span class="number">50</span>, IPC_NOWAIT) == <span class="number">-1</span>) &#123; <span class="comment">// 메시지를 보내며 에러 확인</span></span><br><span class="line">    <span class="comment">// 메시지의 아이디, 구조체의 주소, 사이즈를 인자로 보낸다</span></span><br><span class="line">    perror(<span class="string">&quot;msgsnd&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>메시지를 받을떄의 예</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">sszie_t</span> <span class="title">msgrcv</span><span class="params">(<span class="keyword">int</span> msqid, <span class="keyword">void</span> *msgp, <span class="keyword">size_t</span> msgsz, <span class="keyword">long</span> msgtyp, <span class="keyword">int</span> msgflg)</span></span></span><br><span class="line"><span class="function"><span class="title">msgrcv</span><span class="params">(msqid, &amp;rbuf, MSGSZ, <span class="number">1</span> ,<span class="number">0</span>)</span> <span class="comment">// msgtype 0: 첫번째메시지 다른 양수이면 일치하는 첫번째 메시지</span></span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  <span class="keyword">key_t</span> key = <span class="number">1111</span>; <span class="comment">// snd할때 키값과 동일해야한다.</span></span><br><span class="line">  <span class="keyword">if</span>((msgid == msgget(key, IPC_CREAT|<span class="number">0644</span>)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  len = msgrcv(msgid, &amp;msg, <span class="number">50</span>, <span class="number">0</span> ,<span class="number">0</span>); <span class="comment">// (메시지id, size , type, wait);</span></span><br><span class="line">  <span class="comment">//type에 일치하는 가장먼저오는 메시지를 수신한다</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Received Message is [%d] %s]\n&quot;</span>, len, msg.text);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>System Programming</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>TIL</tag>
-        <tag>Linux</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-        <tag>File</tag>
-        <tag>Pipe</tag>
-        <tag>Message Queue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>System Programming - Scheduling</title>
-    <url>/2021/07/29/System-Programming-Scheduling/</url>
-    <content><![CDATA[<h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
-<li>정적 우선순위<ul>
-<li>프로세스마다 우선순위를 미리 지정</li>
-</ul>
-</li>
-<li>동적 우선순위<ul>
-<li>상황에 따라 스케쥴러가 우선순위를 동적으로 변경</li>
-</ul>
-</li>
-</ul>
-<h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><ul>
-<li><p>Portable Operating system interface의 약자로</p>
-<p>  서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 Application 규격이다.</p>
-</li>
-<li><p>리눅스는 POSIX에서 정한 규격으로 시스템콜을 정의했다</p>
-</li>
-</ul>
-<h2 id="우선순위-관련-System-Call"><a href="#우선순위-관련-System-Call" class="headerlink" title="우선순위 관련 System Call"></a>우선순위 관련 System Call</h2><h3 id="nice"><a href="#nice" class="headerlink" title="nice()"></a>nice()</h3><ul>
-<li>root가 소유한 프로세스만 우선순위를 높일 수 있고 </li>
-</ul>
-<p>그외 다른 프로세스의 우선순위는 낮출수만 있다.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nice</span> <span class="params">(<span class="keyword">int</span> inc)</span></span>; </span><br></pre></td></tr></table></figure>
-
-
-<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">id_t</span> who)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">in_t</span> who, <span class="keyword">int</span> value)</span></span>; </span><br></pre></td></tr></table></figure>
-<ul>
-<li>이름에도 알 수 있듯이 프로세스의 우선순위를 가져오거나 정할 수 있다.</li>
-<li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
-<li>who는 process ID (0을 넣으면 현재 프로세스이다), value는 우선순위로 인자를 갖는다</li>
-</ul>
-]]></content>
-      <categories>
-        <category>System Programming</category>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>C</tag>
-        <tag>System Programming</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>System-Programming-Signal</title>
     <url>/2021/08/04/System-Programming-Signal/</url>
     <content><![CDATA[<h1 id="시그널-signal"><a href="#시그널-signal" class="headerlink" title="시그널 (signal)"></a>시그널 (signal)</h1><ul>
@@ -2448,24 +2434,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>Git ignore 적용 안될때</title>
-    <url>/2021/08/06/git-add/</url>
-    <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
-<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
-<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">git add * The following paths are ignored by one of your .gitignore files: git-add/ignore.txt</span><br><span class="line">Use -f <span class="keyword">if</span> you really want to add them.</span><br></pre></td></tr></table></figure>
-<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
-<p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
-<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>TIL</tag>
-        <tag>trouble-shooting</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo Deploy시 Spawn Failed 오류해결 방법</title>
     <url>/2021/08/14/blog-Spawn-Failed/</url>
     <content><![CDATA[<h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="문제-인식"><a href="#문제-인식" class="headerlink" title="문제 인식"></a>문제 인식</h2><ul>
@@ -2507,6 +2475,69 @@ File -- input Stream --> JAVA</pre>
       <tags>
         <tag>trouble-shooting</tag>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System Programming - Scheduling</title>
+    <url>/2021/07/29/System-Programming-Scheduling/</url>
+    <content><![CDATA[<h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
+<li>정적 우선순위<ul>
+<li>프로세스마다 우선순위를 미리 지정</li>
+</ul>
+</li>
+<li>동적 우선순위<ul>
+<li>상황에 따라 스케쥴러가 우선순위를 동적으로 변경</li>
+</ul>
+</li>
+</ul>
+<h2 id="POSIX"><a href="#POSIX" class="headerlink" title="POSIX"></a>POSIX</h2><ul>
+<li><p>Portable Operating system interface의 약자로</p>
+<p>  서로 다른 UNIX OS의 공통 API를 정의하여 이식성이 높은 개발하기 위한 목적으로 IEEE에서 책정한 Application 규격이다.</p>
+</li>
+<li><p>리눅스는 POSIX에서 정한 규격으로 시스템콜을 정의했다</p>
+</li>
+</ul>
+<h2 id="우선순위-관련-System-Call"><a href="#우선순위-관련-System-Call" class="headerlink" title="우선순위 관련 System Call"></a>우선순위 관련 System Call</h2><h3 id="nice"><a href="#nice" class="headerlink" title="nice()"></a>nice()</h3><ul>
+<li>root가 소유한 프로세스만 우선순위를 높일 수 있고 </li>
+</ul>
+<p>그외 다른 프로세스의 우선순위는 낮출수만 있다.</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nice</span> <span class="params">(<span class="keyword">int</span> inc)</span></span>; </span><br></pre></td></tr></table></figure>
+
+
+<h3 id="getpriority-setpriority"><a href="#getpriority-setpriority" class="headerlink" title="getpriority(), setpriority()"></a>getpriority(), setpriority()</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/resource.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">id_t</span> who)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setpriority</span><span class="params">(<span class="keyword">int</span> which, <span class="keyword">in_t</span> who, <span class="keyword">int</span> value)</span></span>; </span><br></pre></td></tr></table></figure>
+<ul>
+<li>이름에도 알 수 있듯이 프로세스의 우선순위를 가져오거나 정할 수 있다.</li>
+<li>which는 가져오거나 세팅할 대상(PRIO_PROCESS,PRIO_PGRP,PRIO_USER), </li>
+<li>who는 process ID (0을 넣으면 현재 프로세스이다), value는 우선순위로 인자를 갖는다</li>
+</ul>
+]]></content>
+      <categories>
+        <category>System Programming</category>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git ignore 적용 안될때</title>
+    <url>/2021/08/06/git-add/</url>
+    <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
+<p>그 이유는 <code>git add *</code> 에 있었다 <code>git add *</code>의 경우</p>
+<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">git add * The following paths are ignored by one of your .gitignore files: git-add/ignore.txt</span><br><span class="line">Use -f <span class="keyword">if</span> you really want to add them.</span><br></pre></td></tr></table></figure>
+<p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
+<p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
+<h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>TIL</tag>
+        <tag>trouble-shooting</tag>
       </tags>
   </entry>
   <entry>
@@ -2659,6 +2690,14 @@ File -- input Stream --> JAVA</pre>
 <li>외부에서 같은 객체를 가질 받을 수 있도록 <code>public static getInstacne()</code>를 구현한다.</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+        <category>design pattern</category>
+      </categories>
+      <tags>
+        <tag>singleton</tag>
+      </tags>
   </entry>
   <entry>
     <title>OOP - Design Pattern - Adapter</title>
@@ -2685,68 +2724,14 @@ File -- input Stream --> JAVA</pre>
 <li>110V의 인터페이스 객체임에도 다른 인터페이스 객체를 사용 할 수 있게되었다.</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>System-Programming-Pthread</title>
-    <url>/2021/08/05/System-Programming-Pthread/</url>
-    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
-<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
-<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
-</ul>
-<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
-<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
-</li>
-<li><p>모든 함수는 pthread_ 로 시작</p>
-</li>
-<li><p>크게 두가지로 분류 된다</p>
-<ul>
-<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
-<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
-</ul>
-</li>
-<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
-<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
-<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
-<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
-<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
-<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
-<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
-
-<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
-<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
-<ul>
-<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
-</ul>
-</li>
-<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
-<ul>
-<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
-<li>detach는 해당 스레드가 종료되면 바로 해제</li>
-</ul>
-</li>
-</ul>
-<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
-<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+        <category>design pattern</category>
+      </categories>
+      <tags>
+        <tag>adapter</tag>
+      </tags>
   </entry>
   <entry>
     <title>OOP - Design Pattern - Proxy</title>
@@ -2776,5 +2761,125 @@ File -- input Stream --> JAVA</pre>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AopBrowser</span> <span class="keyword">implements</span> <span class="title">IBrowser</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="keyword">private</span> Html html;</span><br><span class="line">    <span class="keyword">private</span> Runnable before;</span><br><span class="line">    <span class="keyword">private</span> Runnable after;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AopBrowser</span><span class="params">(String url, Runnable before, Runnable after)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.url = url;</span><br><span class="line">        <span class="keyword">this</span>.before = before;</span><br><span class="line">        <span class="keyword">this</span>.after = after;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Html <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        before.run();</span><br><span class="line">        <span class="keyword">if</span> (html == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.html = <span class="keyword">new</span> Html(url);</span><br><span class="line">            System.out.println(<span class="string">&quot;Aop Browser html loading from : &quot;</span> + url);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1500</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        after.run();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;Aop Browser use Cache : &quot;</span> + url);</span><br><span class="line">        <span class="keyword">return</span> html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BrowserTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    AtomicLong start = <span class="keyword">new</span> AtomicLong();</span><br><span class="line">    AtomicLong end = <span class="keyword">new</span> AtomicLong();</span><br><span class="line">    </span><br><span class="line">    IBrowser aopBrowser = <span class="keyword">new</span> AopBrowser(<span class="string">&quot;www.google.com&quot;</span>,</span><br><span class="line">            ()-&gt;&#123;</span><br><span class="line">              System.out.println(<span class="string">&quot;before&quot;</span>);</span><br><span class="line">              start.set(System.currentTimeMillis());</span><br><span class="line">            &#125;,</span><br><span class="line">            ()-&gt;&#123;</span><br><span class="line">              end.set(System.currentTimeMillis() - start.get());</span><br><span class="line">            &#125; );</span><br><span class="line"></span><br><span class="line">    aopBrowser.show();</span><br><span class="line">    System.out.println(<span class="string">&quot;loading time :  &quot;</span> + end.get());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    aopBrowser.show();</span><br><span class="line">    System.out.println(<span class="string">&quot;loading time :  &quot;</span> + end.get());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/image/oop-java-29_images/345b219e.png"></p>
 ]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+        <category>design pattern</category>
+      </categories>
+      <tags>
+        <tag>proxy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OOP - Design Pattern - Observer</title>
+    <url>/2021/09/06/oop-java-30/</url>
+    <content><![CDATA[<h1 id="Observer-Pattern"><a href="#Observer-Pattern" class="headerlink" title="Observer Pattern"></a>Observer Pattern</h1><ul>
+<li>행위 패턴</li>
+<li>옵저버 패턴은 변화가 일어났을 때 미리 등록된 다른 클래스에 통보해주는 패턴</li>
+<li>event listner에서 해탕 패턴을 사용한다</li>
+</ul>
+<p><img src="/image/oop-java-30_images/6a03e395.png"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//IButtonListener.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IButtonListener</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">clickEvent</span><span class="params">(String event)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Button.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Button</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> IButtonListener buttonListener;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Button</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">(String meesage)</span> </span>&#123;</span><br><span class="line">        buttonListener.clickEvent(meesage);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addListener</span><span class="params">(IButtonListener buttonListener)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.buttonListener = buttonListener;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//test</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObserverTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Button button = <span class="keyword">new</span> Button(<span class="string">&quot;Button 1&quot;</span>);</span><br><span class="line">        button.click(<span class="string">&quot;click!&quot;</span>);</span><br><span class="line">        button.addListener(<span class="keyword">new</span> IButtonListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clickEvent</span><span class="params">(String event)</span> </span>&#123;</span><br><span class="line">                System.out.println(event);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        button.click((<span class="string">&quot;메시지 전달 : click 1&quot;</span>));</span><br><span class="line">        button.click((<span class="string">&quot;메시지 전달 : click 2&quot;</span>));</span><br><span class="line">        button.click((<span class="string">&quot;메시지 전달 : click 3&quot;</span>));</span><br><span class="line">        button.click((<span class="string">&quot;메시지 전달 : click 4&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+        <category>design pattern</category>
+      </categories>
+      <tags>
+        <tag>observer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>System Programming - IPC</title>
+    <url>/2021/07/29/System-Programming-IPC/</url>
+    <content><![CDATA[<h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><h2 id="IPC란"><a href="#IPC란" class="headerlink" title="IPC란"></a>IPC란</h2><ul>
+<li><p>OS에서 할당받은 독립적인 공간을 갖는 Process는 서로 물리적인 주소를 접근 할 수 </p>
+<p>없어서 프로세스간 통신을 하는데 어려움을 겪는다 이때 사용하는 기술이 IPC이다!</p>
+</li>
+</ul>
+<h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><ul>
+<li>두 프로세스 모두 저장매체를 접근 할 수 있기 때문에 파일을 통해서 통신할 수 있다.</li>
+<li>+가장 간단한 방법</li>
+<li>-서로 접근하고 있는지 확인할 방법이 없다</li>
+</ul>
+<h2 id="Others-IPC"><a href="#Others-IPC" class="headerlink" title="Others IPC"></a>Others IPC</h2><ul>
+<li>프로세스들의 커널공간은 공유한다는 아이디어를 기반으로<br>페이지테이블에 같은 물리주소를 가리킴으로써 다양한 IPC기법이 개발되었다.</li>
+</ul>
+<h3 id="PIPE"><a href="#PIPE" class="headerlink" title="PIPE"></a>PIPE</h3><ul>
+<li>fork()를 통해 자식 프로세스를 만들었을때 부모와 자식간의 통신</li>
+<li>단방향 통신</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MSGSIZE 255</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* msg = <span class="string">&quot;Hello Child&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">255</span>];</span><br><span class="line">  <span class="keyword">int</span> fd[<span class="number">2</span>], pid, nbyes;</span><br><span class="line">  <span class="keyword">if</span> (pipe(fd) &lt; <span class="number">0</span>) <span class="built_in">exit</span>(<span class="number">1</span>); <span class="comment">// 커널영역에 pipe 생성하고 오류시 exit(1)</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// 부모 프로세스이면 pid값을 출력</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;praent PID:%d, child PID:%d\n&quot;</span>, getpid(), pid);</span><br><span class="line">    write(fd[<span class="number">1</span>], msg, MSGSIZE); <span class="comment">// fd[1]에 메시지를 씀</span></span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>) <span class="comment">// 정상 종료  </span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;child PID %d\n, getpid());</span></span><br><span class="line"><span class="string">    nbytes= read(fd[0], buf , MSGSIZE); // 파일을 읽는 시스템콜 공란에 255사이즈데이터를 읽음 </span></span><br><span class="line"><span class="string">                                        // 동일한 커널영역에 들어가서 buf에 넣어주게됨 </span></span><br><span class="line"><span class="string">    printf(&quot;</span>%d %s\n, nbytes, buf);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Message-Queue"><a href="#Message-Queue" class="headerlink" title="Message Queue"></a>Message Queue</h3><ul>
+<li>선입선출 방식으로 데이터를 전송</li>
+<li>파이프와 다르게 양방향 통신도 가능하며 부모 자식간 프로세스가 아니어도 가능하다</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ipcs</span> <span class="comment"># 이 명령어를 통해 메시지를 포함한 ipc 정보를 확인할 수 있다</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/System-Programming-IPC_images/ipcs.png"></p>
+<p>메시지를 보낼떄의 예</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msqid = msgget(key, msgflg) <span class="comment">// 다른 메시지큐와 구분될 key , 메시지 큐의 옵션을 인자로 갖는다</span></span><br><span class="line">msgsnd(msqid, &amp;sbuf, buf_length, IPC_NOWAIT) <span class="comment">// 메시지를 보낼때의 함수</span></span><br><span class="line"> <span class="comment">//IPC_NOWAIT은 읽지않더라도 다음 코드를 실행할때 사용, 0이면 실행할떄까지 기다린다.</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  Key_t key = <span class="number">1111</span>;</span><br><span class="line">  msgid = msgget(key, IPC_CREAT|<span class="number">0644</span>); <span class="comment">// 메시지를 0644권한으로 새로 만든다</span></span><br><span class="line">  <span class="keyword">if</span> (msgid == <span class="number">-1</span>) &#123; <span class="comment">// 메시지생성에 실패했을경우</span></span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125; </span><br><span class="line">  msg.type = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">strcpy</span>(msg.text, <span class="string">&quot;Hello Message Queue\n&quot;</span>); <span class="comment">// 메시지 구조체에 텍스트를 넣는다</span></span><br><span class="line">  <span class="keyword">if</span> (msgsnd(msgid, (<span class="keyword">void</span> *)&amp;msg, <span class="number">50</span>, IPC_NOWAIT) == <span class="number">-1</span>) &#123; <span class="comment">// 메시지를 보내며 에러 확인</span></span><br><span class="line">    <span class="comment">// 메시지의 아이디, 구조체의 주소, 사이즈를 인자로 보낸다</span></span><br><span class="line">    perror(<span class="string">&quot;msgsnd&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>메시지를 받을떄의 예</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">sszie_t</span> <span class="title">msgrcv</span><span class="params">(<span class="keyword">int</span> msqid, <span class="keyword">void</span> *msgp, <span class="keyword">size_t</span> msgsz, <span class="keyword">long</span> msgtyp, <span class="keyword">int</span> msgflg)</span></span></span><br><span class="line"><span class="function"><span class="title">msgrcv</span><span class="params">(msqid, &amp;rbuf, MSGSZ, <span class="number">1</span> ,<span class="number">0</span>)</span> <span class="comment">// msgtype 0: 첫번째메시지 다른 양수이면 일치하는 첫번째 메시지</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">msgbuf</span> &#123;</span> <span class="comment">// 데이터를 전송할때 구조체의 값에 알맞게 넣어서 전송한다</span></span><br><span class="line">  <span class="keyword">long</span> type;</span><br><span class="line">  <span class="keyword">char</span> text[<span class="number">50</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">  MsgBuf msg;</span><br><span class="line">  <span class="keyword">int</span> msgid, len;</span><br><span class="line">  <span class="keyword">key_t</span> key = <span class="number">1111</span>; <span class="comment">// snd할때 키값과 동일해야한다.</span></span><br><span class="line">  <span class="keyword">if</span>((msgid == msgget(key, IPC_CREAT|<span class="number">0644</span>)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;msgget&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  len = msgrcv(msgid, &amp;msg, <span class="number">50</span>, <span class="number">0</span> ,<span class="number">0</span>); <span class="comment">// (메시지id, size , type, wait);</span></span><br><span class="line">  <span class="comment">//type에 일치하는 가장먼저오는 메시지를 수신한다</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Received Message is [%d] %s]\n&quot;</span>, len, msg.text);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>System Programming</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>TIL</tag>
+        <tag>Linux</tag>
+        <tag>C</tag>
+        <tag>System Programming</tag>
+        <tag>File</tag>
+        <tag>Pipe</tag>
+        <tag>Message Queue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OOP - Design Pattern - Facade</title>
+    <url>/2021/09/06/oop-java-31/</url>
+    <content><![CDATA[<h1 id="Facade-Pattern"><a href="#Facade-Pattern" class="headerlink" title="Facade Pattern"></a>Facade Pattern</h1><ul>
+<li>구조 패턴</li>
+<li>정면, 앞면이라는 뜻을 가지는 Facade는 여러 개의 객체와 실제 사용하는 서브 객체 사이에 복잡한 의존관계가 있을때 중간에 Facade 객체를 두어 제공하는 interface만을 활용하여 기능을 제공하는 방식이다</li>
+<li>Facade는 자신이 가지고 있는 각 클래스의 기능을 명확히 알아야 한다</li>
+</ul>
+<p><img src="/oop-java-31_images/9279e58d.png"></p>
+<h2 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Writer</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Writer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String fileName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Writer</span><span class="params">(String fileName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.fileName = fileName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fileConnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Writer %s 로 연결합니다&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fileWrite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Writer %s 를 씁니다.&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fildDisconnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Writer %s 로 연결 종료합니다&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Reader.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Reader</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String fileName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Reader</span><span class="params">(String fileName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.fileName = fileName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fileConnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Reader %s 로 연결합니다&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fileRead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Reader %s 를 읽습니다.&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fildDisconnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Reader %s 로 연결 종료합니다&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Ftp.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ftp</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line">    <span class="keyword">private</span> String path;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Ftp</span><span class="params">(String host, <span class="keyword">int</span> port, String path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.host = host;</span><br><span class="line">        <span class="keyword">this</span>.port = port;</span><br><span class="line">        <span class="keyword">this</span>.path = path;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;FTP host : &quot;</span> + host + <span class="string">&quot;Port : &quot;</span> + port);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveDirectory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;move path :&quot;</span> + path);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">disConnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;FTP Disconnected&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>해당 클래스를 클라이언트가 사용하기 위해서는 </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Ftp ftpClient = <span class="keyword">new</span> Ftp(<span class="string">&quot;www.foo.co.kr&quot;</span>,<span class="number">22</span>,<span class="string">&quot;/home/etc&quot;</span>);</span><br><span class="line">        ftpClient.connect();</span><br><span class="line">        ftpClient.moveDirectory();</span><br><span class="line"></span><br><span class="line">        Writer writer = <span class="keyword">new</span> Writer(<span class="string">&quot;text.tmp&quot;</span>);</span><br><span class="line">        writer.fileConnect();</span><br><span class="line">        writer.fileWrite();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Reader reader = <span class="keyword">new</span> Reader(<span class="string">&quot;text.tmp&quot;</span>);</span><br><span class="line">        reader.fileConnect();</span><br><span class="line">        reader.fileRead();</span><br><span class="line">        </span><br><span class="line">        writer.fildDisconnect();</span><br><span class="line">        reader.fildDisconnect();</span><br><span class="line">        ftpClient.disConnect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Client가 의존성을 가지고있는 형태가 된다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SftpClient</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Ftp ftp;</span><br><span class="line">    <span class="keyword">private</span> Reader reader;</span><br><span class="line">    <span class="keyword">private</span> Writer writer;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SftpClient</span><span class="params">(Ftp ftp, Reader reader, Writer writer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.ftp = ftp;</span><br><span class="line">        <span class="keyword">this</span>.reader = reader;</span><br><span class="line">        <span class="keyword">this</span>.writer = writer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SftpClient</span><span class="params">(String host, <span class="keyword">int</span> port,String path, String fileName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.ftp = <span class="keyword">new</span> Ftp(host,port,path);</span><br><span class="line">        <span class="keyword">this</span>.reader = <span class="keyword">new</span> Reader(fileName);</span><br><span class="line">        <span class="keyword">this</span>.writer = <span class="keyword">new</span> Writer(fileName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ftp.connect();</span><br><span class="line">        ftp.moveDirectory();</span><br><span class="line">        writer.fileConnect();</span><br><span class="line">        reader.fileConnect();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">disconnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        writer.fildDisconnect();</span><br><span class="line">        reader.fildDisconnect();</span><br><span class="line">        ftp.disConnect();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        reader.fileRead();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        writer.fileWrite();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>SftpClient를 만듬으로써 의존성을 가져간다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SftpClient sftpClient = <span class="keyword">new</span> SftpClient(<span class="string">&quot;www.foo.co.kr&quot;</span>,<span class="number">22</span>,<span class="string">&quot;/homt/etc&quot;</span>,<span class="string">&quot;text.tmp&quot;</span>);</span><br><span class="line">        sftpClient.connect();</span><br><span class="line">        sftpClient.write();</span><br><span class="line">        sftpClient.read();</span><br><span class="line">        sftpClient.disconnect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>여러 객체의 의존성을 뒤로 숨겨주어 기능적으론 동일하지만 간략하게 줄일 수 있다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>oop</category>
+        <category>java</category>
+        <category>design pattern</category>
+      </categories>
+      <tags>
+        <tag>facade</tag>
+      </tags>
   </entry>
 </search>
