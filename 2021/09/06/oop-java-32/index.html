@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="ISU&#39;s Blog">
 <meta property="og:description" content="Strategy Pattern 전략 패턴은 유사한 행위들을 캡슐화 하여 객체의 행위를 바꾸고 싶은 경우 직접변경하는 것이 아닌전략만 변경하여 유연하게 확장하는 패턴  개방폐쇄 원칙과 의존 역전 법칙을 따른다   1234567891011121314151617181920212223&#x2F;&#x2F; EncodingStrategy.java&#x2F;&#x2F; 해당 인터페이스에서 전략에서 공통">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://jeongisu94.github.io/oop-java-32_images/2cfd80b3.png">
-<meta property="og:image" content="https://jeongisu94.github.io/oop-java-32_images/8369586c.png">
+<meta property="og:image" content="https://jeongisu94.github.io/image/oop-java-32_images/2cfd80b3.png">
+<meta property="og:image" content="https://jeongisu94.github.io/image/oop-java-32_images/8369586c.png">
 <meta property="article:published_time" content="2021-09-06T12:16:48.000Z">
-<meta property="article:modified_time" content="2021-09-06T13:02:44.617Z">
+<meta property="article:modified_time" content="2021-09-06T13:05:11.024Z">
 <meta property="article:author" content="Jeongisu">
 <meta property="article:tag" content="strategy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jeongisu94.github.io/oop-java-32_images/2cfd80b3.png">
+<meta name="twitter:image" content="https://jeongisu94.github.io/image/oop-java-32_images/2cfd80b3.png">
 
 
 <link rel="canonical" href="https://jeongisu94.github.io/2021/09/06/oop-java-32/">
@@ -241,7 +241,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-09-06 21:16:48 / Modified: 22:02:44" itemprop="dateCreated datePublished" datetime="2021-09-06T21:16:48+09:00">2021-09-06</time>
+      <time title="Created: 2021-09-06 21:16:48 / Modified: 22:05:11" itemprop="dateCreated datePublished" datetime="2021-09-06T21:16:48+09:00">2021-09-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -282,7 +282,7 @@
 <li>전략 패턴은 유사한 행위들을 캡슐화 하여 객체의 행위를 바꾸고 싶은 경우 직접변경하는 것이 아닌<br>전략만 변경하여 유연하게 확장하는 패턴 </li>
 <li>개방폐쇄 원칙과 의존 역전 법칙을 따른다</li>
 </ul>
-<p><img src="/oop-java-32_images/2cfd80b3.png"></p>
+<p><img src="/image/oop-java-32_images/2cfd80b3.png"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// EncodingStrategy.java</span></span><br><span class="line"><span class="comment">// 해당 인터페이스에서 전략에서 공통적으로 사용할 행위 메소드를 정의한다</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">EncodingStrategy</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">encode</span><span class="params">(String text)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// NormalEncoder.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NormalEncoder</span> <span class="keyword">implements</span> <span class="title">EncodingStrategy</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">encode</span><span class="params">(String text)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> text;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// StrategyEncoder.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Base64Encoder</span> <span class="keyword">implements</span> <span class="title">EncodingStrategy</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">encode</span><span class="params">(String text)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Base64.getEncoder().encodeToString(text.getBytes());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Encoder</span> </span>&#123;</span><br><span class="line">    EncodingStrategy encodingStrategy;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span> <span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> encodingStrategy.encode(message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEncodingStrategy</span><span class="params">(EncodingStrategy encodingStrategy)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.encodingStrategy = encodingStrategy;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -292,7 +292,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EncoderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        EncodingStrategy base64 = <span class="keyword">new</span> Base64Encoder();</span><br><span class="line">        EncodingStrategy normal = <span class="keyword">new</span> NormalEncoder();</span><br><span class="line">        Encoder encoder = <span class="keyword">new</span> Encoder();</span><br><span class="line"></span><br><span class="line">        String message = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">        encoder.setEncodingStrategy(base64);</span><br><span class="line">        System.out.println(encoder.getMessage(message));</span><br><span class="line"></span><br><span class="line">        encoder.setEncodingStrategy(normal);</span><br><span class="line">        System.out.println(encoder.getMessage(message));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/oop-java-32_images/8369586c.png"></p>
+<p><img src="/image/oop-java-32_images/8369586c.png"></p>
 
     </div>
 
