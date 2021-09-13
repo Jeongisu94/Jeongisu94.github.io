@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">61</span>
+        <span class="site-state-item-count">62</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,140 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/01/OOP-java-23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/01/OOP-java-23/" class="post-title-link" itemprop="url">Java - Thread</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-01 15:16:44" itemprop="dateCreated datePublished" datetime="2021-09-01T15:16:44+09:00">2021-09-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-06 20:00:29" itemprop="dateModified" datetime="2021-09-06T20:00:29+09:00">2021-09-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h1><h2 id="Thread-1"><a href="#Thread-1" class="headerlink" title="Thread"></a>Thread</h2><ul>
+<li>프로그램이 메모리를 할당받아 실행중인 상태를 프로세스라고 한다</li>
+<li>Thread는 Process내에서 실제 작업을 수행하는 단위이다</li>
+</ul>
+<h2 id="Multi-Thread"><a href="#Multi-Thread" class="headerlink" title="Multi Thread"></a>Multi Thread</h2><ul>
+<li>여러 Thread가 동시에 수행되는 프로그래밍, 여러 작업이 동시에 실행될 수 있다</li>
+<li>Thread는 Context라는 각각 작업 공간을 가진다</li>
+<li>static instance를 사용해 자원을 공유 할 수있음</li>
+<li>여러 thread가 자원을 공유하여 작업이 수행되는 경우 race condition이 발생 할 수있다.</li>
+</ul>
+<h2 id="Java에서-Thread-만들기"><a href="#Java에서-Thread-만들기" class="headerlink" title="Java에서 Thread 만들기"></a>Java에서 Thread 만들기</h2><h3 id="extends-Thread"><a href="#extends-Thread" class="headerlink" title="extends Thread"></a>extends Thread</h3><ul>
+<li>Thread 클래스 상속받아 Runnable 인터페이스 객체의 함수를 실행시키는 방법</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">1</span> ; i &lt; <span class="number">200</span> ; i++) &#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread my1 = <span class="keyword">new</span> MyThread();</span><br><span class="line">        MyThread my2 = <span class="keyword">new</span> MyThread();</span><br><span class="line"></span><br><span class="line">        my1.start();</span><br><span class="line">        my2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/image/OOP-java-23_images/0cb5eb30.png"></p>
+<h3 id="implements-Runnable"><a href="#implements-Runnable" class="headerlink" title="implements Runnable"></a>implements Runnable</h3><ul>
+<li>이미 다른 클래스의 상속을 받은 경우 Runnable Interface 구현을 통해 만들 수 있다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">1</span> ; i &lt; <span class="number">200</span> ; i++) &#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread runnableInstance = <span class="keyword">new</span> MyThread();</span><br><span class="line"></span><br><span class="line">        Thread myThread1 = <span class="keyword">new</span> Thread(runnableInstance);</span><br><span class="line">        Thread myThread2 = <span class="keyword">new</span> Thread(runnableInstance);</span><br><span class="line"></span><br><span class="line">        myThread1.start();</span><br><span class="line">        myThread2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Interface의 익명객체를 만들어 사용할수도 있다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        Runnable runnable = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">char</span> c = <span class="string">&#x27;a&#x27;</span> ; c &lt;= <span class="string">&#x27;z&#x27;</span> ; c++) &#123;</span><br><span class="line">                    System.out.println(c);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Thread myThread = <span class="keyword">new</span> Thread(runnable);</span><br><span class="line">        myThread.start();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Thread의-상태"><a href="#Thread의-상태" class="headerlink" title="Thread의 상태"></a>Thread의 상태</h2><ul>
+<li>Thread는 start함수를 통해 Runnable한 thread객체들이 Thread Pool에 들어가게 된다</li>
+<li>프로그램이 CPU의 자원을 할당받으면 <strong>Run</strong> 상태가되며 작업이 끝나면 <strong>Dead</strong>상태가 된다</li>
+<li><code>sleep()</code>,<code>wait()</code>,<code>join()</code> 함수를 통해 <strong>Not Runnable</strong>상태가 되는데 이때는 CPU의 할당을 받을 수 없다</li>
+<li><code>notify()</code>,<code>notifyAll()</code>, <code>join()</code> 함수를 통해 <strong>Runnable</strong> 상태로 돌아온다</li>
+</ul>
+<h2 id="Thread-Methods"><a href="#Thread-Methods" class="headerlink" title="Thread Methods"></a>Thread Methods</h2><h3 id="Priority"><a href="#Priority" class="headerlink" title="Priority()"></a><code>Priority()</code></h3><ul>
+<li>Thread의 우선순위를 정할 수 있는데 우선 순위가 높을 수록 CPU의 할당을 받을 <strong>확률</strong>이 높아진다 여기에서 확률이라 한 이유는 무조건적으로 높은 우선순위가<br>CPU를 점유하지 않기 때문이다</li>
+<li><code>setPriority()</code> <code>getPriority()</code> 로 set/get할 수 있으며 Default는 5이다</li>
+</ul>
+<h3 id="join"><a href="#join" class="headerlink" title="join()"></a><code>join()</code></h3><ul>
+<li>Thread가 동시 실행될때 하나의 Thread가 다른 Thread의 값을 참조해야 할때 사용한다</li>
+<li><code>join()</code> 함수를 <strong>호출</strong>한 Thread가 Not Runnable 상태로 전환된다</li>
+<li><code>join()</code>이 걸린 Thread의 작업이 끝나면 Runnable 상태로 되돌아간다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JoinTest</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> start;</span><br><span class="line">    <span class="keyword">int</span> end;</span><br><span class="line">    <span class="keyword">int</span> total;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JoinTest</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.start = start;</span><br><span class="line">        <span class="keyword">this</span>.end = end;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span> (i = start; i &lt;= end ; i ++) &#123;</span><br><span class="line">            total += i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        JoinTest jt1 = <span class="keyword">new</span> JoinTest(<span class="number">1</span>, <span class="number">50</span>);</span><br><span class="line">        JoinTest jt2 = <span class="keyword">new</span> JoinTest(<span class="number">51</span> ,<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">        jt1.start();</span><br><span class="line">        jt2.start();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            jt1.join();</span><br><span class="line">            jt2.join();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(jt1.total + jt2.total);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="interrupt"><a href="#interrupt" class="headerlink" title="interrupt()"></a><code>interrupt()</code></h3><ul>
+<li>다른 Thread에 예외를 발생 시키는 interrupt를 보낸다</li>
+<li>Non runnable 상태일때 <code>interrupt()</code> 메소드를 호출함으로써 runnable 상태로 전환 할 수 있음</li>
+</ul>
+<h3 id="Thread-종료하기"><a href="#Thread-종료하기" class="headerlink" title="Thread 종료하기"></a>Thread 종료하기</h3><ul>
+<li>Thread가 무한 루프되는 경우 <code>while(flag)</code> 에서 <strong>flag</strong>를 false로 바꿔 종료함</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1483,127 +1617,6 @@ Exception --> Throwable;</pre>
 
 <ul>
 <li>람다식 사용시 함수영 인터페이스의 인스턴스에 람다식을 할당해 사용할 수 있다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/23/OOP-java-13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/23/OOP-java-13/" class="post-title-link" itemprop="url">Java - 자바의 내부 클래스</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-23 15:41:06" itemprop="dateCreated datePublished" datetime="2021-08-23T15:41:06+09:00">2021-08-23</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-25 19:24:00" itemprop="dateModified" datetime="2021-08-25T19:24:00+09:00">2021-08-25</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Inner-Class"><a href="#Inner-Class" class="headerlink" title="Inner Class"></a>Inner Class</h1><ul>
-<li>내부 클래스는 클래스 내부에 선언한 클래스이고 감싸고있는 외부클래스가 아닌 다른 클래스가 사용할 일이 적다</li>
-<li>내부 클래스의 종류<ul>
-<li>Instance inner class, Static inner class, local inner class , anonymous inner class</li>
-</ul>
-</li>
-</ul>
-<h2 id="Instance-Inner-Class"><a href="#Instance-Inner-Class" class="headerlink" title="Instance Inner Class"></a>Instance Inner Class</h2><ul>
-<li><p>내부적으로 사용할 클래스를 선언하여 사용</p>
-</li>
-<li><p>외부 클래스가 생성된 후에 생성된다.</p>
-</li>
-<li><p>private이 아닌 경우 다른 외부클래스에서도 생성할 수 있다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//OutClass.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OutClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Integer outInt = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> Integer outStaticInt = <span class="number">10000</span>;</span><br><span class="line">  <span class="keyword">private</span> InstanceInnerClass instanceInnerClass;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">OutClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      instanceInnerClass = <span class="keyword">new</span> InstanceInnerClass();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceInnerClass</span> </span>&#123;</span><br><span class="line">      <span class="keyword">private</span> Integer inInt = <span class="number">500</span>;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">inClassFunc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          System.out.println(outInt + <span class="string">&quot;외부 클래스의 Private Instance 변수&quot;</span>);</span><br><span class="line">          System.out.println(outStaticInt + <span class="string">&quot;외부 클래스의 Private Static 변수&quot;</span>);</span><br><span class="line">          System.out.println(inInt + <span class="string">&quot;내부 클래스의 Private Instance 변수&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">outClassFunc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      instanceInnerClass.inClassFunc();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OutClassTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    OutClass outClass = <span class="keyword">new</span> OutClass();</span><br><span class="line">    outClass.outClassFunc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="Static-Inner-Class"><a href="#Static-Inner-Class" class="headerlink" title="Static Inner Class"></a>Static Inner Class</h2><ul>
-<li><p>외부 클래스의 생성과 무관하게 사용할 수 있다</p>
-</li>
-<li><p>정적변수와 정적 메소드를 사용한다</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticInnerClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer inInt = <span class="number">501</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Integer staticinInt = <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">staticClassFunc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//System.out.println(outInt + &quot;외부 클래스의 Private Instance 변수&quot;); 외부 클래스의 생성과 관련이 없기떄문에 인스턴스 변수는 사용할 수 없다.</span></span><br><span class="line">        System.out.println(outStaticInt + <span class="string">&quot;외부 클래스의 Private Static 변수&quot;</span>);</span><br><span class="line">        System.out.println(inInt + <span class="string">&quot;정적 내부 클래스의 Private Instance 변수&quot;</span>);</span><br><span class="line">        System.out.println(staticinInt + <span class="string">&quot;정적 내부 클래스의 Private Static Instance 변수&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="Local-Inner-Class-amp-Anonymous-InnerClass"><a href="#Local-Inner-Class-amp-Anonymous-InnerClass" class="headerlink" title="Local Inner Class &amp; Anonymous InnerClass"></a>Local Inner Class &amp; Anonymous InnerClass</h2><h3 id="Local-Inner-Class"><a href="#Local-Inner-Class" class="headerlink" title="Local Inner Class"></a>Local Inner Class</h3><ul>
-<li><p>메소드 내부에 정의하는 클래스 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OUtClass</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="function">Runnable <span class="title">getRunnable</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    Integer num = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">      Integer localNum = <span class="number">1000</span>;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;i = &quot;</span> + i);</span><br><span class="line">        System.out.println(<span class="string">&quot;localNum = &quot;</span> + localNum);</span><br><span class="line">        System.out.println(<span class="string">&quot;num = &quot;</span> + num);</span><br><span class="line">        System.out.println(<span class="string">&quot;outInt = &quot;</span> + outInt);</span><br><span class="line">        System.out.println(<span class="string">&quot;OutClass.outStaticInt = &quot;</span> + OutClass.outStaticInt);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> MyRunnable();</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>메소드 내 지역변수와 매개변수 i 는 메소드 호출될떄 스택메모리에 생성이된다.</p>
-</li>
-<li><p>따라서 내부클래스에서 이 지역변수들을 사용할 수있지만 할당은 불가능하다</p>
-<ul>
-<li>그 이유는 메소드가 호출되는 시점과 클래스의 생성주기가 다르기 때문이다<br>getRunnable()함수가 호출이 끝나고나면 로컬변수와 argument들은 사라지는데 메소드안에 내부 클래스안의 메소드는 다시 호출 될 수있다<br>그때 i와 num이 없을 수 있다 따라서 내부적으로 <code>final</code>로 처리하게 된다.</li>
-</ul>
-</li>
-</ul>
-<h3 id="Anonymous-Inner-Class"><a href="#Anonymous-Inner-Class" class="headerlink" title="Anonymous Inner Class"></a>Anonymous Inner Class</h3><ul>
-<li><p>위 처럼 사용할 경우 다른 곳에서 해당 클래스를 사용할 필요가 없다 따라서 클래스의 이름을 아얘 지워버리는<br>Anonymous Inner Class가 있다.</p>
-</li>
-<li><p>클래스의 이름을 생략하고 주로 하나의 인터페이스나 하나의 추상클래스를 구현하여 반환 (ex: Runnable) </p>
-</li>
-<li><p>안드로이드 widget의 이벤트 핸들러에 활용된다</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Runnable <span class="title">getRunnable</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">  Integer num = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">      Integer localNum = <span class="number">1000</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;i = &quot;</span> + i);</span><br><span class="line">      System.out.println(<span class="string">&quot;localNum = &quot;</span> + localNum);</span><br><span class="line">      System.out.println(<span class="string">&quot;num = &quot;</span> + num);</span><br><span class="line">      System.out.println(<span class="string">&quot;outInt = &quot;</span> + outInt);</span><br><span class="line">      System.out.println(<span class="string">&quot;OutClass.outStaticInt = &quot;</span> + OutClass.outStaticInt);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
