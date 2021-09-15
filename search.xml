@@ -179,6 +179,107 @@
       </tags>
   </entry>
   <entry>
+    <title>Shell 사용법 1</title>
+    <url>/2021/07/22/Linux%20-%20Shell%20instruction%20/</url>
+    <content><![CDATA[<h1 id="Shell-사용법"><a href="#Shell-사용법" class="headerlink" title="Shell 사용법"></a>Shell 사용법</h1><h2 id="Standard-Stream-표준-입출력"><a href="#Standard-Stream-표준-입출력" class="headerlink" title="Standard Stream (표준 입출력)"></a>Standard Stream (표준 입출력)</h2><ul>
+<li>리눅스환경에서는  command로 실행되는 프로세스는 세가지 스트림을 가진다<ul>
+<li>표준 입력 스트림 - stdin</li>
+<li>표준 출력 스트림 - stdout</li>
+<li>표준 오류 스트림 - stderr</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled.png"></p>
+<p>ex) ls -al 은 stdin에 해당하고 stdout은 그에따른 결과에 해당한다고 할 수 있다.</p>
+<hr>
+<h2 id="Redirection-리디렉션"><a href="#Redirection-리디렉션" class="headerlink" title="Redirection (리디렉션)"></a>Redirection (리디렉션)</h2><ul>
+<li><p>표준 스트림을 바꿔 줄 수 있다.</p>
+<p>   [ &lt; , &gt; , &lt;&lt; , &gt;&gt; ]를 사용한다.</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls &gt; file.txt <span class="comment"># 출력내용을 터미널의 console에 출력이 아닌 file.txt에 저장시킴</span></span><br><span class="line"></span><br><span class="line">head &lt; file.txt <span class="comment"># file.txt내용의 10줄이 입력으로 사용 된다.ead &lt; files.txt &gt; files2.txt</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ head &lt;.bashrc &gt; test.txt </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>이 명령어는 다음과 같이 작동한다.<ol>
+<li>head &lt; .bashrc</li>
+<li>1의 결과 &gt; test.txt에 저장</li>
+</ol>
+<ul>
+<li>출력화면</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled%201.png"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls -al &gt;&gt; test1.txt <span class="comment"># 기존의 내용을 삭제하지않고 추가한다.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Pipe-파이프"><a href="#Pipe-파이프" class="headerlink" title="Pipe (파이프)"></a>Pipe (파이프)</h2><ul>
+<li><p>여러개의 프로세스 사이에서 앞의 프로세스의 출력을 그 뒤의 프로세스의 입력으로 사용 하는 것.</p>
+<p>  [ | ] 를 사용한다.</p>
+</li>
+</ul>
+<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/%ED%8C%8C%EC%9D%B4%ED%94%84.jpg"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat .bashrc | grep <span class="keyword">case</span></span><br><span class="line"><span class="keyword">case</span> $- <span class="keyword">in</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">	<span class="comment"># a case would tend to support setf rather than setaf.)</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>cat 명령을 통한 출력내용이 grep 명령의 입력 스트림으로 들어간다.</li>
+<li>grep case 는 grep 명령의 입력스을 검색해서 cat의 출력내용에 case가 있는 라인만 출력한다</li>
+</ol>
+]]></content>
+      <categories>
+        <category>system programming</category>
+      </categories>
+      <tags>
+        <tag>system programming</tag>
+        <tag>Bash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shell 사용법 2</title>
+    <url>/2021/07/23/Linux-How_to_use_shell/</url>
+    <content><![CDATA[<p>#Shell 사용법</p>
+<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
+<li>바이너리는 실행할 수 있는 파일</li>
+<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
+<li>메모리와 관련된 상태정보 (PCB)</li>
+<li>시스템 리소스</li>
+<li>스케쥴링 단위</li>
+</ul>
+</li>
+</ul>
+<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
+<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
+<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
+</ul>
+<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
+<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
+<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
+<li>서버 데몬, 백신 프로그램, etc..</li>
+</ul>
+<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
+<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
+<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
+<hr>
+<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
+<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
+]]></content>
+      <categories>
+        <category>system programming</category>
+        <category>Linux</category>
+        <category>Shell</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>system programming</tag>
+        <tag>Bash</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux / basic</title>
     <url>/2021/07/22/Linux%20-%20Shell%20Basic/</url>
     <content><![CDATA[<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><h2 id="Shell은-사용자와-하드웨어-또는-OS간의-인터페이스이다"><a href="#Shell은-사용자와-하드웨어-또는-OS간의-인터페이스이다" class="headerlink" title="Shell은 사용자와 하드웨어 또는 OS간의 인터페이스이다."></a>Shell은 사용자와 하드웨어 또는 OS간의 인터페이스이다.</h2><p>![](/image/Linux Shell Basic/R800x0.jpeg)</p>
@@ -268,65 +369,69 @@
         <category>system programming</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>Shell</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
-    <title>Shell 사용법 1</title>
-    <url>/2021/07/22/Linux%20-%20Shell%20instruction%20/</url>
-    <content><![CDATA[<h1 id="Shell-사용법"><a href="#Shell-사용법" class="headerlink" title="Shell 사용법"></a>Shell 사용법</h1><h2 id="Standard-Stream-표준-입출력"><a href="#Standard-Stream-표준-입출력" class="headerlink" title="Standard Stream (표준 입출력)"></a>Standard Stream (표준 입출력)</h2><ul>
-<li>리눅스환경에서는  command로 실행되는 프로세스는 세가지 스트림을 가진다<ul>
-<li>표준 입력 스트림 - stdin</li>
-<li>표준 출력 스트림 - stdout</li>
-<li>표준 오류 스트림 - stderr</li>
-</ul>
+    <title>객체 지향 프로그래밍 - Basic 1</title>
+    <url>/2021/08/12/OOP-java-1/</url>
+    <content><![CDATA[<h1 id="객체지향-프로그래밍-Object-Oriented-Programming"><a href="#객체지향-프로그래밍-Object-Oriented-Programming" class="headerlink" title="객체지향 프로그래밍(Object Oriented Programming)"></a>객체지향 프로그래밍(Object Oriented Programming)</h1><h2 id="객체지향-프로그래밍"><a href="#객체지향-프로그래밍" class="headerlink" title="객체지향 프로그래밍?"></a>객체지향 프로그래밍?</h2><ul>
+<li><p>순서대로 실행되는 절차지향적인 C언어와 달리<br>객체의 관점에서 프로그래밍 하는 것 </p>
 </li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled.png"></p>
-<p>ex) ls -al 은 stdin에 해당하고 stdout은 그에따른 결과에 해당한다고 할 수 있다.</p>
-<hr>
-<h2 id="Redirection-리디렉션"><a href="#Redirection-리디렉션" class="headerlink" title="Redirection (리디렉션)"></a>Redirection (리디렉션)</h2><ul>
-<li><p>표준 스트림을 바꿔 줄 수 있다.</p>
-<p>   [ &lt; , &gt; , &lt;&lt; , &gt;&gt; ]를 사용한다.</p>
+<li><p>여기서 객체란 의사나 행위가 미치는 대상이며 즉, 구체적 추상적 데이터의 단위이다.</p>
 </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls &gt; file.txt <span class="comment"># 출력내용을 터미널의 console에 출력이 아닌 file.txt에 저장시킴</span></span><br><span class="line"></span><br><span class="line">head &lt; file.txt <span class="comment"># file.txt내용의 10줄이 입력으로 사용 된다.ead &lt; files.txt &gt; files2.txt</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ head &lt;.bashrc &gt; test.txt </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>이 명령어는 다음과 같이 작동한다.<ol>
-<li>head &lt; .bashrc</li>
-<li>1의 결과 &gt; test.txt에 저장</li>
-</ol>
-<ul>
-<li>출력화면</li>
-</ul>
+<li><p>객체지향의 목적은 추상화, 캡슐화, 상속 ,다형성을 특징으로 가진다</p>
 </li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/Untitled%201.png"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ls -al &gt;&gt; test1.txt <span class="comment"># 기존의 내용을 삭제하지않고 추가한다.</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Pipe-파이프"><a href="#Pipe-파이프" class="headerlink" title="Pipe (파이프)"></a>Pipe (파이프)</h2><ul>
-<li><p>여러개의 프로세스 사이에서 앞의 프로세스의 출력을 그 뒤의 프로세스의 입력으로 사용 하는 것.</p>
-<p>  [ | ] 를 사용한다.</p>
-</li>
-</ul>
-<p><img src="/image/Linux-Shell%20%EC%82%AC%EC%9A%A9%EB%B2%95/%ED%8C%8C%EC%9D%B4%ED%94%84.jpg"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat .bashrc | grep <span class="keyword">case</span></span><br><span class="line"><span class="keyword">case</span> $- <span class="keyword">in</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">	<span class="comment"># a case would tend to support setf rather than setaf.)</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$TERM</span>&quot;</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure>
-
+<li><p>OOP는 5가지의 원칙을 준수해야한다</p>
 <ol>
-<li>cat 명령을 통한 출력내용이 grep 명령의 입력 스트림으로 들어간다.</li>
-<li>grep case 는 grep 명령의 입력스을 검색해서 cat의 출력내용에 case가 있는 라인만 출력한다</li>
+<li>SRP (single responsibility principle) : 단일 책임 원칙, 한 클래스는 한가지의 책임만 갖고있어야 한다</li>
+<li>OCP (Open/Closed Principle) : 개방 폐쇄 원칙, 확장에는 열려있고 변경에는 닫혀있어야 한다</li>
+<li>LSP (Liskov’s Substitution Principle) 리스코프 치환 법칙, 서브타입은 언제나 부모 타입으로 교체 될 수 있어야 한다</li>
+<li>ISP (interface segregation principle): 인터페이스 분리원칙, 자신이 사용하지 않는 인터페이스는 구현하지 않아야함</li>
+<li>DIP (Dependency Inversion Principle): 의존성 역전 원칙, 하위 레벨 모듈의 변경이 상위 레벨 변경을 요구하는 위계관계를 끊는 의미의 역전</li>
 </ol>
+</li>
+</ul>
+<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><ul>
+<li><p>어떠한 객체를 추상화하여 해당 사물이 가져야하는 속성(feild)나 행위(method)로 구성된다.</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> studentNumber;</span><br><span class="line">    String studentName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Convention"><a href="#Convention" class="headerlink" title="Convention"></a>Convention</h3><ul>
+<li>협력을 위해 다음과 같은 관습이 존재한다.</li>
+</ul>
+<ol>
+<li>Class는 대문자로 시작한다</li>
+<li>한 java파일 하나에 클래스는 여러개가 있을 수 있지만 public class는 하나이고 그 클래스와 .java파일의 이름을 동일하</li>
+<li>camel notation 방식으로 명명한다</li>
+<li>변수이름과 메소드는 소문자로 시작한다</li>
+</ol>
+<h2 id="함수-Function"><a href="#함수-Function" class="headerlink" title="함수 (Function)"></a>함수 (Function)</h2><ul>
+<li><p>하나의 기능을 수행하는 일련의 코드</p>
+</li>
+<li><p>구현된 함수는 여러 곳에서 동일한 방식으로 호출되어 사용 할 수있음</p>
+</li>
+<li><p>모듈화를 위해 낮은 결합도와 높은 응집도를 갖도록 설계하기위해 기능별로 구현하는 것이 좋다</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span> <span class="params">(<span class="keyword">int</span> nmu1, <span class="keyword">int</span> num2)</span> </span>&#123; <span class="comment">// 반환 데이터 함수이름 파라미터순으로 작성한다</span></span><br><span class="line">    <span class="keyword">int</span> result; </span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">//반환 값이 있는경우</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">helloWolrd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">&quot;Hello Wolrd!&quot;</span>); <span class="comment">// 반환 값이 없는경우</span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></li>
+<li><p>함수가 호출될 때 지역 변수들은 스택에 쌓인다. 함수 수행이 끝나면 자동으로 반환된다.</p>
+</li>
+</ul>
+<h2 id="메소드-Method"><a href="#메소드-Method" class="headerlink" title="메소드 (Method)"></a>메소드 (Method)</h2><ul>
+<li><p>객체의 기능을 구현하기 위해 클래스 내부에 구현되는 함수</p>
+</li>
+<li><p>멤버함수라고도 한다</p>
+</li>
+<li><p>메소드의 이름은 객체에 맞게 짓는 것이 좋다 ex) setID(param1),getID()…</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> studentNumber;</span><br><span class="line">    <span class="keyword">private</span> String studentName;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getStudentName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> studentName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStudentNumber</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.studentName = name;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
       <categories>
-        <category>system programming</category>
+        <category>java</category>
+        <category>oop</category>
       </categories>
       <tags>
-        <tag>system programming</tag>
-        <tag>Bash</tag>
+        <tag>java</tag>
+        <tag>oop</tag>
       </tags>
   </entry>
   <entry>
@@ -402,108 +507,44 @@
       </tags>
   </entry>
   <entry>
-    <title>객체 지향 프로그래밍 - Basic 1</title>
-    <url>/2021/08/12/OOP-java-1/</url>
-    <content><![CDATA[<h1 id="객체지향-프로그래밍-Object-Oriented-Programming"><a href="#객체지향-프로그래밍-Object-Oriented-Programming" class="headerlink" title="객체지향 프로그래밍(Object Oriented Programming)"></a>객체지향 프로그래밍(Object Oriented Programming)</h1><h2 id="객체지향-프로그래밍"><a href="#객체지향-프로그래밍" class="headerlink" title="객체지향 프로그래밍?"></a>객체지향 프로그래밍?</h2><ul>
-<li><p>순서대로 실행되는 절차지향적인 C언어와 달리<br>객체의 관점에서 프로그래밍 하는 것 </p>
+    <title>Java - Object Class</title>
+    <url>/2021/08/18/OOP-java-11/</url>
+    <content><![CDATA[<h1 id="Object-Class"><a href="#Object-Class" class="headerlink" title="Object Class"></a>Object Class</h1><h2 id="Object-Class-1"><a href="#Object-Class-1" class="headerlink" title="Object Class"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html">Object Class</a></h2><ul>
+<li>Object 클래스는 가장 상위클래스이다.</li>
+<li>즉 모든 클래스들은 Object클래스를 상속받고 필요에 의해 Object Class의 Method를 재정의하여 사용할 수 있다.</li>
+<li>Compiler는 Compile시에 Extends Object를 추가한다</li>
+</ul>
+<h3 id="Object-Class-Method"><a href="#Object-Class-Method" class="headerlink" title="Object Class Method"></a>Object Class Method</h3><h4 id="override-toString"><a href="#override-toString" class="headerlink" title="override toString()"></a>override toString()</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Animal(<span class="string">&quot;Dog&quot;</span>, <span class="number">2</span>);</span><br><span class="line">        String test = <span class="keyword">new</span> String(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        System.out.println(dog);</span><br><span class="line">        System.out.println(test);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>코드의 결과는 다음과 같다 <img src="/image/OOP-java-11_images/animaltest.png"></p>
 </li>
-<li><p>여기서 객체란 의사나 행위가 미치는 대상이며 즉, 구체적 추상적 데이터의 단위이다.</p>
+<li><p>test의 toString()은 이미 재정의 되어있기때문에 test를 바로 출력하지만</p>
 </li>
-<li><p>객체지향의 목적은 추상화, 캡슐화, 상속 ,다형성을 특징으로 가진다</p>
+<li><p>Animal 클래스는 그렇지않기때문에 16진수의 주소값을 출력한다.<br><img src="/image/OOP-java-11_images/tostringoveride.png"></p>
 </li>
-<li><p>OOP는 5가지의 원칙을 준수해야한다</p>
-<ol>
-<li>SRP (single responsibility principle) : 단일 책임 원칙, 한 클래스는 한가지의 책임만 갖고있어야 한다</li>
-<li>OCP (Open/Closed Principle) : 개방 폐쇄 원칙, 확장에는 열려있고 변경에는 닫혀있어야 한다</li>
-<li>LSP (Liskov’s Substitution Principle) 리스코프 치환 법칙, 서브타입은 언제나 부모 타입으로 교체 될 수 있어야 한다</li>
-<li>ISP (interface segregation principle): 인터페이스 분리원칙, 자신이 사용하지 않는 인터페이스는 구현하지 않아야함</li>
-<li>DIP (Dependency Inversion Principle): 의존성 역전 원칙, 하위 레벨 모듈의 변경이 상위 레벨 변경을 요구하는 위계관계를 끊는 의미의 역전</li>
-</ol>
+<li><p>따라서 Animal class 또한 object를 상속받았기때문에 toString()을 오버라이드 할 수 있다.</p>
 </li>
 </ul>
-<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><ul>
-<li><p>어떠한 객체를 추상화하여 해당 사물이 가져야하는 속성(feild)나 행위(method)로 구성된다.</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> studentNumber;</span><br><span class="line">    String studentName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Animal&#123;&quot;</span> +</span><br><span class="line">                    <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                    <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                    <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-11_images/2a3ceefb.png"></p>
+<h4 id="equals"><a href="#equals" class="headerlink" title="equals()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals(java.lang.Object)">equals()</a></h4><ul>
+<li>equals() 메소드는 두 인스턴스 주소 값을 비교하여 True/False를 반환한다</li>
+<li>인스턴스가 달라도 논리적으로 같다면 true를 반환할 수 있도록 재정의가 가능하다.</li>
 </ul>
-<h3 id="Convention"><a href="#Convention" class="headerlink" title="Convention"></a>Convention</h3><ul>
-<li>협력을 위해 다음과 같은 관습이 존재한다.</li>
-</ul>
-<ol>
-<li>Class는 대문자로 시작한다</li>
-<li>한 java파일 하나에 클래스는 여러개가 있을 수 있지만 public class는 하나이고 그 클래스와 .java파일의 이름을 동일하</li>
-<li>camel notation 방식으로 명명한다</li>
-<li>변수이름과 메소드는 소문자로 시작한다</li>
-</ol>
-<h2 id="함수-Function"><a href="#함수-Function" class="headerlink" title="함수 (Function)"></a>함수 (Function)</h2><ul>
-<li><p>하나의 기능을 수행하는 일련의 코드</p>
-</li>
-<li><p>구현된 함수는 여러 곳에서 동일한 방식으로 호출되어 사용 할 수있음</p>
-</li>
-<li><p>모듈화를 위해 낮은 결합도와 높은 응집도를 갖도록 설계하기위해 기능별로 구현하는 것이 좋다</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span> <span class="params">(<span class="keyword">int</span> nmu1, <span class="keyword">int</span> num2)</span> </span>&#123; <span class="comment">// 반환 데이터 함수이름 파라미터순으로 작성한다</span></span><br><span class="line">    <span class="keyword">int</span> result; </span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">//반환 값이 있는경우</span></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">helloWolrd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(<span class="string">&quot;Hello Wolrd!&quot;</span>); <span class="comment">// 반환 값이 없는경우</span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></li>
-<li><p>함수가 호출될 때 지역 변수들은 스택에 쌓인다. 함수 수행이 끝나면 자동으로 반환된다.</p>
-</li>
-</ul>
-<h2 id="메소드-Method"><a href="#메소드-Method" class="headerlink" title="메소드 (Method)"></a>메소드 (Method)</h2><ul>
-<li><p>객체의 기능을 구현하기 위해 클래스 내부에 구현되는 함수</p>
-</li>
-<li><p>멤버함수라고도 한다</p>
-</li>
-<li><p>메소드의 이름은 객체에 맞게 짓는 것이 좋다 ex) setID(param1),getID()…</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> studentNumber;</span><br><span class="line">    <span class="keyword">private</span> String studentName;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getStudentName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> studentName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStudentNumber</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.studentName = name;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<h4 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#hashCode()">hashCode()</a></h4><ul>
+<li>Java에서는 Heap메모리를 관리할때 Hash함수를 이용한다.</li>
+<li>hasCode()는 인스턴스에대한 저장 주소를 반환한다</li>
+<li>equals()를 위와같이 재정의 할때 hash Key값을 Primary Key같은 것으로 사용한다</li>
 </ul>
 ]]></content>
       <categories>
         <category>java</category>
-        <category>oop</category>
       </categories>
       <tags>
-        <tag>java</tag>
-        <tag>oop</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Shell 사용법 2</title>
-    <url>/2021/07/23/Linux-How_to_use_shell/</url>
-    <content><![CDATA[<p>#Shell 사용법</p>
-<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
-<li>바이너리는 실행할 수 있는 파일</li>
-<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
-<li>메모리와 관련된 상태정보 (PCB)</li>
-<li>시스템 리소스</li>
-<li>스케쥴링 단위</li>
-</ul>
-</li>
-</ul>
-<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
-<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
-<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
-</ul>
-<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
-<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
-<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
-<li>서버 데몬, 백신 프로그램, etc..</li>
-</ul>
-<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
-<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
-]]></content>
-      <categories>
-        <category>system programming</category>
-        <category>Linux</category>
-        <category>Shell</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-        <tag>system programming</tag>
-        <tag>Bash</tag>
+        <tag>class</tag>
+        <tag>object</tag>
       </tags>
   </entry>
   <entry>
@@ -608,154 +649,6 @@ end</pre>
       </categories>
       <tags>
         <tag>interface</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java - Object Class</title>
-    <url>/2021/08/18/OOP-java-11/</url>
-    <content><![CDATA[<h1 id="Object-Class"><a href="#Object-Class" class="headerlink" title="Object Class"></a>Object Class</h1><h2 id="Object-Class-1"><a href="#Object-Class-1" class="headerlink" title="Object Class"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html">Object Class</a></h2><ul>
-<li>Object 클래스는 가장 상위클래스이다.</li>
-<li>즉 모든 클래스들은 Object클래스를 상속받고 필요에 의해 Object Class의 Method를 재정의하여 사용할 수 있다.</li>
-<li>Compiler는 Compile시에 Extends Object를 추가한다</li>
-</ul>
-<h3 id="Object-Class-Method"><a href="#Object-Class-Method" class="headerlink" title="Object Class Method"></a>Object Class Method</h3><h4 id="override-toString"><a href="#override-toString" class="headerlink" title="override toString()"></a>override toString()</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Animal(<span class="string">&quot;Dog&quot;</span>, <span class="number">2</span>);</span><br><span class="line">        String test = <span class="keyword">new</span> String(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        System.out.println(dog);</span><br><span class="line">        System.out.println(test);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>코드의 결과는 다음과 같다 <img src="/image/OOP-java-11_images/animaltest.png"></p>
-</li>
-<li><p>test의 toString()은 이미 재정의 되어있기때문에 test를 바로 출력하지만</p>
-</li>
-<li><p>Animal 클래스는 그렇지않기때문에 16진수의 주소값을 출력한다.<br><img src="/image/OOP-java-11_images/tostringoveride.png"></p>
-</li>
-<li><p>따라서 Animal class 또한 object를 상속받았기때문에 toString()을 오버라이드 할 수 있다.</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Animal&#123;&quot;</span> +</span><br><span class="line">                    <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                    <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                    <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-11_images/2a3ceefb.png"></p>
-<h4 id="equals"><a href="#equals" class="headerlink" title="equals()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals(java.lang.Object)">equals()</a></h4><ul>
-<li>equals() 메소드는 두 인스턴스 주소 값을 비교하여 True/False를 반환한다</li>
-<li>인스턴스가 달라도 논리적으로 같다면 true를 반환할 수 있도록 재정의가 가능하다.</li>
-</ul>
-<h4 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#hashCode()">hashCode()</a></h4><ul>
-<li>Java에서는 Heap메모리를 관리할때 Hash함수를 이용한다.</li>
-<li>hasCode()는 인스턴스에대한 저장 주소를 반환한다</li>
-<li>equals()를 위와같이 재정의 할때 hash Key값을 Primary Key같은 것으로 사용한다</li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>class</tag>
-        <tag>object</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java - Stream</title>
-    <url>/2021/08/24/OOP-java-15/</url>
-    <content><![CDATA[<h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Stream</a></h1><ul>
-<li><p>스트림이란 자료의 대상과 관계없이 동일한 연산을 제공하는 것</p>
-</li>
-<li><p>배열이나 컬렉션 대상으로 연산을 수행함</p>
-</li>
-<li><p>한번 사용된 스트림은 재사용 할 수 없고 다른 연산을 수행하려면 다시 스트림을 생성해야한다</p>
-</li>
-<li><p>스트림 연산은 중간 연산과 최종연산으로 구분됨</p>
-<ul>
-<li>중간연산은 여러개의 연산이 적용됨</li>
-<li>최종연산은 마지막에 한번만 적용되며 최종연산이 호출되어야 중간 연산에 대한 수행이 이루어지고 결과가 나타남</li>
-<li>따라서 중간에 연산결과를 알 수 없음</li>
-<li>이러한 방식을 <strong>Lazy Evaluation</strong>이라 한다</li>
-</ul>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntArrayStreamTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for (int num : arr) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(num);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"></span><br><span class="line">        IntStream is = Arrays.stream(arr);</span><br><span class="line">        is.forEach(n -&gt; &#123; System.out.println(n); &#125;);</span><br><span class="line">        <span class="comment">// is.forEach(n -&gt; &#123; System.out.println(n); &#125;); 한번 사용된 스트림은 재사용 ❌</span></span><br><span class="line">        is = Arrays.stream(arr);</span><br><span class="line">        <span class="keyword">int</span> sum = is.sum();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p><code>Arrays.stream()</code>은 해당 배열에대한 <em>Stream</em>을 반환한다<br>  <img src="/image/OOP-java-15_images/streamresult.png"></p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">is = Arrays.stream(arr);</span><br><span class="line"><span class="keyword">int</span> sum = is.sum();</span><br><span class="line">System.out.println(sum);</span><br><span class="line"><span class="keyword">long</span> count = Arrays.stream(arr).count();</span><br><span class="line">System.out.println(<span class="string">&quot;count = &quot;</span> + count);</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="중간연산-amp-최종연산"><a href="#중간연산-amp-최종연산" class="headerlink" title="중간연산 &amp; 최종연산"></a>중간연산 &amp; 최종연산</h2><ul>
-<li>중간연산은 filter(), map(), sorted()… 이있다.<ul>
-<li>👀필터와 맵의 차이점은 map 다양한 문자,숫자,배열등 다양한 타입을 반환하는 것이 가능하지만 filter 경우 boolean타입으로만 반환한다는 점이다.</li>
-</ul>
-</li>
-<li>ex: <code>Arrays.stream(arr).filter(num -&gt; num &lt; 3).forEach(num-&gt; System.out.println(num));</code><ul>
-<li><code>filter</code>는 중간연산 <code>forEach</code>는 최종연산에 해당된다</li>
-</ul>
-</li>
-<li>최종연산은 forEach() , count(), sum(), reduce()</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListStreamTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; sList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        sList.add(<span class="string">&quot;kim&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;park&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;jeong&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Stream&lt;String&gt; stream = sList.stream();</span><br><span class="line"></span><br><span class="line">        stream.filter(s -&gt; s.contains(<span class="string">&quot;k&quot;</span>)).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        <span class="keyword">long</span> count = stream.filter(s -&gt; s.contains(<span class="string">&quot;a&quot;</span>)).count();</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.map(s -&gt; s.length()).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.sorted().forEach(System.out::println);</span><br><span class="line">        System.out.println(sList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="../image/OOP-java-15_images/47770e11.png"></p>
-<ul>
-<li>해당 예제에서 sorted()를 사용했어도 원래 리스트에서는 값이 변하지 않는다</li>
-</ul>
-<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce()"></a>Reduce()</h3><ul>
-<li>정의된 연산이 아닌 프로그래머가 직접 구현한 연산을 적용</li>
-<li><code>T reduce (T identify, BinaryOperator&lt;T&gt; accumulator)</code> </li>
-<li>첫번째 인자는 초기값, 두번째 인자는 람다식</li>
-<li><em>accumulator</em>에 람다식을 직접구현하거나 람다식이 길어질경우 BinaryOperator를 구현한 클래스를 사용한다</li>
-</ul>
-<p>가장 긴 문자열 찾기 예제</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ReduceTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    System.out.println(Arrays.stream(fruits).reduce(<span class="string">&quot;&quot;</span>,(s, s2) -&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> s.length() &gt; s2.length() ? s : s2;</span><br><span class="line">    &#125;));</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>BinaryOperator를 구현하여 사용해도 같은 결과가 나온다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//FindLongString.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.function.BinaryOperator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindLongString</span> <span class="keyword">implements</span> <span class="title">BinaryOperator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">apply</span><span class="params">(String s, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() &gt; s2.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> s2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        System.out.println(Arrays.stream(fruits).reduce(&quot;&quot;,(s, s2) -&gt; &#123;return s.length() &gt; s2.length() ? s : s2;&#125;));</span></span><br><span class="line">        System.out.println(Arrays.stream(fruits).reduce(<span class="keyword">new</span> FindLongString()).get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><img src="../image/OOP-java-15_images/68826378.png">  인자가 하나일 경우엔 Accmulator를 받는다</p>
-</li>
-</ul>
-<p>예제</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TravelCustomer.java</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TravelCustomer</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Constrctor</span></span><br><span class="line">  <span class="meta">@Getter</span></span><br><span class="line">  <span class="meta">@Setter</span></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> price;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//TravelCustomerTest.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TravelCustomerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    TravelCustomer kim = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Kim&quot;</span>,<span class="number">40</span>, <span class="number">100</span>);</span><br><span class="line">    TravelCustomer park = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Park&quot;</span>,<span class="number">20</span>, <span class="number">200</span>);</span><br><span class="line">    TravelCustomer jeong = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Jeong&quot;</span>,<span class="number">13</span>, <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;TravelCustomer&gt; cList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    cList.add(kim);</span><br><span class="line">    cList.add(park);</span><br><span class="line">    cList.add(jeong);</span><br><span class="line"></span><br><span class="line">    cList.stream().map(travelCustomer -&gt; travelCustomer.getName().toUpperCase()).forEach(System.out::println);</span><br><span class="line">    Integer sum = <span class="number">0</span>;</span><br><span class="line">    System.out.println(cList.stream().mapToInt(c-&gt; c.getPrice()).sum());</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;20세 미만고객&quot;</span>);</span><br><span class="line">    cList.stream().filter(travelCustomer -&gt; travelCustomer.getAge() &lt; <span class="number">20</span>).map(c -&gt; c.getName().toUpperCase()).sorted().forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>Stream</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java - Lambda Expression</title>
-    <url>/2021/08/23/OOP-java-14/</url>
-    <content><![CDATA[<h1 id="람다식"><a href="#람다식" class="headerlink" title="람다식"></a>람다식</h1><h2 id="함수형-프로그래밍"><a href="#함수형-프로그래밍" class="headerlink" title="함수형 프로그래밍"></a>함수형 프로그래밍</h2><ul>
-<li>함수는 받아온 매개변수를 기반으로 구현하고 실행됨으로써 <code>Side Effect</code>가 발생하지 않도록 하는 방식이다</li>
-<li>이러한 함수를 기반으로 하는 프로그래밍이고 입력 받은 자료 이외에 외부 자료를 사용하지 않아 여러 자료를 동시에<br>수행되는 병렬 처리가 가능하다. </li>
-</ul>
-<h2 id="람다식-문법"><a href="#람다식-문법" class="headerlink" title="람다식 문법"></a>람다식 문법</h2><ul>
-<li><p>함수 이름없이 매개 변수와 매개변수를 이용한 실행문 <code>(매개변수) -&gt; &#123;실행문;&#125;</code></p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>매개 변수가 하나인 경우 자료형과 괄호 생략이 가능</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt;  &#123;System.out.println(str);&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>실행문이 한 문장인 경우 중괄호도 생략이 가능하다</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt; System.out.println(str);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>그러나 <code>return</code>은 중괄호 생략 불가<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//str -&gt; return str.length(); ❌</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>실행문이 한 문장의 반환문인 경우엔 return과 중괄호 모두 생략 가능</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(x,y) -&gt; x+y;</span><br><span class="line">str -&gt; str.length();</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="람다식-구현하기"><a href="#람다식-구현하기" class="headerlink" title="람다식 구현하기"></a>람다식 구현하기</h2><ul>
-<li><p>자바에서는 클래스없이 메소드만 선언할 수 없으므로 랃다식을 위한 인터페이스에 메소드를 선언한다</p>
-</li>
-<li><p>이것을 <strong>Functional Interface</strong>라고 한다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add.java</span></span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Add</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x , <span class="keyword">int</span> y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>이렇게 람다식을 선언하기 위한 함수형 인터페이스는 익명 함수와 매개변수만으로 구현되므로<br>인터페이스는 <strong>☝️단 하나만의 메소드</strong>만 선언해야함 </p>
-</li>
-<li><p><code>@FunctionalInterface</code> Annotation을 이용하여 명시해준다</p>
-</li>
-</ul>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AddTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AddTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Add add = (x, y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;;</span><br><span class="line">        System.out.println(add.add(<span class="number">3</span>,<span class="number">5</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>람다식 사용시 함수영 인터페이스의 인스턴스에 람다식을 할당해 사용할 수 있다.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>Lambda</tag>
       </tags>
   </entry>
   <entry>
@@ -931,6 +824,113 @@ HashMap --> Map</pre>
       </categories>
       <tags>
         <tag>collection</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java - Lambda Expression</title>
+    <url>/2021/08/23/OOP-java-14/</url>
+    <content><![CDATA[<h1 id="람다식"><a href="#람다식" class="headerlink" title="람다식"></a>람다식</h1><h2 id="함수형-프로그래밍"><a href="#함수형-프로그래밍" class="headerlink" title="함수형 프로그래밍"></a>함수형 프로그래밍</h2><ul>
+<li>함수는 받아온 매개변수를 기반으로 구현하고 실행됨으로써 <code>Side Effect</code>가 발생하지 않도록 하는 방식이다</li>
+<li>이러한 함수를 기반으로 하는 프로그래밍이고 입력 받은 자료 이외에 외부 자료를 사용하지 않아 여러 자료를 동시에<br>수행되는 병렬 처리가 가능하다. </li>
+</ul>
+<h2 id="람다식-문법"><a href="#람다식-문법" class="headerlink" title="람다식 문법"></a>람다식 문법</h2><ul>
+<li><p>함수 이름없이 매개 변수와 매개변수를 이용한 실행문 <code>(매개변수) -&gt; &#123;실행문;&#125;</code></p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>매개 변수가 하나인 경우 자료형과 괄호 생략이 가능</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt;  &#123;System.out.println(str);&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>실행문이 한 문장인 경우 중괄호도 생략이 가능하다</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt; System.out.println(str);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>그러나 <code>return</code>은 중괄호 생략 불가<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//str -&gt; return str.length(); ❌</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>실행문이 한 문장의 반환문인 경우엔 return과 중괄호 모두 생략 가능</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(x,y) -&gt; x+y;</span><br><span class="line">str -&gt; str.length();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="람다식-구현하기"><a href="#람다식-구현하기" class="headerlink" title="람다식 구현하기"></a>람다식 구현하기</h2><ul>
+<li><p>자바에서는 클래스없이 메소드만 선언할 수 없으므로 랃다식을 위한 인터페이스에 메소드를 선언한다</p>
+</li>
+<li><p>이것을 <strong>Functional Interface</strong>라고 한다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add.java</span></span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Add</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x , <span class="keyword">int</span> y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>이렇게 람다식을 선언하기 위한 함수형 인터페이스는 익명 함수와 매개변수만으로 구현되므로<br>인터페이스는 <strong>☝️단 하나만의 메소드</strong>만 선언해야함 </p>
+</li>
+<li><p><code>@FunctionalInterface</code> Annotation을 이용하여 명시해준다</p>
+</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AddTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AddTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Add add = (x, y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;;</span><br><span class="line">        System.out.println(add.add(<span class="number">3</span>,<span class="number">5</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>람다식 사용시 함수영 인터페이스의 인스턴스에 람다식을 할당해 사용할 수 있다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>Lambda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java - Stream</title>
+    <url>/2021/08/24/OOP-java-15/</url>
+    <content><![CDATA[<h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Stream</a></h1><ul>
+<li><p>스트림이란 자료의 대상과 관계없이 동일한 연산을 제공하는 것</p>
+</li>
+<li><p>배열이나 컬렉션 대상으로 연산을 수행함</p>
+</li>
+<li><p>한번 사용된 스트림은 재사용 할 수 없고 다른 연산을 수행하려면 다시 스트림을 생성해야한다</p>
+</li>
+<li><p>스트림 연산은 중간 연산과 최종연산으로 구분됨</p>
+<ul>
+<li>중간연산은 여러개의 연산이 적용됨</li>
+<li>최종연산은 마지막에 한번만 적용되며 최종연산이 호출되어야 중간 연산에 대한 수행이 이루어지고 결과가 나타남</li>
+<li>따라서 중간에 연산결과를 알 수 없음</li>
+<li>이러한 방식을 <strong>Lazy Evaluation</strong>이라 한다</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntArrayStreamTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for (int num : arr) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(num);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"></span><br><span class="line">        IntStream is = Arrays.stream(arr);</span><br><span class="line">        is.forEach(n -&gt; &#123; System.out.println(n); &#125;);</span><br><span class="line">        <span class="comment">// is.forEach(n -&gt; &#123; System.out.println(n); &#125;); 한번 사용된 스트림은 재사용 ❌</span></span><br><span class="line">        is = Arrays.stream(arr);</span><br><span class="line">        <span class="keyword">int</span> sum = is.sum();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p><code>Arrays.stream()</code>은 해당 배열에대한 <em>Stream</em>을 반환한다<br>  <img src="/image/OOP-java-15_images/streamresult.png"></p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">is = Arrays.stream(arr);</span><br><span class="line"><span class="keyword">int</span> sum = is.sum();</span><br><span class="line">System.out.println(sum);</span><br><span class="line"><span class="keyword">long</span> count = Arrays.stream(arr).count();</span><br><span class="line">System.out.println(<span class="string">&quot;count = &quot;</span> + count);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="중간연산-amp-최종연산"><a href="#중간연산-amp-최종연산" class="headerlink" title="중간연산 &amp; 최종연산"></a>중간연산 &amp; 최종연산</h2><ul>
+<li>중간연산은 filter(), map(), sorted()… 이있다.<ul>
+<li>👀필터와 맵의 차이점은 map 다양한 문자,숫자,배열등 다양한 타입을 반환하는 것이 가능하지만 filter 경우 boolean타입으로만 반환한다는 점이다.</li>
+</ul>
+</li>
+<li>ex: <code>Arrays.stream(arr).filter(num -&gt; num &lt; 3).forEach(num-&gt; System.out.println(num));</code><ul>
+<li><code>filter</code>는 중간연산 <code>forEach</code>는 최종연산에 해당된다</li>
+</ul>
+</li>
+<li>최종연산은 forEach() , count(), sum(), reduce()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListStreamTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; sList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        sList.add(<span class="string">&quot;kim&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;park&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;jeong&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Stream&lt;String&gt; stream = sList.stream();</span><br><span class="line"></span><br><span class="line">        stream.filter(s -&gt; s.contains(<span class="string">&quot;k&quot;</span>)).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        <span class="keyword">long</span> count = stream.filter(s -&gt; s.contains(<span class="string">&quot;a&quot;</span>)).count();</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.map(s -&gt; s.length()).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.sorted().forEach(System.out::println);</span><br><span class="line">        System.out.println(sList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="../image/OOP-java-15_images/47770e11.png"></p>
+<ul>
+<li>해당 예제에서 sorted()를 사용했어도 원래 리스트에서는 값이 변하지 않는다</li>
+</ul>
+<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce()"></a>Reduce()</h3><ul>
+<li>정의된 연산이 아닌 프로그래머가 직접 구현한 연산을 적용</li>
+<li><code>T reduce (T identify, BinaryOperator&lt;T&gt; accumulator)</code> </li>
+<li>첫번째 인자는 초기값, 두번째 인자는 람다식</li>
+<li><em>accumulator</em>에 람다식을 직접구현하거나 람다식이 길어질경우 BinaryOperator를 구현한 클래스를 사용한다</li>
+</ul>
+<p>가장 긴 문자열 찾기 예제</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ReduceTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    System.out.println(Arrays.stream(fruits).reduce(<span class="string">&quot;&quot;</span>,(s, s2) -&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> s.length() &gt; s2.length() ? s : s2;</span><br><span class="line">    &#125;));</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>BinaryOperator를 구현하여 사용해도 같은 결과가 나온다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//FindLongString.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.function.BinaryOperator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindLongString</span> <span class="keyword">implements</span> <span class="title">BinaryOperator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">apply</span><span class="params">(String s, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() &gt; s2.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> s2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        System.out.println(Arrays.stream(fruits).reduce(&quot;&quot;,(s, s2) -&gt; &#123;return s.length() &gt; s2.length() ? s : s2;&#125;));</span></span><br><span class="line">        System.out.println(Arrays.stream(fruits).reduce(<span class="keyword">new</span> FindLongString()).get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="../image/OOP-java-15_images/68826378.png">  인자가 하나일 경우엔 Accmulator를 받는다</p>
+</li>
+</ul>
+<p>예제</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TravelCustomer.java</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TravelCustomer</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Constrctor</span></span><br><span class="line">  <span class="meta">@Getter</span></span><br><span class="line">  <span class="meta">@Setter</span></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> price;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//TravelCustomerTest.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TravelCustomerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    TravelCustomer kim = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Kim&quot;</span>,<span class="number">40</span>, <span class="number">100</span>);</span><br><span class="line">    TravelCustomer park = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Park&quot;</span>,<span class="number">20</span>, <span class="number">200</span>);</span><br><span class="line">    TravelCustomer jeong = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Jeong&quot;</span>,<span class="number">13</span>, <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;TravelCustomer&gt; cList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    cList.add(kim);</span><br><span class="line">    cList.add(park);</span><br><span class="line">    cList.add(jeong);</span><br><span class="line"></span><br><span class="line">    cList.stream().map(travelCustomer -&gt; travelCustomer.getName().toUpperCase()).forEach(System.out::println);</span><br><span class="line">    Integer sum = <span class="number">0</span>;</span><br><span class="line">    System.out.println(cList.stream().mapToInt(c-&gt; c.getPrice()).sum());</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;20세 미만고객&quot;</span>);</span><br><span class="line">    cList.stream().filter(travelCustomer -&gt; travelCustomer.getAge() &lt; <span class="number">20</span>).map(c -&gt; c.getName().toUpperCase()).sorted().forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>Stream</tag>
       </tags>
   </entry>
   <entry>
@@ -1256,6 +1256,44 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>객체 지향 프로그래밍 - Basic 2</title>
+    <url>/2021/08/12/OOP-java-2/</url>
+    <content><![CDATA[<h1 id="인스턴스-생성과-힙-메모리"><a href="#인스턴스-생성과-힙-메모리" class="headerlink" title="인스턴스 생성과 힙 메모리"></a>인스턴스 생성과 힙 메모리</h1><h2 id="인스턴스-Instance"><a href="#인스턴스-Instance" class="headerlink" title="인스턴스 (Instance)"></a>인스턴스 (Instance)</h2><ul>
+<li><p>객체의 속성과 기능을 구현한 상태의 클래스를 기반으로 생성된 객체를 인스턴스라고한다</p>
+</li>
+<li><p>각 인스턴스는 서로 다른 멤버 변수 값을 가질 수 있음</p>
+</li>
+<li><p>new 키워드를 사용하여 인스턴스 생성</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Student bob = <span class="keyword">new</span> Student();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="힙-메모리-Heap-Memory"><a href="#힙-메모리-Heap-Memory" class="headerlink" title="힙 메모리 (Heap Memory)"></a>힙 메모리 (Heap Memory)</h2><ul>
+<li>생성된 인스턴스는 동적 메모리에 할당된다</li>
+<li>자바는 가비지 컬렉터가 쓰지않는 메모리를 해제한다</li>
+<li>각 인스턴스는 다른 메모리 주소를 갖는다</li>
+</ul>
+<h2 id="생성자-Constructor"><a href="#생성자-Constructor" class="headerlink" title="생성자 (Constructor)"></a>생성자 (Constructor)</h2><ul>
+<li><p>객체를 생성할 때 사용되는 함수</p>
+</li>
+<li><p>객체가 생성될 때 객체의 속성을 초기화 하거나 다른 기능을 수행하는 메소드를 호출함</p>
+</li>
+<li><p>생성자는 반환값이 없고 클래스 이름과 동일함</p>
+</li>
+<li><p>생성자를 구현하지 않았을 때에는 Default Constructor가 호출된다</p>
+</li>
+<li><p>생성자는 메소도 오버로딩을 하여 구현할 수 있다</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> StudentNumber;</span><br><span class="line">    <span class="keyword">private</span> String StudentName;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123; <span class="comment">// Default Constructor</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span> <span class="params">(<span class="keyword">int</span> num, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.StudentNumber = num;</span><br><span class="line">        <span class="keyword">this</span>.StudentName = name;</span><br><span class="line">    &#125;     </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>oop</category>
+      </categories>
+      <tags>
+        <tag>heap</tag>
+        <tag>stack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JAVA - IO Stream - 문자단위 스트림</title>
     <url>/2021/08/31/OOP-java-19/</url>
     <content><![CDATA[<h2 id="Reader"><a href="#Reader" class="headerlink" title="Reader"></a>Reader</h2><ul>
@@ -1362,44 +1400,6 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>io stream</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>객체 지향 프로그래밍 - Basic 2</title>
-    <url>/2021/08/12/OOP-java-2/</url>
-    <content><![CDATA[<h1 id="인스턴스-생성과-힙-메모리"><a href="#인스턴스-생성과-힙-메모리" class="headerlink" title="인스턴스 생성과 힙 메모리"></a>인스턴스 생성과 힙 메모리</h1><h2 id="인스턴스-Instance"><a href="#인스턴스-Instance" class="headerlink" title="인스턴스 (Instance)"></a>인스턴스 (Instance)</h2><ul>
-<li><p>객체의 속성과 기능을 구현한 상태의 클래스를 기반으로 생성된 객체를 인스턴스라고한다</p>
-</li>
-<li><p>각 인스턴스는 서로 다른 멤버 변수 값을 가질 수 있음</p>
-</li>
-<li><p>new 키워드를 사용하여 인스턴스 생성</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Student bob = <span class="keyword">new</span> Student();</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="힙-메모리-Heap-Memory"><a href="#힙-메모리-Heap-Memory" class="headerlink" title="힙 메모리 (Heap Memory)"></a>힙 메모리 (Heap Memory)</h2><ul>
-<li>생성된 인스턴스는 동적 메모리에 할당된다</li>
-<li>자바는 가비지 컬렉터가 쓰지않는 메모리를 해제한다</li>
-<li>각 인스턴스는 다른 메모리 주소를 갖는다</li>
-</ul>
-<h2 id="생성자-Constructor"><a href="#생성자-Constructor" class="headerlink" title="생성자 (Constructor)"></a>생성자 (Constructor)</h2><ul>
-<li><p>객체를 생성할 때 사용되는 함수</p>
-</li>
-<li><p>객체가 생성될 때 객체의 속성을 초기화 하거나 다른 기능을 수행하는 메소드를 호출함</p>
-</li>
-<li><p>생성자는 반환값이 없고 클래스 이름과 동일함</p>
-</li>
-<li><p>생성자를 구현하지 않았을 때에는 Default Constructor가 호출된다</p>
-</li>
-<li><p>생성자는 메소도 오버로딩을 하여 구현할 수 있다</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> StudentNumber;</span><br><span class="line">    <span class="keyword">private</span> String StudentName;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123; <span class="comment">// Default Constructor</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span> <span class="params">(<span class="keyword">int</span> num, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.StudentNumber = num;</span><br><span class="line">        <span class="keyword">this</span>.StudentName = name;</span><br><span class="line">    &#125;     </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>oop</category>
-      </categories>
-      <tags>
-        <tag>heap</tag>
-        <tag>stack</tag>
       </tags>
   </entry>
   <entry>
@@ -2042,8 +2042,8 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>Shell</tag>
         <tag>system programming</tag>
+        <tag>Shell</tag>
       </tags>
   </entry>
   <entry>
@@ -2232,68 +2232,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>System-Programming-Pthread</title>
-    <url>/2021/08/05/System-Programming-Pthread/</url>
-    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
-<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
-<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
-</ul>
-<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
-<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
-</li>
-<li><p>모든 함수는 pthread_ 로 시작</p>
-</li>
-<li><p>크게 두가지로 분류 된다</p>
-<ul>
-<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
-<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
-</ul>
-</li>
-<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
-<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
-<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
-<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
-<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
-<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
-<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
-
-<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
-<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
-<ul>
-<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
-</ul>
-</li>
-<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
-<ul>
-<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
-<li>detach는 해당 스레드가 종료되면 바로 해제</li>
-</ul>
-</li>
-</ul>
-<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
-<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
     <title>System Programming - Process</title>
     <url>/2021/07/28/System-Programming-Process/</url>
     <content><![CDATA[<h1 id="Program-Process-Thread의-개념"><a href="#Program-Process-Thread의-개념" class="headerlink" title="Program , Process ,Thread의 개념"></a>Program , Process ,Thread의 개념</h1><h2 id="프로그램"><a href="#프로그램" class="headerlink" title="프로그램"></a>프로그램</h2><ul>
@@ -2424,6 +2362,68 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>System-Programming-Pthread</title>
+    <url>/2021/08/05/System-Programming-Pthread/</url>
+    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
+<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
+<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
+</ul>
+<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
+<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
+</li>
+<li><p>모든 함수는 pthread_ 로 시작</p>
+</li>
+<li><p>크게 두가지로 분류 된다</p>
+<ul>
+<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
+<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
+</ul>
+</li>
+<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
+<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
+<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
+<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
+<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
+<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
+
+<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
+<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
+<ul>
+<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
+</ul>
+</li>
+<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
+<ul>
+<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
+<li>detach는 해당 스레드가 종료되면 바로 해제</li>
+</ul>
+</li>
+</ul>
+<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
+<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>System Programming - Scheduling</title>
     <url>/2021/07/29/System-Programming-Scheduling/</url>
     <content><![CDATA[<h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
@@ -2513,8 +2513,8 @@ File -- input Stream --> JAVA</pre>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>system programming</tag>
+        <tag>linux</tag>
         <tag>c</tag>
         <tag>signal</tag>
       </tags>
@@ -2973,6 +2973,49 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>get</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring Boot - Post</title>
+    <url>/2021/09/15/spring-2/</url>
+    <content><![CDATA[<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h2><ul>
+<li>리소스의 생성 추가 하므로 CRUD에서 C를 담당한다 , 매 요청마다 데이터를 생성하므로 멱등성과 안정성은 없다</li>
+</ul>
+<h3 id="JSON-JavaScript-Object-Notation"><a href="#JSON-JavaScript-Object-Notation" class="headerlink" title="JSON (JavaScript Object Notation)"></a>JSON (JavaScript Object Notation)</h3><ul>
+<li>데이터를 주고받을떄 보통 XML과 JSON의 형태로 주고받는다</li>
+<li>JSON은 KEY - VALUE 형태로 이루어져있다.</li>
+<li>관례로 snake case를 사용한다 (phone_number)</li>
+<li>기본자료형은 <strong>Number, String, Boolean, Array, Object</strong>가 있다</li>
+<li>예시<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">&quot;이름&quot;</span>: <span class="string">&quot;홍길동&quot;</span>,</span><br><span class="line">   <span class="string">&quot;나이&quot;</span>: <span class="number">25</span>,</span><br><span class="line">   <span class="string">&quot;성별&quot;</span>: <span class="string">&quot;여&quot;</span>,</span><br><span class="line">   <span class="string">&quot;주소&quot;</span>: <span class="string">&quot;서울특별시 양천구 목동&quot;</span>,</span><br><span class="line">   <span class="string">&quot;특기&quot;</span>: [<span class="string">&quot;농구&quot;</span>, <span class="string">&quot;도술&quot;</span>],</span><br><span class="line">   <span class="string">&quot;가족관계&quot;</span>: &#123;<span class="string">&quot;#&quot;</span>: <span class="number">2</span>, <span class="string">&quot;아버지&quot;</span>: <span class="string">&quot;홍판서&quot;</span>, <span class="string">&quot;어머니&quot;</span>: <span class="string">&quot;춘섬&quot;</span>&#125;,</span><br><span class="line">   <span class="string">&quot;회사&quot;</span>: <span class="string">&quot;경기 수원시 팔달구 우만동&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Post-예시"><a href="#Post-예시" class="headerlink" title="Post 예시"></a>Post 예시</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PostApiController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@PostMapping(&quot;/post&quot;)</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(<span class="meta">@RequestBody</span> Map&lt;String, Object&gt; requestData)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    requestData.forEach((key, value) -&gt; &#123;</span><br><span class="line">      System.out.println(key);</span><br><span class="line">      System.out.println(value);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Body를 받기위해서 메소드의 파라미터에 <code>@RequestBody</code> Annotation을 붙여주어야 한다</li>
+<li>Json의 key value형태를 받아와 처리할 수 있다.</li>
+</ul>
+<p><img src="/image/spring-2_images/e67c9305.png"><br><img src="/image/spring-2_images/cc42143c.png"></p>
+<ul>
+<li>그러나 Map은 컨트롤하기 까다로울 수있다 이때도 마찬가지로 DTO를 이용 할 수 있다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PostRequestDto</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> Integer age;</span><br><span class="line">  <span class="keyword">private</span> String gender;</span><br><span class="line">  <span class="keyword">private</span> String address;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/post-dto&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postDto</span> <span class="params">(<span class="meta">@RequestBody</span> PostRequestDto requestDto)</span> </span>&#123;</span><br><span class="line">        System.out.println(requestDto);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/spring-2_images/c412f0a3.png"><br><img src="/image/spring-2_images/c3fc027f.png"></p>
+<h2 id="Parsing"><a href="#Parsing" class="headerlink" title="Parsing"></a>Parsing</h2><ul>
+<li>JSON에서는 snake case 자바에서는 camel case를 사용하는게 관례이다 따라서 같은 key이지만 다른 문자인 둘을 매칭해주어야 한다.</li>
+</ul>
+<h3 id="JsonProperty"><a href="#JsonProperty" class="headerlink" title="JsonProperty"></a>JsonProperty</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//DTO </span></span><br><span class="line"><span class="meta">@JsonProperty(&quot;phone_number&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String phoneNumber;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/spring-2_images/205df4ea.png"><br><img src="/image/spring-2_images/56b25764.png"></p>
+]]></content>
+      <categories>
+        <category>spring</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>post</tag>
       </tags>
   </entry>
 </search>

@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">63</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,113 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/04/System-Programming-IPC-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/04/System-Programming-IPC-2/" class="post-title-link" itemprop="url">System-Programming-IPC(2)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-04 17:43:04" itemprop="dateCreated datePublished" datetime="2021-08-04T17:43:04+09:00">2021-08-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-06 21:10:35" itemprop="dateModified" datetime="2021-09-06T21:10:35+09:00">2021-09-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/system-programming/" itemprop="url" rel="index"><span itemprop="name">system programming</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/system-programming/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msgctl(msgid, PIC_RMID,<span class="number">0</span>); <span class="comment">//삭제예시, 메시지 아이디와 컨트롤에대한 인자를 받는다. </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ipcs <span class="comment">#명령어를 통해 확인 할 수 있다.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="공유메모리-Shared-Memory"><a href="#공유메모리-Shared-Memory" class="headerlink" title="공유메모리 (Shared Memory)"></a>공유메모리 (Shared Memory)</h2><ul>
+<li>모든 프로세스는 커널영역을 공유한다는 점을 이용하여<br>커널에 공간을 확보하여 그 공간을 변수처럼 사용하는 방식이다</li>
+<li>큐와 다르게 주소를 변수처럼 접근한다</li>
+<li>공유 메모리 Key를 통하여 여러 프로세스가 접근이 가능하다</li>
+</ul>
+<h3 id="공유-메모리-생성"><a href="#공유-메모리-생성" class="headerlink" title="공유 메모리 생성"></a>공유 메모리 생성</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">key: 임의의 숫자 또는 ftok 함수로 생성한 키 값</span></span><br><span class="line"><span class="comment">size: 공유 메모리의 크기</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 속성</span></span><br><span class="line"><span class="comment">return value : 공유 메모리 식별자 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">size_t</span>, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line">shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>,SIZE , IPC_CREAT|<span class="number">0666</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-연결"><a href="#공유-메모리-연결" class="headerlink" title="공유 메모리 연결"></a>공유 메모리 연결</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">shmaddr : 공유 메모리 연결 주소 (char *) NULL로 설정하면 적절한 주소로 연결된다</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 권한 설정 (0이면 읽기쓰기, SHM_RDONLY면 읽기만)</span></span><br><span class="line"><span class="comment">return value: 연결이 성공하면 메모리의 시작 주소를 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">shmat</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">const</span> <span class="keyword">void</span> *shamddr, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line"></span><br><span class="line">shmaddr = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-해제"><a href="#공유-메모리-해제" class="headerlink" title="공유 메모리 해제"></a>공유 메모리 해제</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmdt</span><span class="params">(<span class="keyword">char</span> * shmaddr)</span></span>; <span class="comment">// 공유 메모리 연결 주소로 인자를 갖는다.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-읽기-쓰기"><a href="#공유-메모리-읽기-쓰기" class="headerlink" title="공유 메모리 읽기/쓰기"></a>공유 메모리 읽기/쓰기</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;%s&quot;</span> \n<span class="string">&quot;), (char *)shmaddr); </span></span><br><span class="line"><span class="string">strcpy((char*)shmaddr, &quot;</span>to write<span class="string">&quot;);</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-컨트롤"><a href="#공유-메모리-컨트롤" class="headerlink" title="공유 메모리 컨트롤"></a>공유 메모리 컨트롤</h3><p>커널영역을 끊임없이 만들 수 없기때문에 메모리를 컨트롤해줘야한다</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">cmd: 수행할 컨트롤 (ex: IPC_RMID - shmid로 지정한 공유 메모리 제거)</span></span><br><span class="line"><span class="comment">buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmctl</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">int</span> cmd, struct shmid_ds *buf)</span></span>;</span><br><span class="line"></span><br><span class="line">shmctl(shmid, IPC_RMID, (struct shmid_ds *)<span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="활용-예시"><a href="#활용-예시" class="headerlink" title="활용 예시"></a>활용 예시</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shmid, pid;</span><br><span class="line">    <span class="keyword">char</span> *shmaddr_parent, *shmaddr_child;</span><br><span class="line">    shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>, <span class="number">10</span>, IPC_CREAT|<span class="number">0644</span>);</span><br><span class="line">    <span class="keyword">if</span>(shmid == <span class="number">-1</span>) &#123; <span class="comment">// ocurred error</span></span><br><span class="line">            perror(<span class="string">&quot;shmget err&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// parent process</span></span><br><span class="line">            wait(<span class="number">0</span>);</span><br><span class="line">            shmaddr_parent = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>,<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, shmaddr_parent);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_parent);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            shmaddr_child = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="built_in">strcpy</span>((<span class="keyword">char</span> *)shmaddr_child, <span class="string">&quot;Hello Parent!&quot;</span>);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_child);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// shmctl(shmid, IPC_RMID, (struct shmid_ds *)NULL); ipcs로 확인하기위해 삭제하지 않았음.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/System-Programming-IPC-2_images/example.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1382,156 +1489,6 @@
 
 <p>현재 디렉토리에있는 fruits.txt에 있는 banana가 써있는 Line만 출력</p>
 <hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/21/Cloud-Computing-AWS-EC2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/21/Cloud-Computing-AWS-EC2/" class="post-title-link" itemprop="url">Cloud Computing AWS 시작하기</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-07-21 19:20:30" itemprop="dateCreated datePublished" datetime="2021-07-21T19:20:30+09:00">2021-07-21</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-06 21:10:35" itemprop="dateModified" datetime="2021-09-06T21:10:35+09:00">2021-09-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Cloud-Computing/" itemprop="url" rel="index"><span itemprop="name">Cloud Computing</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Cloud-Computing/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="AWS-Amazon-Web-Service"><a href="#AWS-Amazon-Web-Service" class="headerlink" title="AWS(Amazon Web Service)"></a>AWS(Amazon Web Service)</h1><h2 id="EC2-elastic-computer-생성하기"><a href="#EC2-elastic-computer-생성하기" class="headerlink" title="EC2(elastic computer) 생성하기"></a>EC2(elastic computer) 생성하기</h2><ol>
-<li>Region은 서울로 설정</li>
-</ol>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled.png"></p>
-<ul>
-<li>생성했던 지역에서 다른지역으로 옮기면 EC2가 보이지 않는다.</li>
-</ul>
-<ol>
-<li>EC2 검색</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-07-22_%EC%98%A4%ED%9B%84_3.34.22.png"></p>
-<ol start="2">
-<li>인스턴스 시작</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled1.png"></p>
-<ul>
-<li><p>설치할 이미지 선택</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled2.png"></p>
-</li>
-<li><p>체험판 인스턴스 유형 선택</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled3.png"></p>
-</li>
-</ul>
-<ul>
-<li><p>스토리지 추가</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled4.png"></p>
-<p>체험판은 최대 스토리지를 30GB까지 사용 가능하므로 30GB로 설정.</p>
-</li>
-<li><p>보안 그룹 설정</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled5.png"></p>
-<pre><code>    SSH로 접속하기위해 프로토콜과 포트범위를 정한다.
-</code></pre>
-</li>
-<li><p>인스턴스 시작 검토</p>
-<p>  인스턴스에 대한 세부정보를 확인 할 수 있다.</p>
-</li>
-<li><p>키페어 생성</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled6.png"></p>
-<p>최초접속시에는 새 키페어 생성을 해주며 다운받은 키페어는 유출에 유의하여 저장한다.</p>
-</li>
-</ul>
-<ol>
-<li><p>고정IP로 변경</p>
-<p> 동적IP를 사용할 경우 요금이 부과 될 수 있다.</p>
-</li>
-</ol>
-<ul>
-<li><p>자신의 콘솔로 로그인하여 EC2 메뉴 접속 및 IP주소 할당</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled7.png"></p>
-<p>대시보드의 Elastic IP(탄력적 IP)선택후 새 IP주소를 할당한다.</p>
-</li>
-<li><p>할당받은 IP주소와 자신의 인스턴스와 연결</p>
-<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled8.png"></p>
-<p>인스턴스를 입력하고 연결한다.</p>
-</li>
-</ul>
-<ol>
-<li>대시보드의 인스턴스 메뉴를 통해 인스턴스를 확인 할 수 있다.</li>
-</ol>
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled9.png"></p>
-<ol>
-<li>Terminal을 사용하여 AWS에 접속</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 &#123;pemfile&#125;.pem // 보안을위해 퍼미션을 제한.</span><br><span class="line">ssh -i &#123;pemfile&#125;.pem ubuntu@&#123;public IPv4 Address&#125;</span><br></pre></td></tr></table></figure>
-
-<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
-<p>접속이 된것을 확인 할 수 있다.</p>
 
       
     </div>
