@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,283 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/25/OOP-java-16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/25/OOP-java-16/" class="post-title-link" itemprop="url">Java - Exception Handling</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-25 16:15:37" itemprop="dateCreated datePublished" datetime="2021-08-25T16:15:37+09:00">2021-08-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-06 20:56:19" itemprop="dateModified" datetime="2021-09-06T20:56:19+09:00">2021-09-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="예외-처리"><a href="#예외-처리" class="headerlink" title="예외 처리"></a>예외 처리</h1><h2 id="Error-amp-Exception"><a href="#Error-amp-Exception" class="headerlink" title="Error &amp; Exception"></a>Error &amp; Exception</h2><h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><ul>
+<li>발생하게되면 복구 할 수 없는 심각한 오류 (메모리오류, 스택오버플로우, etc..)</li>
+<li>Compile Error :프로그램 코드 작성중 발생하는 Syntax 오류 IDE에서 대부분 감지할 수 있다.</li>
+<li>Run Time Error : <strong>실행중인</strong> 프로그램이 의도 하지 않은 동작을 하거나 프로그램이 중지되는 오류<h3 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html">Exception</a></h3></li>
+<li>사용자에 의해 발생할 수 있는 의도치 않은 것으로 프로그램에서 제어 할 수 있는 오류이다</li>
+</ul>
+<pre class="mermaid">graph RL;
+Throwable --> Object
+Error --> Throwable;
+Exception --> Throwable;</pre>
+
+<ul>
+<li>모든 예외 클래스의 최상위 클래스는 <strong>Exception</strong> 클래스이다.<br>  <img src="/image/OOP-java-16_images/kindofException.png"></li>
+</ul>
+<h2 id="예외-처리-1"><a href="#예외-처리-1" class="headerlink" title="예외 처리"></a>예외 처리</h2><h3 id="try-catch"><a href="#try-catch" class="headerlink" title="try-catch"></a>try-catch</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line"><span class="comment">// 예외가 발생할 수 있는 부분</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (처리할 예외 타입 e) &#123;</span><br><span class="line"><span class="comment">// try블록 안에서 예외가 발생 했을때 예외처리할 부o</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="배열의-오류처리"><a href="#배열의-오류처리" class="headerlink" title="배열의 오류처리"></a>배열의 오류처리</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayExceptionHandling</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span> ; i &lt;= <span class="number">5</span> ; i++) &#123;</span><br><span class="line">            System.out.println(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>해당코드를 실행하게 되면 <img src="/image/OOP-java-16_images/aiobe1.png"> 다음과 같은 오류가 예외가 발생한다</li>
+<li>배열의 크기는 5인데 4를 넘어선 인덱스에 접근했기 때문에 발생한 것이다 따라서 <code>ArrayIndexOutOfBoundsException</code> 에 대한 예외처리를 진행해야한다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayExceptionHandling</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">                System.out.println(arr[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">            System.out.println(<span class="string">&quot;오류가 발생했습니다.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>try-catch를 통해 exception handling할 경우 오류가 나더라도 abort되지않고 실행된다</li>
+</ul>
+<h3 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h3><ul>
+<li>try가 블럭이 수행 되는 경우 finally 블럭은 항상 (즉, <code>return</code>이 있어도) 수행된다</li>
+<li>파일을 닫거나 리소스를 해제할때 사용된다 </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileExceptionHandling</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        FileInputStream fis = nul;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            fis = <span class="keyword">new</span> FileInputStream(args[<span class="number">0</span>]);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Enter the Argument&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fis != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    fis.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;Final sentence&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/image/OOP-java-16_images/3ef562d5.png">다음 결과와 같이 예외가 발생하여 catch구문에서 return;이 실행되었음에도<br> 불구하고 finally 블럭을 실행한다.</p>
+<h3 id="try-with-resources"><a href="#try-with-resources" class="headerlink" title="try-with-resources"></a>try-with-resources</h3><ul>
+<li>위의 try-catch-finally문은 가독성이떨어지고 지저분하다</li>
+<li>JAVA7부터 지원하는 <strong>try-with-resource</strong>를 사용하면 리소르를 사용하는 경우 close()를 사용하지 않아도 자동으로 해제 되도록한다</li>
+<li><code>resource()</code>는 try내부에서 선언해야한다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileExceptionHandling</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span>(FileInputStream fis = <span class="keyword">new</span> FileInputStream(args[<span class="number">0</span>])) &#123;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;End&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>FileInputStream은 Autocloseable이라는 Interface를 구현했기때문에 예외처리와 관계없이 close()가 실행된다.</li>
+</ul>
+<h3 id="Autocloseable-Interface"><a href="#Autocloseable-Interface" class="headerlink" title="Autocloseable Interface"></a>Autocloseable Interface</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//AutocloseableObj.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AutocloseableObj</span> <span class="keyword">implements</span> <span class="title">AutoCloseable</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Closing....&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//AutoCloseableObjTest.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutocloseableObjTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        AutocloseableObj obj = <span class="keyword">new</span> AutocloseableObj();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>(obj) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e ) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Occurred Exception!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;End&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-16_images/65ef7c4b.png"></p>
+<h2 id="예외-처리-미루기"><a href="#예외-처리-미루기" class="headerlink" title="예외 처리 미루기"></a>예외 처리 미루기</h2><ul>
+<li>try-catch방식과 다르게 <code>Throw</code>를 통하여 메소드를 사용하는 쪽에서 예외처리를 핸들링함으로써 미룰 수 있다.</li>
+<li>Error Detection이나 Log를 남기기 유리한 쪽에서 방식을 선택하는 것이 좋다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThrowException</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Class <span class="title">loadClass</span><span class="params">(String fileName, String className)</span> <span class="keyword">throws</span> ClassNotFoundException, FileNotFoundException </span>&#123;</span><br><span class="line">        <span class="comment">// Exception을 발생시키기 위한 의미없는 코드</span></span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(fileName);</span><br><span class="line">        Class c = Class.forName(className);</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ThrowException te = <span class="keyword">new</span> ThrowException();</span><br><span class="line"></span><br><span class="line">        te.loadClass(<span class="string">&quot;a.txt&quot;</span>, <span class="string">&quot;test&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>다음과 같이 작성하면 <img src="../image/OOP-java-16_images/5048cd8d.png"> 핸들링되지않은 예외가 있다고 오류가 발생한다</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    ThrowException te = <span class="keyword">new</span> ThrowException();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        te.loadClass(<span class="string">&quot;a.txt&quot;</span>, <span class="string">&quot;test&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>다음과 같이 예외처리를 할 수 있다.</p>
+</li>
+</ul>
+<h2 id="여러개의-Exception을-한번에-처리하기"><a href="#여러개의-Exception을-한번에-처리하기" class="headerlink" title="여러개의 Exception을 한번에 처리하기"></a>여러개의 Exception을 한번에 처리하기</h2><ul>
+<li>| 연산자를 통해서 여러 예외를 처리할 수 있다.  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    te.loadClass(<span class="string">&quot;a.txt&quot;</span>, <span class="string">&quot;test&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ClassNotFoundException | FileNotFoundException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Default-Exception"><a href="#Default-Exception" class="headerlink" title="Default Exception"></a>Default Exception</h2><ul>
+<li>어떤 예외가 발생할지 모르겠지만 예외를 처리하고싶을 때  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123; </span><br><span class="line">    <span class="comment">//TODO</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException | FileNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception E) &#123; </span><br><span class="line">    <span class="comment">//TODO</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Exception은 최상위 클래스이므로 업스캐팅되기때문에 가장 밑에있어야 한다 </li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/24/OOP-java-15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/24/OOP-java-15/" class="post-title-link" itemprop="url">Java - Stream</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-24 16:24:37" itemprop="dateCreated datePublished" datetime="2021-08-24T16:24:37+09:00">2021-08-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-08-25 19:23:39" itemprop="dateModified" datetime="2021-08-25T19:23:39+09:00">2021-08-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Stream</a></h1><ul>
+<li><p>스트림이란 자료의 대상과 관계없이 동일한 연산을 제공하는 것</p>
+</li>
+<li><p>배열이나 컬렉션 대상으로 연산을 수행함</p>
+</li>
+<li><p>한번 사용된 스트림은 재사용 할 수 없고 다른 연산을 수행하려면 다시 스트림을 생성해야한다</p>
+</li>
+<li><p>스트림 연산은 중간 연산과 최종연산으로 구분됨</p>
+<ul>
+<li>중간연산은 여러개의 연산이 적용됨</li>
+<li>최종연산은 마지막에 한번만 적용되며 최종연산이 호출되어야 중간 연산에 대한 수행이 이루어지고 결과가 나타남</li>
+<li>따라서 중간에 연산결과를 알 수 없음</li>
+<li>이러한 방식을 <strong>Lazy Evaluation</strong>이라 한다</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntArrayStreamTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for (int num : arr) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(num);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"></span><br><span class="line">        IntStream is = Arrays.stream(arr);</span><br><span class="line">        is.forEach(n -&gt; &#123; System.out.println(n); &#125;);</span><br><span class="line">        <span class="comment">// is.forEach(n -&gt; &#123; System.out.println(n); &#125;); 한번 사용된 스트림은 재사용 ❌</span></span><br><span class="line">        is = Arrays.stream(arr);</span><br><span class="line">        <span class="keyword">int</span> sum = is.sum();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p><code>Arrays.stream()</code>은 해당 배열에대한 <em>Stream</em>을 반환한다<br>  <img src="/image/OOP-java-15_images/streamresult.png"></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">is = Arrays.stream(arr);</span><br><span class="line"><span class="keyword">int</span> sum = is.sum();</span><br><span class="line">System.out.println(sum);</span><br><span class="line"><span class="keyword">long</span> count = Arrays.stream(arr).count();</span><br><span class="line">System.out.println(<span class="string">&quot;count = &quot;</span> + count);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="중간연산-amp-최종연산"><a href="#중간연산-amp-최종연산" class="headerlink" title="중간연산 &amp; 최종연산"></a>중간연산 &amp; 최종연산</h2><ul>
+<li>중간연산은 filter(), map(), sorted()… 이있다.<ul>
+<li>👀필터와 맵의 차이점은 map 다양한 문자,숫자,배열등 다양한 타입을 반환하는 것이 가능하지만 filter 경우 boolean타입으로만 반환한다는 점이다.</li>
+</ul>
+</li>
+<li>ex: <code>Arrays.stream(arr).filter(num -&gt; num &lt; 3).forEach(num-&gt; System.out.println(num));</code><ul>
+<li><code>filter</code>는 중간연산 <code>forEach</code>는 최종연산에 해당된다</li>
+</ul>
+</li>
+<li>최종연산은 forEach() , count(), sum(), reduce()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListStreamTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; sList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        sList.add(<span class="string">&quot;kim&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;park&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;jeong&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Stream&lt;String&gt; stream = sList.stream();</span><br><span class="line"></span><br><span class="line">        stream.filter(s -&gt; s.contains(<span class="string">&quot;k&quot;</span>)).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        <span class="keyword">long</span> count = stream.filter(s -&gt; s.contains(<span class="string">&quot;a&quot;</span>)).count();</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.map(s -&gt; s.length()).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.sorted().forEach(System.out::println);</span><br><span class="line">        System.out.println(sList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="../image/OOP-java-15_images/47770e11.png"></p>
+<ul>
+<li>해당 예제에서 sorted()를 사용했어도 원래 리스트에서는 값이 변하지 않는다</li>
+</ul>
+<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce()"></a>Reduce()</h3><ul>
+<li>정의된 연산이 아닌 프로그래머가 직접 구현한 연산을 적용</li>
+<li><code>T reduce (T identify, BinaryOperator&lt;T&gt; accumulator)</code> </li>
+<li>첫번째 인자는 초기값, 두번째 인자는 람다식</li>
+<li><em>accumulator</em>에 람다식을 직접구현하거나 람다식이 길어질경우 BinaryOperator를 구현한 클래스를 사용한다</li>
+</ul>
+<p>가장 긴 문자열 찾기 예제</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ReduceTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    System.out.println(Arrays.stream(fruits).reduce(<span class="string">&quot;&quot;</span>,(s, s2) -&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> s.length() &gt; s2.length() ? s : s2;</span><br><span class="line">    &#125;));</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>BinaryOperator를 구현하여 사용해도 같은 결과가 나온다</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//FindLongString.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.function.BinaryOperator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindLongString</span> <span class="keyword">implements</span> <span class="title">BinaryOperator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">apply</span><span class="params">(String s, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() &gt; s2.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> s2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        System.out.println(Arrays.stream(fruits).reduce(&quot;&quot;,(s, s2) -&gt; &#123;return s.length() &gt; s2.length() ? s : s2;&#125;));</span></span><br><span class="line">        System.out.println(Arrays.stream(fruits).reduce(<span class="keyword">new</span> FindLongString()).get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="../image/OOP-java-15_images/68826378.png">  인자가 하나일 경우엔 Accmulator를 받는다</p>
+</li>
+</ul>
+<p>예제</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TravelCustomer.java</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TravelCustomer</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Constrctor</span></span><br><span class="line">  <span class="meta">@Getter</span></span><br><span class="line">  <span class="meta">@Setter</span></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> price;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//TravelCustomerTest.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TravelCustomerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    TravelCustomer kim = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Kim&quot;</span>,<span class="number">40</span>, <span class="number">100</span>);</span><br><span class="line">    TravelCustomer park = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Park&quot;</span>,<span class="number">20</span>, <span class="number">200</span>);</span><br><span class="line">    TravelCustomer jeong = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Jeong&quot;</span>,<span class="number">13</span>, <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;TravelCustomer&gt; cList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    cList.add(kim);</span><br><span class="line">    cList.add(park);</span><br><span class="line">    cList.add(jeong);</span><br><span class="line"></span><br><span class="line">    cList.stream().map(travelCustomer -&gt; travelCustomer.getName().toUpperCase()).forEach(System.out::println);</span><br><span class="line">    Integer sum = <span class="number">0</span>;</span><br><span class="line">    System.out.println(cList.stream().mapToInt(c-&gt; c.getPrice()).sum());</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;20세 미만고객&quot;</span>);</span><br><span class="line">    cList.stream().filter(travelCustomer -&gt; travelCustomer.getAge() &lt; <span class="number">20</span>).map(c -&gt; c.getName().toUpperCase()).sorted().forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1236,242 +1513,6 @@ end</pre>
 <h4 id="가상-메소드-1"><a href="#가상-메소드-1" class="headerlink" title="가상 메소드"></a>가상 메소드</h4><ul>
 <li>각 클래스들은 해당 메서드에 대한 주소 값을 가진 가상 메소드 테이블을 가진다</li>
 <li>재정의 된 경우 재정의 된 메소드와 메소드주소가 바인딩 된다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/14/OOP-java-6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/14/OOP-java-6/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - List</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-14 18:31:14" itemprop="dateCreated datePublished" datetime="2021-08-14T18:31:14+09:00">2021-08-14</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-06 21:00:25" itemprop="dateModified" datetime="2021-09-06T21:00:25+09:00">2021-09-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Array-List"><a href="#Array-List" class="headerlink" title="Array List"></a>Array List</h1><h2 id="Array-List-1"><a href="#Array-List-1" class="headerlink" title="Array List"></a>Array List</h2><ul>
-<li>자바에서 기본 배열은 선언 또는 사용시 길이를 정해줘야해야하며 요소가 그 길이보다 크게되면<br>배열을 재 할당하고 복사해야 하는등 불편함이 있다</li>
-<li>또 배열의 요소에 추가하거나 삭제할때 요소들의 이동에 관한 구현을 해야한다</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">메소드</th>
-<th align="left">설명</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">boolean add(E e)</td>
-<td align="left">배열에 요소를 추가한다</td>
-</tr>
-<tr>
-<td align="center">int size()</td>
-<td align="left">요소의 전채 개수 반환한다.</td>
-</tr>
-<tr>
-<td align="center">E get(int index)</td>
-<td align="left">해당 인덱스의 값을 반환한다.</td>
-</tr>
-<tr>
-<td align="center">E remove(int index)</td>
-<td align="left">해당 인덱스의 값을 제거하고 반환한다.</td>
-</tr>
-<tr>
-<td align="center">boolean isEmpty()</td>
-<td align="left">배열이 비어있는지 확인한다. 비어있으면 true</td>
-</tr>
-</tbody></table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;E&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;E&gt;();</span><br><span class="line"></span><br><span class="line">arrayList.add(Element);</span><br></pre></td></tr></table></figure>
-
-<h4 id="예제-코드"><a href="#예제-코드" class="headerlink" title="예제 코드"></a>예제 코드</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> ArrayListTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> subjectScore;</span><br><span class="line">    <span class="keyword">private</span> String subjectName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Subject</span><span class="params">(<span class="keyword">int</span> subjectScore, String subjectName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subjectScore = subjectScore;</span><br><span class="line">        <span class="keyword">this</span>.subjectName = subjectName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubjectScore</span><span class="params">(<span class="keyword">int</span> subjectScore)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subjectScore = subjectScore;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSubjectName</span><span class="params">(String subjectName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subjectName = subjectName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSubjectScore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> subjectScore;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSubjectName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> subjectName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> ArrayListTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> studentID;</span><br><span class="line">    <span class="keyword">private</span> String studentName;</span><br><span class="line">    ArrayList&lt;Subject&gt; subjectList;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(<span class="keyword">int</span> studentID, String studentName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.studentID = studentID;</span><br><span class="line">        <span class="keyword">this</span>.studentName = studentName;</span><br><span class="line">        subjectList = <span class="keyword">new</span> ArrayList&lt;Subject&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addSubject</span><span class="params">(<span class="keyword">int</span> score, String name)</span> </span>&#123;</span><br><span class="line">        subjectList.add(<span class="keyword">new</span> Subject(score,name));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printAllScore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(studentID + <span class="string">&quot; &quot;</span> + studentName + <span class="string">&quot;의 성적표 &quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (Subject subject: subjectList ) &#123;</span><br><span class="line">            System.out.println(subject.getSubjectName() + <span class="string">&quot; : &quot;</span> + subject.getSubjectScore() + <span class="string">&quot;점 &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student kim = <span class="keyword">new</span> Student(<span class="number">1000</span>,<span class="string">&quot;kim&quot;</span>);</span><br><span class="line">        Student park = <span class="keyword">new</span> Student(<span class="number">1001</span>,<span class="string">&quot;park&quot;</span>);</span><br><span class="line">        Student jeong = <span class="keyword">new</span> Student(<span class="number">1002</span>,<span class="string">&quot;jeong&quot;</span>);</span><br><span class="line"></span><br><span class="line">        kim.addSubject(<span class="number">100</span>,<span class="string">&quot;수학&quot;</span>);</span><br><span class="line">        kim.addSubject(<span class="number">80</span>,<span class="string">&quot;영어&quot;</span>);</span><br><span class="line">        kim.printAllScore();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/14/blog-Spawn-Failed/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/14/blog-Spawn-Failed/" class="post-title-link" itemprop="url">Hexo Deploy시 Spawn Failed 오류해결 방법</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-14 17:02:23" itemprop="dateCreated datePublished" datetime="2021-08-14T17:02:23+09:00">2021-08-14</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-02 17:00:19" itemprop="dateModified" datetime="2021-09-02T17:00:19+09:00">2021-09-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/blog/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="문제-인식"><a href="#문제-인식" class="headerlink" title="문제 인식"></a>문제 인식</h2><ul>
-<li><p>여느때와 같게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">remote: Support <span class="keyword">for</span> password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br><span class="line">remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="keyword">for</span> more information.</span><br><span class="line">fatal: unable to access <span class="string">&#x27;https://github.com/Jeongisu94/Jeongisu94.github.io.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/Users/jeong-isu/dev/blog/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:394:28)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (node:internal/child_process:290:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></table></figure></li>
-<li><p>대충 보아하니 작성일(210814)기준으로 어제 비밀번호가 만료됐으니까 비번말고 대신 토큰써라 하는 내용이다</p>
-</li>
-</ul>
-<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
-<li><p>github.com의 프로필 사진을 클릭하여 Setting - Development Setting - Personal Access Token에 들어가자</p>
-<p><img src="/image/blog-Spawn-Failed_images/personal_access_token.png"></p>
-</li>
-<li><p>Generate new toekn을 클릭하여 토큰을 생성하자</p>
-<p><img src="/image/blog-Spawn-Failed_images/genToken.png"></p>
-<ul>
-<li>노트에는 어떤 토큰인지 설명과 만료기한을 설정해주자 Repo에 접근해야하니 Repo도 체크해주자</li>
-</ul>
-</li>
-<li><p>Generate Token을 누르면 토큰이 생성됨과 동시에 토큰이 나오는데 이 토큰은 한번밖에 알려주지 않으니 클립보드에 복사해두자</p>
-</li>
-</ul>
-<h3 id="configure-yml-파일-수정하기"><a href="#configure-yml-파일-수정하기" class="headerlink" title="_configure.yml 파일 수정하기"></a>_configure.yml 파일 수정하기</h3><ul>
-<li>hexo 설정파일인 _config.yml파일에서 repo설정을 다음과 같이바꿔준다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: https:<span class="comment">//&#123;githubID&#125;:&#123;Token&#125;@github.com/&#123;GithubID&#125;/githubID.github.io.git</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>그 후 hexo clean &amp;&amp; hexo deploy를 하면 오류 없이 잘 배치 된다.</p>
-<p><img src="/image/blog-Spawn-Failed_images/complete.png"></p>
-</li>
-<li><p>토큰이 외부에 노출되지 않도록 주의하자! </p>
-</li>
 </ul>
 
       

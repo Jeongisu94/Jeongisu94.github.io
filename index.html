@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -208,7 +208,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/15/spring-2/">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/16/spring-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -221,7 +221,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/15/spring-2/" class="post-title-link" itemprop="url">Spring Boot - Post</a>
+          <a href="/2021/09/16/spring-4/" class="post-title-link" itemprop="url">Spring Boot - Delete</a>
         </h2>
 
         <div class="post-meta-container">
@@ -233,7 +233,99 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-09-15 20:00:54 / Modified: 22:03:57" itemprop="dateCreated datePublished" datetime="2021-09-15T20:00:54+09:00">2021-09-15</time>
+      <time title="Created: 2021-09-16 21:04:46 / Modified: 21:17:24" itemprop="dateCreated datePublished" datetime="2021-09-16T21:04:46+09:00">2021-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="Delete-API"><a href="#Delete-API" class="headerlink" title="Delete API"></a>Delete API</h2><ul>
+<li>Delete는 단어그대로 Resource를 삭제를 하며 CRUD에서 D를 담당한다</li>
+<li>삭제 되는 대상이 동일하기때문에 멱등하며 안정성은 가지고 있지 않다</li>
+<li>PathVariable과 Query Parameter를 받을 수 있으며 Data Body를 가지지 않는다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeleteApiController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@DeleteMapping(&quot;/delete/&#123;userID&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(<span class="meta">@PathVariable</span> (name = <span class="string">&quot;userID&quot;</span>)</span>  String ID , @RequestParam String account) </span>&#123;</span><br><span class="line">        System.out.println(ID);</span><br><span class="line">        System.out.println(account);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><img src="/image/spring-4_images/dc8e26d9.png"></p>
+</li>
+<li><p><img src="/image/spring-4_images/a8367e28.png"></p>
+</li>
+<li><p>이때 URI가 틀리지 않는이상 삭제되었거나 데이터가 원래 없었거나 RESPONSE는 200이다</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/16/spring-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/16/spring-3/" class="post-title-link" itemprop="url">Spring Boot - Put</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-09-16 20:32:37 / Modified: 21:05:30" itemprop="dateCreated datePublished" datetime="2021-09-16T20:32:37+09:00">2021-09-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -259,7 +351,120 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h2><ul>
+          <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="Put-API"><a href="#Put-API" class="headerlink" title="Put API"></a>Put API</h2><ul>
+<li>PUT api는 Resource의 갱신 및 생성 CRUD에서 CU를 담당</li>
+<li>리소스가 없으면 생성 있으면 갱신을 하기때문에 멱등성을 갖고있다.</li>
+<li>잘못된 데이터에대해서도 업데이트를 진행하기때문에 안정성은 없다</li>
+<li>Path Variable과 DataBody를 가진다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//DTO</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestDto</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> List&lt;CarDto&gt; carList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PutApiController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PutMapping(&quot;/put&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="meta">@RequestBody</span> PutRequestDto putRequestDto)</span></span>&#123;</span><br><span class="line">        System.out.println(putRequestDto);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><img src="/image/spring-3_images/76c953eb.png"></p>
+</li>
+<li><p><img src="/image/spring-3_images/d1875018.png"></p>
+</li>
+<li><p>잘 작동되었지만 마찬가지로 carNumber에서 Camel Case와 Snake Case의 차이 때문에 파싱을 하지 못했다</p>
+</li>
+<li><p>DTO 전체에 룰을 적용할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//DTO</span></span><br><span class="line"><span class="meta">@JsonNaming(value = PropertyNamingStrategy.SnakeCaseStrategy.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PutRequestDto</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Car DTO</span></span><br><span class="line"><span class="meta">@JsonNaming(value = PropertyNamingStrategy.SnakeCaseStrategy.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarDto</span> </span>&#123;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="../image/spring-3_images/19e3790a.png"></p>
+</li>
+</ul>
+<h3 id="Path-Variable"><a href="#Path-Variable" class="headerlink" title="Path Variable"></a>Path Variable</h3><ul>
+<li>PUT API에서도 Path Variable을 사용할 수 있다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PutMapping(&quot;/put/&#123;userID&#125;&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PutRequestDto <span class="title">put</span> <span class="params">(<span class="meta">@RequestBody</span> PutRequestDto putRequestDto, <span class="meta">@PathVariable(name = &quot;userID&quot;)</span> Integer ID)</span> </span>&#123;</span><br><span class="line">    System.out.println(putRequestDto);</span><br><span class="line">    System.out.println(ID);</span><br><span class="line">    <span class="keyword">return</span> putRequestDto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><img src="/image/spring-3_images/9b4d8dfb.png"></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/15/spring-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/15/spring-2/" class="post-title-link" itemprop="url">Spring Boot - Post</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-15 20:00:54" itemprop="dateCreated datePublished" datetime="2021-09-15T20:00:54+09:00">2021-09-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-16 20:33:31" itemprop="dateModified" datetime="2021-09-16T20:33:31+09:00">2021-09-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/spring/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="Post-APi"><a href="#Post-APi" class="headerlink" title="Post APi"></a>Post APi</h2><ul>
 <li>리소스의 생성 추가 하므로 CRUD에서 C를 담당한다 , 매 요청마다 데이터를 생성하므로 멱등성과 안정성은 없다</li>
 </ul>
 <h3 id="JSON-JavaScript-Object-Notation"><a href="#JSON-JavaScript-Object-Notation" class="headerlink" title="JSON (JavaScript Object Notation)"></a>JSON (JavaScript Object Notation)</h3><ul>
@@ -272,7 +477,7 @@
 <li><p>기본자료형은 <strong>Number, String, Boolean, Array, Object</strong>가 있다</p>
 </li>
 <li><p>예시</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">&quot;이름&quot;</span>: <span class="string">&quot;홍길동&quot;</span>,</span><br><span class="line">   <span class="string">&quot;나이&quot;</span>: <span class="number">25</span>,</span><br><span class="line">   <span class="string">&quot;성별&quot;</span>: <span class="string">&quot;여&quot;</span>,</span><br><span class="line">   <span class="string">&quot;주소&quot;</span>: <span class="string">&quot;서울특별시 양천구 목동&quot;</span>,</span><br><span class="line">   <span class="string">&quot;특기&quot;</span>: [<span class="string">&quot;농구&quot;</span>, <span class="string">&quot;도술&quot;</span>],</span><br><span class="line">   <span class="string">&quot;가족관계&quot;</span>: &#123;<span class="string">&quot;#&quot;</span>: <span class="number">2</span>, <span class="string">&quot;아버지&quot;</span>: <span class="string">&quot;홍판서&quot;</span>, <span class="string">&quot;어머니&quot;</span>: <span class="string">&quot;춘섬&quot;</span>&#125;,</span><br><span class="line">   <span class="string">&quot;회사&quot;</span>: <span class="string">&quot;경기 수원시 팔달구 우만동&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">&quot;이름&quot;</span>: <span class="string">&quot;홍길동&quot;</span>,</span><br><span class="line">   <span class="string">&quot;나이&quot;</span>: <span class="number">25</span>,</span><br><span class="line">   <span class="string">&quot;성별&quot;</span>: <span class="string">&quot;여&quot;</span>,</span><br><span class="line">   <span class="string">&quot;주소&quot;</span>: <span class="string">&quot;서울특별시 양천구 목동&quot;</span></span><br><span class="line">   <span class="string">&quot;특기&quot;</span>: [<span class="string">&quot;농구&quot;</span>, <span class="string">&quot;도술&quot;</span>],</span><br><span class="line">   <span class="string">&quot;가족관계&quot;</span>: &#123;<span class="string">&quot;#&quot;</span>: <span class="number">2</span>, <span class="string">&quot;아버지&quot;</span>: <span class="string">&quot;홍판서&quot;</span>, <span class="string">&quot;어머니&quot;</span>: <span class="string">&quot;춘섬&quot;</span>&#125;,</span><br><span class="line">   <span class="string">&quot;회사&quot;</span>: <span class="string">&quot;경기 수원시 팔달구 우만동&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Post-예시"><a href="#Post-예시" class="headerlink" title="Post 예시"></a>Post 예시</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PostApiController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@PostMapping(&quot;/post&quot;)</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(<span class="meta">@RequestBody</span> Map&lt;String, Object&gt; requestData)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    requestData.forEach((key, value) -&gt; &#123;</span><br><span class="line">      System.out.println(key);</span><br><span class="line">      System.out.println(value);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>Body를 받기위해서 메소드의 파라미터에 <code>@RequestBody</code> Annotation을 붙여주어야 한다</p>
@@ -351,7 +556,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-15 22:03:57" itemprop="dateModified" datetime="2021-09-15T22:03:57+09:00">2021-09-15</time>
+        <time title="Modified: 2021-09-16 20:33:31" itemprop="dateModified" datetime="2021-09-16T20:33:31+09:00">2021-09-16</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -377,7 +582,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><ul>
+          <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="GET-API"><a href="#GET-API" class="headerlink" title="GET API"></a>GET API</h2><ul>
 <li><p>get은 리소스를 취득하기 위한 메소드 CRUD에서 R에 해당된다</p>
 </li>
 <li><p><code>@GetMapping</code>을 통해 주소 매핑시 cmd + b 단축키를 통해 어노테이션에 들어갈 수 있는 것들이 정의되어 있다.</p>
@@ -1023,250 +1228,6 @@
 <li>인스턴스는 <code>private static</code>로 선언하고</li>
 <li>생성자는 외부에서 호출 불가능하도록 <code>private</code>로 선언한다</li>
 <li>외부에서 같은 객체를 가질 받을 수 있도록 <code>public static getInstacne()</code>를 구현한다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/06/oop-java-26/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/06/oop-java-26/" class="post-title-link" itemprop="url">OOP - Design Pattern</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-09-06 15:37:04 / Modified: 20:56:08" itemprop="dateCreated datePublished" datetime="2021-09-06T15:37:04+09:00">2021-09-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="디자인-패턴"><a href="#디자인-패턴" class="headerlink" title="디자인 패턴"></a>디자인 패턴</h1><ul>
-<li>디자인 패턴이란 소프트 공학,디자인에서 공통적으로 발생되는 문제에 대해 재사용 가능한 해결책이다</li>
-<li>정답이 있는 형태가 아니며 프로젝트의 상황에 맞추어 적용한다</li>
-</ul>
-<h2 id="Gang-of-foul-디자인-패턴"><a href="#Gang-of-foul-디자인-패턴" class="headerlink" title="Gang of foul 디자인 패턴"></a>Gang of foul 디자인 패턴</h2><ul>
-<li>모든 사람들이 다양한 공통된 경험을 가지고 있을 수 없기 떄문에 이러한 지식을 공유하기 위해서 고안된 디자인 패턴</li>
-<li><strong>객체지향 개념</strong>에 따른 설계중 재사용할 경우 유용한 설계를 정리해둔 것</li>
-</ul>
-<h2 id="디자인-패턴의-장단점"><a href="#디자인-패턴의-장단점" class="headerlink" title="디자인 패턴의 장단점"></a>디자인 패턴의 장단점</h2><h3 id="디자인-패턴의-장점"><a href="#디자인-패턴의-장점" class="headerlink" title="디자인 패턴의 장점"></a>디자인 패턴의 장점</h3><ul>
-<li>개발자간 원활한 소통</li>
-<li>소프트웨어 구조 파악 용이</li>
-<li>재사용을 통한 개발 시간 단축</li>
-<li>설계 변경 요청에 대한 유연한 대처</li>
-</ul>
-<h3 id="디자인-패턴의-단점"><a href="#디자인-패턴의-단점" class="headerlink" title="디자인 패턴의 단점"></a>디자인 패턴의 단점</h3><ul>
-<li>객체지향적 설계 / 구현<ul>
-<li>모든 개발자가 객체지향적 개념을 갖고있지 않을 수 있으므로 부담이 될 수있음</li>
-</ul>
-</li>
-<li>초기 투자 비용 부담<ul>
-<li>초기 개발시 여러가지 구조를 작성해야하기 때문에 시간이 오래걸림</li>
-</ul>
-</li>
-</ul>
-<h2 id="디자인-패턴의-종류"><a href="#디자인-패턴의-종류" class="headerlink" title="디자인 패턴의 종류"></a>디자인 패턴의 종류</h2><table>
-<thead>
-<tr>
-<th>패턴</th>
-<th>설명</th>
-<th>종류</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>생성패턴</td>
-<td>객체를 생성하는 것과 관련된 패턴으로 목적은 객체의 생성과 변경이 전체 시스템에 미치는 영향을 최소화하고 코드의 유연성 향상이다.</td>
-<td>Factory Method, Singleton, Prototype, Builder, Abstract Factory, Chaining</td>
-</tr>
-<tr>
-<td>구조패턴</td>
-<td>자료구조나 인터페이스 구조 등 프로그램 구조를 설계하는데 활용 될 수 있는 패턴</td>
-<td>Adapter, Composite, Bridge, Decorator, Facade, Flyweight, Proxy</td>
-</tr>
-<tr>
-<td>행위패턴</td>
-<td>반복적으로 사용되는 객체들의 상호작용을 패턴화 한 것, 클래스나 객체들이 상호작용하는 방법과 책임을 분산하고 독립적으로 일을 처리하고자 할때 사용</td>
-<td>Template Method, Interpreter, Iterator, Observer, Strategy, Visitor, COR, Command, Mediator, State, Memento</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/02/OOP-java-25/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/02/OOP-java-25/" class="post-title-link" itemprop="url">Java - Synchronization - wait()/notify()</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-02 22:06:11" itemprop="dateCreated datePublished" datetime="2021-09-02T22:06:11+09:00">2021-09-02</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-06 19:23:52" itemprop="dateModified" datetime="2021-09-06T19:23:52+09:00">2021-09-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="wait-notify-메소드"><a href="#wait-notify-메소드" class="headerlink" title="wait()/notify() 메소드"></a>wait()/notify() 메소드</h2><ul>
-<li>자원이 어떤 조건에 의하여 더 이상 이용가능하지 않은 경우 다른 자원을 기다리기위해 해당 thread가 wait()상태가 된다</li>
-<li>wait상태의 thread는 <code>notify()</code>가 호출 될 때 까지 대기한다</li>
-<li>이때 <code>notify()</code>가 깨우는 thread는 무작위로 재시작한다</li>
-<li>따라서 무한으로 대기하는 thread가 생길 확률이 있으므로 <code>notifyAll()</code>메소드를 권장한다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Library.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Library</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;String&gt; shelf = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Library</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        shelf.add(<span class="string">&quot;book1&quot;</span>);</span><br><span class="line">        shelf.add(<span class="string">&quot;book2&quot;</span>);</span><br><span class="line">        shelf.add(<span class="string">&quot;book3&quot;</span>);</span><br><span class="line">        shelf.add(<span class="string">&quot;book4&quot;</span>);</span><br><span class="line">        shelf.add(<span class="string">&quot;book5&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">lendBook</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread(); <span class="comment">// 메소드를 실행하고있는 스레드</span></span><br><span class="line">        String book = shelf.remove(<span class="number">0</span>);</span><br><span class="line">        System.out.println(t.getName() + <span class="string">&quot; lend &quot;</span> + book);</span><br><span class="line">        <span class="keyword">return</span> book;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">returnBook</span><span class="params">(String book)</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        shelf.add(book);</span><br><span class="line">        System.out.println(t.getName() + <span class="string">&quot;return &quot;</span> + book);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//student.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String title = LibraryTest.library.lendBook();</span><br><span class="line">            <span class="keyword">if</span> (title == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">            sleep(<span class="number">5000</span>);</span><br><span class="line">            LibraryTest.library.returnBook(title);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LibraryTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Library library = <span class="keyword">new</span> Library();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student std1 = <span class="keyword">new</span> Student(<span class="string">&quot;std1&quot;</span>);</span><br><span class="line">        Student std2 = <span class="keyword">new</span> Student(<span class="string">&quot;std2&quot;</span>);</span><br><span class="line">        Student std3 = <span class="keyword">new</span> Student(<span class="string">&quot;std3&quot;</span>);</span><br><span class="line">        Student std4 = <span class="keyword">new</span> Student(<span class="string">&quot;std4&quot;</span>);</span><br><span class="line">        Student std5 = <span class="keyword">new</span> Student(<span class="string">&quot;std5&quot;</span>);</span><br><span class="line"></span><br><span class="line">        std1.start();</span><br><span class="line">        std2.start();</span><br><span class="line">        std3.start();</span><br><span class="line">        std4.start();</span><br><span class="line">        std5.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-25_images/be9d354e.png"></p>
-<ul>
-<li>리소스가 풍부할때는 아무 문제가 없다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Library</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Library</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        shelf.add(<span class="string">&quot;book1&quot;</span>);</span><br><span class="line">        shelf.add(<span class="string">&quot;book2&quot;</span>);</span><br><span class="line">        shelf.add(<span class="string">&quot;book3&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-25_images/0c1db0c9.png"></p>
-<ul>
-<li>critical scection의 문제가 아닌 자원이 부족하기때문에 <code>synchronized</code> 키워드로 해결 할 수없다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Library</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> String <span class="title">lendBook</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread(); <span class="comment">// 메소드를 실행하고있는 스레드</span></span><br><span class="line">        <span class="keyword">if</span> (shelf.size() &gt; <span class="number">0</span> ) &#123;</span><br><span class="line">            String book = shelf.remove(<span class="number">0</span>);</span><br><span class="line">            System.out.println(t.getName() + <span class="string">&quot; lend &quot;</span> + book);</span><br><span class="line">            <span class="keyword">return</span> book;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-25_images/1b723d17.png"></p>
-<ul>
-<li>오류는 없지만 다른 학생들은 아얘 빌리지 못하는 상태가 된다</li>
-<li>이때 <code>wait()</code> 메소드를 사용하여 메소드를 사용하고있는 thread를 <strong>unrunnable</strong> 상태로 만들 수 있다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> String <span class="title">lendBook</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread(); <span class="comment">//메소드를 실행하고있는 스레드</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ( shelf.size() == <span class="number">0</span> ) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Waiting Thread is &quot;</span> + t.getName());</span><br><span class="line">            wait();</span><br><span class="line">            System.out.println(t.getName() + <span class="string">&quot;end waiting&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (shelf.size() &gt; <span class="number">0</span> ) &#123;</span><br><span class="line">        String book = shelf.remove(<span class="number">0</span>);</span><br><span class="line">        System.out.println(t.getName() + <span class="string">&quot; lend &quot;</span> + book);</span><br><span class="line">        <span class="keyword">return</span> book;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">returnBook</span><span class="params">(String book)</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        shelf.add(book);</span><br><span class="line">        notify();</span><br><span class="line">        System.out.println(<span class="string">&quot;returned &quot;</span> + book);</span><br><span class="line">        System.out.println(t.getName() + <span class="string">&quot; return &quot;</span> + book);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/image/OOP-java-25_images/OOP-java-25-1630596717579.gif"></p>
-<ul>
-<li>다음 결과와 같이 자원이 반환될떄까지 thread가 기다렸다가 notify를 받고 다시 진행된다.</li>
-<li>notifyAll() 할 경우 다른 Thread들이 모두 자원을 가져가게되면 자원을 받지 못할 경우가 생길 수 있다<br>이에대한 handling이 필요하다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> String <span class="title">lendBook</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread(); <span class="comment">//메소드를 실행하고있는 스레드</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( shelf.size() == <span class="number">0</span> ) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Waiting Thread is &quot;</span> + t.getName());</span><br><span class="line">        wait();</span><br><span class="line">        System.out.println(t.getName() + <span class="string">&quot;end waiting&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (shelf.size() &gt; <span class="number">0</span> ) &#123;</span><br><span class="line">        String book = shelf.remove(<span class="number">0</span>);</span><br><span class="line">        System.out.println(t.getName() + <span class="string">&quot; lend &quot;</span> + book);</span><br><span class="line">        <span class="keyword">return</span> book;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">returnBook</span><span class="params">(String book)</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        shelf.add(book);</span><br><span class="line">        notifyAll();</span><br><span class="line">        System.out.println(t.getName() + <span class="string">&quot; return &quot;</span> + book);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>빌리려고 꺠어났을때 책이 없을때 다시 wait()을 호출해야한다.</li>
 </ul>
 
       
