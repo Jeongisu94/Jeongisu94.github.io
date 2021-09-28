@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,119 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/17/OOP-java-8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/17/OOP-java-8/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - Polymorphism</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-17 19:36:48" itemprop="dateCreated datePublished" datetime="2021-08-17T19:36:48+09:00">2021-08-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-06 20:58:39" itemprop="dateModified" datetime="2021-09-06T20:58:39+09:00">2021-09-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="다형성"><a href="#다형성" class="headerlink" title="다형성"></a>다형성</h1><h2 id="다형성이란"><a href="#다형성이란" class="headerlink" title="다형성이란"></a>다형성이란</h2><ul>
+<li>프로그램의 각 요소들(상수,변수,객체,함수,메소드 …)이 여러 가지 타입에 속할수 있는 성질</li>
+<li>객체지향 프로그래밍에서 가장 큰 특징(추상화,캡슐화,상속,다형성) 중 하나이다.</li>
+</ul>
+<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;동물이 웁니다.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;왈왈&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shakeTail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;살랑살랑&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;야옹&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PolymorphismTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Dog();</span><br><span class="line">        Animal cat = <span class="keyword">new</span> Cat();</span><br><span class="line">        </span><br><span class="line">        ArrayList&lt;Animal&gt; animalArrayList = <span class="keyword">new</span> ArrayList&lt;Animal&gt;;</span><br><span class="line">        animalArrayList.add(dog);</span><br><span class="line">        animalArrayList.add(cat);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (Animal animal : animalArrayList) &#123;</span><br><span class="line">            animal.bark();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkAnimal</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        animal.bark();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>코드를 실행하면 같은 animal.bark()임에도 불구하고 </p>
+<p>  ‘야옹’과 ‘멍멍’이 출력이 된다.</p>
+</li>
+<li><p>이렇듯 같은 코드여도 메소드 오버라이딩을 통해 다른 결과를 가질 수 있다. </p>
+</li>
+<li><p>그러나 Dog 클래스의 shakeTail 메소드는 현재 Dog가 Animal 타입이기 때문에 접근이 불가능하다</p>
+</li>
+<li><p>따라서 접근하기 위해선 Downcasting이 필요하다</p>
+</li>
+</ul>
+<h2 id="downcasting"><a href="#downcasting" class="headerlink" title="downcasting"></a>downcasting</h2><ul>
+<li><p>Upcasting된 객체를 다시 원래의 타입으로 캐스팅 하는 것</p>
+</li>
+<li><p>하위 클래스로의 형 변환은 명시적으로 해야한다</p>
+</li>
+<li><p><code>dog = (Dog)dog</code>  <code>객체 = (원래하위클래스) 업캐스팅된객체</code> </p>
+</li>
+<li><p>또는 <code>((Dog) dog).shakeTail();</code> 과 같이 사용 할 수 있다.</p>
+</li>
+</ul>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><ul>
+<li>instanceof 함수는 원래 형이 맞는지 체크하는 키워드이다<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (dog <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">    dog = (Dog)dog;</span><br><span class="line">    dog.shakeTail();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1203,133 +1316,6 @@
 <p>라는 경고가 뜨는데, 네가 gitignore에 작성한 파일에 add할 파일이 있던데 그래도 올릴거야? 하고 친절히 물어보는 것이였다.</p>
 <p>이때는  <code> git add .</code> 를 써서 해결 할 수 있다. </p>
 <h2 id="결론-모든-메시지는-잘-읽어보고-확인하자-👀"><a href="#결론-모든-메시지는-잘-읽어보고-확인하자-👀" class="headerlink" title="결론: 모든 메시지는 잘 읽어보고 확인하자! 👀"></a>결론: 모든 메시지는 잘 읽어보고 확인하자! 👀</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/05/System-Programming-Pthread/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/05/System-Programming-Pthread/" class="post-title-link" itemprop="url">System-Programming-Pthread</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-05 20:06:33" itemprop="dateCreated datePublished" datetime="2021-08-05T20:06:33+09:00">2021-08-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-08-06 20:32:03" itemprop="dateModified" datetime="2021-08-06T20:32:03+09:00">2021-08-06</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
-<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
-<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
-</ul>
-<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
-<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
-</li>
-<li><p>모든 함수는 pthread_ 로 시작</p>
-</li>
-<li><p>크게 두가지로 분류 된다</p>
-<ul>
-<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
-<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
-</ul>
-</li>
-<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
-<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
-<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
-<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
-<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
-<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
-<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
-
-<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
-<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
-<ul>
-<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
-</ul>
-</li>
-<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
-<ul>
-<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
-<li>detach는 해당 스레드가 종료되면 바로 해제</li>
-</ul>
-</li>
-</ul>
-<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
-<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 

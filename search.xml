@@ -827,66 +827,47 @@ HashMap --> Map</pre>
       </tags>
   </entry>
   <entry>
-    <title>Java - Stream</title>
-    <url>/2021/08/24/OOP-java-15/</url>
-    <content><![CDATA[<h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Stream</a></h1><ul>
-<li><p>스트림이란 자료의 대상과 관계없이 동일한 연산을 제공하는 것</p>
-</li>
-<li><p>배열이나 컬렉션 대상으로 연산을 수행함</p>
-</li>
-<li><p>한번 사용된 스트림은 재사용 할 수 없고 다른 연산을 수행하려면 다시 스트림을 생성해야한다</p>
-</li>
-<li><p>스트림 연산은 중간 연산과 최종연산으로 구분됨</p>
+    <title>Java - Lambda Expression</title>
+    <url>/2021/08/23/OOP-java-14/</url>
+    <content><![CDATA[<h1 id="람다식"><a href="#람다식" class="headerlink" title="람다식"></a>람다식</h1><h2 id="함수형-프로그래밍"><a href="#함수형-프로그래밍" class="headerlink" title="함수형 프로그래밍"></a>함수형 프로그래밍</h2><ul>
+<li>함수는 받아온 매개변수를 기반으로 구현하고 실행됨으로써 <code>Side Effect</code>가 발생하지 않도록 하는 방식이다</li>
+<li>이러한 함수를 기반으로 하는 프로그래밍이고 입력 받은 자료 이외에 외부 자료를 사용하지 않아 여러 자료를 동시에<br>수행되는 병렬 처리가 가능하다. </li>
+</ul>
+<h2 id="람다식-문법"><a href="#람다식-문법" class="headerlink" title="람다식 문법"></a>람다식 문법</h2><ul>
+<li><p>함수 이름없이 매개 변수와 매개변수를 이용한 실행문 <code>(매개변수) -&gt; &#123;실행문;&#125;</code></p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>매개 변수가 하나인 경우 자료형과 괄호 생략이 가능</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt;  &#123;System.out.println(str);&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>실행문이 한 문장인 경우 중괄호도 생략이 가능하다</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt; System.out.println(str);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>중간연산은 여러개의 연산이 적용됨</li>
-<li>최종연산은 마지막에 한번만 적용되며 최종연산이 호출되어야 중간 연산에 대한 수행이 이루어지고 결과가 나타남</li>
-<li>따라서 중간에 연산결과를 알 수 없음</li>
-<li>이러한 방식을 <strong>Lazy Evaluation</strong>이라 한다</li>
-</ul>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntArrayStreamTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for (int num : arr) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(num);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"></span><br><span class="line">        IntStream is = Arrays.stream(arr);</span><br><span class="line">        is.forEach(n -&gt; &#123; System.out.println(n); &#125;);</span><br><span class="line">        <span class="comment">// is.forEach(n -&gt; &#123; System.out.println(n); &#125;); 한번 사용된 스트림은 재사용 ❌</span></span><br><span class="line">        is = Arrays.stream(arr);</span><br><span class="line">        <span class="keyword">int</span> sum = is.sum();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p><code>Arrays.stream()</code>은 해당 배열에대한 <em>Stream</em>을 반환한다<br>  <img src="/image/OOP-java-15_images/streamresult.png"></p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">is = Arrays.stream(arr);</span><br><span class="line"><span class="keyword">int</span> sum = is.sum();</span><br><span class="line">System.out.println(sum);</span><br><span class="line"><span class="keyword">long</span> count = Arrays.stream(arr).count();</span><br><span class="line">System.out.println(<span class="string">&quot;count = &quot;</span> + count);</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="중간연산-amp-최종연산"><a href="#중간연산-amp-최종연산" class="headerlink" title="중간연산 &amp; 최종연산"></a>중간연산 &amp; 최종연산</h2><ul>
-<li>중간연산은 filter(), map(), sorted()… 이있다.<ul>
-<li>👀필터와 맵의 차이점은 map 다양한 문자,숫자,배열등 다양한 타입을 반환하는 것이 가능하지만 filter 경우 boolean타입으로만 반환한다는 점이다.</li>
+<li>그러나 <code>return</code>은 중괄호 생략 불가<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//str -&gt; return str.length(); ❌</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>ex: <code>Arrays.stream(arr).filter(num -&gt; num &lt; 3).forEach(num-&gt; System.out.println(num));</code><ul>
-<li><code>filter</code>는 중간연산 <code>forEach</code>는 최종연산에 해당된다</li>
+<li><p>실행문이 한 문장의 반환문인 경우엔 return과 중괄호 모두 생략 가능</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(x,y) -&gt; x+y;</span><br><span class="line">str -&gt; str.length();</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h2 id="람다식-구현하기"><a href="#람다식-구현하기" class="headerlink" title="람다식 구현하기"></a>람다식 구현하기</h2><ul>
+<li><p>자바에서는 클래스없이 메소드만 선언할 수 없으므로 랃다식을 위한 인터페이스에 메소드를 선언한다</p>
 </li>
-<li>최종연산은 forEach() , count(), sum(), reduce()</li>
+<li><p>이것을 <strong>Functional Interface</strong>라고 한다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add.java</span></span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Add</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x , <span class="keyword">int</span> y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>이렇게 람다식을 선언하기 위한 함수형 인터페이스는 익명 함수와 매개변수만으로 구현되므로<br>인터페이스는 <strong>☝️단 하나만의 메소드</strong>만 선언해야함 </p>
+</li>
+<li><p><code>@FunctionalInterface</code> Annotation을 이용하여 명시해준다</p>
+</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListStreamTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; sList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        sList.add(<span class="string">&quot;kim&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;park&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;jeong&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Stream&lt;String&gt; stream = sList.stream();</span><br><span class="line"></span><br><span class="line">        stream.filter(s -&gt; s.contains(<span class="string">&quot;k&quot;</span>)).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        <span class="keyword">long</span> count = stream.filter(s -&gt; s.contains(<span class="string">&quot;a&quot;</span>)).count();</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.map(s -&gt; s.length()).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.sorted().forEach(System.out::println);</span><br><span class="line">        System.out.println(sList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="../image/OOP-java-15_images/47770e11.png"></p>
-<ul>
-<li>해당 예제에서 sorted()를 사용했어도 원래 리스트에서는 값이 변하지 않는다</li>
-</ul>
-<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce()"></a>Reduce()</h3><ul>
-<li>정의된 연산이 아닌 프로그래머가 직접 구현한 연산을 적용</li>
-<li><code>T reduce (T identify, BinaryOperator&lt;T&gt; accumulator)</code> </li>
-<li>첫번째 인자는 초기값, 두번째 인자는 람다식</li>
-<li><em>accumulator</em>에 람다식을 직접구현하거나 람다식이 길어질경우 BinaryOperator를 구현한 클래스를 사용한다</li>
-</ul>
-<p>가장 긴 문자열 찾기 예제</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ReduceTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    System.out.println(Arrays.stream(fruits).reduce(<span class="string">&quot;&quot;</span>,(s, s2) -&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> s.length() &gt; s2.length() ? s : s2;</span><br><span class="line">    &#125;));</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AddTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AddTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Add add = (x, y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;;</span><br><span class="line">        System.out.println(add.add(<span class="number">3</span>,<span class="number">5</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>BinaryOperator를 구현하여 사용해도 같은 결과가 나온다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//FindLongString.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.function.BinaryOperator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindLongString</span> <span class="keyword">implements</span> <span class="title">BinaryOperator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">apply</span><span class="params">(String s, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() &gt; s2.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> s2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        System.out.println(Arrays.stream(fruits).reduce(&quot;&quot;,(s, s2) -&gt; &#123;return s.length() &gt; s2.length() ? s : s2;&#125;));</span></span><br><span class="line">        System.out.println(Arrays.stream(fruits).reduce(<span class="keyword">new</span> FindLongString()).get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><img src="../image/OOP-java-15_images/68826378.png">  인자가 하나일 경우엔 Accmulator를 받는다</p>
-</li>
+<li>람다식 사용시 함수영 인터페이스의 인스턴스에 람다식을 할당해 사용할 수 있다.</li>
 </ul>
-<p>예제</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TravelCustomer.java</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TravelCustomer</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Constrctor</span></span><br><span class="line">  <span class="meta">@Getter</span></span><br><span class="line">  <span class="meta">@Setter</span></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> price;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//TravelCustomerTest.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TravelCustomerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    TravelCustomer kim = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Kim&quot;</span>,<span class="number">40</span>, <span class="number">100</span>);</span><br><span class="line">    TravelCustomer park = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Park&quot;</span>,<span class="number">20</span>, <span class="number">200</span>);</span><br><span class="line">    TravelCustomer jeong = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Jeong&quot;</span>,<span class="number">13</span>, <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;TravelCustomer&gt; cList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    cList.add(kim);</span><br><span class="line">    cList.add(park);</span><br><span class="line">    cList.add(jeong);</span><br><span class="line"></span><br><span class="line">    cList.stream().map(travelCustomer -&gt; travelCustomer.getName().toUpperCase()).forEach(System.out::println);</span><br><span class="line">    Integer sum = <span class="number">0</span>;</span><br><span class="line">    System.out.println(cList.stream().mapToInt(c-&gt; c.getPrice()).sum());</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;20세 미만고객&quot;</span>);</span><br><span class="line">    cList.stream().filter(travelCustomer -&gt; travelCustomer.getAge() &lt; <span class="number">20</span>).map(c -&gt; c.getName().toUpperCase()).sorted().forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+]]></content>
       <categories>
         <category>java</category>
       </categories>
       <tags>
-        <tag>Stream</tag>
+        <tag>Lambda</tag>
       </tags>
   </entry>
   <entry>
@@ -969,47 +950,66 @@ Exception --> Throwable;</pre>
       </tags>
   </entry>
   <entry>
-    <title>Java - Lambda Expression</title>
-    <url>/2021/08/23/OOP-java-14/</url>
-    <content><![CDATA[<h1 id="람다식"><a href="#람다식" class="headerlink" title="람다식"></a>람다식</h1><h2 id="함수형-프로그래밍"><a href="#함수형-프로그래밍" class="headerlink" title="함수형 프로그래밍"></a>함수형 프로그래밍</h2><ul>
-<li>함수는 받아온 매개변수를 기반으로 구현하고 실행됨으로써 <code>Side Effect</code>가 발생하지 않도록 하는 방식이다</li>
-<li>이러한 함수를 기반으로 하는 프로그래밍이고 입력 받은 자료 이외에 외부 자료를 사용하지 않아 여러 자료를 동시에<br>수행되는 병렬 처리가 가능하다. </li>
-</ul>
-<h2 id="람다식-문법"><a href="#람다식-문법" class="headerlink" title="람다식 문법"></a>람다식 문법</h2><ul>
-<li><p>함수 이름없이 매개 변수와 매개변수를 이용한 실행문 <code>(매개변수) -&gt; &#123;실행문;&#125;</code></p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>매개 변수가 하나인 경우 자료형과 괄호 생략이 가능</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt;  &#123;System.out.println(str);&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>실행문이 한 문장인 경우 중괄호도 생략이 가능하다</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt; System.out.println(str);</span><br></pre></td></tr></table></figure>
+    <title>Java - Stream</title>
+    <url>/2021/08/24/OOP-java-15/</url>
+    <content><![CDATA[<h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Stream</a></h1><ul>
+<li><p>스트림이란 자료의 대상과 관계없이 동일한 연산을 제공하는 것</p>
+</li>
+<li><p>배열이나 컬렉션 대상으로 연산을 수행함</p>
+</li>
+<li><p>한번 사용된 스트림은 재사용 할 수 없고 다른 연산을 수행하려면 다시 스트림을 생성해야한다</p>
+</li>
+<li><p>스트림 연산은 중간 연산과 최종연산으로 구분됨</p>
 <ul>
-<li>그러나 <code>return</code>은 중괄호 생략 불가<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//str -&gt; return str.length(); ❌</span></span><br></pre></td></tr></table></figure></li>
+<li>중간연산은 여러개의 연산이 적용됨</li>
+<li>최종연산은 마지막에 한번만 적용되며 최종연산이 호출되어야 중간 연산에 대한 수행이 이루어지고 결과가 나타남</li>
+<li>따라서 중간에 연산결과를 알 수 없음</li>
+<li>이러한 방식을 <strong>Lazy Evaluation</strong>이라 한다</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntArrayStreamTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        for (int num : arr) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(num);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"></span><br><span class="line">        IntStream is = Arrays.stream(arr);</span><br><span class="line">        is.forEach(n -&gt; &#123; System.out.println(n); &#125;);</span><br><span class="line">        <span class="comment">// is.forEach(n -&gt; &#123; System.out.println(n); &#125;); 한번 사용된 스트림은 재사용 ❌</span></span><br><span class="line">        is = Arrays.stream(arr);</span><br><span class="line">        <span class="keyword">int</span> sum = is.sum();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p><code>Arrays.stream()</code>은 해당 배열에대한 <em>Stream</em>을 반환한다<br>  <img src="/image/OOP-java-15_images/streamresult.png"></p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">is = Arrays.stream(arr);</span><br><span class="line"><span class="keyword">int</span> sum = is.sum();</span><br><span class="line">System.out.println(sum);</span><br><span class="line"><span class="keyword">long</span> count = Arrays.stream(arr).count();</span><br><span class="line">System.out.println(<span class="string">&quot;count = &quot;</span> + count);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="중간연산-amp-최종연산"><a href="#중간연산-amp-최종연산" class="headerlink" title="중간연산 &amp; 최종연산"></a>중간연산 &amp; 최종연산</h2><ul>
+<li>중간연산은 filter(), map(), sorted()… 이있다.<ul>
+<li>👀필터와 맵의 차이점은 map 다양한 문자,숫자,배열등 다양한 타입을 반환하는 것이 가능하지만 filter 경우 boolean타입으로만 반환한다는 점이다.</li>
 </ul>
 </li>
-<li><p>실행문이 한 문장의 반환문인 경우엔 return과 중괄호 모두 생략 가능</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(x,y) -&gt; x+y;</span><br><span class="line">str -&gt; str.length();</span><br></pre></td></tr></table></figure></li>
+<li>ex: <code>Arrays.stream(arr).filter(num -&gt; num &lt; 3).forEach(num-&gt; System.out.println(num));</code><ul>
+<li><code>filter</code>는 중간연산 <code>forEach</code>는 최종연산에 해당된다</li>
 </ul>
-<h2 id="람다식-구현하기"><a href="#람다식-구현하기" class="headerlink" title="람다식 구현하기"></a>람다식 구현하기</h2><ul>
-<li><p>자바에서는 클래스없이 메소드만 선언할 수 없으므로 랃다식을 위한 인터페이스에 메소드를 선언한다</p>
 </li>
-<li><p>이것을 <strong>Functional Interface</strong>라고 한다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add.java</span></span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Add</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x , <span class="keyword">int</span> y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>이렇게 람다식을 선언하기 위한 함수형 인터페이스는 익명 함수와 매개변수만으로 구현되므로<br>인터페이스는 <strong>☝️단 하나만의 메소드</strong>만 선언해야함 </p>
-</li>
-<li><p><code>@FunctionalInterface</code> Annotation을 이용하여 명시해준다</p>
-</li>
+<li>최종연산은 forEach() , count(), sum(), reduce()</li>
 </ul>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AddTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AddTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Add add = (x, y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;;</span><br><span class="line">        System.out.println(add.add(<span class="number">3</span>,<span class="number">5</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListStreamTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; sList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        sList.add(<span class="string">&quot;kim&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;park&quot;</span>);</span><br><span class="line">        sList.add(<span class="string">&quot;jeong&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Stream&lt;String&gt; stream = sList.stream();</span><br><span class="line"></span><br><span class="line">        stream.filter(s -&gt; s.contains(<span class="string">&quot;k&quot;</span>)).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        <span class="keyword">long</span> count = stream.filter(s -&gt; s.contains(<span class="string">&quot;a&quot;</span>)).count();</span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.map(s -&gt; s.length()).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        stream = sList.stream();</span><br><span class="line">        stream.sorted().forEach(System.out::println);</span><br><span class="line">        System.out.println(sList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="../image/OOP-java-15_images/47770e11.png"></p>
+<ul>
+<li>해당 예제에서 sorted()를 사용했어도 원래 리스트에서는 값이 변하지 않는다</li>
+</ul>
+<h3 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce()"></a>Reduce()</h3><ul>
+<li>정의된 연산이 아닌 프로그래머가 직접 구현한 연산을 적용</li>
+<li><code>T reduce (T identify, BinaryOperator&lt;T&gt; accumulator)</code> </li>
+<li>첫번째 인자는 초기값, 두번째 인자는 람다식</li>
+<li><em>accumulator</em>에 람다식을 직접구현하거나 람다식이 길어질경우 BinaryOperator를 구현한 클래스를 사용한다</li>
+</ul>
+<p>가장 긴 문자열 찾기 예제</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ReduceTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    System.out.println(Arrays.stream(fruits).reduce(<span class="string">&quot;&quot;</span>,(s, s2) -&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> s.length() &gt; s2.length() ? s : s2;</span><br><span class="line">    &#125;));</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>람다식 사용시 함수영 인터페이스의 인스턴스에 람다식을 할당해 사용할 수 있다.</li>
+<li><p>BinaryOperator를 구현하여 사용해도 같은 결과가 나온다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//FindLongString.java</span></span><br><span class="line"><span class="keyword">import</span> java.util.function.BinaryOperator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindLongString</span> <span class="keyword">implements</span> <span class="title">BinaryOperator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">apply</span><span class="params">(String s, String s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() &gt; s2.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> s2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReduceTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] fruits = &#123;<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Avocado&quot;</span>, <span class="string">&quot;Watermelon&quot;</span>, <span class="string">&quot;Tomato&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//        System.out.println(Arrays.stream(fruits).reduce(&quot;&quot;,(s, s2) -&gt; &#123;return s.length() &gt; s2.length() ? s : s2;&#125;));</span></span><br><span class="line">        System.out.println(Arrays.stream(fruits).reduce(<span class="keyword">new</span> FindLongString()).get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="../image/OOP-java-15_images/68826378.png">  인자가 하나일 경우엔 Accmulator를 받는다</p>
+</li>
 </ul>
-]]></content>
+<p>예제</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TravelCustomer.java</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TravelCustomer</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Constrctor</span></span><br><span class="line">  <span class="meta">@Getter</span></span><br><span class="line">  <span class="meta">@Setter</span></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> price;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//TravelCustomerTest.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TravelCustomerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    TravelCustomer kim = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Kim&quot;</span>,<span class="number">40</span>, <span class="number">100</span>);</span><br><span class="line">    TravelCustomer park = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Park&quot;</span>,<span class="number">20</span>, <span class="number">200</span>);</span><br><span class="line">    TravelCustomer jeong = <span class="keyword">new</span> TravelCustomer(<span class="string">&quot;Jeong&quot;</span>,<span class="number">13</span>, <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;TravelCustomer&gt; cList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    cList.add(kim);</span><br><span class="line">    cList.add(park);</span><br><span class="line">    cList.add(jeong);</span><br><span class="line"></span><br><span class="line">    cList.stream().map(travelCustomer -&gt; travelCustomer.getName().toUpperCase()).forEach(System.out::println);</span><br><span class="line">    Integer sum = <span class="number">0</span>;</span><br><span class="line">    System.out.println(cList.stream().mapToInt(c-&gt; c.getPrice()).sum());</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;20세 미만고객&quot;</span>);</span><br><span class="line">    cList.stream().filter(travelCustomer -&gt; travelCustomer.getAge() &lt; <span class="number">20</span>).map(c -&gt; c.getName().toUpperCase()).sorted().forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>java</category>
       </categories>
       <tags>
-        <tag>Lambda</tag>
+        <tag>Stream</tag>
       </tags>
   </entry>
   <entry>
@@ -1868,6 +1868,48 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>객체지향 프로그래밍 - Polymorphism</title>
+    <url>/2021/08/17/OOP-java-8/</url>
+    <content><![CDATA[<h1 id="다형성"><a href="#다형성" class="headerlink" title="다형성"></a>다형성</h1><h2 id="다형성이란"><a href="#다형성이란" class="headerlink" title="다형성이란"></a>다형성이란</h2><ul>
+<li>프로그램의 각 요소들(상수,변수,객체,함수,메소드 …)이 여러 가지 타입에 속할수 있는 성질</li>
+<li>객체지향 프로그래밍에서 가장 큰 특징(추상화,캡슐화,상속,다형성) 중 하나이다.</li>
+</ul>
+<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;동물이 웁니다.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;왈왈&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shakeTail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;살랑살랑&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;야옹&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PolymorphismTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Dog();</span><br><span class="line">        Animal cat = <span class="keyword">new</span> Cat();</span><br><span class="line">        </span><br><span class="line">        ArrayList&lt;Animal&gt; animalArrayList = <span class="keyword">new</span> ArrayList&lt;Animal&gt;;</span><br><span class="line">        animalArrayList.add(dog);</span><br><span class="line">        animalArrayList.add(cat);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (Animal animal : animalArrayList) &#123;</span><br><span class="line">            animal.bark();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkAnimal</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        animal.bark();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>코드를 실행하면 같은 animal.bark()임에도 불구하고 </p>
+<p>  ‘야옹’과 ‘멍멍’이 출력이 된다.</p>
+</li>
+<li><p>이렇듯 같은 코드여도 메소드 오버라이딩을 통해 다른 결과를 가질 수 있다. </p>
+</li>
+<li><p>그러나 Dog 클래스의 shakeTail 메소드는 현재 Dog가 Animal 타입이기 때문에 접근이 불가능하다</p>
+</li>
+<li><p>따라서 접근하기 위해선 Downcasting이 필요하다</p>
+</li>
+</ul>
+<h2 id="downcasting"><a href="#downcasting" class="headerlink" title="downcasting"></a>downcasting</h2><ul>
+<li><p>Upcasting된 객체를 다시 원래의 타입으로 캐스팅 하는 것</p>
+</li>
+<li><p>하위 클래스로의 형 변환은 명시적으로 해야한다</p>
+</li>
+<li><p><code>dog = (Dog)dog</code>  <code>객체 = (원래하위클래스) 업캐스팅된객체</code> </p>
+</li>
+<li><p>또는 <code>((Dog) dog).shakeTail();</code> 과 같이 사용 할 수 있다.</p>
+</li>
+</ul>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><ul>
+<li>instanceof 함수는 원래 형이 맞는지 체크하는 키워드이다<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (dog <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">    dog = (Dog)dog;</span><br><span class="line">    dog.shakeTail();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>oop</category>
+      </categories>
+      <tags>
+        <tag>polymorphism</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>객체지향 프로그래밍 - Inheritance</title>
     <url>/2021/08/17/OOP-java-7/</url>
     <content><![CDATA[<h1 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h1><h2 id="클래스-상속"><a href="#클래스-상속" class="headerlink" title="클래스 상속"></a>클래스 상속</h2><ul>
@@ -1975,48 +2017,6 @@ File -- input Stream --> JAVA</pre>
         <tag>interface</tag>
         <tag>abstract class</tag>
         <tag>template method</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>객체지향 프로그래밍 - Polymorphism</title>
-    <url>/2021/08/17/OOP-java-8/</url>
-    <content><![CDATA[<h1 id="다형성"><a href="#다형성" class="headerlink" title="다형성"></a>다형성</h1><h2 id="다형성이란"><a href="#다형성이란" class="headerlink" title="다형성이란"></a>다형성이란</h2><ul>
-<li>프로그램의 각 요소들(상수,변수,객체,함수,메소드 …)이 여러 가지 타입에 속할수 있는 성질</li>
-<li>객체지향 프로그래밍에서 가장 큰 특징(추상화,캡슐화,상속,다형성) 중 하나이다.</li>
-</ul>
-<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;동물이 웁니다.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;왈왈&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shakeTail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;살랑살랑&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;야옹&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PolymorphismTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Dog();</span><br><span class="line">        Animal cat = <span class="keyword">new</span> Cat();</span><br><span class="line">        </span><br><span class="line">        ArrayList&lt;Animal&gt; animalArrayList = <span class="keyword">new</span> ArrayList&lt;Animal&gt;;</span><br><span class="line">        animalArrayList.add(dog);</span><br><span class="line">        animalArrayList.add(cat);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (Animal animal : animalArrayList) &#123;</span><br><span class="line">            animal.bark();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkAnimal</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        animal.bark();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>코드를 실행하면 같은 animal.bark()임에도 불구하고 </p>
-<p>  ‘야옹’과 ‘멍멍’이 출력이 된다.</p>
-</li>
-<li><p>이렇듯 같은 코드여도 메소드 오버라이딩을 통해 다른 결과를 가질 수 있다. </p>
-</li>
-<li><p>그러나 Dog 클래스의 shakeTail 메소드는 현재 Dog가 Animal 타입이기 때문에 접근이 불가능하다</p>
-</li>
-<li><p>따라서 접근하기 위해선 Downcasting이 필요하다</p>
-</li>
-</ul>
-<h2 id="downcasting"><a href="#downcasting" class="headerlink" title="downcasting"></a>downcasting</h2><ul>
-<li><p>Upcasting된 객체를 다시 원래의 타입으로 캐스팅 하는 것</p>
-</li>
-<li><p>하위 클래스로의 형 변환은 명시적으로 해야한다</p>
-</li>
-<li><p><code>dog = (Dog)dog</code>  <code>객체 = (원래하위클래스) 업캐스팅된객체</code> </p>
-</li>
-<li><p>또는 <code>((Dog) dog).shakeTail();</code> 과 같이 사용 할 수 있다.</p>
-</li>
-</ul>
-<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><ul>
-<li>instanceof 함수는 원래 형이 맞는지 체크하는 키워드이다<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (dog <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">    dog = (Dog)dog;</span><br><span class="line">    dog.shakeTail();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>oop</category>
-      </categories>
-      <tags>
-        <tag>polymorphism</tag>
       </tags>
   </entry>
   <entry>
@@ -2896,6 +2896,76 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>Spring Boot - Get</title>
+    <url>/2021/09/13/spring-1/</url>
+    <content><![CDATA[<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="GET-API"><a href="#GET-API" class="headerlink" title="GET API"></a>GET API</h2><ul>
+<li><p>get은 리소스를 취득하기 위한 메소드 CRUD에서 R에 해당된다</p>
+</li>
+<li><p><code>@GetMapping</code>을 통해 주소 매핑시 cmd + b 단축키를 통해 어노테이션에 들어갈 수 있는 것들이 정의되어 있다.</p>
+</li>
+<li><p><img src="/image/spring-1_images/20955e3a.png"></p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api/get&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetApiController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(path = &quot;/hello&quot;)</span>  <span class="comment">// localhost:8080/api/get/hello</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;get Hello&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>다른 방식으로도 맵핑이 가능하다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/hi&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hi&quot;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>위 방식처럼 매핑했을때 hi 라고 요청할 경우 get,post,put, delete와 같은 모든 메소드에 request 되기 때문에 method를 명시해줘야 한다.</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(path = &quot;/hi&quot; , method = RequestMethod.GET)</span> <span class="comment">// localhost:8080/api/get/hi</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">hi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="string">&quot;hi&quot;</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>따라서 다음과 같이 수정하여 사용 할 수 있다.</p>
+</li>
+</ul>
+<p><img src="/image/spring-1_images/4e2ee7ae.png"><br><img src="/image/spring-1_images/acab746a.png"></p>
+<h3 id="pathvariable"><a href="#pathvariable" class="headerlink" title="pathvariable"></a>pathvariable</h3><ul>
+<li><p>변화하는 path에 대하여 일대일로 메소드를 작성하는것은 매우 비효율 적이다.</p>
+</li>
+<li><p>사용자에따라 변화 할 수 있는 값(id, 이름 등)에 대하여 변수로 받기위한 것이다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/path-variable/&#123;name&#125;&quot;)</span> <span class="comment">// http://localhost:8080/api/get/pathvariable/&#123;name&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">pathVariable</span><span class="params">(<span class="meta">@PathVariable</span> String name)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;PathVariable : &quot;</span> + name);</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="/image/spring-1_images/f629cb91.png"></p>
+</li>
+<li><p><img src="/image/spring-1_images/1733d7f5.png"></p>
+</li>
+<li><p>반드시 GetMapping과 PathVariable의 변수명은 같아야한다 </p>
+</li>
+<li><p>그러나 개발중 <code>path variable</code>과 method의 파라미터 명을 다르게 해야할 때는 다음과 같이 사용 할 수있다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/path-variable/&#123;name&#125;&quot;)</span> <span class="comment">// http://localhost:8080/api/get/pathvariable/&#123;name&#125;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">pathVariable</span><span class="params">(<span class="meta">@PathVariable(name = &quot;name&quot;)</span> String pathName)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;PathVariable : &quot;</span> + pathName);</span><br><span class="line">        <span class="keyword">return</span> pathName;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Query-Parameter"><a href="#Query-Parameter" class="headerlink" title="Query Parameter"></a>Query Parameter</h3><ul>
+<li><p>구글에서 Spring Boot를 검색했을 때 URL주소는 다음과 같다</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">https://www.google.com/</span><br><span class="line">search?q=spring+boot&amp;newwindow=1</span><br><span class="line">&amp;sxsrf=AOaemvL3KuPRIzrfX1y-mbDUq0PH8mgU3Q%3A1631700595046</span><br><span class="line">&amp;source=hp</span><br><span class="line">&amp;ei=csZBYebMO5egoATx64y4CA</span><br><span class="line">&amp;iflsig=ALs-wAMAAAAAYUHUgximdfmc-FujN-Nl2gY8_YMgZETe</span><br><span class="line">&amp;oq=spring+boota</span><br></pre></td></tr></table></figure></li>
+<li><p>URL을 봤을때 <code>?</code>뒤에 Key Value쌍으로 이루어진 것을 볼 수있다 </p>
+</li>
+<li><p>?Key = value &amp; Key2 = value2 &amp; Key3 = value 3…</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// http://localhost:9090/api/get/query-param?user=steve&amp;email=steve@gmail.com&amp;age=30</span></span><br><span class="line">    <span class="meta">@GetMapping(path = &quot;query-param&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryParam</span><span class="params">(<span class="meta">@RequestParam</span> Map&lt;String,String&gt; queryParam)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line"></span><br><span class="line">        queryParam.entrySet().forEach( entry -&gt; &#123;</span><br><span class="line">            System.out.println(entry.getKey());</span><br><span class="line">            System.out.println(entry.getValue());</span><br><span class="line"></span><br><span class="line">            sb.append(entry.getKey()+ <span class="string">&quot; = &quot;</span> + entry.getValue()+<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Mapping을 위해서 <code>@RequestParam</code> Anntation을 추가해야 정상적인 매핑이 가능하다<br><img src="/image/spring-1_images/8cf7de2f.png"></p>
+</li>
+<li><p>위의 방식대로하게되면 맵에 접근하기위해서는 get(key)명령어를 통해서 접근해야한다</p>
+</li>
+<li><p>명시적으로 파라미터 이름을 정해줄 수 있다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">    <span class="meta">@GetMapping(path = &quot;query-param&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryParm</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestParam</span> String name,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestParam</span> String email,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestParam</span> Integer age )</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(name);</span><br><span class="line">        System.out.println(email);</span><br><span class="line">        System.out.println(age);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> name +<span class="string">&quot; &quot;</span>+ email + <span class="string">&quot; &quot;</span> + age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="/image/spring-1_images/4eae0a0e.png"></p>
+<ul>
+<li><p>3개의 파라미터 (name , email, age) 뿐만아니라 파라미터에 갯수가 늘어날때마다 그것에대하여 모두 대응되는 코드의 작성이 필요하다 </p>
+</li>
+<li><p>@RequestParam String grade , @RequestParam String address … </p>
+</li>
+<li><p>이러한 불편함을 해소하기 위해  DTO (Data Trnsfer Object)를 정의하여 컨트롤 할 수 있다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hello.hello.controller.dto;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserRequest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getEmail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmail</span><span class="params">(String email)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.email = email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(path = &quot;query-param&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryParm</span><span class="params">(UserRequest userRequest)</span> </span>&#123;</span><br><span class="line">        System.out.println(userRequest.getName());</span><br><span class="line">        System.out.println(userRequest.getEmail());</span><br><span class="line">        System.out.println(userRequest.getAge());</span><br><span class="line">        <span class="keyword">return</span> userRequest.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>코드가 훨씬 간단해졌다</li>
+<li>이떄는 <code>@RequestParam</code>을 붙이지 않는다 </li>
+<li><code>QueryParameter</code> 주소에 들어있는 <code>?name=정이수&amp;email=mustdoit2020@gmail.com&amp;age=28</code> 키를 해당 Spring 내부에서 UserRequest객체의 변수에 key와 매핑시켜준다</li>
+</ul>
+]]></content>
+      <categories>
+        <category>spring</category>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>get</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring Boot - Post</title>
     <url>/2021/09/15/spring-2/</url>
     <content><![CDATA[<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="Post-APi"><a href="#Post-APi" class="headerlink" title="Post APi"></a>Post APi</h2><ul>
@@ -2985,76 +3055,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>Spring Boot - Get</title>
-    <url>/2021/09/13/spring-1/</url>
-    <content><![CDATA[<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="GET-API"><a href="#GET-API" class="headerlink" title="GET API"></a>GET API</h2><ul>
-<li><p>get은 리소스를 취득하기 위한 메소드 CRUD에서 R에 해당된다</p>
-</li>
-<li><p><code>@GetMapping</code>을 통해 주소 매핑시 cmd + b 단축키를 통해 어노테이션에 들어갈 수 있는 것들이 정의되어 있다.</p>
-</li>
-<li><p><img src="/image/spring-1_images/20955e3a.png"></p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api/get&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetApiController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(path = &quot;/hello&quot;)</span>  <span class="comment">// localhost:8080/api/get/hello</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;get Hello&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>다른 방식으로도 맵핑이 가능하다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/hi&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hi&quot;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>위 방식처럼 매핑했을때 hi 라고 요청할 경우 get,post,put, delete와 같은 모든 메소드에 request 되기 때문에 method를 명시해줘야 한다.</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(path = &quot;/hi&quot; , method = RequestMethod.GET)</span> <span class="comment">// localhost:8080/api/get/hi</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">hi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="string">&quot;hi&quot;</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>따라서 다음과 같이 수정하여 사용 할 수 있다.</p>
-</li>
-</ul>
-<p><img src="/image/spring-1_images/4e2ee7ae.png"><br><img src="/image/spring-1_images/acab746a.png"></p>
-<h3 id="pathvariable"><a href="#pathvariable" class="headerlink" title="pathvariable"></a>pathvariable</h3><ul>
-<li><p>변화하는 path에 대하여 일대일로 메소드를 작성하는것은 매우 비효율 적이다.</p>
-</li>
-<li><p>사용자에따라 변화 할 수 있는 값(id, 이름 등)에 대하여 변수로 받기위한 것이다.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/path-variable/&#123;name&#125;&quot;)</span> <span class="comment">// http://localhost:8080/api/get/pathvariable/&#123;name&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">pathVariable</span><span class="params">(<span class="meta">@PathVariable</span> String name)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;PathVariable : &quot;</span> + name);</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p><img src="/image/spring-1_images/f629cb91.png"></p>
-</li>
-<li><p><img src="/image/spring-1_images/1733d7f5.png"></p>
-</li>
-<li><p>반드시 GetMapping과 PathVariable의 변수명은 같아야한다 </p>
-</li>
-<li><p>그러나 개발중 <code>path variable</code>과 method의 파라미터 명을 다르게 해야할 때는 다음과 같이 사용 할 수있다.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/path-variable/&#123;name&#125;&quot;)</span> <span class="comment">// http://localhost:8080/api/get/pathvariable/&#123;name&#125;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">pathVariable</span><span class="params">(<span class="meta">@PathVariable(name = &quot;name&quot;)</span> String pathName)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;PathVariable : &quot;</span> + pathName);</span><br><span class="line">        <span class="keyword">return</span> pathName;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Query-Parameter"><a href="#Query-Parameter" class="headerlink" title="Query Parameter"></a>Query Parameter</h3><ul>
-<li><p>구글에서 Spring Boot를 검색했을 때 URL주소는 다음과 같다</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">https://www.google.com/</span><br><span class="line">search?q=spring+boot&amp;newwindow=1</span><br><span class="line">&amp;sxsrf=AOaemvL3KuPRIzrfX1y-mbDUq0PH8mgU3Q%3A1631700595046</span><br><span class="line">&amp;source=hp</span><br><span class="line">&amp;ei=csZBYebMO5egoATx64y4CA</span><br><span class="line">&amp;iflsig=ALs-wAMAAAAAYUHUgximdfmc-FujN-Nl2gY8_YMgZETe</span><br><span class="line">&amp;oq=spring+boota</span><br></pre></td></tr></table></figure></li>
-<li><p>URL을 봤을때 <code>?</code>뒤에 Key Value쌍으로 이루어진 것을 볼 수있다 </p>
-</li>
-<li><p>?Key = value &amp; Key2 = value2 &amp; Key3 = value 3…</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// http://localhost:9090/api/get/query-param?user=steve&amp;email=steve@gmail.com&amp;age=30</span></span><br><span class="line">    <span class="meta">@GetMapping(path = &quot;query-param&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryParam</span><span class="params">(<span class="meta">@RequestParam</span> Map&lt;String,String&gt; queryParam)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line"></span><br><span class="line">        queryParam.entrySet().forEach( entry -&gt; &#123;</span><br><span class="line">            System.out.println(entry.getKey());</span><br><span class="line">            System.out.println(entry.getValue());</span><br><span class="line"></span><br><span class="line">            sb.append(entry.getKey()+ <span class="string">&quot; = &quot;</span> + entry.getValue()+<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>Mapping을 위해서 <code>@RequestParam</code> Anntation을 추가해야 정상적인 매핑이 가능하다<br><img src="/image/spring-1_images/8cf7de2f.png"></p>
-</li>
-<li><p>위의 방식대로하게되면 맵에 접근하기위해서는 get(key)명령어를 통해서 접근해야한다</p>
-</li>
-<li><p>명시적으로 파라미터 이름을 정해줄 수 있다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">    <span class="meta">@GetMapping(path = &quot;query-param&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryParm</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestParam</span> String name,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestParam</span> String email,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestParam</span> Integer age )</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(name);</span><br><span class="line">        System.out.println(email);</span><br><span class="line">        System.out.println(age);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> name +<span class="string">&quot; &quot;</span>+ email + <span class="string">&quot; &quot;</span> + age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><img src="/image/spring-1_images/4eae0a0e.png"></p>
-<ul>
-<li><p>3개의 파라미터 (name , email, age) 뿐만아니라 파라미터에 갯수가 늘어날때마다 그것에대하여 모두 대응되는 코드의 작성이 필요하다 </p>
-</li>
-<li><p>@RequestParam String grade , @RequestParam String address … </p>
-</li>
-<li><p>이러한 불편함을 해소하기 위해  DTO (Data Trnsfer Object)를 정의하여 컨트롤 할 수 있다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hello.hello.controller.dto;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserRequest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getEmail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmail</span><span class="params">(String email)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.email = email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(path = &quot;query-param&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryParm</span><span class="params">(UserRequest userRequest)</span> </span>&#123;</span><br><span class="line">        System.out.println(userRequest.getName());</span><br><span class="line">        System.out.println(userRequest.getEmail());</span><br><span class="line">        System.out.println(userRequest.getAge());</span><br><span class="line">        <span class="keyword">return</span> userRequest.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>코드가 훨씬 간단해졌다</li>
-<li>이떄는 <code>@RequestParam</code>을 붙이지 않는다 </li>
-<li><code>QueryParameter</code> 주소에 들어있는 <code>?name=정이수&amp;email=mustdoit2020@gmail.com&amp;age=28</code> 키를 해당 Spring 내부에서 UserRequest객체의 변수에 key와 매핑시켜준다</li>
-</ul>
-]]></content>
-      <categories>
-        <category>spring</category>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>get</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring Boot - Delete</title>
     <url>/2021/09/16/spring-4/</url>
     <content><![CDATA[<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="Delete-API"><a href="#Delete-API" class="headerlink" title="Delete API"></a>Delete API</h2><ul>
@@ -3126,6 +3126,34 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>response</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spring-6</title>
+    <url>/2021/09/28/spring-6/</url>
+    <content><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Object-Mapper"><a href="#Object-Mapper" class="headerlink" title="Object Mapper"></a>Object Mapper</h2><ul>
+<li><p><strong>Object Mapper</strong>는 Json과 Object를 변환시켜주는 역할을 한다</p>
+</li>
+<li><p>다음 코드와 같이 변환 할 수 있다.</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// object -&gt; text</span></span><br><span class="line"><span class="keyword">var</span> objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> User (<span class="string">&quot;isu&quot;</span> , <span class="number">100</span>);</span><br><span class="line"><span class="keyword">var</span> text = objectMapper.writeValueAsString(user);</span><br><span class="line">System.out.println(text);</span><br></pre></td></tr></table></figure></li>
+<li><p>object -&gt; text로 변환 할 때 objectMapper는 DTO의 getmethod를 사용하므로 꼭 구현 해야한다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> objectUser = objectMapper.readValue(text,User.class);</span><br><span class="line">System.out.println(objectUser)</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="/image/spring-6_images/4f3761ac.png"></p>
+</li>
+<li><p>다음과 같은 오류가 발생하는데 text -&gt; object의 경우 기본생성자를 필요로 하기 떄문에 마찬가지로 기본생성자를 구현해야 한다</p>
+</li>
+<li><p><code>@NoArgsConstructor</code>를 선언하여 추가할 수 있다.</p>
+</li>
+<li><p><img src="/image/spring-6_images/29cf9733.png"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>spring</category>
+      </categories>
+      <tags>
+        <tag>object mapper</tag>
       </tags>
   </entry>
 </search>

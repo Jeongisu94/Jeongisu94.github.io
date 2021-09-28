@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">57</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,99 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/28/spring-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/28/spring-6/" class="post-title-link" itemprop="url">spring-6</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-09-28 17:04:15 / Modified: 21:28:24" itemprop="dateCreated datePublished" datetime="2021-09-28T17:04:15+09:00">2021-09-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Object-Mapper"><a href="#Object-Mapper" class="headerlink" title="Object Mapper"></a>Object Mapper</h2><ul>
+<li><p><strong>Object Mapper</strong>는 Json과 Object를 변환시켜주는 역할을 한다</p>
+</li>
+<li><p>다음 코드와 같이 변환 할 수 있다.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// object -&gt; text</span></span><br><span class="line"><span class="keyword">var</span> objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> User (<span class="string">&quot;isu&quot;</span> , <span class="number">100</span>);</span><br><span class="line"><span class="keyword">var</span> text = objectMapper.writeValueAsString(user);</span><br><span class="line">System.out.println(text);</span><br></pre></td></tr></table></figure></li>
+<li><p>object -&gt; text로 변환 할 때 objectMapper는 DTO의 getmethod를 사용하므로 꼭 구현 해야한다</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> objectUser = objectMapper.readValue(text,User.class);</span><br><span class="line">System.out.println(objectUser)</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="/image/spring-6_images/4f3761ac.png"></p>
+</li>
+<li><p>다음과 같은 오류가 발생하는데 text -&gt; object의 경우 기본생성자를 필요로 하기 떄문에 마찬가지로 기본생성자를 구현해야 한다</p>
+</li>
+<li><p><code>@NoArgsConstructor</code>를 선언하여 추가할 수 있다.</p>
+</li>
+<li><p><img src="/image/spring-6_images/29cf9733.png"></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1152,108 +1245,6 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AopBrowser</span> <span class="keyword">implements</span> <span class="title">IBrowser</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="keyword">private</span> Html html;</span><br><span class="line">    <span class="keyword">private</span> Runnable before;</span><br><span class="line">    <span class="keyword">private</span> Runnable after;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AopBrowser</span><span class="params">(String url, Runnable before, Runnable after)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.url = url;</span><br><span class="line">        <span class="keyword">this</span>.before = before;</span><br><span class="line">        <span class="keyword">this</span>.after = after;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Html <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        before.run();</span><br><span class="line">        <span class="keyword">if</span> (html == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.html = <span class="keyword">new</span> Html(url);</span><br><span class="line">            System.out.println(<span class="string">&quot;Aop Browser html loading from : &quot;</span> + url);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1500</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        after.run();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;Aop Browser use Cache : &quot;</span> + url);</span><br><span class="line">        <span class="keyword">return</span> html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BrowserTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    AtomicLong start = <span class="keyword">new</span> AtomicLong();</span><br><span class="line">    AtomicLong end = <span class="keyword">new</span> AtomicLong();</span><br><span class="line">    </span><br><span class="line">    IBrowser aopBrowser = <span class="keyword">new</span> AopBrowser(<span class="string">&quot;www.google.com&quot;</span>,</span><br><span class="line">            ()-&gt;&#123;</span><br><span class="line">              System.out.println(<span class="string">&quot;before&quot;</span>);</span><br><span class="line">              start.set(System.currentTimeMillis());</span><br><span class="line">            &#125;,</span><br><span class="line">            ()-&gt;&#123;</span><br><span class="line">              end.set(System.currentTimeMillis() - start.get());</span><br><span class="line">            &#125; );</span><br><span class="line"></span><br><span class="line">    aopBrowser.show();</span><br><span class="line">    System.out.println(<span class="string">&quot;loading time :  &quot;</span> + end.get());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    aopBrowser.show();</span><br><span class="line">    System.out.println(<span class="string">&quot;loading time :  &quot;</span> + end.get());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/image/oop-java-29_images/345b219e.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/06/oop-java-28/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/06/oop-java-28/" class="post-title-link" itemprop="url">OOP - Design Pattern - Adapter</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-09-06 16:21:57 / Modified: 20:55:34" itemprop="dateCreated datePublished" datetime="2021-09-06T16:21:57+09:00">2021-09-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/design-pattern/" itemprop="url" rel="index"><span itemprop="name">design pattern</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Adapter-Pattern"><a href="#Adapter-Pattern" class="headerlink" title="Adapter Pattern"></a>Adapter Pattern</h1><ul>
-<li>구조 패턴</li>
-<li>어댑터는 이름에서 알 수 있듯이 실생활에서 사용하는 110V -&gt; 220V 바꿔주는 어댑터처럼 호환성이 없는 기존 클래스의 인터페이스를 변환하여 재사용 할 수 있도록 한다.</li>
-</ul>
-<p><img src="/image/oop-java-28_images/6495df4b.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// interface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Electronic110V</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">powerOn</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Electronic220V</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// class</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Airconditioner</span> <span class="keyword">implements</span> <span class="title">Electronic220V</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;220V 에어컨 on&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cleaner</span> <span class="keyword">implements</span> <span class="title">Electronic110V</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">powerOn</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;110V 청소기 ON&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HairDryer</span> <span class="keyword">implements</span> <span class="title">Electronic110V</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">powerOn</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;110V 헤어드라이어 on&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// adapter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span> <span class="params">(Electronic110V electronic110V)</span> </span>&#123;</span><br><span class="line">        electronic110V.powerOn();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdapterTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HairDryer hairDryer = <span class="keyword">new</span> HairDryer();</span><br><span class="line">        Cleaner cleaner = <span class="keyword">new</span> Cleaner();</span><br><span class="line">        Airconditioner airconditioner = <span class="keyword">new</span> Airconditioner();</span><br><span class="line">        Adapter adapter = <span class="keyword">new</span> Adapter();</span><br><span class="line">        adapter.connect(cleaner);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>현재 상태에서는 어댑터는 110V의 제품밖에 받을 수 없다 따라서 220V에서 110V로 바꿔줄 수 있는 어댑터를 만들어야한다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SocketAdapter</span> <span class="keyword">implements</span> <span class="title">Electronic110V</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Electronic220V electronic220V;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SocketAdapter</span><span class="params">(Electronic220V electronic220V)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.electronic220V = electronic220V;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">powerOn</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        electronic220V.connect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>소켓 어댑터도 기본적으로 110V를 사용하기때문에 110V를 구현해야한다</li>
-<li>생성자에서 220V를 110V로 바꿔줄 220V 제품을 받는다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdapterTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Electronic110V hairDryer = <span class="keyword">new</span> HairDryer();</span><br><span class="line">        Electronic110V cleaner = <span class="keyword">new</span> Cleaner();</span><br><span class="line">        Electronic220V airconditioner = <span class="keyword">new</span> Airconditioner();</span><br><span class="line">        Adapter adapter = <span class="keyword">new</span> Adapter();</span><br><span class="line"></span><br><span class="line">        Electronic110V socketAdapter = <span class="keyword">new</span> SocketAdapter(airconditioner);</span><br><span class="line">        socketAdapter.powerOn();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>110V의 인터페이스 객체임에도 다른 인터페이스 객체를 사용 할 수 있게되었다.</li>
-</ul>
 
       
     </div>
