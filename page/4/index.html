@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,150 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/17/OOP-java-7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/17/OOP-java-7/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - Inheritance</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-17 16:06:15" itemprop="dateCreated datePublished" datetime="2021-08-17T16:06:15+09:00">2021-08-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-06 20:58:24" itemprop="dateModified" datetime="2021-09-06T20:58:24+09:00">2021-09-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h1><h2 id="클래스-상속"><a href="#클래스-상속" class="headerlink" title="클래스 상속"></a>클래스 상속</h2><ul>
+<li><p>상속이란 단어 뜻 그대로 상속이란 물려받는 것을 의미 한다.</p>
+</li>
+<li><p>부모클래스가 상속을 하게되면 필드와 메소드를 자식클래스에게 물려주게 된다.</p>
+</li>
+<li><p>자바에서는 안정성을 위해서 다중 상속을 받는 것은 불가능하다.</p>
+</li>
+<li><p><code>class ChildClass extends ParentClass</code> 와 같은 형식으로 사용한다</p>
+</li>
+</ul>
+<h2 id="상속의-특징과-장점"><a href="#상속의-특징과-장점" class="headerlink" title="상속의 특징과 장점"></a>상속의 특징과 장점</h2><ul>
+<li>상위 클래스는 하위 클래스보다 추상적인 개념과 기능을 가진다</li>
+<li>하위 클래스는 상위 클래스보다 구체적인 개념과 기능을 가진다</li>
+<li>코드를 재사용 함으로써 중복성을 줄일 수 있다</li>
+<li>클래스 수정/추가에 대한 유연성과 확장성이 증가된다</li>
+</ul>
+<h4 id="코드-예시"><a href="#코드-예시" class="headerlink" title="코드 예시"></a>코드 예시</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> inheritancetest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.jupiter.api.Assertions.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        VIPCustomer kim = <span class="keyword">new</span> VIPCustomer(<span class="number">1000</span>,<span class="string">&quot;Kimbob&quot;</span>);</span><br><span class="line">        VIPCustomer park = <span class="keyword">new</span> VIPCustomer();</span><br><span class="line">        Customer lee = <span class="keyword">new</span> VIPCustomer(<span class="number">1001</span>,<span class="string">&quot;Leelee&quot;</span>);</span><br><span class="line">        Customer jeong = <span class="keyword">new</span> Customer(<span class="number">1002</span>, <span class="string">&quot;Jeongo&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        kim.printCustomer();</span><br><span class="line">        park.printCustomer();</span><br><span class="line">        lee.printCustomer();</span><br><span class="line">        jeong.printCustomer();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> inheritancetest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VIPCustomer</span> <span class="keyword">extends</span> <span class="title">Customer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> salesRatio;</span><br><span class="line">    <span class="keyword">private</span> String agentID;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">VIPCustomer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.grade = <span class="string">&quot;VIP&quot;</span>;</span><br><span class="line">        bonusRatio = <span class="number">0.05</span>;</span><br><span class="line">        salesRatio = <span class="number">0.01</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">VIPCustomer</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(id,name);</span><br><span class="line">        <span class="keyword">super</span>.grade = <span class="string">&quot;VIP&quot;</span>;</span><br><span class="line">        bonusRatio = <span class="number">0.05</span>;</span><br><span class="line">        salesRatio = <span class="number">0.01</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calPrice</span><span class="params">(<span class="keyword">int</span> price)</span> </span>&#123;</span><br><span class="line">        bonusPoint += price * bonusRatio;</span><br><span class="line">        <span class="keyword">return</span> price - (<span class="keyword">int</span>)(price * salesRatio);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> inheritancetest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">protected</span> String name;</span><br><span class="line">    <span class="keyword">protected</span> String grade;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> bonusPoint;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">double</span> bonusRatio;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        grade = <span class="string">&quot;SILVER&quot;</span>;</span><br><span class="line">        bonusRatio = <span class="number">0.01</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        grade = <span class="string">&quot;SILVER&quot;</span>;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calPrice</span> <span class="params">(<span class="keyword">int</span> price)</span> </span>&#123;</span><br><span class="line">        bonusPoint += price * bonusRatio;</span><br><span class="line">        <span class="keyword">return</span> price;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printCustomer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;id = &quot;</span> + id + <span class="string">&quot;, name = &quot;</span> + name + <span class="string">&quot;, grade = &quot;</span> + grade);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="protected-키워드"><a href="#protected-키워드" class="headerlink" title="protected 키워드"></a>protected 키워드</h3><ul>
+<li>private은 내부에서만 접근이 가능하고 외부에서는 접근이 불가능한 특성을 갖고있다</li>
+<li>protected는 하위 클래스도 접근이 가능하다</li>
+</ul>
+<h3 id="Super-키워드"><a href="#Super-키워드" class="headerlink" title="Super 키워드"></a>Super 키워드</h3><ul>
+<li>Super 키워드는 하위 클래스에서 상위 클래스에 대한 참조 값이다</li>
+<li>super()는 상위 클래스의 기본 생성자를 호출한다 <code>super(argu1, argu2,...)</code></li>
+<li>하위클래스에서 상위 클래스의 생성자를 명시적으로 호출하지 않으면 자동으로 super()가 호출 된다</li>
+</ul>
+<h3 id="메모리의-상태"><a href="#메모리의-상태" class="headerlink" title="메모리의 상태"></a>메모리의 상태</h3><ul>
+<li>항상 상위 클래스의 인스턴스가 힙메모리에 먼저 생성된 후에 하위 클래스 인스턴스가 생성된다</li>
+</ul>
+<h3 id="Up-casting"><a href="#Up-casting" class="headerlink" title="Up casting"></a>Up casting</h3><ul>
+<li><p>하위 클래스를 상위 클래스로 형 변환 하는 것</p>
+</li>
+<li><p>상위 클래스로 변수를 선언하고 하위 클래스 생성자로 인스턴스를 생성</p>
+<p>  <code>Parent child = new Child()</code></p>
+</li>
+<li><p>하위 클래스는 상위 클래스의 모든 특성을 갖고 있기떄문에 모든 하위클래스는 업캐스팅이 가능하다</p>
+</li>
+<li><p>업캐스팅을 한 경우 하위클래스의 상위 클래스를 멤버변수와 메소드만 접근 가능하다.</p>
+</li>
+</ul>
+<h3 id="Override"><a href="#Override" class="headerlink" title="Override"></a>Override</h3><ul>
+<li>메소드 오버라이드는 상위클래스에 정의된 메소드를 재정의하여 사용하는 것이다</li>
+<li>함수의 반환타입, 파라미터의 갯수는 같아야한다 </li>
+<li>@Override라는 Anntation을 통해 컴파일러에게 override된 메소드임을 알려준다 </li>
+</ul>
+<h3 id="가상-메소드"><a href="#가상-메소드" class="headerlink" title="가상 메소드"></a>가상 메소드</h3><h4 id="메소드"><a href="#메소드" class="headerlink" title="메소드"></a>메소드</h4><ul>
+<li>메소드의 이름은 주소값을 나타낸다</li>
+<li>메소드는 프로그램 실행시 코드영역에 적재되는 instruction set이다</li>
+<li>해당 메소드가 호출 되면 instruction set이 잇는 주소를 찾아 명령어가 실행 된다</li>
+<li>이때 메소드에서 사용하는 변수들은 스택메모리에 위치한다</li>
+<li>같은 클래스의 다른 인스턴스라도 같은 메소드가 호출 된다.</li>
+</ul>
+<h4 id="가상-메소드-1"><a href="#가상-메소드-1" class="headerlink" title="가상 메소드"></a>가상 메소드</h4><ul>
+<li>각 클래스들은 해당 메서드에 대한 주소 값을 가진 가상 메소드 테이블을 가진다</li>
+<li>재정의 된 경우 재정의 된 메소드와 메소드주소가 바인딩 된다.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1186,105 +1330,6 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/05/ShellScript-Basic-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/05/ShellScript-Basic-2/" class="post-title-link" itemprop="url">ShellScript-Basic(2)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-05 17:23:06" itemprop="dateCreated datePublished" datetime="2021-08-05T17:23:06+09:00">2021-08-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-06 21:08:47" itemprop="dateModified" datetime="2021-09-06T21:08:47+09:00">2021-09-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/system-programming/" itemprop="url" rel="index"><span itemprop="name">system programming</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/system-programming/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/system-programming/Linux/Shell/" itemprop="url" rel="index"><span itemprop="name">Shell</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="현업에서-사용되는-예제들"><a href="#현업에서-사용되는-예제들" class="headerlink" title="현업에서 사용되는 예제들"></a>현업에서 사용되는 예제들</h2><h3 id="backup-sh"><a href="#backup-sh" class="headerlink" title="backup.sh"></a>backup.sh</h3><ul>
-<li>디렉토리내의 하부디렉토리 또는 파일들을 주기적으로 백업하는 쉘 스크립트<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="variable">$1</span> ] || [ -z <span class="variable">$2</span>]; <span class="keyword">then</span> <span class="comment"># 인자 2개를 받아서 하나라도 NULL이면 참이면</span></span><br><span class="line">  ehco usage: <span class="variable">$0</span> sourcedir targetdir <span class="comment"># 쉘 이름과 사용법을 출력</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  SRCDIR=<span class="variable">$1</span></span><br><span class="line">  DSTDIR=<span class="variable">$2</span></span><br><span class="line">  BACKUPFILE=backup.$(date +%y%m%d%H%M%S).tar.gz <span class="comment"># date 쉘명령어를 사용하여 날짜와 시간을 기록하여 백업파일을 생성</span></span><br><span class="line">  <span class="keyword">if</span> [ -d <span class="variable">$DSTDIR</span> ]; <span class="keyword">then</span> <span class="comment"># DSTDIR가 디렉토리이면 </span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> <span class="comment"># 압축</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    mkdir <span class="variable">$DSTDIR</span> <span class="comment"># 디렉토리가 없으면 생성하고 압축</span></span><br><span class="line">    tar -cvzf <span class="variable">$DSTDIR</span>/<span class="variable">$BACKUPFILE</span> <span class="variable">$SRCDIR</span> </span><br><span class="line">  <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4 id="tar-명령어"><a href="#tar-명령어" class="headerlink" title="tar 명령어"></a>tar 명령어</h4><ul>
-<li>기존의 tar는 하나의 파일로 묶기만 가능했는데gzip이라는 압축명령이 많이 쓰이게되면서 tar라는 명령에 묶기가 아닌 압축도 할 수있 게끔 옵션을 제공하여gzip을 활용해서 묶고 압축 할 수 있다.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x  <span class="comment">#묶음 해제</span></span><br><span class="line">c  <span class="comment">#파일 묶음</span></span><br><span class="line">v  <span class="comment">#묶음 해제 과정 출력</span></span><br><span class="line">z  <span class="comment">#gunzip을 사용</span></span><br><span class="line">f  <span class="comment">#파일 이름을 지정</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -cvzf [압축된 파일 이름] [압축할 파일이나 폴더명]</span><br><span class="line">tar -xvzf [압축 해제할 압축 아카이브 이름]</span><br></pre></td></tr></table></figure>
-
-<h3 id="cleanlog-sh"><a href="#cleanlog-sh" class="headerlink" title="cleanlog.sh"></a>cleanlog.sh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> -f -name <span class="string">&#x27;filename&#x27;</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;shell1, shell2, shell3 &quot;</span> \;</span><br><span class="line"><span class="comment">#현재 디렉토리에서 일반 파일중에서 이름이 filename 검색</span></span><br><span class="line"><span class="comment"># 각각의 파일들 bash쉘로 해당명령어들로 실행시킴</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">LOGDIR=/var/<span class="built_in">log</span></span><br><span class="line">GZIPDAY = 1</span><br><span class="line">DELDAY = 2</span><br><span class="line"><span class="built_in">cd</span> %LOGDIR</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cd <span class="variable">$LOGDIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*log.?&#x27;</span> -mtime +<span class="variable">$GZIPDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;gzip &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 현재 시간부터 2일이 경과된 파일을 찾아서 각각을 압축 </span></span><br><span class="line">sudo find ./path -<span class="built_in">type</span> f -name <span class="string">&#x27;*gz.?&#x27;</span> -mtime +<span class="variable">$DELSDAY</span> -<span class="built_in">exec</span> bash -c <span class="string">&quot;rm -f &#123;&#125;&quot;</span> \; 2&gt;</span><br><span class="line"><span class="comment"># 압축한지 3일 이상 지난 파일을 찾아서 묻지않고 삭제  </span></span><br></pre></td></tr></table></figure>
       
     </div>
 

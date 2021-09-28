@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,111 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/25/OOP-java-17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/25/OOP-java-17/" class="post-title-link" itemprop="url">Java - Exception Handling2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-08-25 19:43:44" itemprop="dateCreated datePublished" datetime="2021-08-25T19:43:44+09:00">2021-08-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-06 20:00:29" itemprop="dateModified" datetime="2021-09-06T20:00:29+09:00">2021-09-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Exception-활용"><a href="#Exception-활용" class="headerlink" title="Exception 활용"></a>Exception 활용</h1><ul>
+<li>자바에서 제공되는 여러 Exception Class들이 존재하지만 사용자가 직접 정의하여 사용 할 수 있다.</li>
+<li>최상위 Exception 클래스를 상속받거나 유사한 Exception 클래스를 상속받아 예외 클래스를 정의할 수 있다</li>
+</ul>
+<h2 id="패스워드에-대한-예외-처리"><a href="#패스워드에-대한-예외-처리" class="headerlink" title="패스워드에 대한 예외 처리"></a>패스워드에 대한 예외 처리</h2><ul>
+<li><p>암호는 여러 가지 요구조건을 만족해야 한다.</p>
+<ol>
+<li>암호는 Not null이어야 한다.</li>
+<li>암호는 5글자 이상이어야 한다.</li>
+<li>암호는 영문으로만 구성될 수 없다.</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PasswordTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span> <span class="params">(String pw)</span> <span class="keyword">throws</span> PasswordException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pw == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 Null일 수 없다&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pw.length() &lt; <span class="number">5</span> )&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 5자 이상이어야 한다&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pw.matches(<span class="string">&quot;[a-zAZ]+&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 숫자를 포함해야한다&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.password = pw;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        PasswordTest passwordTest = <span class="keyword">new</span> PasswordTest();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            passwordTest.setPassword(<span class="keyword">null</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;오류 없음!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (PasswordException e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-17_images/317bb89d.png"></p>
+<h1 id="Logging"><a href="#Logging" class="headerlink" title="Logging"></a>Logging</h1><h2 id="오류를-Log로-남기기"><a href="#오류를-Log로-남기기" class="headerlink" title="오류를 Log로 남기기"></a>오류를 Log로 남기기</h2><ul>
+<li>프로그램에서의 오류는 재현이 힘들다 따라서 시스템 운영에 대한 기록을 남겨서 오류가 발생했을 때 그 기록을 확인하여 디버깅을 해야한다</li>
+<li>디버깅,에러 추적, 성능 향상들을 위해 사용된다</li>
+<li>로그가 너무 적거나 많으면 시스템 상황을 파악하기 어려우니 꼭 필요한 정보만 로깅하도록 한다</li>
+</ul>
+<h2 id="java-util-logging"><a href="#java-util-logging" class="headerlink" title="java.util.logging"></a>java.util.logging</h2><ul>
+<li>자바에서는 기본적으로 제공되는 log 패키지가 있다</li>
+<li>이 패키지에서 제공하는 로그레벨은 severe, warning, info, config, finer, finest가 있다</li>
+<li>기본 패키지 이외에 log4j(log for java)라는 오픈소스가 있다 </li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1369,150 +1474,6 @@ end</pre>
 </ul>
 <h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><ul>
 <li>instanceof 함수는 원래 형이 맞는지 체크하는 키워드이다<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (dog <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">    dog = (Dog)dog;</span><br><span class="line">    dog.shakeTail();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/17/OOP-java-7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/17/OOP-java-7/" class="post-title-link" itemprop="url">객체지향 프로그래밍 - Inheritance</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-17 16:06:15" itemprop="dateCreated datePublished" datetime="2021-08-17T16:06:15+09:00">2021-08-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-06 20:58:24" itemprop="dateModified" datetime="2021-09-06T20:58:24+09:00">2021-09-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Inheritance"><a href="#Inheritance" class="headerlink" title="Inheritance"></a>Inheritance</h1><h2 id="클래스-상속"><a href="#클래스-상속" class="headerlink" title="클래스 상속"></a>클래스 상속</h2><ul>
-<li><p>상속이란 단어 뜻 그대로 상속이란 물려받는 것을 의미 한다.</p>
-</li>
-<li><p>부모클래스가 상속을 하게되면 필드와 메소드를 자식클래스에게 물려주게 된다.</p>
-</li>
-<li><p>자바에서는 안정성을 위해서 다중 상속을 받는 것은 불가능하다.</p>
-</li>
-<li><p><code>class ChildClass extends ParentClass</code> 와 같은 형식으로 사용한다</p>
-</li>
-</ul>
-<h2 id="상속의-특징과-장점"><a href="#상속의-특징과-장점" class="headerlink" title="상속의 특징과 장점"></a>상속의 특징과 장점</h2><ul>
-<li>상위 클래스는 하위 클래스보다 추상적인 개념과 기능을 가진다</li>
-<li>하위 클래스는 상위 클래스보다 구체적인 개념과 기능을 가진다</li>
-<li>코드를 재사용 함으로써 중복성을 줄일 수 있다</li>
-<li>클래스 수정/추가에 대한 유연성과 확장성이 증가된다</li>
-</ul>
-<h4 id="코드-예시"><a href="#코드-예시" class="headerlink" title="코드 예시"></a>코드 예시</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> inheritancetest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.jupiter.api.Assertions.*;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        VIPCustomer kim = <span class="keyword">new</span> VIPCustomer(<span class="number">1000</span>,<span class="string">&quot;Kimbob&quot;</span>);</span><br><span class="line">        VIPCustomer park = <span class="keyword">new</span> VIPCustomer();</span><br><span class="line">        Customer lee = <span class="keyword">new</span> VIPCustomer(<span class="number">1001</span>,<span class="string">&quot;Leelee&quot;</span>);</span><br><span class="line">        Customer jeong = <span class="keyword">new</span> Customer(<span class="number">1002</span>, <span class="string">&quot;Jeongo&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        kim.printCustomer();</span><br><span class="line">        park.printCustomer();</span><br><span class="line">        lee.printCustomer();</span><br><span class="line">        jeong.printCustomer();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> inheritancetest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VIPCustomer</span> <span class="keyword">extends</span> <span class="title">Customer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> salesRatio;</span><br><span class="line">    <span class="keyword">private</span> String agentID;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">VIPCustomer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.grade = <span class="string">&quot;VIP&quot;</span>;</span><br><span class="line">        bonusRatio = <span class="number">0.05</span>;</span><br><span class="line">        salesRatio = <span class="number">0.01</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">VIPCustomer</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(id,name);</span><br><span class="line">        <span class="keyword">super</span>.grade = <span class="string">&quot;VIP&quot;</span>;</span><br><span class="line">        bonusRatio = <span class="number">0.05</span>;</span><br><span class="line">        salesRatio = <span class="number">0.01</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calPrice</span><span class="params">(<span class="keyword">int</span> price)</span> </span>&#123;</span><br><span class="line">        bonusPoint += price * bonusRatio;</span><br><span class="line">        <span class="keyword">return</span> price - (<span class="keyword">int</span>)(price * salesRatio);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> inheritancetest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">protected</span> String name;</span><br><span class="line">    <span class="keyword">protected</span> String grade;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">int</span> bonusPoint;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">double</span> bonusRatio;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        grade = <span class="string">&quot;SILVER&quot;</span>;</span><br><span class="line">        bonusRatio = <span class="number">0.01</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        grade = <span class="string">&quot;SILVER&quot;</span>;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calPrice</span> <span class="params">(<span class="keyword">int</span> price)</span> </span>&#123;</span><br><span class="line">        bonusPoint += price * bonusRatio;</span><br><span class="line">        <span class="keyword">return</span> price;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printCustomer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;id = &quot;</span> + id + <span class="string">&quot;, name = &quot;</span> + name + <span class="string">&quot;, grade = &quot;</span> + grade);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="protected-키워드"><a href="#protected-키워드" class="headerlink" title="protected 키워드"></a>protected 키워드</h3><ul>
-<li>private은 내부에서만 접근이 가능하고 외부에서는 접근이 불가능한 특성을 갖고있다</li>
-<li>protected는 하위 클래스도 접근이 가능하다</li>
-</ul>
-<h3 id="Super-키워드"><a href="#Super-키워드" class="headerlink" title="Super 키워드"></a>Super 키워드</h3><ul>
-<li>Super 키워드는 하위 클래스에서 상위 클래스에 대한 참조 값이다</li>
-<li>super()는 상위 클래스의 기본 생성자를 호출한다 <code>super(argu1, argu2,...)</code></li>
-<li>하위클래스에서 상위 클래스의 생성자를 명시적으로 호출하지 않으면 자동으로 super()가 호출 된다</li>
-</ul>
-<h3 id="메모리의-상태"><a href="#메모리의-상태" class="headerlink" title="메모리의 상태"></a>메모리의 상태</h3><ul>
-<li>항상 상위 클래스의 인스턴스가 힙메모리에 먼저 생성된 후에 하위 클래스 인스턴스가 생성된다</li>
-</ul>
-<h3 id="Up-casting"><a href="#Up-casting" class="headerlink" title="Up casting"></a>Up casting</h3><ul>
-<li><p>하위 클래스를 상위 클래스로 형 변환 하는 것</p>
-</li>
-<li><p>상위 클래스로 변수를 선언하고 하위 클래스 생성자로 인스턴스를 생성</p>
-<p>  <code>Parent child = new Child()</code></p>
-</li>
-<li><p>하위 클래스는 상위 클래스의 모든 특성을 갖고 있기떄문에 모든 하위클래스는 업캐스팅이 가능하다</p>
-</li>
-<li><p>업캐스팅을 한 경우 하위클래스의 상위 클래스를 멤버변수와 메소드만 접근 가능하다.</p>
-</li>
-</ul>
-<h3 id="Override"><a href="#Override" class="headerlink" title="Override"></a>Override</h3><ul>
-<li>메소드 오버라이드는 상위클래스에 정의된 메소드를 재정의하여 사용하는 것이다</li>
-<li>함수의 반환타입, 파라미터의 갯수는 같아야한다 </li>
-<li>@Override라는 Anntation을 통해 컴파일러에게 override된 메소드임을 알려준다 </li>
-</ul>
-<h3 id="가상-메소드"><a href="#가상-메소드" class="headerlink" title="가상 메소드"></a>가상 메소드</h3><h4 id="메소드"><a href="#메소드" class="headerlink" title="메소드"></a>메소드</h4><ul>
-<li>메소드의 이름은 주소값을 나타낸다</li>
-<li>메소드는 프로그램 실행시 코드영역에 적재되는 instruction set이다</li>
-<li>해당 메소드가 호출 되면 instruction set이 잇는 주소를 찾아 명령어가 실행 된다</li>
-<li>이때 메소드에서 사용하는 변수들은 스택메모리에 위치한다</li>
-<li>같은 클래스의 다른 인스턴스라도 같은 메소드가 호출 된다.</li>
-</ul>
-<h4 id="가상-메소드-1"><a href="#가상-메소드-1" class="headerlink" title="가상 메소드"></a>가상 메소드</h4><ul>
-<li>각 클래스들은 해당 메서드에 대한 주소 값을 가진 가상 메소드 테이블을 가진다</li>
-<li>재정의 된 경우 재정의 된 메소드와 메소드주소가 바인딩 된다.</li>
 </ul>
 
       

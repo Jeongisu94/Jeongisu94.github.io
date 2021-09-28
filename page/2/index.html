@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,99 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/06/oop-java-27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/06/oop-java-27/" class="post-title-link" itemprop="url">OOP - Design Pattern - Singleton</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-09-06 15:59:02 / Modified: 20:55:40" itemprop="dateCreated datePublished" datetime="2021-09-06T15:59:02+09:00">2021-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/oop/design-pattern/" itemprop="url" rel="index"><span itemprop="name">design pattern</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Singleton-Pattern"><a href="#Singleton-Pattern" class="headerlink" title="Singleton Pattern"></a>Singleton Pattern</h1><ul>
+<li>생성패턴</li>
+<li>어떠한 클래스의 객체가 유일하게 1개만 존재해야 할때 사용하는 디자인 패턴</li>
+<li>프린터나 , TCP Socket 통신에서 서버와 연결된 connect 객체같이 서로 자원을 공유 할 때 사용된다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SocketClient</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SocketClient socketClient;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SocketClient</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SocketClient <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( socketClient == <span class="keyword">null</span>) &#123;</span><br><span class="line">            socketClient = <span class="keyword">new</span> SocketClient();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> socketClient;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Connect!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>인스턴스는 <code>private static</code>로 선언하고</li>
+<li>생성자는 외부에서 호출 불가능하도록 <code>private</code>로 선언한다</li>
+<li>외부에서 같은 객체를 가질 받을 수 있도록 <code>public static getInstacne()</code>를 구현한다.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1478,111 +1571,6 @@ File -- input Stream --> JAVA</pre>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileOutputStreamTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> FileNotFoundException </span>&#123;</span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;src/streamtest/output.txt&quot;</span>, <span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">try</span> (fos)&#123;</span><br><span class="line">            <span class="keyword">byte</span>[] bytes = &#123;<span class="string">&#x27;H&#x27;</span>,<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;O&#x27;</span>&#125;;</span><br><span class="line">            fos.write(bytes);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/image/OOP-java-18_images/5ebf020b.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/08/25/OOP-java-17/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/25/OOP-java-17/" class="post-title-link" itemprop="url">Java - Exception Handling2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-08-25 19:43:44" itemprop="dateCreated datePublished" datetime="2021-08-25T19:43:44+09:00">2021-08-25</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-06 20:00:29" itemprop="dateModified" datetime="2021-09-06T20:00:29+09:00">2021-09-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Exception-활용"><a href="#Exception-활용" class="headerlink" title="Exception 활용"></a>Exception 활용</h1><ul>
-<li>자바에서 제공되는 여러 Exception Class들이 존재하지만 사용자가 직접 정의하여 사용 할 수 있다.</li>
-<li>최상위 Exception 클래스를 상속받거나 유사한 Exception 클래스를 상속받아 예외 클래스를 정의할 수 있다</li>
-</ul>
-<h2 id="패스워드에-대한-예외-처리"><a href="#패스워드에-대한-예외-처리" class="headerlink" title="패스워드에 대한 예외 처리"></a>패스워드에 대한 예외 처리</h2><ul>
-<li><p>암호는 여러 가지 요구조건을 만족해야 한다.</p>
-<ol>
-<li>암호는 Not null이어야 한다.</li>
-<li>암호는 5글자 이상이어야 한다.</li>
-<li>암호는 영문으로만 구성될 수 없다.</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PasswordTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span> <span class="params">(String pw)</span> <span class="keyword">throws</span> PasswordException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (pw == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 Null일 수 없다&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pw.length() &lt; <span class="number">5</span> )&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 5자 이상이어야 한다&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pw.matches(<span class="string">&quot;[a-zAZ]+&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> PasswordException(<span class="string">&quot;패스워드는 숫자를 포함해야한다&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.password = pw;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        PasswordTest passwordTest = <span class="keyword">new</span> PasswordTest();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            passwordTest.setPassword(<span class="keyword">null</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;오류 없음!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (PasswordException e) &#123;</span><br><span class="line">            System.out.println(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-17_images/317bb89d.png"></p>
-<h1 id="Logging"><a href="#Logging" class="headerlink" title="Logging"></a>Logging</h1><h2 id="오류를-Log로-남기기"><a href="#오류를-Log로-남기기" class="headerlink" title="오류를 Log로 남기기"></a>오류를 Log로 남기기</h2><ul>
-<li>프로그램에서의 오류는 재현이 힘들다 따라서 시스템 운영에 대한 기록을 남겨서 오류가 발생했을 때 그 기록을 확인하여 디버깅을 해야한다</li>
-<li>디버깅,에러 추적, 성능 향상들을 위해 사용된다</li>
-<li>로그가 너무 적거나 많으면 시스템 상황을 파악하기 어려우니 꼭 필요한 정보만 로깅하도록 한다</li>
-</ul>
-<h2 id="java-util-logging"><a href="#java-util-logging" class="headerlink" title="java.util.logging"></a>java.util.logging</h2><ul>
-<li>자바에서는 기본적으로 제공되는 log 패키지가 있다</li>
-<li>이 패키지에서 제공하는 로그레벨은 severe, warning, info, config, finer, finest가 있다</li>
-<li>기본 패키지 이외에 log4j(log for java)라는 오픈소스가 있다 </li>
-</ul>
 
       
     </div>

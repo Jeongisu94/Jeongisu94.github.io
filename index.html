@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,124 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/16/spring-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/16/spring-5/" class="post-title-link" itemprop="url">Spring Boot - Response</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-16 21:23:30" itemprop="dateCreated datePublished" datetime="2021-09-16T21:23:30+09:00">2021-09-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-28 16:52:50" itemprop="dateModified" datetime="2021-09-28T16:52:50+09:00">2021-09-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><ul>
+<li><p>http request를 받으면 <strong>object mapper</strong>가 텍스트 형태의 JSON을 object로 변환하고<br>method를 거치고 난 후에 다시 object를 json형태로 response하게 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/json&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">json</span><span class="params">(<span class="meta">@RequestBody</span> User user)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>put메소드의 경우 200과 201의 응답을 반환 할 수 있다<br>응답할때 http Status를 정하기 위해 ResponsEntity객체를 통해 내려줄  수 있다</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PutMapping(&quot;/put&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseEntity&lt;User&gt; <span class="title">put</span> <span class="params">(<span class="meta">@RequestBody</span> User user)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ResponseEntity.status(HttpStatus.CREATED).body(user); <span class="comment">// 생성됐을때는 201을 반환함</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><img src="/image/spring-5_images/ed2f2b54.png"></p>
+</li>
+<li><p>Rest Controller가 아닌 Spring Boot에서 제공하는 컨트롤러를 통해 Page를 반환 해 줄 수 잇다</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PageController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/main&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;main.html&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><img src="/image/spring-5_images/3cc47863.png"></p>
+</li>
+<li><p>contens type이 html인 것을 확인 할 수 있다.</p>
+</li>
+<li><p>이 방법을 통해 page가 아닌 json을 리턴하고 싶을 경우</p>
+</li>
+<li><p><code>@Controller</code>라는 Annotation이 붙을 경우 String을 반환할 경우 resource를 찾지만  <code>@ResponseBody</code>를 붙이면 resource를 찾지않고 객체 자체를 반환해주게 된다</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Response Enitity</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/user&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">user</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="string">&quot;isu&quot;</span>);</span><br><span class="line">        user.setAddress(<span class="string">&quot;seoul&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><img src="/image/spring-5_images/104209a2.png"></p>
+</li>
+<li><p>DTO에 <code>@JsonInclude</code> Annotation을 통해 포함시킬 값을 설정 할 수있다 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@JsonNaming(value = PropertyNamingStrategy.SnakeCaseStrategy.class)</span></span><br><span class="line"><span class="meta">@JsonInclude(JsonInclude.Include.NON_NULL)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> String PhoneNumber;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="/image/spring-5_images/8864da36.png"></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1135,99 +1253,6 @@
 
 <ul>
 <li>110V의 인터페이스 객체임에도 다른 인터페이스 객체를 사용 할 수 있게되었다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/06/oop-java-27/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/06/oop-java-27/" class="post-title-link" itemprop="url">OOP - Design Pattern - Singleton</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-09-06 15:59:02 / Modified: 20:55:40" itemprop="dateCreated datePublished" datetime="2021-09-06T15:59:02+09:00">2021-09-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/design-pattern/" itemprop="url" rel="index"><span itemprop="name">design pattern</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Singleton-Pattern"><a href="#Singleton-Pattern" class="headerlink" title="Singleton Pattern"></a>Singleton Pattern</h1><ul>
-<li>생성패턴</li>
-<li>어떠한 클래스의 객체가 유일하게 1개만 존재해야 할때 사용하는 디자인 패턴</li>
-<li>프린터나 , TCP Socket 통신에서 서버와 연결된 connect 객체같이 서로 자원을 공유 할 때 사용된다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SocketClient</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SocketClient socketClient;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SocketClient</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SocketClient <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( socketClient == <span class="keyword">null</span>) &#123;</span><br><span class="line">            socketClient = <span class="keyword">new</span> SocketClient();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> socketClient;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Connect!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>인스턴스는 <code>private static</code>로 선언하고</li>
-<li>생성자는 외부에서 호출 불가능하도록 <code>private</code>로 선언한다</li>
-<li>외부에서 같은 객체를 가질 받을 수 있도록 <code>public static getInstacne()</code>를 구현한다.</li>
 </ul>
 
       
