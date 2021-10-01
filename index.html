@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -208,6 +208,137 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/10/01/spring-7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/01/spring-7/" class="post-title-link" itemprop="url">Spring - Validation</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-10-01 20:46:08 / Modified: 21:45:15" itemprop="dateCreated datePublished" datetime="2021-10-01T20:46:08+09:00">2021-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h2><ul>
+<li>Validation이란 에외를 방지하기 위한 검증하는 과정을 뜻한다</li>
+<li><code>if (id == null) || (passwd == null) &#123; return &#125;</code> 과 같은 코드를 통해 처리 할 수있지만<br>비지니스 로직에서 벗어난 코드들이 작성되게 되고 이러한 검증코드들 때문에 전체적인 로직이<br>작동하지 않을 수 있다</li>
+<li>따라서 분리해서 작성해야하는데 이를 스프링에서 anntation을 통해 관리할 수 있다</li>
+<li><a target="_blank" rel="noopener" href="http://hibernate.org/validator/">Validator</a> 에서 확인 할 수 있다</li>
+</ul>
+<h3 id="validation-활용하기"><a href="#validation-활용하기" class="headerlink" title="validation 활용하기"></a>validation 활용하기</h3><ul>
+<li><p><code>gradle dependency</code> 에<br><code>implementation &#39;org.springframework.boot:spring-boot-starter-validation&#39;</code> 을 추가한다</p>
+</li>
+<li><p><img src="/image/spring-7_images/097b4ed0.png"></p>
+</li>
+<li><p>다음과 같은 요청이 들어왔지만 email의 형태도 phone nubmer의 형태도 이상하지만 검증이 없이 데이터가 echo되었다.</p>
+</li>
+<li><p><strong>Validation</strong> 을 하기 위해 dto의 필드에 상황에 맞는 annotation을 작성한다</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="meta">@Email</span></span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="keyword">private</span> String phoneNumber;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>그리고 검증이 필요한 객체에대해 <code>@Valid</code> anntation을 붙여주도록한다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@PostMapping(&quot;/user&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">user</span> <span class="params">(<span class="meta">@Valid</span> <span class="meta">@RequestBody</span> User user)</span> </span>&#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>같은 리퀘스트를 보내면</li>
+</ul>
+<p><img src="/image/spring-7_images/3da8ad6c.png"></p>
+<ul>
+<li>Bad Request를 응답한다</li>
+</ul>
+<p><img src="/image/spring-7_images/842a5de3.png"></p>
+<ul>
+<li><p>정상적인 메일형식을 요청하면 정상적인 응답을 볼 수 있다</p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Regular_Expressions">정규식</a></strong> 을 이용한 Validation을 할 수도 있다</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Pattern(regexp = &quot;^\\d&#123;2,3&#125;-\\d&#123;3,4&#125;-\\d&#123;4&#125;$&quot; , message = &quot;not matched pattern of phone number&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String phoneNumber;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Validation-Handling"><a href="#Validation-Handling" class="headerlink" title="Validation Handling"></a>Validation Handling</h3><ul>
+<li><p>validation에 통과하지 못한 요청에대하여 따로 핸들링 할 수 있다</p>
+</li>
+<li><p>메소드에 BindingResult 라는 객체를 파라미터를 받음으로써 Validation의 결과를 받을 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@PostMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ResponseEntity&lt;User&gt; <span class="title">user</span> <span class="params">(<span class="meta">@Valid</span> <span class="meta">@RequestBody</span> User user, BindingResult bindingResult)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(bindingResult.hasErrors()) &#123;</span><br><span class="line">      StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">      bindingResult.getAllErrors().forEach(objectError -&gt; &#123;</span><br><span class="line">        FieldError fieldError = (FieldError) objectError;</span><br><span class="line">        String message = objectError.getDefaultMessage();</span><br><span class="line">        System.out.println(<span class="string">&quot;Field : &quot;</span> + fieldError.getField() );</span><br><span class="line">        System.out.println(message);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ResponseEntity.ok(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="/image/spring-7_images/f964bc9b.png"></p>
+</li>
+<li><p><img src="/image/spring-7_images/a2eb4b89.png"></p>
+</li>
+<li><p>정상적으로 요청했을 경우엔 Echo이지만 정규식을 통과하지 못한경우 다음과 같이 응답하도록 할 핸들링 할 수 있다.</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@NotBlank</span></span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Min(value = 0)</span></span><br><span class="line"><span class="meta">@Max(value = 100)</span></span><br><span class="line"><span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Email</span></span><br><span class="line"><span class="keyword">private</span> String email;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>여러 Annotation을 통해 validation할 수 있다</li>
+</ul>
+<h3 id="Custom-Validation"><a href="#Custom-Validation" class="headerlink" title="Custom Validation"></a>Custom Validation</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/28/spring-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -221,7 +352,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/28/spring-6/" class="post-title-link" itemprop="url">spring-6</a>
+          <a href="/2021/09/28/spring-6/" class="post-title-link" itemprop="url">Spring - Object Mapper</a>
         </h2>
 
         <div class="post-meta-container">
@@ -231,10 +362,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-09-28 17:04:15 / Modified: 21:28:24" itemprop="dateCreated datePublished" datetime="2021-09-28T17:04:15+09:00">2021-09-28</time>
+      <time title="Created: 2021-09-28 17:04:15" itemprop="dateCreated datePublished" datetime="2021-09-28T17:04:15+09:00">2021-09-28</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-01 21:41:37" itemprop="dateModified" datetime="2021-10-01T21:41:37+09:00">2021-10-01</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1141,111 +1278,6 @@
 </ul>
 <p><img src="/image/oop-java-30_images/6a03e395.png"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//IButtonListener.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IButtonListener</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">clickEvent</span><span class="params">(String event)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Button.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Button</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> IButtonListener buttonListener;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Button</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">(String meesage)</span> </span>&#123;</span><br><span class="line">        buttonListener.clickEvent(meesage);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addListener</span><span class="params">(IButtonListener buttonListener)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.buttonListener = buttonListener;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//test</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObserverTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Button button = <span class="keyword">new</span> Button(<span class="string">&quot;Button 1&quot;</span>);</span><br><span class="line">        button.click(<span class="string">&quot;click!&quot;</span>);</span><br><span class="line">        button.addListener(<span class="keyword">new</span> IButtonListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clickEvent</span><span class="params">(String event)</span> </span>&#123;</span><br><span class="line">                System.out.println(event);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        button.click((<span class="string">&quot;메시지 전달 : click 1&quot;</span>));</span><br><span class="line">        button.click((<span class="string">&quot;메시지 전달 : click 2&quot;</span>));</span><br><span class="line">        button.click((<span class="string">&quot;메시지 전달 : click 3&quot;</span>));</span><br><span class="line">        button.click((<span class="string">&quot;메시지 전달 : click 4&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/06/oop-java-29/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/06/oop-java-29/" class="post-title-link" itemprop="url">OOP - Design Pattern - Proxy</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-09-06 17:39:10 / Modified: 20:55:34" itemprop="dateCreated datePublished" datetime="2021-09-06T17:39:10+09:00">2021-09-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/design-pattern/" itemprop="url" rel="index"><span itemprop="name">design pattern</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Proxy-Pattern"><a href="#Proxy-Pattern" class="headerlink" title="Proxy Pattern"></a>Proxy Pattern</h1><ul>
-<li>구조 패턴</li>
-<li>일반적으로 프록시는 다른 무언가와 이어지는 인터페이스의 역할을 하는 클래스이다. 프록시는 어떠한 것(이를테면 네트워크 연결, 메모리 안의 커다란 객체, 파일, 또 복제할 수 없거나 수요가 많은 리소스)과도 인터페이스의 역할을 수행할 수 있다.</li>
-<li>Client는 Proxy로 부터 결과를 받는다</li>
-</ul>
-<p><img src="/image/oop-java-29_images/8b92f4d3.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Html.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Html</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String url;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Html</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.url = url;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// IBrowser.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IBrowser</span> </span>&#123;</span><br><span class="line">  <span class="function">Html <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Browser.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Browser</span> <span class="keyword">implements</span> <span class="title">IBrowser</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String url;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Browser</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.url = url;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Html <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Browser is loading html from : &quot;</span> + url);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Html(url);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BrowserTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Browser browser = <span class="keyword">new</span> Browser(<span class="string">&quot;www.google.com&quot;</span>);</span><br><span class="line">    browser.show();</span><br><span class="line">    browser.show();</span><br><span class="line">    browser.show();</span><br><span class="line">    browser.show();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/oop-java-29_images/452dc730.png"></p>
-<ul>
-<li>현재 proxy가 없는 코드에서는 볼때마다 계속해서 로딩을 하게되므로 큰 오버헤드가 발생 할 수있다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BrowserProxy</span> <span class="keyword">implements</span> <span class="title">IBrowser</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="keyword">private</span> Html html;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BrowserProxy</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.url = url;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Html <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (html == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.html = <span class="keyword">new</span> Html(url);</span><br><span class="line">            System.out.println(<span class="string">&quot;Browser loading html from : &quot;</span> + url);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;Browser use cache html from : &quot;</span> + url);</span><br><span class="line">        <span class="keyword">return</span> html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BrowserTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    IBrowser browser = <span class="keyword">new</span> BrowserProxy(<span class="string">&quot;www.naver.com&quot;</span>);</span><br><span class="line">    browser.show();</span><br><span class="line">    browser.show();</span><br><span class="line">    browser.show();</span><br><span class="line">    browser.show();</span><br><span class="line">    browser.show();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/oop-java-29_images/77d4bb5e.png"></p>
-<ul>
-<li>로딩은 한번만 진행되고 그 이후엔 캐싱을 통해 오버헤드를 줄일 수 있다</li>
-</ul>
-<h2 id="aop"><a href="#aop" class="headerlink" title="aop"></a>aop</h2><ul>
-<li>원하는 기능들, 흩어져있는 기능들을 동일하게 제공하는 역할을 프록시 패턴을 이용하여 만들 수 있다</li>
-<li>특정한 메소드 실행시간, 메소드 전후로 특정한 작업을 하거나 어떠한 리퀘스트나 리스폰 정보를 남긴다던지 일괄적으로 패키지에 모든 메소드들에 기능을 제공 할 수있다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AopBrowser</span> <span class="keyword">implements</span> <span class="title">IBrowser</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="keyword">private</span> Html html;</span><br><span class="line">    <span class="keyword">private</span> Runnable before;</span><br><span class="line">    <span class="keyword">private</span> Runnable after;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AopBrowser</span><span class="params">(String url, Runnable before, Runnable after)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.url = url;</span><br><span class="line">        <span class="keyword">this</span>.before = before;</span><br><span class="line">        <span class="keyword">this</span>.after = after;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Html <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        before.run();</span><br><span class="line">        <span class="keyword">if</span> (html == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.html = <span class="keyword">new</span> Html(url);</span><br><span class="line">            System.out.println(<span class="string">&quot;Aop Browser html loading from : &quot;</span> + url);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1500</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        after.run();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;Aop Browser use Cache : &quot;</span> + url);</span><br><span class="line">        <span class="keyword">return</span> html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BrowserTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    AtomicLong start = <span class="keyword">new</span> AtomicLong();</span><br><span class="line">    AtomicLong end = <span class="keyword">new</span> AtomicLong();</span><br><span class="line">    </span><br><span class="line">    IBrowser aopBrowser = <span class="keyword">new</span> AopBrowser(<span class="string">&quot;www.google.com&quot;</span>,</span><br><span class="line">            ()-&gt;&#123;</span><br><span class="line">              System.out.println(<span class="string">&quot;before&quot;</span>);</span><br><span class="line">              start.set(System.currentTimeMillis());</span><br><span class="line">            &#125;,</span><br><span class="line">            ()-&gt;&#123;</span><br><span class="line">              end.set(System.currentTimeMillis() - start.get());</span><br><span class="line">            &#125; );</span><br><span class="line"></span><br><span class="line">    aopBrowser.show();</span><br><span class="line">    System.out.println(<span class="string">&quot;loading time :  &quot;</span> + end.get());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    aopBrowser.show();</span><br><span class="line">    System.out.println(<span class="string">&quot;loading time :  &quot;</span> + end.get());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/image/oop-java-29_images/345b219e.png"></p>
-
       
     </div>
 

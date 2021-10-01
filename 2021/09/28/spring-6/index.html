@@ -22,7 +22,7 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jeongisu94.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="SpringObject Mapper Object Mapper는 Json과 Object를 변환시켜주는 역할을 한다  다음 코드와 같이 변환 할 수 있다.   12345&#x2F;&#x2F; object -&gt; textvar objectMapper &#x3D; new ObjectMapper();var user &#x3D; new User (&quot;isu&quot; , 100);var te">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-6">
+<meta property="og:title" content="Spring - Object Mapper">
 <meta property="og:url" content="https://jeongisu94.github.io/2021/09/28/spring-6/index.html">
 <meta property="og:site_name" content="ISU&#39;s Blog">
 <meta property="og:description" content="SpringObject Mapper Object Mapper는 Json과 Object를 변환시켜주는 역할을 한다  다음 코드와 같이 변환 할 수 있다.   12345&#x2F;&#x2F; object -&gt; textvar objectMapper &#x3D; new ObjectMapper();var user &#x3D; new User (&quot;isu&quot; , 100);var te">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://jeongisu94.github.io/image/spring-6_images/4f3761ac.png">
 <meta property="og:image" content="https://jeongisu94.github.io/image/spring-6_images/29cf9733.png">
 <meta property="article:published_time" content="2021-09-28T08:04:15.000Z">
-<meta property="article:modified_time" content="2021-09-28T12:28:24.794Z">
+<meta property="article:modified_time" content="2021-10-01T12:41:37.624Z">
 <meta property="article:author" content="Jeongisu">
 <meta property="article:tag" content="object mapper">
 <meta name="twitter:card" content="summary">
@@ -41,10 +41,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/09/28/spring-6/","path":"2021/09/28/spring-6/","title":"spring-6"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://jeongisu94.github.io/2021/09/28/spring-6/","path":"2021/09/28/spring-6/","title":"Spring - Object Mapper"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>spring-6 | ISU's Blog</title>
+<title>Spring - Object Mapper | ISU's Blog</title>
   
 
 
@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -229,7 +229,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          spring-6
+          Spring - Object Mapper
         </h1>
 
         <div class="post-meta-container">
@@ -239,10 +239,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-09-28 17:04:15 / Modified: 21:28:24" itemprop="dateCreated datePublished" datetime="2021-09-28T17:04:15+09:00">2021-09-28</time>
+      <time title="Created: 2021-09-28 17:04:15" itemprop="dateCreated datePublished" datetime="2021-09-28T17:04:15+09:00">2021-09-28</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-01 21:41:37" itemprop="dateModified" datetime="2021-10-01T21:41:37+09:00">2021-10-01</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -311,6 +317,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/10/01/spring-7/" rel="next" title="Spring - Validation">
+                  Spring - Validation <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
