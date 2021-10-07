@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">69</span>
+        <span class="site-state-item-count">70</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,103 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/10/06/spring-9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/06/spring-9/" class="post-title-link" itemprop="url">Spring - Filter</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-06 21:43:52" itemprop="dateCreated datePublished" datetime="2021-10-06T21:43:52+09:00">2021-10-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-07 21:46:30" itemprop="dateModified" datetime="2021-10-07T21:46:30+09:00">2021-10-07</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><ul>
+<li><p><strong>Filter</strong>란 Web Application에서 관리되는 영역으로 Client의 Req/Res에 대한 최초 최종단계의 위치에 존재</p>
+</li>
+<li><p>Req/Res 정보를 변경하거나 Controller에 의해 데이터가 변하기 전의 Req/Res값을 확인 할 때 사용</p>
+</li>
+<li><p>주로 Req/Res의 Logging용도 또는 인증과 관련된 프로세스를 해당 필터에서 처리한다</p>
+</li>
+<li><p>유일하게 <strong>ServletRequest, ServletResponse</strong>을 변환 할 수 있다</p>
+</li>
+<li><p><img src="/image/spring-9_images/edc40714.png" alt="Spring MVC Life Cycle"></p>
+</li>
+</ul>
+<h3 id="Using-Filter"><a href="#Using-Filter" class="headerlink" title="Using Filter"></a>Using Filter</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span> <span class="comment">// Spring에 의해 Bean으로 Filter를 관리하기 위함</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        <span class="comment">// preprocess</span></span><br><span class="line"><span class="comment">//      HttpServletRequest httpServletRequest = (HttpServletRequest) request;</span></span><br><span class="line"><span class="comment">//      HttpServletResponse httpServletResponse = (HttpServletResponse) response; // Stream은 재사용이 불가능하기때문에 다른 Wrapper클래스를 사용함</span></span><br><span class="line">        ContentCachingRequestWrapper httpServletRequest = <span class="keyword">new</span> ContentCachingRequestWrapper ((HttpServletRequest)request);</span><br><span class="line">        ContentCachingResponseWrapper httpServletResponse = <span class="keyword">new</span> ContentCachingResponseWrapper ((HttpServletResponse)response);</span><br><span class="line"></span><br><span class="line"><span class="comment">//        BufferedReader br = httpServletRequest.getReader();</span></span><br><span class="line"><span class="comment">//        br.lines().forEach(line -&gt; &#123;</span></span><br><span class="line"><span class="comment">//            log.info(&quot;url : &#123;&#125; line : &#123;&#125; &quot;, url , line);</span></span><br><span class="line"><span class="comment">//        &#125;);</span></span><br><span class="line"></span><br><span class="line">        chain.doFilter(httpServletRequest,httpServletResponse); <span class="comment">// Spring에 Mapping 하는 과정</span></span><br><span class="line"></span><br><span class="line">        String url = httpServletRequest.getRequestURI();</span><br><span class="line">        <span class="comment">// post process</span></span><br><span class="line">        String reqContent = <span class="keyword">new</span> String(httpServletRequest.getContentAsByteArray());</span><br><span class="line">        log.info(<span class="string">&quot;request url : &#123;&#125;, request body : &#123;&#125;&quot;</span>, url, reqContent);</span><br><span class="line"></span><br><span class="line">        String resContent = <span class="keyword">new</span> String(httpServletRequest.getContentAsByteArray());</span><br><span class="line">        Integer httpStatusCode = httpServletResponse.getStatus();</span><br><span class="line"></span><br><span class="line">        httpServletResponse.copyBodyToResponse(); <span class="comment">// Stream을 사용후 다시 Body에 복사</span></span><br><span class="line"></span><br><span class="line">        log.info(<span class="string">&quot;response status : &#123;&#125;, responseBody : &#123;&#125;&quot;</span>, httpStatusCode, resContent);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Filter-대상-정하기"><a href="#Filter-대상-정하기" class="headerlink" title="Filter 대상 정하기"></a>Filter 대상 정하기</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//FilterApplication.java</span></span><br><span class="line"><span class="meta">@ServletComponentScan</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(FilterApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// GlobalFIlter.java</span></span><br><span class="line"><span class="meta">@WebFilter(urlPatterns = &quot;/api/user/*&quot;)</span> <span class="comment">// 필터를 적용할 url  , 배열을 통해 여러 url 관리 가능</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1239,112 +1336,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EncoderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        EncodingStrategy base64 = <span class="keyword">new</span> Base64Encoder();</span><br><span class="line">        EncodingStrategy normal = <span class="keyword">new</span> NormalEncoder();</span><br><span class="line">        Encoder encoder = <span class="keyword">new</span> Encoder();</span><br><span class="line"></span><br><span class="line">        String message = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">        encoder.setEncodingStrategy(base64);</span><br><span class="line">        System.out.println(encoder.getMessage(message));</span><br><span class="line"></span><br><span class="line">        encoder.setEncodingStrategy(normal);</span><br><span class="line">        System.out.println(encoder.getMessage(message));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/image/oop-java-32_images/8369586c.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/06/oop-java-31/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/06/oop-java-31/" class="post-title-link" itemprop="url">OOP - Design Pattern - Facade</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-09-06 19:57:42 / Modified: 22:05:20" itemprop="dateCreated datePublished" datetime="2021-09-06T19:57:42+09:00">2021-09-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/" itemprop="url" rel="index"><span itemprop="name">oop</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/oop/design-pattern/" itemprop="url" rel="index"><span itemprop="name">design pattern</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Facade-Pattern"><a href="#Facade-Pattern" class="headerlink" title="Facade Pattern"></a>Facade Pattern</h1><ul>
-<li>구조 패턴</li>
-<li>정면, 앞면이라는 뜻을 가지는 Facade는 여러 개의 객체와 실제 사용하는 서브 객체 사이에 복잡한 의존관계가 있을때 중간에 Facade 객체를 두어 제공하는 interface만을 활용하여 기능을 제공하는 방식이다</li>
-<li>Facade는 자신이 가지고 있는 각 클래스의 기능을 명확히 알아야 한다</li>
-</ul>
-<p><img src="/image/oop-java-31_images/9279e58d.png"></p>
-<h2 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Writer</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Writer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String fileName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Writer</span><span class="params">(String fileName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.fileName = fileName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fileConnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Writer %s 로 연결합니다&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fileWrite</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Writer %s 를 씁니다.&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fildDisconnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Writer %s 로 연결 종료합니다&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Reader.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Reader</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String fileName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Reader</span><span class="params">(String fileName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.fileName = fileName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fileConnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Reader %s 로 연결합니다&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fileRead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Reader %s 를 읽습니다.&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fildDisconnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String msg = String.format(<span class="string">&quot;Reader %s 로 연결 종료합니다&quot;</span>, fileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Ftp.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Ftp</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line">    <span class="keyword">private</span> String path;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Ftp</span><span class="params">(String host, <span class="keyword">int</span> port, String path)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.host = host;</span><br><span class="line">        <span class="keyword">this</span>.port = port;</span><br><span class="line">        <span class="keyword">this</span>.path = path;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;FTP host : &quot;</span> + host + <span class="string">&quot;Port : &quot;</span> + port);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveDirectory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;move path :&quot;</span> + path);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">disConnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;FTP Disconnected&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>해당 클래스를 클라이언트가 사용하기 위해서는 </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Ftp ftpClient = <span class="keyword">new</span> Ftp(<span class="string">&quot;www.foo.co.kr&quot;</span>,<span class="number">22</span>,<span class="string">&quot;/home/etc&quot;</span>);</span><br><span class="line">        ftpClient.connect();</span><br><span class="line">        ftpClient.moveDirectory();</span><br><span class="line"></span><br><span class="line">        Writer writer = <span class="keyword">new</span> Writer(<span class="string">&quot;text.tmp&quot;</span>);</span><br><span class="line">        writer.fileConnect();</span><br><span class="line">        writer.fileWrite();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Reader reader = <span class="keyword">new</span> Reader(<span class="string">&quot;text.tmp&quot;</span>);</span><br><span class="line">        reader.fileConnect();</span><br><span class="line">        reader.fileRead();</span><br><span class="line">        </span><br><span class="line">        writer.fildDisconnect();</span><br><span class="line">        reader.fildDisconnect();</span><br><span class="line">        ftpClient.disConnect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Client가 의존성을 가지고있는 형태가 된다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SftpClient</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Ftp ftp;</span><br><span class="line">    <span class="keyword">private</span> Reader reader;</span><br><span class="line">    <span class="keyword">private</span> Writer writer;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SftpClient</span><span class="params">(Ftp ftp, Reader reader, Writer writer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.ftp = ftp;</span><br><span class="line">        <span class="keyword">this</span>.reader = reader;</span><br><span class="line">        <span class="keyword">this</span>.writer = writer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SftpClient</span><span class="params">(String host, <span class="keyword">int</span> port,String path, String fileName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.ftp = <span class="keyword">new</span> Ftp(host,port,path);</span><br><span class="line">        <span class="keyword">this</span>.reader = <span class="keyword">new</span> Reader(fileName);</span><br><span class="line">        <span class="keyword">this</span>.writer = <span class="keyword">new</span> Writer(fileName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ftp.connect();</span><br><span class="line">        ftp.moveDirectory();</span><br><span class="line">        writer.fileConnect();</span><br><span class="line">        reader.fileConnect();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">disconnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        writer.fildDisconnect();</span><br><span class="line">        reader.fildDisconnect();</span><br><span class="line">        ftp.disConnect();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        reader.fileRead();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        writer.fileWrite();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>SftpClient를 만듬으로써 의존성을 가져간다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SftpClient sftpClient = <span class="keyword">new</span> SftpClient(<span class="string">&quot;www.foo.co.kr&quot;</span>,<span class="number">22</span>,<span class="string">&quot;/homt/etc&quot;</span>,<span class="string">&quot;text.tmp&quot;</span>);</span><br><span class="line">        sftpClient.connect();</span><br><span class="line">        sftpClient.write();</span><br><span class="line">        sftpClient.read();</span><br><span class="line">        sftpClient.disconnect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>여러 객체의 의존성을 뒤로 숨겨주어 기능적으론 동일하지만 간략하게 줄일 수 있다.</li>
-</ul>
 
       
     </div>
