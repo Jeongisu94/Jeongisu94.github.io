@@ -121,6 +121,64 @@
       </tags>
   </entry>
   <entry>
+    <title>HTML 기초</title>
+    <url>/2021/07/21/HTML_Basic/</url>
+    <content><![CDATA[<h1 id="HTML-기초"><a href="#HTML-기초" class="headerlink" title="HTML 기초"></a>HTML 기초</h1><h2 id="HTML의-기본형태"><a href="#HTML의-기본형태" class="headerlink" title="HTML의 기본형태"></a>HTML의 기본형태</h2><p>HTML의 TAG</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TAG</span>&gt;</span>Content<span class="tag">&lt;/<span class="name">TAG</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>이러한 형태를 요소(Element)라고하는데 TAG와 크게 구분짓지 않는다. 앞쪽의 태그는 open 또는 start 뒤쪽의태그는 close 또는 end라고 한다.</li>
+</ul>
+<p>TAG는 각 의미를 가진다.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span> Element <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>태그에는 속성(Attribute)과 값(Value) 을 추가 할 수 있다.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TAG</span> 속성=<span class="string">&quot;값&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">TAG</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 예시 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./image_directory.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;alternate text&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span>Value<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>위의 img태그의 경우 닫히는 태그가 없는데 이것을 빈 태그 (Empty Tag)라고 한다.</p>
+<h3 id="빈태그"><a href="#빈태그" class="headerlink" title="빈태그"></a>빈태그</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- /가 없는 빈 태그 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TAG</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- /가 있는 빈태그 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TAG</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TAG</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>/는 붙이거나 안붙이거나 큰 차이는 없지만 혼용하지만 않으면 된다.</p>
+<p>빈태그의 경우 “속성”과 “값”을 가지는 경우가 많다.</p>
+<h3 id="부모와-자식-요소"><a href="#부모와-자식-요소" class="headerlink" title="부모와 자식 요소"></a>부모와 자식 요소</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;부모&gt;</span><br><span class="line">	&lt;자식&gt;&lt;/자식&gt;</span><br><span class="line">&lt;/부모&gt;</span><br></pre></td></tr></table></figure>
+
+<p>하나의 태그가 다른태그의 콘텐츠로 사용되면 부모 자식 관계를 가진다.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">&quot;animal&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>동물 목록<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>사자<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>호랑이<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>개<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>다음 HTML에서 섹션의 자식은 h1과 ul이며 동물목록의 부모는 section이 된다.</p>
+<h1 id="HTML-문서의-범위"><a href="#HTML-문서의-범위" class="headerlink" title="HTML 문서의 범위"></a>HTML 문서의 범위</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;이름&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;사이트 설명&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>사이트의 이름<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./css/main.css&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">scripte</span> <span class="attr">src</span>=<span class="string">&quot;./js/main.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>html태그는 해당 문서의 시작과 끝을 가리킨다.</p>
+<h3 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h3><p>DOCTYPE(DTD, Document Type Definition)은 HTML문서를 어떤 버전의 해석방식을 구조화하면 되는지 알려준다. 위의 경우 HTML 5이다.</p>
+<h2 id="head-tag"><a href="#head-tag" class="headerlink" title="head tag"></a>head tag</h2><p>  head태그에는 문서에대한 정보를 가진다.</p>
+<h3 id="Meta"><a href="#Meta" class="headerlink" title="Meta"></a>Meta</h3><p>해당 HTML문서의 인코딩 방식, 제작자, 내용, 키워드등을 검색엔진이나 브라우저에 제공하는 빈 태그이다.</p>
+<p><a href="https://www.notion.so/8349936cddce4a7a96fef529f1b9e199">meta</a></p>
+<h3 id="LINK-CSS-불러오기"><a href="#LINK-CSS-불러오기" class="headerlink" title="LINK(CSS 불러오기)"></a>LINK(CSS 불러오기)</h3><p>html, css , favicon(아이콘), Java Script 등 외부 문서를 연결할 때 사용하는 빈태그 이다.</p>
+<p><a href="https://www.notion.so/39e41ea57beb411e8dd5cc814449bd1b">link</a></p>
+<h3 id="STYLE-CSS-작성"><a href="#STYLE-CSS-작성" class="headerlink" title="STYLE(CSS 작성)"></a>STYLE(CSS 작성)</h3><p>외부에서 CSS를 가져오지 않고 내부 문서내에서 스타일을 작성 할 수있다.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css"><span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="css">	<span class="attribute">width</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">	<span class="attribute">height</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">&#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="SCRIPTE-Java-Script-불러오거나-작성"><a href="#SCRIPTE-Java-Script-불러오거나-작성" class="headerlink" title="SCRIPTE(Java Script 불러오거나 작성)"></a>SCRIPTE(Java Script 불러오거나 작성)</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 외부에서 불러오기 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">scripte</span> <span class="attr">src</span>=<span class="string">&quot;./js/main.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 문서 내부에서 직접 작성하기 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="handlebars"><span class="xml"></span></span></span><br><span class="line"><span class="xml"><span class="handlebars">	function foo(event) &#123;</span></span></span><br><span class="line"><span class="xml"><span class="handlebars">		<span class="comment">&lt;!-- TODO --&gt;</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars">	&#125; </span></span></span><br><span class="line"><span class="xml"><span class="handlebars"></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="body-tag"><a href="#body-tag" class="headerlink" title="body tag"></a>body tag</h2><p>HTML 문서의 구조를 나타내는 태그들을 담고있다.</p>
+<h3 id="DIV"><a href="#DIV" class="headerlink" title="DIV"></a>DIV</h3><p>division의 약자로 분할을 뜻한다 문서의 부분이나 섹션을 정의하나 명확한 의미를 가지지 않기때문에 특정범위를 묶는 용도로 사용한다.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="IMG"><a href="#IMG" class="headerlink" title="IMG"></a>IMG</h3><p><img>는 html에 이미지를 삽입할때 사용하는 태그이다. </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./img.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;alternative text&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>위에서 살펴봤듯이 img태그는 빈태그이기때문에 이미지를 삽입한다는 의미를 가지기때문에 실질적인 명시가 없기 때문에 <strong>이미지의 경로와 댁체텍스트</strong>를 <strong>반드시</strong>(웹표준) 설정해주어야 한다.</p>
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux / basic</title>
     <url>/2021/07/22/Linux%20-%20Shell%20Basic/</url>
     <content><![CDATA[<h1 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h1><h2 id="Shell은-사용자와-하드웨어-또는-OS간의-인터페이스이다"><a href="#Shell은-사용자와-하드웨어-또는-OS간의-인터페이스이다" class="headerlink" title="Shell은 사용자와 하드웨어 또는 OS간의 인터페이스이다."></a>Shell은 사용자와 하드웨어 또는 OS간의 인터페이스이다.</h2><p>![](/image/Linux Shell Basic/R800x0.jpeg)</p>
@@ -212,64 +270,6 @@
       <tags>
         <tag>linux</tag>
         <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HTML 기초</title>
-    <url>/2021/07/21/HTML_Basic/</url>
-    <content><![CDATA[<h1 id="HTML-기초"><a href="#HTML-기초" class="headerlink" title="HTML 기초"></a>HTML 기초</h1><h2 id="HTML의-기본형태"><a href="#HTML의-기본형태" class="headerlink" title="HTML의 기본형태"></a>HTML의 기본형태</h2><p>HTML의 TAG</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TAG</span>&gt;</span>Content<span class="tag">&lt;/<span class="name">TAG</span>&gt;</span> </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>이러한 형태를 요소(Element)라고하는데 TAG와 크게 구분짓지 않는다. 앞쪽의 태그는 open 또는 start 뒤쪽의태그는 close 또는 end라고 한다.</li>
-</ul>
-<p>TAG는 각 의미를 가진다.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span> Element <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>태그에는 속성(Attribute)과 값(Value) 을 추가 할 수 있다.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TAG</span> 속성=<span class="string">&quot;값&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">TAG</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 예시 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./image_directory.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;alternate text&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;name&quot;</span>&gt;</span>Value<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>위의 img태그의 경우 닫히는 태그가 없는데 이것을 빈 태그 (Empty Tag)라고 한다.</p>
-<h3 id="빈태그"><a href="#빈태그" class="headerlink" title="빈태그"></a>빈태그</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- /가 없는 빈 태그 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TAG</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- /가 있는 빈태그 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TAG</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">TAG</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>/는 붙이거나 안붙이거나 큰 차이는 없지만 혼용하지만 않으면 된다.</p>
-<p>빈태그의 경우 “속성”과 “값”을 가지는 경우가 많다.</p>
-<h3 id="부모와-자식-요소"><a href="#부모와-자식-요소" class="headerlink" title="부모와 자식 요소"></a>부모와 자식 요소</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;부모&gt;</span><br><span class="line">	&lt;자식&gt;&lt;/자식&gt;</span><br><span class="line">&lt;/부모&gt;</span><br></pre></td></tr></table></figure>
-
-<p>하나의 태그가 다른태그의 콘텐츠로 사용되면 부모 자식 관계를 가진다.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">&quot;animal&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>동물 목록<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>사자<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>호랑이<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>개<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>다음 HTML에서 섹션의 자식은 h1과 ul이며 동물목록의 부모는 section이 된다.</p>
-<h1 id="HTML-문서의-범위"><a href="#HTML-문서의-범위" class="headerlink" title="HTML 문서의 범위"></a>HTML 문서의 범위</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;이름&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;사이트 설명&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>사이트의 이름<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./css/main.css&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">scripte</span> <span class="attr">src</span>=<span class="string">&quot;./js/main.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>html태그는 해당 문서의 시작과 끝을 가리킨다.</p>
-<h3 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h3><p>DOCTYPE(DTD, Document Type Definition)은 HTML문서를 어떤 버전의 해석방식을 구조화하면 되는지 알려준다. 위의 경우 HTML 5이다.</p>
-<h2 id="head-tag"><a href="#head-tag" class="headerlink" title="head tag"></a>head tag</h2><p>  head태그에는 문서에대한 정보를 가진다.</p>
-<h3 id="Meta"><a href="#Meta" class="headerlink" title="Meta"></a>Meta</h3><p>해당 HTML문서의 인코딩 방식, 제작자, 내용, 키워드등을 검색엔진이나 브라우저에 제공하는 빈 태그이다.</p>
-<p><a href="https://www.notion.so/8349936cddce4a7a96fef529f1b9e199">meta</a></p>
-<h3 id="LINK-CSS-불러오기"><a href="#LINK-CSS-불러오기" class="headerlink" title="LINK(CSS 불러오기)"></a>LINK(CSS 불러오기)</h3><p>html, css , favicon(아이콘), Java Script 등 외부 문서를 연결할 때 사용하는 빈태그 이다.</p>
-<p><a href="https://www.notion.so/39e41ea57beb411e8dd5cc814449bd1b">link</a></p>
-<h3 id="STYLE-CSS-작성"><a href="#STYLE-CSS-작성" class="headerlink" title="STYLE(CSS 작성)"></a>STYLE(CSS 작성)</h3><p>외부에서 CSS를 가져오지 않고 내부 문서내에서 스타일을 작성 할 수있다.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css"><span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="css">	<span class="attribute">width</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">	<span class="attribute">height</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">&#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="SCRIPTE-Java-Script-불러오거나-작성"><a href="#SCRIPTE-Java-Script-불러오거나-작성" class="headerlink" title="SCRIPTE(Java Script 불러오거나 작성)"></a>SCRIPTE(Java Script 불러오거나 작성)</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 외부에서 불러오기 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">scripte</span> <span class="attr">src</span>=<span class="string">&quot;./js/main.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 문서 내부에서 직접 작성하기 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="handlebars"><span class="xml"></span></span></span><br><span class="line"><span class="xml"><span class="handlebars">	function foo(event) &#123;</span></span></span><br><span class="line"><span class="xml"><span class="handlebars">		<span class="comment">&lt;!-- TODO --&gt;</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars">	&#125; </span></span></span><br><span class="line"><span class="xml"><span class="handlebars"></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="body-tag"><a href="#body-tag" class="headerlink" title="body tag"></a>body tag</h2><p>HTML 문서의 구조를 나타내는 태그들을 담고있다.</p>
-<h3 id="DIV"><a href="#DIV" class="headerlink" title="DIV"></a>DIV</h3><p>division의 약자로 분할을 뜻한다 문서의 부분이나 섹션을 정의하나 명확한 의미를 가지지 않기때문에 특정범위를 묶는 용도로 사용한다.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">h1</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="IMG"><a href="#IMG" class="headerlink" title="IMG"></a>IMG</h3><p><img>는 html에 이미지를 삽입할때 사용하는 태그이다. </p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./img.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;alternative text&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>위에서 살펴봤듯이 img태그는 빈태그이기때문에 이미지를 삽입한다는 의미를 가지기때문에 실질적인 명시가 없기 때문에 <strong>이미지의 경로와 댁체텍스트</strong>를 <strong>반드시</strong>(웹표준) 설정해주어야 한다.</p>
-]]></content>
-      <categories>
-        <category>HTML</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
-        <tag>HTML</tag>
       </tags>
   </entry>
   <entry>
@@ -399,6 +399,50 @@
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shell 사용법 2</title>
+    <url>/2021/07/23/Linux-How_to_use_shell/</url>
+    <content><![CDATA[<p>#Shell 사용법</p>
+<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
+<li>바이너리는 실행할 수 있는 파일</li>
+<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
+<li>메모리와 관련된 상태정보 (PCB)</li>
+<li>시스템 리소스</li>
+<li>스케쥴링 단위</li>
+</ul>
+</li>
+</ul>
+<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
+<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
+<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
+</ul>
+<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
+<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
+<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
+<li>서버 데몬, 백신 프로그램, etc..</li>
+</ul>
+<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
+<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
+<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
+<hr>
+<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
+<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
+]]></content>
+      <categories>
+        <category>system programming</category>
+        <category>Linux</category>
+        <category>Shell</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+        <tag>system programming</tag>
+        <tag>Bash</tag>
       </tags>
   </entry>
   <entry>
@@ -567,47 +611,44 @@ end</pre>
       </tags>
   </entry>
   <entry>
-    <title>Shell 사용법 2</title>
-    <url>/2021/07/23/Linux-How_to_use_shell/</url>
-    <content><![CDATA[<p>#Shell 사용법</p>
-<h2 id="Process-VS-Binary"><a href="#Process-VS-Binary" class="headerlink" title="Process VS Binary"></a>Process VS Binary</h2><ul>
-<li>바이너리는 실행할 수 있는 파일</li>
-<li>프로세스는 실행시킨 바이너리 프로그램의 정보를 갖고있다.<ul>
-<li>메모리와 관련된 상태정보 (PCB)</li>
-<li>시스템 리소스</li>
-<li>스케쥴링 단위</li>
+    <title>Java - Object Class</title>
+    <url>/2021/08/18/OOP-java-11/</url>
+    <content><![CDATA[<h1 id="Object-Class"><a href="#Object-Class" class="headerlink" title="Object Class"></a>Object Class</h1><h2 id="Object-Class-1"><a href="#Object-Class-1" class="headerlink" title="Object Class"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html">Object Class</a></h2><ul>
+<li>Object 클래스는 가장 상위클래스이다.</li>
+<li>즉 모든 클래스들은 Object클래스를 상속받고 필요에 의해 Object Class의 Method를 재정의하여 사용할 수 있다.</li>
+<li>Compiler는 Compile시에 Extends Object를 추가한다</li>
 </ul>
+<h3 id="Object-Class-Method"><a href="#Object-Class-Method" class="headerlink" title="Object Class Method"></a>Object Class Method</h3><h4 id="override-toString"><a href="#override-toString" class="headerlink" title="override toString()"></a>override toString()</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Animal(<span class="string">&quot;Dog&quot;</span>, <span class="number">2</span>);</span><br><span class="line">        String test = <span class="keyword">new</span> String(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        System.out.println(dog);</span><br><span class="line">        System.out.println(test);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>코드의 결과는 다음과 같다 <img src="/image/OOP-java-11_images/animaltest.png"></p>
+</li>
+<li><p>test의 toString()은 이미 재정의 되어있기때문에 test를 바로 출력하지만</p>
+</li>
+<li><p>Animal 클래스는 그렇지않기때문에 16진수의 주소값을 출력한다.<br><img src="/image/OOP-java-11_images/tostringoveride.png"></p>
+</li>
+<li><p>따라서 Animal class 또한 object를 상속받았기때문에 toString()을 오버라이드 할 수 있다.</p>
 </li>
 </ul>
-<h2 id="foreground-process-amp-background-process"><a href="#foreground-process-amp-background-process" class="headerlink" title="foreground process &amp; background process"></a>foreground process &amp; background process</h2><h3 id="foreground-process"><a href="#foreground-process" class="headerlink" title="foreground process"></a>foreground process</h3><ul>
-<li>사용자가 직접적으로 실행한 후 작업을 완전히 수행할떄까지 기다려야하는 작업이나 명령이다.</li>
-<li>화면에 표시되어 유저와 상호작용을 하게 되는 프로세스</li>
-</ul>
-<h3 id="background-process"><a href="#background-process" class="headerlink" title="background process"></a>background process</h3><ul>
-<li>쉘은 더 많은 프로세스를 실행하기전 background process가 끝날때 까지 기다릴 필요 없다.</li>
-<li>가용가능한 메모리 안에서 백그라운드 작업은 이루어진다.</li>
-<li>서버 데몬, 백신 프로그램, etc..</li>
-</ul>
-<p><span style="color:gray">데몬 프로세스는 사용자 모르게 시스템 관리를 위해 실행되는 프로세스로 시스템이 부팅될떄 자동 실행된다</span></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ find / -name <span class="string">&#x27;*.py&#x27;</span> &gt; list.txt &amp;</span><br><span class="line">[job number] process ID <span class="comment">## result</span></span><br></pre></td></tr></table></figure>
-<p><span style="color:gray">프로세스 실행시 &amp;를 붙여준다.</span></p>
-<h3 id="process-제어"><a href="#process-제어" class="headerlink" title="process 제어"></a>process 제어</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">^Z <span class="comment">## 실행중인 포어그라운드  프로세스 중단 not kill</span></span><br><span class="line">^C <span class="comment">## 포어그라운드 프로세스 종료</span></span><br><span class="line"><span class="built_in">jobs</span> <span class="comment">## 실행중인 백그라운드 프로세스와 상태정보 출력</span></span><br><span class="line">ps <span class="comment">## 실행중인 프로세스 출력 </span></span><br><span class="line"><span class="built_in">kill</span> -9 [PID] <span class="comment">## PID해당하는 프로세스 죽이기</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Animal&#123;&quot;</span> +</span><br><span class="line">                    <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                    <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                    <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/image/Linux-How_to_use_shell2/command_ps_result.png"></p>
-<hr>
-<p>출처: 본 내용은 패스트 캠퍼스 수업내용을 기반으로 작성되었음을 알립니다.</p>
-<p><a href="https://www.lifewire.com/multitasking-background-foreground-process-2180219">lifewire: foreground&amp;background</a> </p>
+<p><img src="/image/OOP-java-11_images/2a3ceefb.png"></p>
+<h4 id="equals"><a href="#equals" class="headerlink" title="equals()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals(java.lang.Object)">equals()</a></h4><ul>
+<li>equals() 메소드는 두 인스턴스 주소 값을 비교하여 True/False를 반환한다</li>
+<li>인스턴스가 달라도 논리적으로 같다면 true를 반환할 수 있도록 재정의가 가능하다.</li>
+</ul>
+<h4 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#hashCode()">hashCode()</a></h4><ul>
+<li>Java에서는 Heap메모리를 관리할때 Hash함수를 이용한다.</li>
+<li>hasCode()는 인스턴스에대한 저장 주소를 반환한다</li>
+<li>equals()를 위와같이 재정의 할때 hash Key값을 Primary Key같은 것으로 사용한다</li>
+</ul>
 ]]></content>
       <categories>
-        <category>system programming</category>
-        <category>Linux</category>
-        <category>Shell</category>
+        <category>java</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Shell</tag>
-        <tag>system programming</tag>
-        <tag>Bash</tag>
+        <tag>class</tag>
+        <tag>object</tag>
       </tags>
   </entry>
   <entry>
@@ -786,6 +827,50 @@ HashMap --> Map</pre>
       </tags>
   </entry>
   <entry>
+    <title>Java - Lambda Expression</title>
+    <url>/2021/08/23/OOP-java-14/</url>
+    <content><![CDATA[<h1 id="람다식"><a href="#람다식" class="headerlink" title="람다식"></a>람다식</h1><h2 id="함수형-프로그래밍"><a href="#함수형-프로그래밍" class="headerlink" title="함수형 프로그래밍"></a>함수형 프로그래밍</h2><ul>
+<li>함수는 받아온 매개변수를 기반으로 구현하고 실행됨으로써 <code>Side Effect</code>가 발생하지 않도록 하는 방식이다</li>
+<li>이러한 함수를 기반으로 하는 프로그래밍이고 입력 받은 자료 이외에 외부 자료를 사용하지 않아 여러 자료를 동시에<br>수행되는 병렬 처리가 가능하다. </li>
+</ul>
+<h2 id="람다식-문법"><a href="#람다식-문법" class="headerlink" title="람다식 문법"></a>람다식 문법</h2><ul>
+<li><p>함수 이름없이 매개 변수와 매개변수를 이용한 실행문 <code>(매개변수) -&gt; &#123;실행문;&#125;</code></p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>매개 변수가 하나인 경우 자료형과 괄호 생략이 가능</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt;  &#123;System.out.println(str);&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>실행문이 한 문장인 경우 중괄호도 생략이 가능하다</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt; System.out.println(str);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>그러나 <code>return</code>은 중괄호 생략 불가<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//str -&gt; return str.length(); ❌</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>실행문이 한 문장의 반환문인 경우엔 return과 중괄호 모두 생략 가능</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(x,y) -&gt; x+y;</span><br><span class="line">str -&gt; str.length();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="람다식-구현하기"><a href="#람다식-구현하기" class="headerlink" title="람다식 구현하기"></a>람다식 구현하기</h2><ul>
+<li><p>자바에서는 클래스없이 메소드만 선언할 수 없으므로 랃다식을 위한 인터페이스에 메소드를 선언한다</p>
+</li>
+<li><p>이것을 <strong>Functional Interface</strong>라고 한다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add.java</span></span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Add</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x , <span class="keyword">int</span> y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>이렇게 람다식을 선언하기 위한 함수형 인터페이스는 익명 함수와 매개변수만으로 구현되므로<br>인터페이스는 <strong>☝️단 하나만의 메소드</strong>만 선언해야함 </p>
+</li>
+<li><p><code>@FunctionalInterface</code> Annotation을 이용하여 명시해준다</p>
+</li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AddTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AddTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Add add = (x, y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;;</span><br><span class="line">        System.out.println(add.add(<span class="number">3</span>,<span class="number">5</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>람다식 사용시 함수영 인터페이스의 인스턴스에 람다식을 할당해 사용할 수 있다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>Lambda</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java - Stream</title>
     <url>/2021/08/24/OOP-java-15/</url>
     <content><![CDATA[<h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Stream</a></h1><ul>
@@ -846,91 +931,6 @@ HashMap --> Map</pre>
       </categories>
       <tags>
         <tag>Stream</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java - Lambda Expression</title>
-    <url>/2021/08/23/OOP-java-14/</url>
-    <content><![CDATA[<h1 id="람다식"><a href="#람다식" class="headerlink" title="람다식"></a>람다식</h1><h2 id="함수형-프로그래밍"><a href="#함수형-프로그래밍" class="headerlink" title="함수형 프로그래밍"></a>함수형 프로그래밍</h2><ul>
-<li>함수는 받아온 매개변수를 기반으로 구현하고 실행됨으로써 <code>Side Effect</code>가 발생하지 않도록 하는 방식이다</li>
-<li>이러한 함수를 기반으로 하는 프로그래밍이고 입력 받은 자료 이외에 외부 자료를 사용하지 않아 여러 자료를 동시에<br>수행되는 병렬 처리가 가능하다. </li>
-</ul>
-<h2 id="람다식-문법"><a href="#람다식-문법" class="headerlink" title="람다식 문법"></a>람다식 문법</h2><ul>
-<li><p>함수 이름없이 매개 변수와 매개변수를 이용한 실행문 <code>(매개변수) -&gt; &#123;실행문;&#125;</code></p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>매개 변수가 하나인 경우 자료형과 괄호 생략이 가능</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt;  &#123;System.out.println(str);&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>실행문이 한 문장인 경우 중괄호도 생략이 가능하다</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str -&gt; System.out.println(str);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>그러나 <code>return</code>은 중괄호 생략 불가<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//str -&gt; return str.length(); ❌</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>실행문이 한 문장의 반환문인 경우엔 return과 중괄호 모두 생략 가능</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(x,y) -&gt; x+y;</span><br><span class="line">str -&gt; str.length();</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="람다식-구현하기"><a href="#람다식-구현하기" class="headerlink" title="람다식 구현하기"></a>람다식 구현하기</h2><ul>
-<li><p>자바에서는 클래스없이 메소드만 선언할 수 없으므로 랃다식을 위한 인터페이스에 메소드를 선언한다</p>
-</li>
-<li><p>이것을 <strong>Functional Interface</strong>라고 한다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Add.java</span></span><br><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Add</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x , <span class="keyword">int</span> y)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>이렇게 람다식을 선언하기 위한 함수형 인터페이스는 익명 함수와 매개변수만으로 구현되므로<br>인터페이스는 <strong>☝️단 하나만의 메소드</strong>만 선언해야함 </p>
-</li>
-<li><p><code>@FunctionalInterface</code> Annotation을 이용하여 명시해준다</p>
-</li>
-</ul>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AddTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AddTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Add add = (x, y) -&gt; &#123;<span class="keyword">return</span> x+y;&#125;;</span><br><span class="line">        System.out.println(add.add(<span class="number">3</span>,<span class="number">5</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>람다식 사용시 함수영 인터페이스의 인스턴스에 람다식을 할당해 사용할 수 있다.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>Lambda</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java - Object Class</title>
-    <url>/2021/08/18/OOP-java-11/</url>
-    <content><![CDATA[<h1 id="Object-Class"><a href="#Object-Class" class="headerlink" title="Object Class"></a>Object Class</h1><h2 id="Object-Class-1"><a href="#Object-Class-1" class="headerlink" title="Object Class"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html">Object Class</a></h2><ul>
-<li>Object 클래스는 가장 상위클래스이다.</li>
-<li>즉 모든 클래스들은 Object클래스를 상속받고 필요에 의해 Object Class의 Method를 재정의하여 사용할 수 있다.</li>
-<li>Compiler는 Compile시에 Extends Object를 추가한다</li>
-</ul>
-<h3 id="Object-Class-Method"><a href="#Object-Class-Method" class="headerlink" title="Object Class Method"></a>Object Class Method</h3><h4 id="override-toString"><a href="#override-toString" class="headerlink" title="override toString()"></a>override toString()</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Animal(<span class="string">&quot;Dog&quot;</span>, <span class="number">2</span>);</span><br><span class="line">        String test = <span class="keyword">new</span> String(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        System.out.println(dog);</span><br><span class="line">        System.out.println(test);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>코드의 결과는 다음과 같다 <img src="/image/OOP-java-11_images/animaltest.png"></p>
-</li>
-<li><p>test의 toString()은 이미 재정의 되어있기때문에 test를 바로 출력하지만</p>
-</li>
-<li><p>Animal 클래스는 그렇지않기때문에 16진수의 주소값을 출력한다.<br><img src="/image/OOP-java-11_images/tostringoveride.png"></p>
-</li>
-<li><p>따라서 Animal class 또한 object를 상속받았기때문에 toString()을 오버라이드 할 수 있다.</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Animal</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;Animal&#123;&quot;</span> +</span><br><span class="line">                    <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                    <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                    <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-11_images/2a3ceefb.png"></p>
-<h4 id="equals"><a href="#equals" class="headerlink" title="equals()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#equals(java.lang.Object)">equals()</a></h4><ul>
-<li>equals() 메소드는 두 인스턴스 주소 값을 비교하여 True/False를 반환한다</li>
-<li>인스턴스가 달라도 논리적으로 같다면 true를 반환할 수 있도록 재정의가 가능하다.</li>
-</ul>
-<h4 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a><a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Object.html#hashCode()">hashCode()</a></h4><ul>
-<li>Java에서는 Heap메모리를 관리할때 Hash함수를 이용한다.</li>
-<li>hasCode()는 인스턴스에대한 저장 주소를 반환한다</li>
-<li>equals()를 위와같이 재정의 할때 hash Key값을 Primary Key같은 것으로 사용한다</li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>class</tag>
-        <tag>object</tag>
       </tags>
   </entry>
   <entry>
@@ -1048,182 +1048,6 @@ Exception --> Throwable;</pre>
       <tags>
         <tag>exception</tag>
         <tag>error</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JAVA - IO Stream - 문자단위 스트림</title>
-    <url>/2021/08/31/OOP-java-19/</url>
-    <content><![CDATA[<h2 id="Reader"><a href="#Reader" class="headerlink" title="Reader"></a>Reader</h2><ul>
-<li><p>문자 단위 입력 스트림의 최상위 추상 클래스 </p>
-</li>
-<li><p>주요 하위 클래스</p>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FileReader</td>
-<td>파일에서 문자 단위로 읽는 스트림 클래스</td>
-</tr>
-<tr>
-<td>InputStreamReader</td>
-<td>바이트 단위의 자료를 문자로 변환해주는 보조 스트림 클래스</td>
-</tr>
-<tr>
-<td>BufferReader</td>
-<td>문자로 읽을 때 배열을 제공하여 한번에 읽을 수 있는 기능을 제공하는 보조 스트림 클래스</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>주요 메소드</p>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>int read()</td>
-<td>한 문자씩 읽어들임</td>
-</tr>
-<tr>
-<td>void close()</td>
-<td>입력 스트림과 연결된 대상 리소스를 닫음</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReaderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>(FileReader fis = <span class="keyword">new</span> FileReader(<span class="string">&quot;src/streamtest/reader.txt&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">int</span> i ;</span><br><span class="line">            <span class="keyword">while</span> ( ( i = fis.read()) != -<span class="number">1</span>)  &#123;</span><br><span class="line">                System.out.print((<span class="keyword">char</span>) i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Writer"><a href="#Writer" class="headerlink" title="Writer"></a>Writer</h2><ul>
-<li><p>문자 단위 출력 스트림의 최상위 추상 클래스</p>
-</li>
-<li><p>주요 하위 클래스</p>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FileWriter</td>
-<td>파일에서 문자 단위로 출력하는 스트림 클래스</td>
-</tr>
-<tr>
-<td>InputStreamReader</td>
-<td>바이트 단위의 자료를 문자로 변환해 출력하는 보조 스트림 클래스</td>
-</tr>
-<tr>
-<td>BufferReader</td>
-<td>문자로 쓸 때 배열을 제공하여 한번에 읽을 수 있는 기능을 제공하는 보조 스트림 클래스</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>주요 메소드</p>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>void write(int c)</td>
-<td>한 문자를 파일에 쓴다</td>
-</tr>
-<tr>
-<td>void write(char[] cbuf,int off, int len)</td>
-<td>받아온 cbuf를 off부터 len개 파일에 쓴다</td>
-</tr>
-<tr>
-<td>void flush()</td>
-<td>버퍼에 있는 데이터를 모두 파일로 옮김</td>
-</tr>
-<tr>
-<td>void close()</td>
-<td>출력 스트림과 연결된 대상 리소스를 닫음</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WriterTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (FileWriter fw = <span class="keyword">new</span> FileWriter(<span class="string">&quot;src/streamtest/writer.txt&quot;</span>,<span class="keyword">true</span>)) &#123;</span><br><span class="line">            fw.write(<span class="string">&#x27;H&#x27;</span>);</span><br><span class="line">            <span class="keyword">char</span>[] cbuf = &#123;<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;O&#x27;</span>&#125;;</span><br><span class="line">            String s = <span class="string">&quot;WORLD&quot;</span>;</span><br><span class="line">            fw.write(cbuf);</span><br><span class="line">            fw.write(s);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>io stream</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JAVA - IO Stream - 보조 스트림</title>
-    <url>/2021/08/31/OOP-java-20/</url>
-    <content><![CDATA[<h2 id="보조-스트림"><a href="#보조-스트림" class="headerlink" title="보조 스트림"></a>보조 스트림</h2><ul>
-<li><p>실제 읽고 쓰는 스트림이 아닌 추가적인 기능을 제공하는 스트림</p>
-</li>
-<li><p><code>FileterInputStream</code> , <code>FilterOutputStream</code> 추상클래스를 상속받아 구현</p>
-</li>
-<li><p>보조스트림은 독립적으로 실행 될 수 없기때문에 매개변수로 다른 스트림으로 받음</p>
-</li>
-<li><p><strong>Decorator Pattern</strong>으로 구현됨.</p>
-<ul>
-<li>상속의 복잡성을 피하기위해 여러개의 다양한 기능을 조합하는 디자인패턴</li>
-</ul>
-</li>
-<li><p>상위 클래스 생성자</p>
-<table>
-<thead>
-<tr>
-<th>Constructor</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>protected FilterInputStream(InputStream in)</code></td>
-<td>생성자의 매개 변수로 inputStream을 받는다.</td>
-</tr>
-<tr>
-<td><code>public FilterOutputStream (OutputStream out)</code></td>
-<td>생성자의 매개변수로 OutputStream을 받는다.</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="InputStreamReader-amp-OutputStreamWriter"><a href="#InputStreamReader-amp-OutputStreamWriter" class="headerlink" title="InputStreamReader &amp; OutputStreamWriter"></a><a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStreamReader.html">InputStreamReader</a> &amp; <a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStreamReader.html">OutputStreamWriter</a></h3><ul>
-<li>바이트 단위로 읽거나 쓰는 자료를 문자로 변환해주는 보조 스트림</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InputStreamReaderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;src/streamtest/reader.txt&quot;</span>))) &#123;</span><br><span class="line">            <span class="keyword">int</span> i ;</span><br><span class="line">            <span class="keyword">while</span> ( (i = isr.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">                System.out.print((<span class="keyword">char</span>)i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e ) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<p>FileInputStream은 Byte단위로 자료를 읽고쓰기때문에 한글을 읽을때 깨진다<br>InputStreamReader 보조스트림으로 감싸서 생성하면 해결할 수 있다</p>
-<h3 id="BufferedInputStream-amp-BufferedOutputStream"><a href="#BufferedInputStream-amp-BufferedOutputStream" class="headerlink" title="BufferedInputStream &amp; BufferedOutputStream"></a><a href="https://docs.oracle.com/javase/7/docs/api/java/io/BufferedInputStream.html">BufferedInputStream</a> &amp; <a href="https://docs.oracle.com/javase/7/docs/api/java/io/BufferedOutputStream.html">BufferedOutputStream</a></h3><ul>
-<li><p>입출력시 버퍼링 기능을 추가하여 빠른 동작을 제공하는 보조 스트림</p>
-</li>
-<li><p>FileInputStream VS Buffered</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileCopyTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> millisecond = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> (FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;src/streamtest/dummy.txt&quot;</span>); <span class="comment">// 5000 BYTE의 더미 텍스트</span></span><br><span class="line">             FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;src/streamtest/copy.txt&quot;</span>)) &#123;</span><br><span class="line">            millisecond = System.currentTimeMillis();</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span> ;</span><br><span class="line">            <span class="keyword">while</span> ( (i = fis.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">                fos.write(i);</span><br><span class="line">            &#125;</span><br><span class="line">            millisecond = System.currentTimeMillis() - millisecond;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(millisecond);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/image/OOP-java-20_images/9dab73e0.png"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileCopyTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> millisecond = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> (BufferedInputStream bis = <span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;src/streamtest/dummy.txt&quot;</span>)); <span class="comment">// 5000 BYTE의 더미 텍스트</span></span><br><span class="line">             BufferedOutputStream bos = <span class="keyword">new</span> BufferedOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">&quot;src/streamtest/copy.txt&quot;</span>))) &#123;</span><br><span class="line">            millisecond = System.currentTimeMillis();</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span> ;</span><br><span class="line">            <span class="keyword">while</span> ( (i = bis.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">                bos.write(i);</span><br><span class="line">            &#125;</span><br><span class="line">            millisecond = System.currentTimeMillis() - millisecond;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(millisecond);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/OOP-java-20_images/f70c4103.png"></p>
-<h3 id="DataInputStream-amp-DataOutputStream"><a href="#DataInputStream-amp-DataOutputStream" class="headerlink" title="DataInputStream &amp; DataOutputStream"></a><a href="https://docs.oracle.com/javase/7/docs/api/java/io/DataInputStream.html">DataInputStream</a> &amp; <a href="https://docs.oracle.com/javase/7/docs/api/java/io/DataOutputStream.html">DataOutputStream</a></h3><ul>
-<li>메모리에 저장된 상태 그대로 읽거나 쓰는 스트림</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataStreamTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span>(FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;data.txt&quot;</span>);</span><br><span class="line">				DataOutputStream dos = <span class="keyword">new</span> DataOutputStream(fos))</span><br><span class="line">		&#123;</span><br><span class="line">		</span><br><span class="line">			dos.writeByte(<span class="number">100</span>);</span><br><span class="line">			dos.writeChar(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line">			dos.writeInt(<span class="number">10</span>);</span><br><span class="line">			dos.writeFloat(<span class="number">3.14f</span>);</span><br><span class="line">			dos.writeUTF(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span>(FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;data.txt&quot;</span>);</span><br><span class="line">				DataInputStream dis = <span class="keyword">new</span> DataInputStream(fis))</span><br><span class="line">		&#123;</span><br><span class="line">		</span><br><span class="line">			System.out.println(dis.readByte());</span><br><span class="line">			System.out.println(dis.readChar());</span><br><span class="line">			System.out.println(dis.readInt());</span><br><span class="line">			System.out.println(dis.readFloat());</span><br><span class="line">			System.out.println(dis.readUTF());</span><br><span class="line">		&#125;<span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>데이터의 형에따라 읽거나 쓰는 바이트 수가 다르기떄문에 반드시 읽거나 쓴 순서를 지켜야 한다 </li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>io stream</tag>
       </tags>
   </entry>
   <entry>
@@ -1432,6 +1256,115 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>JAVA - IO Stream - 문자단위 스트림</title>
+    <url>/2021/08/31/OOP-java-19/</url>
+    <content><![CDATA[<h2 id="Reader"><a href="#Reader" class="headerlink" title="Reader"></a>Reader</h2><ul>
+<li><p>문자 단위 입력 스트림의 최상위 추상 클래스 </p>
+</li>
+<li><p>주요 하위 클래스</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileReader</td>
+<td>파일에서 문자 단위로 읽는 스트림 클래스</td>
+</tr>
+<tr>
+<td>InputStreamReader</td>
+<td>바이트 단위의 자료를 문자로 변환해주는 보조 스트림 클래스</td>
+</tr>
+<tr>
+<td>BufferReader</td>
+<td>문자로 읽을 때 배열을 제공하여 한번에 읽을 수 있는 기능을 제공하는 보조 스트림 클래스</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>주요 메소드</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int read()</td>
+<td>한 문자씩 읽어들임</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>입력 스트림과 연결된 대상 리소스를 닫음</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReaderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>(FileReader fis = <span class="keyword">new</span> FileReader(<span class="string">&quot;src/streamtest/reader.txt&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">int</span> i ;</span><br><span class="line">            <span class="keyword">while</span> ( ( i = fis.read()) != -<span class="number">1</span>)  &#123;</span><br><span class="line">                System.out.print((<span class="keyword">char</span>) i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Writer"><a href="#Writer" class="headerlink" title="Writer"></a>Writer</h2><ul>
+<li><p>문자 단위 출력 스트림의 최상위 추상 클래스</p>
+</li>
+<li><p>주요 하위 클래스</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FileWriter</td>
+<td>파일에서 문자 단위로 출력하는 스트림 클래스</td>
+</tr>
+<tr>
+<td>InputStreamReader</td>
+<td>바이트 단위의 자료를 문자로 변환해 출력하는 보조 스트림 클래스</td>
+</tr>
+<tr>
+<td>BufferReader</td>
+<td>문자로 쓸 때 배열을 제공하여 한번에 읽을 수 있는 기능을 제공하는 보조 스트림 클래스</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>주요 메소드</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void write(int c)</td>
+<td>한 문자를 파일에 쓴다</td>
+</tr>
+<tr>
+<td>void write(char[] cbuf,int off, int len)</td>
+<td>받아온 cbuf를 off부터 len개 파일에 쓴다</td>
+</tr>
+<tr>
+<td>void flush()</td>
+<td>버퍼에 있는 데이터를 모두 파일로 옮김</td>
+</tr>
+<tr>
+<td>void close()</td>
+<td>출력 스트림과 연결된 대상 리소스를 닫음</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WriterTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (FileWriter fw = <span class="keyword">new</span> FileWriter(<span class="string">&quot;src/streamtest/writer.txt&quot;</span>,<span class="keyword">true</span>)) &#123;</span><br><span class="line">            fw.write(<span class="string">&#x27;H&#x27;</span>);</span><br><span class="line">            <span class="keyword">char</span>[] cbuf = &#123;<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;O&#x27;</span>&#125;;</span><br><span class="line">            String s = <span class="string">&quot;WORLD&quot;</span>;</span><br><span class="line">            fw.write(cbuf);</span><br><span class="line">            fw.write(s);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>io stream</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>객체 지향 프로그래밍 - Basic 2</title>
     <url>/2021/08/12/OOP-java-2/</url>
     <content><![CDATA[<h1 id="인스턴스-생성과-힙-메모리"><a href="#인스턴스-생성과-힙-메모리" class="headerlink" title="인스턴스 생성과 힙 메모리"></a>인스턴스 생성과 힙 메모리</h1><h2 id="인스턴스-Instance"><a href="#인스턴스-Instance" class="headerlink" title="인스턴스 (Instance)"></a>인스턴스 (Instance)</h2><ul>
@@ -1467,6 +1400,73 @@ File -- input Stream --> JAVA</pre>
       <tags>
         <tag>heap</tag>
         <tag>stack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JAVA - IO Stream - 보조 스트림</title>
+    <url>/2021/08/31/OOP-java-20/</url>
+    <content><![CDATA[<h2 id="보조-스트림"><a href="#보조-스트림" class="headerlink" title="보조 스트림"></a>보조 스트림</h2><ul>
+<li><p>실제 읽고 쓰는 스트림이 아닌 추가적인 기능을 제공하는 스트림</p>
+</li>
+<li><p><code>FileterInputStream</code> , <code>FilterOutputStream</code> 추상클래스를 상속받아 구현</p>
+</li>
+<li><p>보조스트림은 독립적으로 실행 될 수 없기때문에 매개변수로 다른 스트림으로 받음</p>
+</li>
+<li><p><strong>Decorator Pattern</strong>으로 구현됨.</p>
+<ul>
+<li>상속의 복잡성을 피하기위해 여러개의 다양한 기능을 조합하는 디자인패턴</li>
+</ul>
+</li>
+<li><p>상위 클래스 생성자</p>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>protected FilterInputStream(InputStream in)</code></td>
+<td>생성자의 매개 변수로 inputStream을 받는다.</td>
+</tr>
+<tr>
+<td><code>public FilterOutputStream (OutputStream out)</code></td>
+<td>생성자의 매개변수로 OutputStream을 받는다.</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="InputStreamReader-amp-OutputStreamWriter"><a href="#InputStreamReader-amp-OutputStreamWriter" class="headerlink" title="InputStreamReader &amp; OutputStreamWriter"></a><a href="https://docs.oracle.com/javase/7/docs/api/java/io/InputStreamReader.html">InputStreamReader</a> &amp; <a href="https://docs.oracle.com/javase/7/docs/api/java/io/OutputStreamReader.html">OutputStreamWriter</a></h3><ul>
+<li>바이트 단위로 읽거나 쓰는 자료를 문자로 변환해주는 보조 스트림</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InputStreamReaderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;src/streamtest/reader.txt&quot;</span>))) &#123;</span><br><span class="line">            <span class="keyword">int</span> i ;</span><br><span class="line">            <span class="keyword">while</span> ( (i = isr.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">                System.out.print((<span class="keyword">char</span>)i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e ) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>FileInputStream은 Byte단위로 자료를 읽고쓰기때문에 한글을 읽을때 깨진다<br>InputStreamReader 보조스트림으로 감싸서 생성하면 해결할 수 있다</p>
+<h3 id="BufferedInputStream-amp-BufferedOutputStream"><a href="#BufferedInputStream-amp-BufferedOutputStream" class="headerlink" title="BufferedInputStream &amp; BufferedOutputStream"></a><a href="https://docs.oracle.com/javase/7/docs/api/java/io/BufferedInputStream.html">BufferedInputStream</a> &amp; <a href="https://docs.oracle.com/javase/7/docs/api/java/io/BufferedOutputStream.html">BufferedOutputStream</a></h3><ul>
+<li><p>입출력시 버퍼링 기능을 추가하여 빠른 동작을 제공하는 보조 스트림</p>
+</li>
+<li><p>FileInputStream VS Buffered</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileCopyTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> millisecond = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> (FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;src/streamtest/dummy.txt&quot;</span>); <span class="comment">// 5000 BYTE의 더미 텍스트</span></span><br><span class="line">             FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;src/streamtest/copy.txt&quot;</span>)) &#123;</span><br><span class="line">            millisecond = System.currentTimeMillis();</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span> ;</span><br><span class="line">            <span class="keyword">while</span> ( (i = fis.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">                fos.write(i);</span><br><span class="line">            &#125;</span><br><span class="line">            millisecond = System.currentTimeMillis() - millisecond;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(millisecond);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/image/OOP-java-20_images/9dab73e0.png"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileCopyTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> millisecond = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> (BufferedInputStream bis = <span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;src/streamtest/dummy.txt&quot;</span>)); <span class="comment">// 5000 BYTE의 더미 텍스트</span></span><br><span class="line">             BufferedOutputStream bos = <span class="keyword">new</span> BufferedOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">&quot;src/streamtest/copy.txt&quot;</span>))) &#123;</span><br><span class="line">            millisecond = System.currentTimeMillis();</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span> ;</span><br><span class="line">            <span class="keyword">while</span> ( (i = bis.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">                bos.write(i);</span><br><span class="line">            &#125;</span><br><span class="line">            millisecond = System.currentTimeMillis() - millisecond;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(millisecond);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/OOP-java-20_images/f70c4103.png"></p>
+<h3 id="DataInputStream-amp-DataOutputStream"><a href="#DataInputStream-amp-DataOutputStream" class="headerlink" title="DataInputStream &amp; DataOutputStream"></a><a href="https://docs.oracle.com/javase/7/docs/api/java/io/DataInputStream.html">DataInputStream</a> &amp; <a href="https://docs.oracle.com/javase/7/docs/api/java/io/DataOutputStream.html">DataOutputStream</a></h3><ul>
+<li>메모리에 저장된 상태 그대로 읽거나 쓰는 스트림</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataStreamTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span>(FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;data.txt&quot;</span>);</span><br><span class="line">				DataOutputStream dos = <span class="keyword">new</span> DataOutputStream(fos))</span><br><span class="line">		&#123;</span><br><span class="line">		</span><br><span class="line">			dos.writeByte(<span class="number">100</span>);</span><br><span class="line">			dos.writeChar(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line">			dos.writeInt(<span class="number">10</span>);</span><br><span class="line">			dos.writeFloat(<span class="number">3.14f</span>);</span><br><span class="line">			dos.writeUTF(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span>(FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">&quot;data.txt&quot;</span>);</span><br><span class="line">				DataInputStream dis = <span class="keyword">new</span> DataInputStream(fis))</span><br><span class="line">		&#123;</span><br><span class="line">		</span><br><span class="line">			System.out.println(dis.readByte());</span><br><span class="line">			System.out.println(dis.readChar());</span><br><span class="line">			System.out.println(dis.readInt());</span><br><span class="line">			System.out.println(dis.readFloat());</span><br><span class="line">			System.out.println(dis.readUTF());</span><br><span class="line">		&#125;<span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>데이터의 형에따라 읽거나 쓰는 바이트 수가 다르기떄문에 반드시 읽거나 쓴 순서를 지켜야 한다 </li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>io stream</tag>
       </tags>
   </entry>
   <entry>
@@ -1512,6 +1512,42 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>serialization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>객체지향 프로그래밍 - Decorator</title>
+    <url>/2021/08/31/OOP-java-22/</url>
+    <content><![CDATA[<h1 id="Decorator-Pattern"><a href="#Decorator-Pattern" class="headerlink" title="Decorator Pattern"></a>Decorator Pattern</h1><ul>
+<li>자바 입출력 스트림은 decorator pattern으로 구현되어 있다</li>
+<li>여러 decorator들을 추가하여 기능을 제공할 수 있다</li>
+<li>기능확장에있어서 상속보다 유연하다</li>
+<li>Decorator는 다른 Decorator나 Component(Real Object)를 포함하여야 한다<ul>
+<li>decorator는 보조 스트림 Component는 기반 스트림 클래스이다.</li>
+</ul>
+</li>
+</ul>
+<p><img src="/image/OOP-java-22_images/f4c3e0b1.png"></p>
+<h2 id="데코레이터-실생활-적용-예시-커피만들기"><a href="#데코레이터-실생활-적용-예시-커피만들기" class="headerlink" title="데코레이터 실생활 적용 예시 (커피만들기)"></a>데코레이터 실생활 적용 예시 (커피만들기)</h2><ul>
+<li>커피라는 Component에 시럽이나 우유같은 Decorator등을 추가해서 다양한 커피를 제조 할 수있다</li>
+</ul>
+<p><img src="/image/OOP-java-22_images/c77689c5.png"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Coffee.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span>  <span class="title">Coffee</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">brewing</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Decorator.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123; <span class="comment">//혼자 사용할 수 없음, 상속용</span></span><br><span class="line"></span><br><span class="line">    Coffee coffee;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Coffee coffee)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.coffee = coffee;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">brewing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        coffee.brewing();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//EtiopiaAmericano.java # Coffee의 Concrete Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EtiopiaAmericano</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">brewing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Etiopia Americano&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Latte.java # Concrete Decorator</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Latte</span> <span class="keyword">extends</span> <span class="title">Decorator</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Latte</span><span class="params">(Coffee coffee)</span> </span>&#123; <span class="comment">// 상위클래스의 기본생성자가 구현이 안되어있으므로</span></span><br><span class="line">    <span class="keyword">super</span>(coffee);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">brewing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.brewing();</span><br><span class="line">    System.out.println(<span class="string">&quot;Added Milk&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>oop</category>
+        <category>design pattern</category>
+      </categories>
+      <tags>
+        <tag>decorator pattern</tag>
       </tags>
   </entry>
   <entry>
@@ -1623,32 +1659,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>객체 지향 프로그래밍 - 자료형</title>
-    <url>/2021/08/12/OOP-java-3/</url>
-    <content><![CDATA[<h1 id="참조-자료형-변수"><a href="#참조-자료형-변수" class="headerlink" title="참조 자료형 변수"></a>참조 자료형 변수</h1><h2 id="참조-자료형-Reference-Data-Type"><a href="#참조-자료형-Reference-Data-Type" class="headerlink" title="참조 자료형 (Reference Data Type)"></a>참조 자료형 (Reference Data Type)</h2><ul>
-<li><p>자바에서의 자료형은 크게 두가지로 </p>
-</li>
-<li><p>byte,short,int,char,float,double,boolean과 같은 기본 자료형이 있고</p>
-</li>
-<li><p>String과 Date등 또는 원하는 클래스를 구현하여 참조 자료형으로 만들 수 있다.</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Subject.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    String subjectName;</span><br><span class="line">    <span class="keyword">int</span> score;</span><br><span class="line">    <span class="keyword">int</span> subjectID;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Student.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> StudentNumber;</span><br><span class="line">    <span class="keyword">private</span> String StudentName;</span><br><span class="line">    <span class="keyword">private</span> Subject Math = <span class="keyword">new</span> Subject();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123; <span class="comment">// Default Constructor</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span> <span class="params">(<span class="keyword">int</span> num, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.StudentNumber = num;</span><br><span class="line">        <span class="keyword">this</span>.StudentName = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>위 예시처럼 클래스로 만들 수 있다</p>
-</li>
-<li><p>참조 자료형은 new키워드로 생성한다.</p>
-</li>
-<li><p>따라서 스택에 직접 값을 할당하는것이 아니라 스택에는 힙영역의 주소를 참조하고있고 실제 값은 힙영역에 올라간다.</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>oop</category>
-      </categories>
-      <tags>
-        <tag>reference data type</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java - Synchronization - wait()/notify()</title>
     <url>/2021/09/02/OOP-java-25/</url>
     <content><![CDATA[<h2 id="wait-notify-메소드"><a href="#wait-notify-메소드" class="headerlink" title="wait()/notify() 메소드"></a>wait()/notify() 메소드</h2><ul>
@@ -1700,39 +1710,67 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>객체지향 프로그래밍 - Decorator</title>
-    <url>/2021/08/31/OOP-java-22/</url>
-    <content><![CDATA[<h1 id="Decorator-Pattern"><a href="#Decorator-Pattern" class="headerlink" title="Decorator Pattern"></a>Decorator Pattern</h1><ul>
-<li>자바 입출력 스트림은 decorator pattern으로 구현되어 있다</li>
-<li>여러 decorator들을 추가하여 기능을 제공할 수 있다</li>
-<li>기능확장에있어서 상속보다 유연하다</li>
-<li>Decorator는 다른 Decorator나 Component(Real Object)를 포함하여야 한다<ul>
-<li>decorator는 보조 스트림 Component는 기반 스트림 클래스이다.</li>
-</ul>
+    <title>객체 지향 프로그래밍 - 자료형</title>
+    <url>/2021/08/12/OOP-java-3/</url>
+    <content><![CDATA[<h1 id="참조-자료형-변수"><a href="#참조-자료형-변수" class="headerlink" title="참조 자료형 변수"></a>참조 자료형 변수</h1><h2 id="참조-자료형-Reference-Data-Type"><a href="#참조-자료형-Reference-Data-Type" class="headerlink" title="참조 자료형 (Reference Data Type)"></a>참조 자료형 (Reference Data Type)</h2><ul>
+<li><p>자바에서의 자료형은 크게 두가지로 </p>
+</li>
+<li><p>byte,short,int,char,float,double,boolean과 같은 기본 자료형이 있고</p>
+</li>
+<li><p>String과 Date등 또는 원하는 클래스를 구현하여 참조 자료형으로 만들 수 있다.</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Subject.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    String subjectName;</span><br><span class="line">    <span class="keyword">int</span> score;</span><br><span class="line">    <span class="keyword">int</span> subjectID;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Student.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> StudentNumber;</span><br><span class="line">    <span class="keyword">private</span> String StudentName;</span><br><span class="line">    <span class="keyword">private</span> Subject Math = <span class="keyword">new</span> Subject();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123; <span class="comment">// Default Constructor</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span> <span class="params">(<span class="keyword">int</span> num, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.StudentNumber = num;</span><br><span class="line">        <span class="keyword">this</span>.StudentName = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>위 예시처럼 클래스로 만들 수 있다</p>
+</li>
+<li><p>참조 자료형은 new키워드로 생성한다.</p>
+</li>
+<li><p>따라서 스택에 직접 값을 할당하는것이 아니라 스택에는 힙영역의 주소를 참조하고있고 실제 값은 힙영역에 올라간다.</p>
 </li>
 </ul>
-<p><img src="/image/OOP-java-22_images/f4c3e0b1.png"></p>
-<h2 id="데코레이터-실생활-적용-예시-커피만들기"><a href="#데코레이터-실생활-적용-예시-커피만들기" class="headerlink" title="데코레이터 실생활 적용 예시 (커피만들기)"></a>데코레이터 실생활 적용 예시 (커피만들기)</h2><ul>
-<li>커피라는 Component에 시럽이나 우유같은 Decorator등을 추가해서 다양한 커피를 제조 할 수있다</li>
-</ul>
-<p><img src="/image/OOP-java-22_images/c77689c5.png"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Coffee.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span>  <span class="title">Coffee</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">brewing</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Decorator.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123; <span class="comment">//혼자 사용할 수 없음, 상속용</span></span><br><span class="line"></span><br><span class="line">    Coffee coffee;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Coffee coffee)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.coffee = coffee;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">brewing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        coffee.brewing();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//EtiopiaAmericano.java # Coffee의 Concrete Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EtiopiaAmericano</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">brewing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Etiopia Americano&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Latte.java # Concrete Decorator</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Latte</span> <span class="keyword">extends</span> <span class="title">Decorator</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Latte</span><span class="params">(Coffee coffee)</span> </span>&#123; <span class="comment">// 상위클래스의 기본생성자가 구현이 안되어있으므로</span></span><br><span class="line">    <span class="keyword">super</span>(coffee);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">brewing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.brewing();</span><br><span class="line">    System.out.println(<span class="string">&quot;Added Milk&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 ]]></content>
       <categories>
         <category>java</category>
         <category>oop</category>
-        <category>design pattern</category>
       </categories>
       <tags>
-        <tag>decorator pattern</tag>
+        <tag>reference data type</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>객체 지향 프로그래밍 - 접근 제어자</title>
+    <url>/2021/08/13/OOP-java-4/</url>
+    <content><![CDATA[<h1 id="접근-제어자와-정보-은닉"><a href="#접근-제어자와-정보-은닉" class="headerlink" title="접근 제어자와 정보 은닉"></a>접근 제어자와 정보 은닉</h1><h2 id="접근-제어-지시자-access-modifier"><a href="#접근-제어-지시자-access-modifier" class="headerlink" title="접근 제어 지시자(access modifier)"></a>접근 제어 지시자(access modifier)</h2><ul>
+<li><p>접근제어지시자를 통해 정보은닉을 활용한 캡슐화가 구현이 된다.</p>
+</li>
+<li><p>클래스의 외부에서 클래스 내의 멤버변수, 메서드 , 생성자를 사용여부를 나타내는 키워드</p>
+<ul>
+<li>private 같은 클래스 내부에서만 접근 가능</li>
+<li>default(아무것도 안쓴경우) 같은 패키지 내부에서만 접근 가능</li>
+<li>protected 같은 패키지나 상속관계의 클래스에서 접근 가능</li>
+<li>public 클래스의 외부 어디서나 접근 할 수 있음</li>
+</ul>
+</li>
+<li><p>public get()/set() 메소드를 통하여 private한 멤버변수를 접근한다</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(name.length() &lt; <span class="number">10</span>) &#123; <span class="comment">// 정보를 보호함과 동시에 유효성을 검사 할 수 있다.</span></span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="정보-은닉을-활용한-캡슐화"><a href="#정보-은닉을-활용한-캡슐화" class="headerlink" title="정보 은닉을 활용한 캡슐화"></a>정보 은닉을 활용한 캡슐화</h2><ul>
+<li><p>캡슐화는 슈퍼클래스로부터 자식 클래스를 외부로 은닉하는 행위</p>
+</li>
+<li><p>꼭 필요한 정보와 기능만 외부에 오픈함으로써 메서드나 멤버변수의 접근하면서 발생 할 수있는<br>오류를 최소화 한다.</p>
+</li>
+<li><p>캡슐화는 객체간 소통시 세부사항을 알 필요 없어서 낮은 결합도를 제공함</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>oop</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>access modifier</tag>
+        <tag>capsulation</tag>
       </tags>
   </entry>
   <entry>
@@ -1775,44 +1813,6 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>static</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>객체 지향 프로그래밍 - 접근 제어자</title>
-    <url>/2021/08/13/OOP-java-4/</url>
-    <content><![CDATA[<h1 id="접근-제어자와-정보-은닉"><a href="#접근-제어자와-정보-은닉" class="headerlink" title="접근 제어자와 정보 은닉"></a>접근 제어자와 정보 은닉</h1><h2 id="접근-제어-지시자-access-modifier"><a href="#접근-제어-지시자-access-modifier" class="headerlink" title="접근 제어 지시자(access modifier)"></a>접근 제어 지시자(access modifier)</h2><ul>
-<li><p>접근제어지시자를 통해 정보은닉을 활용한 캡슐화가 구현이 된다.</p>
-</li>
-<li><p>클래스의 외부에서 클래스 내의 멤버변수, 메서드 , 생성자를 사용여부를 나타내는 키워드</p>
-<ul>
-<li>private 같은 클래스 내부에서만 접근 가능</li>
-<li>default(아무것도 안쓴경우) 같은 패키지 내부에서만 접근 가능</li>
-<li>protected 같은 패키지나 상속관계의 클래스에서 접근 가능</li>
-<li>public 클래스의 외부 어디서나 접근 할 수 있음</li>
-</ul>
-</li>
-<li><p>public get()/set() 메소드를 통하여 private한 멤버변수를 접근한다</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(name.length() &lt; <span class="number">10</span>) &#123; <span class="comment">// 정보를 보호함과 동시에 유효성을 검사 할 수 있다.</span></span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="정보-은닉을-활용한-캡슐화"><a href="#정보-은닉을-활용한-캡슐화" class="headerlink" title="정보 은닉을 활용한 캡슐화"></a>정보 은닉을 활용한 캡슐화</h2><ul>
-<li><p>캡슐화는 슈퍼클래스로부터 자식 클래스를 외부로 은닉하는 행위</p>
-</li>
-<li><p>꼭 필요한 정보와 기능만 외부에 오픈함으로써 메서드나 멤버변수의 접근하면서 발생 할 수있는<br>오류를 최소화 한다.</p>
-</li>
-<li><p>캡슐화는 객체간 소통시 세부사항을 알 필요 없어서 낮은 결합도를 제공함</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>oop</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>access modifier</tag>
-        <tag>capsulation</tag>
       </tags>
   </entry>
   <entry>
@@ -1865,48 +1865,6 @@ File -- input Stream --> JAVA</pre>
       <tags>
         <tag>list</tag>
         <tag>array list</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>객체지향 프로그래밍 - Polymorphism</title>
-    <url>/2021/08/17/OOP-java-8/</url>
-    <content><![CDATA[<h1 id="다형성"><a href="#다형성" class="headerlink" title="다형성"></a>다형성</h1><h2 id="다형성이란"><a href="#다형성이란" class="headerlink" title="다형성이란"></a>다형성이란</h2><ul>
-<li>프로그램의 각 요소들(상수,변수,객체,함수,메소드 …)이 여러 가지 타입에 속할수 있는 성질</li>
-<li>객체지향 프로그래밍에서 가장 큰 특징(추상화,캡슐화,상속,다형성) 중 하나이다.</li>
-</ul>
-<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;동물이 웁니다.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;왈왈&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shakeTail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;살랑살랑&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;야옹&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PolymorphismTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Dog();</span><br><span class="line">        Animal cat = <span class="keyword">new</span> Cat();</span><br><span class="line">        </span><br><span class="line">        ArrayList&lt;Animal&gt; animalArrayList = <span class="keyword">new</span> ArrayList&lt;Animal&gt;;</span><br><span class="line">        animalArrayList.add(dog);</span><br><span class="line">        animalArrayList.add(cat);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (Animal animal : animalArrayList) &#123;</span><br><span class="line">            animal.bark();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkAnimal</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        animal.bark();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>코드를 실행하면 같은 animal.bark()임에도 불구하고 </p>
-<p>  ‘야옹’과 ‘멍멍’이 출력이 된다.</p>
-</li>
-<li><p>이렇듯 같은 코드여도 메소드 오버라이딩을 통해 다른 결과를 가질 수 있다. </p>
-</li>
-<li><p>그러나 Dog 클래스의 shakeTail 메소드는 현재 Dog가 Animal 타입이기 때문에 접근이 불가능하다</p>
-</li>
-<li><p>따라서 접근하기 위해선 Downcasting이 필요하다</p>
-</li>
-</ul>
-<h2 id="downcasting"><a href="#downcasting" class="headerlink" title="downcasting"></a>downcasting</h2><ul>
-<li><p>Upcasting된 객체를 다시 원래의 타입으로 캐스팅 하는 것</p>
-</li>
-<li><p>하위 클래스로의 형 변환은 명시적으로 해야한다</p>
-</li>
-<li><p><code>dog = (Dog)dog</code>  <code>객체 = (원래하위클래스) 업캐스팅된객체</code> </p>
-</li>
-<li><p>또는 <code>((Dog) dog).shakeTail();</code> 과 같이 사용 할 수 있다.</p>
-</li>
-</ul>
-<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><ul>
-<li>instanceof 함수는 원래 형이 맞는지 체크하는 키워드이다<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (dog <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">    dog = (Dog)dog;</span><br><span class="line">    dog.shakeTail();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>oop</category>
-      </categories>
-      <tags>
-        <tag>polymorphism</tag>
       </tags>
   </entry>
   <entry>
@@ -1982,6 +1940,48 @@ File -- input Stream --> JAVA</pre>
         <tag>inheritance</tag>
         <tag>casting</tag>
         <tag>overriding</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>객체지향 프로그래밍 - Polymorphism</title>
+    <url>/2021/08/17/OOP-java-8/</url>
+    <content><![CDATA[<h1 id="다형성"><a href="#다형성" class="headerlink" title="다형성"></a>다형성</h1><h2 id="다형성이란"><a href="#다형성이란" class="headerlink" title="다형성이란"></a>다형성이란</h2><ul>
+<li>프로그램의 각 요소들(상수,변수,객체,함수,메소드 …)이 여러 가지 타입에 속할수 있는 성질</li>
+<li>객체지향 프로그래밍에서 가장 큰 특징(추상화,캡슐화,상속,다형성) 중 하나이다.</li>
+</ul>
+<h3 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;동물이 웁니다.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;왈왈&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shakeTail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;살랑살랑&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;야옹&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PolymorphismTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal dog = <span class="keyword">new</span> Dog();</span><br><span class="line">        Animal cat = <span class="keyword">new</span> Cat();</span><br><span class="line">        </span><br><span class="line">        ArrayList&lt;Animal&gt; animalArrayList = <span class="keyword">new</span> ArrayList&lt;Animal&gt;;</span><br><span class="line">        animalArrayList.add(dog);</span><br><span class="line">        animalArrayList.add(cat);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (Animal animal : animalArrayList) &#123;</span><br><span class="line">            animal.bark();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">barkAnimal</span><span class="params">(Animal animal)</span> </span>&#123;</span><br><span class="line">        animal.bark();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>코드를 실행하면 같은 animal.bark()임에도 불구하고 </p>
+<p>  ‘야옹’과 ‘멍멍’이 출력이 된다.</p>
+</li>
+<li><p>이렇듯 같은 코드여도 메소드 오버라이딩을 통해 다른 결과를 가질 수 있다. </p>
+</li>
+<li><p>그러나 Dog 클래스의 shakeTail 메소드는 현재 Dog가 Animal 타입이기 때문에 접근이 불가능하다</p>
+</li>
+<li><p>따라서 접근하기 위해선 Downcasting이 필요하다</p>
+</li>
+</ul>
+<h2 id="downcasting"><a href="#downcasting" class="headerlink" title="downcasting"></a>downcasting</h2><ul>
+<li><p>Upcasting된 객체를 다시 원래의 타입으로 캐스팅 하는 것</p>
+</li>
+<li><p>하위 클래스로의 형 변환은 명시적으로 해야한다</p>
+</li>
+<li><p><code>dog = (Dog)dog</code>  <code>객체 = (원래하위클래스) 업캐스팅된객체</code> </p>
+</li>
+<li><p>또는 <code>((Dog) dog).shakeTail();</code> 과 같이 사용 할 수 있다.</p>
+</li>
+</ul>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><ul>
+<li>instanceof 함수는 원래 형이 맞는지 체크하는 키워드이다<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (dog <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">    dog = (Dog)dog;</span><br><span class="line">    dog.shakeTail();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>oop</category>
+      </categories>
+      <tags>
+        <tag>polymorphism</tag>
       </tags>
   </entry>
   <entry>
@@ -2139,6 +2139,45 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>System-Programming-IPC(2)</title>
+    <url>/2021/08/04/System-Programming-IPC-2/</url>
+    <content><![CDATA[<p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msgctl(msgid, PIC_RMID,<span class="number">0</span>); <span class="comment">//삭제예시, 메시지 아이디와 컨트롤에대한 인자를 받는다. </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ipcs <span class="comment">#명령어를 통해 확인 할 수 있다.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="공유메모리-Shared-Memory"><a href="#공유메모리-Shared-Memory" class="headerlink" title="공유메모리 (Shared Memory)"></a>공유메모리 (Shared Memory)</h2><ul>
+<li>모든 프로세스는 커널영역을 공유한다는 점을 이용하여<br>커널에 공간을 확보하여 그 공간을 변수처럼 사용하는 방식이다</li>
+<li>큐와 다르게 주소를 변수처럼 접근한다</li>
+<li>공유 메모리 Key를 통하여 여러 프로세스가 접근이 가능하다</li>
+</ul>
+<h3 id="공유-메모리-생성"><a href="#공유-메모리-생성" class="headerlink" title="공유 메모리 생성"></a>공유 메모리 생성</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">key: 임의의 숫자 또는 ftok 함수로 생성한 키 값</span></span><br><span class="line"><span class="comment">size: 공유 메모리의 크기</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 속성</span></span><br><span class="line"><span class="comment">return value : 공유 메모리 식별자 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">size_t</span>, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line">shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>,SIZE , IPC_CREAT|<span class="number">0666</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-연결"><a href="#공유-메모리-연결" class="headerlink" title="공유 메모리 연결"></a>공유 메모리 연결</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">shmaddr : 공유 메모리 연결 주소 (char *) NULL로 설정하면 적절한 주소로 연결된다</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 권한 설정 (0이면 읽기쓰기, SHM_RDONLY면 읽기만)</span></span><br><span class="line"><span class="comment">return value: 연결이 성공하면 메모리의 시작 주소를 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">shmat</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">const</span> <span class="keyword">void</span> *shamddr, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line"></span><br><span class="line">shmaddr = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-해제"><a href="#공유-메모리-해제" class="headerlink" title="공유 메모리 해제"></a>공유 메모리 해제</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmdt</span><span class="params">(<span class="keyword">char</span> * shmaddr)</span></span>; <span class="comment">// 공유 메모리 연결 주소로 인자를 갖는다.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-읽기-쓰기"><a href="#공유-메모리-읽기-쓰기" class="headerlink" title="공유 메모리 읽기/쓰기"></a>공유 메모리 읽기/쓰기</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;%s&quot;</span> \n<span class="string">&quot;), (char *)shmaddr); </span></span><br><span class="line"><span class="string">strcpy((char*)shmaddr, &quot;</span>to write<span class="string">&quot;);</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="공유-메모리-컨트롤"><a href="#공유-메모리-컨트롤" class="headerlink" title="공유 메모리 컨트롤"></a>공유 메모리 컨트롤</h3><p>커널영역을 끊임없이 만들 수 없기때문에 메모리를 컨트롤해줘야한다</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">cmd: 수행할 컨트롤 (ex: IPC_RMID - shmid로 지정한 공유 메모리 제거)</span></span><br><span class="line"><span class="comment">buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmctl</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">int</span> cmd, struct shmid_ds *buf)</span></span>;</span><br><span class="line"></span><br><span class="line">shmctl(shmid, IPC_RMID, (struct shmid_ds *)<span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="활용-예시"><a href="#활용-예시" class="headerlink" title="활용 예시"></a>활용 예시</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shmid, pid;</span><br><span class="line">    <span class="keyword">char</span> *shmaddr_parent, *shmaddr_child;</span><br><span class="line">    shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>, <span class="number">10</span>, IPC_CREAT|<span class="number">0644</span>);</span><br><span class="line">    <span class="keyword">if</span>(shmid == <span class="number">-1</span>) &#123; <span class="comment">// ocurred error</span></span><br><span class="line">            perror(<span class="string">&quot;shmget err&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// parent process</span></span><br><span class="line">            wait(<span class="number">0</span>);</span><br><span class="line">            shmaddr_parent = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>,<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, shmaddr_parent);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_parent);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            shmaddr_child = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="built_in">strcpy</span>((<span class="keyword">char</span> *)shmaddr_child, <span class="string">&quot;Hello Parent!&quot;</span>);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_child);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// shmctl(shmid, IPC_RMID, (struct shmid_ds *)NULL); ipcs로 확인하기위해 삭제하지 않았음.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/System-Programming-IPC-2_images/example.png"></p>
+]]></content>
+      <categories>
+        <category>system programming</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>system programming</tag>
+        <tag>C</tag>
+        <tag>Shared Memory</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>System Programming - IPC</title>
     <url>/2021/07/29/System-Programming-IPC/</url>
     <content><![CDATA[<h1 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h1><h2 id="IPC란"><a href="#IPC란" class="headerlink" title="IPC란"></a>IPC란</h2><ul>
@@ -2191,107 +2230,6 @@ File -- input Stream --> JAVA</pre>
         <tag>Pipe</tag>
         <tag>Message Queue</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>System-Programming-IPC(2)</title>
-    <url>/2021/08/04/System-Programming-IPC-2/</url>
-    <content><![CDATA[<p>커널 영역에 메시지큐나 공유메모리가 생성이되면 명시적으로 컨트롤 해주는 것이 필요하다</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">msgctl(msgid, PIC_RMID,<span class="number">0</span>); <span class="comment">//삭제예시, 메시지 아이디와 컨트롤에대한 인자를 받는다. </span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ipcs <span class="comment">#명령어를 통해 확인 할 수 있다.</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="공유메모리-Shared-Memory"><a href="#공유메모리-Shared-Memory" class="headerlink" title="공유메모리 (Shared Memory)"></a>공유메모리 (Shared Memory)</h2><ul>
-<li>모든 프로세스는 커널영역을 공유한다는 점을 이용하여<br>커널에 공간을 확보하여 그 공간을 변수처럼 사용하는 방식이다</li>
-<li>큐와 다르게 주소를 변수처럼 접근한다</li>
-<li>공유 메모리 Key를 통하여 여러 프로세스가 접근이 가능하다</li>
-</ul>
-<h3 id="공유-메모리-생성"><a href="#공유-메모리-생성" class="headerlink" title="공유 메모리 생성"></a>공유 메모리 생성</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">key: 임의의 숫자 또는 ftok 함수로 생성한 키 값</span></span><br><span class="line"><span class="comment">size: 공유 메모리의 크기</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 속성</span></span><br><span class="line"><span class="comment">return value : 공유 메모리 식별자 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmget</span><span class="params">(<span class="keyword">key_t</span> key, <span class="keyword">size_t</span>, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line">shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>,SIZE , IPC_CREAT|<span class="number">0666</span>));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="공유-메모리-연결"><a href="#공유-메모리-연결" class="headerlink" title="공유 메모리 연결"></a>공유 메모리 연결</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">shmaddr : 공유 메모리 연결 주소 (char *) NULL로 설정하면 적절한 주소로 연결된다</span></span><br><span class="line"><span class="comment">shmflg: 공유 메모리의 권한 설정 (0이면 읽기쓰기, SHM_RDONLY면 읽기만)</span></span><br><span class="line"><span class="comment">return value: 연결이 성공하면 메모리의 시작 주소를 리턴</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">shmat</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">const</span> <span class="keyword">void</span> *shamddr, <span class="keyword">int</span> shmflg)</span></span>;</span><br><span class="line"></span><br><span class="line">shmaddr = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="공유-메모리-해제"><a href="#공유-메모리-해제" class="headerlink" title="공유 메모리 해제"></a>공유 메모리 해제</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmdt</span><span class="params">(<span class="keyword">char</span> * shmaddr)</span></span>; <span class="comment">// 공유 메모리 연결 주소로 인자를 갖는다.</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="공유-메모리-읽기-쓰기"><a href="#공유-메모리-읽기-쓰기" class="headerlink" title="공유 메모리 읽기/쓰기"></a>공유 메모리 읽기/쓰기</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&quot;%s&quot;</span> \n<span class="string">&quot;), (char *)shmaddr); </span></span><br><span class="line"><span class="string">strcpy((char*)shmaddr, &quot;</span>to write<span class="string">&quot;);</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="공유-메모리-컨트롤"><a href="#공유-메모리-컨트롤" class="headerlink" title="공유 메모리 컨트롤"></a>공유 메모리 컨트롤</h3><p>커널영역을 끊임없이 만들 수 없기때문에 메모리를 컨트롤해줘야한다</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">shmid: shmget 함수로 생성한 공유 메모리 식별자</span></span><br><span class="line"><span class="comment">cmd: 수행할 컨트롤 (ex: IPC_RMID - shmid로 지정한 공유 메모리 제거)</span></span><br><span class="line"><span class="comment">buf: 제어 기능에 사용되는 공유 메모리 구조체의 구조</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">shmctl</span><span class="params">(<span class="keyword">int</span> shmid, <span class="keyword">int</span> cmd, struct shmid_ds *buf)</span></span>;</span><br><span class="line"></span><br><span class="line">shmctl(shmid, IPC_RMID, (struct shmid_ds *)<span class="literal">NULL</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="활용-예시"><a href="#활용-예시" class="headerlink" title="활용 예시"></a>활용 예시</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/ipc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/shm.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> shmid, pid;</span><br><span class="line">    <span class="keyword">char</span> *shmaddr_parent, *shmaddr_child;</span><br><span class="line">    shmid = shmget((<span class="keyword">key_t</span>)<span class="number">1234</span>, <span class="number">10</span>, IPC_CREAT|<span class="number">0644</span>);</span><br><span class="line">    <span class="keyword">if</span>(shmid == <span class="number">-1</span>) &#123; <span class="comment">// ocurred error</span></span><br><span class="line">            perror(<span class="string">&quot;shmget err&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pid = fork();</span><br><span class="line">    <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123; <span class="comment">// parent process</span></span><br><span class="line">            wait(<span class="number">0</span>);</span><br><span class="line">            shmaddr_parent = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>,<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, shmaddr_parent);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_parent);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            shmaddr_child = (<span class="keyword">char</span> *)shmat(shmid, (<span class="keyword">char</span> *)<span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="built_in">strcpy</span>((<span class="keyword">char</span> *)shmaddr_child, <span class="string">&quot;Hello Parent!&quot;</span>);</span><br><span class="line">            shmdt((<span class="keyword">char</span> *)shmaddr_child);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// shmctl(shmid, IPC_RMID, (struct shmid_ds *)NULL); ipcs로 확인하기위해 삭제하지 않았음.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/System-Programming-IPC-2_images/example.png"></p>
-]]></content>
-      <categories>
-        <category>system programming</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>system programming</tag>
-        <tag>C</tag>
-        <tag>Shared Memory</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>System-Programming-Pthread</title>
-    <url>/2021/08/05/System-Programming-Pthread/</url>
-    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
-<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
-<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
-</ul>
-<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
-<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
-</li>
-<li><p>모든 함수는 pthread_ 로 시작</p>
-</li>
-<li><p>크게 두가지로 분류 된다</p>
-<ul>
-<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
-<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
-</ul>
-</li>
-<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
-<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
-<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
-<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
-<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
-<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
-<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
-
-<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
-<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
-<ul>
-<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
-</ul>
-</li>
-<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
-<ul>
-<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
-<li>detach는 해당 스레드가 종료되면 바로 해제</li>
-</ul>
-</li>
-</ul>
-<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
-<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>System Programming - Process</title>
@@ -2424,6 +2362,68 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>System-Programming-Pthread</title>
+    <url>/2021/08/05/System-Programming-Pthread/</url>
+    <content><![CDATA[<h1 id="Pthread"><a href="#Pthread" class="headerlink" title="Pthread"></a>Pthread</h1><h2 id="Pthread란"><a href="#Pthread란" class="headerlink" title="Pthread란"></a>Pthread란</h2><ul>
+<li>POSIX thread는 유닉스 시스템 핵심 스레딩 라이브러리이다</li>
+<li>대부분 다른 스레딩 솔루션도 Pthread를 기반으로 구현되어있다</li>
+</ul>
+<h2 id="Pthread-라이브러리"><a href="#Pthread-라이브러리" class="headerlink" title="Pthread 라이브러리"></a>Pthread 라이브러리</h2><ul>
+<li><p>&lt;pthread.h&gt; 헤더파일에 정의 되어있음</p>
+</li>
+<li><p>모든 함수는 pthread_ 로 시작</p>
+</li>
+<li><p>크게 두가지로 분류 된다</p>
+<ul>
+<li>스레드 관리: 생성 종료 조인 디테치 함수등</li>
+<li>동기화: 뮤텍스같은 동기화 관련 함수가있음</li>
+</ul>
+</li>
+<li><p>기본 라이브러리인 glibc와 분리된 libpthread 라이브러리에 별도로 pthread가 구현되어있으므로</p>
+<p>컴파일시에 명시적으로 -pthread 옵션을 사용해야함</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -pthread test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="스레드-사용"><a href="#스레드-사용" class="headerlink" title="스레드 사용"></a>스레드 사용</h2><h3 id="Create-Thread"><a href="#Create-Thread" class="headerlink" title="Create Thread"></a>Create Thread</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_create</span> <span class="params">(<span class="keyword">pthread_t</span> *thread, <span class="keyword">const</span> <span class="keyword">pthread_attr_t</span> *attr,</span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="keyword">void</span> *(*start_routine) (<span class="keyword">void</span>*), <span class="keyword">void</span>*arg)</span></span>;</span><br><span class="line"><span class="comment">/* thread: 생성된 스레드 식별자</span></span><br><span class="line"><span class="comment">   attr: 스레드 특징 설정</span></span><br><span class="line"><span class="comment">   start_routine: 스레드 함수(스레드로 분기해서 실행할 함수)</span></span><br><span class="line"><span class="comment">   arg: 스레드 함수 인자 */</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_t</span> thread1;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_function</span><span class="params">(<span class="keyword">void</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line">ret = pthread_create(&amp;thread1,<span class="literal">NULL</span>, thread_function, (<span class="keyword">void</span>*)message1);</span><br><span class="line"><span class="comment">// return갑은 성공하면 0 </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Exit-Thread"><a href="#Exit-Thread" class="headerlink" title="Exit Thread"></a>Exit Thread</h3><ul>
+<li><p>프로세스가 끝나면 자동으로 스레드가 종료되지만 명시적으로 종료해야할때 사용함</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pthread_exit</span><span class="params">(<span class="keyword">void</span> *retaval)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Thread-Join"><a href="#Thread-Join" class="headerlink" title="Thread Join"></a>Thread Join</h3></li>
+<li><p>프로세스가 실행이되어 여러 스레드를 생성했을때 메인 스레드에서 다른 스레드를 기다리지않고</p>
+<p>그 후의 코드를 실행하거나 다른 스레드의 작업을 기다리지 않고 바로 실행하게되면 오류가 발생할 수 있는데</p>
+<p>이때 스레드 조인을 통하여 다른 스레드를 기다릴 수 있다</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_join</span> <span class="params">(<span class="keyword">pthread_t</span> thread, <span class="keyword">void</span> **thread_return)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">pthread_join (p_thread, (<span class="keyword">void</span> *) &amp;status); <span class="comment">// p_thread식별자를 가진 스레드의 종료를 기다리고 status 값을 포인터로 가져온다</span></span><br><span class="line"></span><br><span class="line">prtinf(<span class="string">&quot;thread join %d\n&quot;</span> , status); </span><br></pre></td></tr></table></figure>
+
+<h3 id="Thread-Detach"><a href="#Thread-Detach" class="headerlink" title="Thread Detach"></a>Thread Detach</h3><ul>
+<li><p>해당 스레드가 종료될 경우 그 즉시 관련 리소스를 해제한다</p>
+<ul>
+<li>조인을 기다리지 않고 종료 즉시 리소스 해제</li>
+</ul>
+</li>
+<li><p>예를들어 메인스레드에서 여러 스레드를 생성 했을 때 그 스레드들이 사용한 메모리영역이나 변수는<br>메인 스레드가 종료되기전까지는 해제 되지않는데 이때 해제하는 방법은 join과 detach이다.</p>
+<ul>
+<li>join은 메인스레드에서 해당 스레드가 종료되고 종료 상태값을 가지고 추가작업을 하게된다.</li>
+<li>detach는 해당 스레드가 종료되면 바로 해제</li>
+</ul>
+</li>
+</ul>
+<h3 id="Thread-Mutex-Mutual-exclusion"><a href="#Thread-Mutex-Mutual-exclusion" class="headerlink" title="Thread Mutex - Mutual exclusion"></a>Thread Mutex - Mutual exclusion</h3><ul>
+<li>서로 다른 프로세스가 공유 자원을 사용하고 있을 경우에 다른 프로세스가 사용하지 못하게 제어하는 기법</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">pthread_mutext_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_lock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pthread_mutex_unlock</span><span class="params">(<span class="keyword">pthread_mutex_t</span> *mutex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#inlcude <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_mutex_t</span> mutex_lock = PTHREAD_MUTEX_INITIALIZER;</span><br><span class="line"><span class="keyword">int</span> g_count =<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">t_function</span><span class="params">(<span class="keyword">void</span> *data)</span> </span>&#123; <span class="comment">// 스레드 함수</span></span><br><span class="line">  <span class="keyword">char</span>* thread_name = (<span class="keyword">char</span> *)data;</span><br><span class="line">  pthread_mutex_lock(&amp;mutex_lock); <span class="comment">// Mutex로 락</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s start\n&quot;</span>, thread_name); </span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">    g_count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%s, g_count = %d\n&quot;</span> thread_name, g_count);</span><br><span class="line">  pthread_mutex_unlock(&amp;mutex_lock);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">pthread_t</span> p_thread1, p_thread2;</span><br><span class="line">  <span class="keyword">int</span> status;</span><br><span class="line">  pthread_create(&amp;p_thread1, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread1&quot;</span>);</span><br><span class="line">  pthread_create(&amp;p_thread2, <span class="literal">NULL</span>, t_function, (<span class="keyword">void</span> *)<span class="string">&quot;Thread2&quot;</span>);</span><br><span class="line">  pthread_join(p_thread1, (<span class="keyword">void</span> *)&amp;status);</span><br><span class="line">  pthread_join(p_thread2, (<span class="keyword">void</span> *)&amp;status);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>System Programming - Scheduling</title>
     <url>/2021/07/29/System-Programming-Scheduling/</url>
     <content><![CDATA[<h1 id="Scheduling"><a href="#Scheduling" class="headerlink" title="Scheduling"></a>Scheduling</h1><h2 id="우선순위-기반-스케쥴러"><a href="#우선순위-기반-스케쥴러" class="headerlink" title="우선순위 기반 스케쥴러"></a>우선순위 기반 스케쥴러</h2><ul>
@@ -2465,50 +2465,6 @@ File -- input Stream --> JAVA</pre>
         <tag>linux</tag>
         <tag>c</tag>
         <tag>os</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo Deploy시 Spawn Failed 오류해결 방법</title>
-    <url>/2021/08/14/blog-Spawn-Failed/</url>
-    <content><![CDATA[<h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="문제-인식"><a href="#문제-인식" class="headerlink" title="문제 인식"></a>문제 인식</h2><ul>
-<li><p>여느때와 같게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">remote: Support <span class="keyword">for</span> password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br><span class="line">remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="keyword">for</span> more information.</span><br><span class="line">fatal: unable to access <span class="string">&#x27;https://github.com/Jeongisu94/Jeongisu94.github.io.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/Users/jeong-isu/dev/blog/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:394:28)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (node:internal/child_process:290:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></table></figure></li>
-<li><p>대충 보아하니 작성일(210814)기준으로 어제 비밀번호가 만료됐으니까 비번말고 대신 토큰써라 하는 내용이다</p>
-</li>
-</ul>
-<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
-<li><p>github.com의 프로필 사진을 클릭하여 Setting - Development Setting - Personal Access Token에 들어가자</p>
-<p><img src="/image/blog-Spawn-Failed_images/personal_access_token.png"></p>
-</li>
-<li><p>Generate new toekn을 클릭하여 토큰을 생성하자</p>
-<p><img src="/image/blog-Spawn-Failed_images/genToken.png"></p>
-<ul>
-<li>노트에는 어떤 토큰인지 설명과 만료기한을 설정해주자 Repo에 접근해야하니 Repo도 체크해주자</li>
-</ul>
-</li>
-<li><p>Generate Token을 누르면 토큰이 생성됨과 동시에 토큰이 나오는데 이 토큰은 한번밖에 알려주지 않으니 클립보드에 복사해두자</p>
-</li>
-</ul>
-<h3 id="configure-yml-파일-수정하기"><a href="#configure-yml-파일-수정하기" class="headerlink" title="_configure.yml 파일 수정하기"></a>_configure.yml 파일 수정하기</h3><ul>
-<li>hexo 설정파일인 _config.yml파일에서 repo설정을 다음과 같이바꿔준다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">repo: https:<span class="comment">//&#123;githubID&#125;:&#123;Token&#125;@github.com/&#123;GithubID&#125;/githubID.github.io.git</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>그 후 hexo clean &amp;&amp; hexo deploy를 하면 오류 없이 잘 배치 된다.</p>
-<p><img src="/image/blog-Spawn-Failed_images/complete.png"></p>
-</li>
-<li><p>토큰이 외부에 노출되지 않도록 주의하자! </p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>blog</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>trouble-shooting</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2564,6 +2520,50 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>Hexo Deploy시 Spawn Failed 오류해결 방법</title>
+    <url>/2021/08/14/blog-Spawn-Failed/</url>
+    <content><![CDATA[<h1 id="Hexo-Deploy시-Spawn-Failed-해결방법"><a href="#Hexo-Deploy시-Spawn-Failed-해결방법" class="headerlink" title="Hexo Deploy시 Spawn Failed 해결방법"></a>Hexo Deploy시 Spawn Failed 해결방법</h1><h2 id="문제-인식"><a href="#문제-인식" class="headerlink" title="문제 인식"></a>문제 인식</h2><ul>
+<li><p>여느때와 같게 기술블로그 작성을 위해 <code>hexo clean &amp;&amp; hexo deploy</code>를 해주었는데<br>이러한 오류 메시지가 발생하였다 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">remote: Support <span class="keyword">for</span> password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br><span class="line">remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ <span class="keyword">for</span> more information.</span><br><span class="line">fatal: unable to access <span class="string">&#x27;https://github.com/Jeongisu94/Jeongisu94.github.io.git/&#x27;</span>: The requested URL returned error: 403</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/Users/jeong-isu/dev/blog/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:394:28)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (node:internal/child_process:290:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></table></figure></li>
+<li><p>대충 보아하니 작성일(210814)기준으로 어제 비밀번호가 만료됐으니까 비번말고 대신 토큰써라 하는 내용이다</p>
+</li>
+</ul>
+<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><h3 id="토큰-생성하기"><a href="#토큰-생성하기" class="headerlink" title="토큰 생성하기"></a>토큰 생성하기</h3><ul>
+<li><p>github.com의 프로필 사진을 클릭하여 Setting - Development Setting - Personal Access Token에 들어가자</p>
+<p><img src="/image/blog-Spawn-Failed_images/personal_access_token.png"></p>
+</li>
+<li><p>Generate new toekn을 클릭하여 토큰을 생성하자</p>
+<p><img src="/image/blog-Spawn-Failed_images/genToken.png"></p>
+<ul>
+<li>노트에는 어떤 토큰인지 설명과 만료기한을 설정해주자 Repo에 접근해야하니 Repo도 체크해주자</li>
+</ul>
+</li>
+<li><p>Generate Token을 누르면 토큰이 생성됨과 동시에 토큰이 나오는데 이 토큰은 한번밖에 알려주지 않으니 클립보드에 복사해두자</p>
+</li>
+</ul>
+<h3 id="configure-yml-파일-수정하기"><a href="#configure-yml-파일-수정하기" class="headerlink" title="_configure.yml 파일 수정하기"></a>_configure.yml 파일 수정하기</h3><ul>
+<li>hexo 설정파일인 _config.yml파일에서 repo설정을 다음과 같이바꿔준다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">repo: https:<span class="comment">//&#123;githubID&#125;:&#123;Token&#125;@github.com/&#123;GithubID&#125;/githubID.github.io.git</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>그 후 hexo clean &amp;&amp; hexo deploy를 하면 오류 없이 잘 배치 된다.</p>
+<p><img src="/image/blog-Spawn-Failed_images/complete.png"></p>
+</li>
+<li><p>토큰이 외부에 노출되지 않도록 주의하자! </p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>blog</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>trouble-shooting</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git ignore 적용 안될때</title>
     <url>/2021/08/06/git-add/</url>
     <content><![CDATA[<h1 id="gitIgnore-적용-안될-때"><a href="#gitIgnore-적용-안될-때" class="headerlink" title=".gitIgnore 적용 안될 때"></a>.gitIgnore 적용 안될 때</h1><p>분명 .gitignore에 macOS에서 메타데이터가 저장되는 .DS_Store와<br>intellij에서 해당프로젝트에 Configuration과 관련되어있는 .IDEA 폴더를 추가했는데도<br>add commit push를 하고나서 레포지토리에 가서 확인하면 깃이그노어가 이그노어되어있어 모든 파일이 다올라갔다.</p>
@@ -2576,8 +2576,8 @@ File -- input Stream --> JAVA</pre>
         <category>git</category>
       </categories>
       <tags>
-        <tag>trouble-shooting</tag>
         <tag>git</tag>
+        <tag>trouble-shooting</tag>
       </tags>
   </entry>
   <entry>
@@ -2715,31 +2715,6 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
-    <title>OOP - Design Pattern - Singleton</title>
-    <url>/2021/09/06/oop-java-27/</url>
-    <content><![CDATA[<h1 id="Singleton-Pattern"><a href="#Singleton-Pattern" class="headerlink" title="Singleton Pattern"></a>Singleton Pattern</h1><ul>
-<li>생성패턴</li>
-<li>어떠한 클래스의 객체가 유일하게 1개만 존재해야 할때 사용하는 디자인 패턴</li>
-<li>프린터나 , TCP Socket 통신에서 서버와 연결된 connect 객체같이 서로 자원을 공유 할 때 사용된다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SocketClient</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SocketClient socketClient;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SocketClient</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SocketClient <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( socketClient == <span class="keyword">null</span>) &#123;</span><br><span class="line">            socketClient = <span class="keyword">new</span> SocketClient();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> socketClient;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Connect!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>인스턴스는 <code>private static</code>로 선언하고</li>
-<li>생성자는 외부에서 호출 불가능하도록 <code>private</code>로 선언한다</li>
-<li>외부에서 같은 객체를 가질 받을 수 있도록 <code>public static getInstacne()</code>를 구현한다.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>oop</category>
-        <category>design pattern</category>
-      </categories>
-      <tags>
-        <tag>singleton</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OOP - Design Pattern - Adapter</title>
     <url>/2021/09/06/oop-java-28/</url>
     <content><![CDATA[<h1 id="Adapter-Pattern"><a href="#Adapter-Pattern" class="headerlink" title="Adapter Pattern"></a>Adapter Pattern</h1><ul>
@@ -2771,6 +2746,31 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>adapter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OOP - Design Pattern - Singleton</title>
+    <url>/2021/09/06/oop-java-27/</url>
+    <content><![CDATA[<h1 id="Singleton-Pattern"><a href="#Singleton-Pattern" class="headerlink" title="Singleton Pattern"></a>Singleton Pattern</h1><ul>
+<li>생성패턴</li>
+<li>어떠한 클래스의 객체가 유일하게 1개만 존재해야 할때 사용하는 디자인 패턴</li>
+<li>프린터나 , TCP Socket 통신에서 서버와 연결된 connect 객체같이 서로 자원을 공유 할 때 사용된다</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SocketClient</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SocketClient socketClient;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SocketClient</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SocketClient <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( socketClient == <span class="keyword">null</span>) &#123;</span><br><span class="line">            socketClient = <span class="keyword">new</span> SocketClient();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> socketClient;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Connect!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>인스턴스는 <code>private static</code>로 선언하고</li>
+<li>생성자는 외부에서 호출 불가능하도록 <code>private</code>로 선언한다</li>
+<li>외부에서 같은 객체를 가질 받을 수 있도록 <code>public static getInstacne()</code>를 구현한다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>oop</category>
+        <category>design pattern</category>
+      </categories>
+      <tags>
+        <tag>singleton</tag>
       </tags>
   </entry>
   <entry>
@@ -3158,6 +3158,34 @@ File -- input Stream --> JAVA</pre>
       </tags>
   </entry>
   <entry>
+    <title>Spring - Object Mapper</title>
+    <url>/2021/09/28/spring-6/</url>
+    <content><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Object-Mapper"><a href="#Object-Mapper" class="headerlink" title="Object Mapper"></a>Object Mapper</h2><ul>
+<li><p><strong>Object Mapper</strong>는 Json과 Object를 변환시켜주는 역할을 한다</p>
+</li>
+<li><p>다음 코드와 같이 변환 할 수 있다.</p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// object -&gt; text</span></span><br><span class="line"><span class="keyword">var</span> objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> User (<span class="string">&quot;isu&quot;</span> , <span class="number">100</span>);</span><br><span class="line"><span class="keyword">var</span> text = objectMapper.writeValueAsString(user);</span><br><span class="line">System.out.println(text);</span><br></pre></td></tr></table></figure></li>
+<li><p>object -&gt; text로 변환 할 때 objectMapper는 DTO의 getmethod를 사용하므로 꼭 구현 해야한다</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> objectUser = objectMapper.readValue(text,User.class);</span><br><span class="line">System.out.println(objectUser)</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="/image/spring-6_images/4f3761ac.png"></p>
+</li>
+<li><p>다음과 같은 오류가 발생하는데 text -&gt; object의 경우 기본생성자를 필요로 하기 떄문에 마찬가지로 기본생성자를 구현해야 한다</p>
+</li>
+<li><p><code>@NoArgsConstructor</code>를 선언하여 추가할 수 있다.</p>
+</li>
+<li><p><img src="/image/spring-6_images/29cf9733.png"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>spring</category>
+      </categories>
+      <tags>
+        <tag>object mapper</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring - Validation</title>
     <url>/2021/10/01/spring-7/</url>
     <content><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h2><ul>
@@ -3256,34 +3284,6 @@ File -- input Stream --> JAVA</pre>
       </categories>
       <tags>
         <tag>validation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring - Object Mapper</title>
-    <url>/2021/09/28/spring-6/</url>
-    <content><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Object-Mapper"><a href="#Object-Mapper" class="headerlink" title="Object Mapper"></a>Object Mapper</h2><ul>
-<li><p><strong>Object Mapper</strong>는 Json과 Object를 변환시켜주는 역할을 한다</p>
-</li>
-<li><p>다음 코드와 같이 변환 할 수 있다.</p>
-  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// object -&gt; text</span></span><br><span class="line"><span class="keyword">var</span> objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> User (<span class="string">&quot;isu&quot;</span> , <span class="number">100</span>);</span><br><span class="line"><span class="keyword">var</span> text = objectMapper.writeValueAsString(user);</span><br><span class="line">System.out.println(text);</span><br></pre></td></tr></table></figure></li>
-<li><p>object -&gt; text로 변환 할 때 objectMapper는 DTO의 getmethod를 사용하므로 꼭 구현 해야한다</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> objectUser = objectMapper.readValue(text,User.class);</span><br><span class="line">System.out.println(objectUser)</span><br></pre></td></tr></table></figure></li>
-<li><p><img src="/image/spring-6_images/4f3761ac.png"></p>
-</li>
-<li><p>다음과 같은 오류가 발생하는데 text -&gt; object의 경우 기본생성자를 필요로 하기 떄문에 마찬가지로 기본생성자를 구현해야 한다</p>
-</li>
-<li><p><code>@NoArgsConstructor</code>를 선언하여 추가할 수 있다.</p>
-</li>
-<li><p><img src="/image/spring-6_images/29cf9733.png"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-        <category>spring</category>
-      </categories>
-      <tags>
-        <tag>object mapper</tag>
       </tags>
   </entry>
   <entry>
