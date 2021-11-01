@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,147 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/13/spring-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/13/spring-1/" class="post-title-link" itemprop="url">Spring Boot - Get</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-13 21:13:46" itemprop="dateCreated datePublished" datetime="2021-09-13T21:13:46+09:00">2021-09-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-16 20:33:31" itemprop="dateModified" datetime="2021-09-16T20:33:31+09:00">2021-09-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/spring/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="GET-API"><a href="#GET-API" class="headerlink" title="GET API"></a>GET API</h2><ul>
+<li><p>get은 리소스를 취득하기 위한 메소드 CRUD에서 R에 해당된다</p>
+</li>
+<li><p><code>@GetMapping</code>을 통해 주소 매핑시 cmd + b 단축키를 통해 어노테이션에 들어갈 수 있는 것들이 정의되어 있다.</p>
+</li>
+<li><p><img src="/image/spring-1_images/20955e3a.png"></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api/get&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetApiController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(path = &quot;/hello&quot;)</span>  <span class="comment">// localhost:8080/api/get/hello</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;get Hello&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>다른 방식으로도 맵핑이 가능하다</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/hi&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hi&quot;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>위 방식처럼 매핑했을때 hi 라고 요청할 경우 get,post,put, delete와 같은 모든 메소드에 request 되기 때문에 method를 명시해줘야 한다.</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(path = &quot;/hi&quot; , method = RequestMethod.GET)</span> <span class="comment">// localhost:8080/api/get/hi</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">hi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="string">&quot;hi&quot;</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>따라서 다음과 같이 수정하여 사용 할 수 있다.</p>
+</li>
+</ul>
+<p><img src="/image/spring-1_images/4e2ee7ae.png"><br><img src="/image/spring-1_images/acab746a.png"></p>
+<h3 id="pathvariable"><a href="#pathvariable" class="headerlink" title="pathvariable"></a>pathvariable</h3><ul>
+<li><p>변화하는 path에 대하여 일대일로 메소드를 작성하는것은 매우 비효율 적이다.</p>
+</li>
+<li><p>사용자에따라 변화 할 수 있는 값(id, 이름 등)에 대하여 변수로 받기위한 것이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/path-variable/&#123;name&#125;&quot;)</span> <span class="comment">// http://localhost:8080/api/get/pathvariable/&#123;name&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">pathVariable</span><span class="params">(<span class="meta">@PathVariable</span> String name)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;PathVariable : &quot;</span> + name);</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><img src="/image/spring-1_images/f629cb91.png"></p>
+</li>
+<li><p><img src="/image/spring-1_images/1733d7f5.png"></p>
+</li>
+<li><p>반드시 GetMapping과 PathVariable의 변수명은 같아야한다 </p>
+</li>
+<li><p>그러나 개발중 <code>path variable</code>과 method의 파라미터 명을 다르게 해야할 때는 다음과 같이 사용 할 수있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/path-variable/&#123;name&#125;&quot;)</span> <span class="comment">// http://localhost:8080/api/get/pathvariable/&#123;name&#125;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">pathVariable</span><span class="params">(<span class="meta">@PathVariable(name = &quot;name&quot;)</span> String pathName)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;PathVariable : &quot;</span> + pathName);</span><br><span class="line">        <span class="keyword">return</span> pathName;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Query-Parameter"><a href="#Query-Parameter" class="headerlink" title="Query Parameter"></a>Query Parameter</h3><ul>
+<li><p>구글에서 Spring Boot를 검색했을 때 URL주소는 다음과 같다</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">https://www.google.com/</span><br><span class="line">search?q=spring+boot&amp;newwindow=1</span><br><span class="line">&amp;sxsrf=AOaemvL3KuPRIzrfX1y-mbDUq0PH8mgU3Q%3A1631700595046</span><br><span class="line">&amp;source=hp</span><br><span class="line">&amp;ei=csZBYebMO5egoATx64y4CA</span><br><span class="line">&amp;iflsig=ALs-wAMAAAAAYUHUgximdfmc-FujN-Nl2gY8_YMgZETe</span><br><span class="line">&amp;oq=spring+boota</span><br></pre></td></tr></table></figure></li>
+<li><p>URL을 봤을때 <code>?</code>뒤에 Key Value쌍으로 이루어진 것을 볼 수있다 </p>
+</li>
+<li><p>?Key = value &amp; Key2 = value2 &amp; Key3 = value 3…</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// http://localhost:9090/api/get/query-param?user=steve&amp;email=steve@gmail.com&amp;age=30</span></span><br><span class="line">    <span class="meta">@GetMapping(path = &quot;query-param&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryParam</span><span class="params">(<span class="meta">@RequestParam</span> Map&lt;String,String&gt; queryParam)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line"></span><br><span class="line">        queryParam.entrySet().forEach( entry -&gt; &#123;</span><br><span class="line">            System.out.println(entry.getKey());</span><br><span class="line">            System.out.println(entry.getValue());</span><br><span class="line"></span><br><span class="line">            sb.append(entry.getKey()+ <span class="string">&quot; = &quot;</span> + entry.getValue()+<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Mapping을 위해서 <code>@RequestParam</code> Anntation을 추가해야 정상적인 매핑이 가능하다<br><img src="/image/spring-1_images/8cf7de2f.png"></p>
+</li>
+<li><p>위의 방식대로하게되면 맵에 접근하기위해서는 get(key)명령어를 통해서 접근해야한다</p>
+</li>
+<li><p>명시적으로 파라미터 이름을 정해줄 수 있다</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@GetMapping(path = &quot;query-param&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryParm</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestParam</span> String name,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestParam</span> String email,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="meta">@RequestParam</span> Integer age )</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(name);</span><br><span class="line">        System.out.println(email);</span><br><span class="line">        System.out.println(age);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> name +<span class="string">&quot; &quot;</span>+ email + <span class="string">&quot; &quot;</span> + age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="/image/spring-1_images/4eae0a0e.png"></p>
+<ul>
+<li><p>3개의 파라미터 (name , email, age) 뿐만아니라 파라미터에 갯수가 늘어날때마다 그것에대하여 모두 대응되는 코드의 작성이 필요하다 </p>
+</li>
+<li><p>@RequestParam String grade , @RequestParam String address … </p>
+</li>
+<li><p>이러한 불편함을 해소하기 위해  DTO (Data Trnsfer Object)를 정의하여 컨트롤 할 수 있다</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hello.hello.controller.dto;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserRequest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getEmail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmail</span><span class="params">(String email)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.email = email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(path = &quot;query-param&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryParm</span><span class="params">(UserRequest userRequest)</span> </span>&#123;</span><br><span class="line">        System.out.println(userRequest.getName());</span><br><span class="line">        System.out.println(userRequest.getEmail());</span><br><span class="line">        System.out.println(userRequest.getAge());</span><br><span class="line">        <span class="keyword">return</span> userRequest.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>코드가 훨씬 간단해졌다</li>
+<li>이떄는 <code>@RequestParam</code>을 붙이지 않는다 </li>
+<li><code>QueryParameter</code> 주소에 들어있는 <code>?name=정이수&amp;email=mustdoit2020@gmail.com&amp;age=28</code> 키를 해당 Spring 내부에서 UserRequest객체의 변수에 key와 매핑시켜준다</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1124,140 +1265,6 @@
 <ul>
 <li><code>synchonized(mutex)</code> mutex에 공유되는 자원을 넣는다</li>
 <li>synchonized메소드를 다른 synchonized 메소드에서 호출되게 되면 Dead Lock에 빠질 수 있다.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/01/OOP-java-23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/01/OOP-java-23/" class="post-title-link" itemprop="url">Java - Thread</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-01 15:16:44" itemprop="dateCreated datePublished" datetime="2021-09-01T15:16:44+09:00">2021-09-01</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-06 20:00:29" itemprop="dateModified" datetime="2021-09-06T20:00:29+09:00">2021-09-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h1><h2 id="Thread-1"><a href="#Thread-1" class="headerlink" title="Thread"></a>Thread</h2><ul>
-<li>프로그램이 메모리를 할당받아 실행중인 상태를 프로세스라고 한다</li>
-<li>Thread는 Process내에서 실제 작업을 수행하는 단위이다</li>
-</ul>
-<h2 id="Multi-Thread"><a href="#Multi-Thread" class="headerlink" title="Multi Thread"></a>Multi Thread</h2><ul>
-<li>여러 Thread가 동시에 수행되는 프로그래밍, 여러 작업이 동시에 실행될 수 있다</li>
-<li>Thread는 Context라는 각각 작업 공간을 가진다</li>
-<li>static instance를 사용해 자원을 공유 할 수있음</li>
-<li>여러 thread가 자원을 공유하여 작업이 수행되는 경우 race condition이 발생 할 수있다.</li>
-</ul>
-<h2 id="Java에서-Thread-만들기"><a href="#Java에서-Thread-만들기" class="headerlink" title="Java에서 Thread 만들기"></a>Java에서 Thread 만들기</h2><h3 id="extends-Thread"><a href="#extends-Thread" class="headerlink" title="extends Thread"></a>extends Thread</h3><ul>
-<li>Thread 클래스 상속받아 Runnable 인터페이스 객체의 함수를 실행시키는 방법</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">1</span> ; i &lt; <span class="number">200</span> ; i++) &#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread my1 = <span class="keyword">new</span> MyThread();</span><br><span class="line">        MyThread my2 = <span class="keyword">new</span> MyThread();</span><br><span class="line"></span><br><span class="line">        my1.start();</span><br><span class="line">        my2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/image/OOP-java-23_images/0cb5eb30.png"></p>
-<h3 id="implements-Runnable"><a href="#implements-Runnable" class="headerlink" title="implements Runnable"></a>implements Runnable</h3><ul>
-<li>이미 다른 클래스의 상속을 받은 경우 Runnable Interface 구현을 통해 만들 수 있다</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">1</span> ; i &lt; <span class="number">200</span> ; i++) &#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread runnableInstance = <span class="keyword">new</span> MyThread();</span><br><span class="line"></span><br><span class="line">        Thread myThread1 = <span class="keyword">new</span> Thread(runnableInstance);</span><br><span class="line">        Thread myThread2 = <span class="keyword">new</span> Thread(runnableInstance);</span><br><span class="line"></span><br><span class="line">        myThread1.start();</span><br><span class="line">        myThread2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Interface의 익명객체를 만들어 사용할수도 있다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        Runnable runnable = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">char</span> c = <span class="string">&#x27;a&#x27;</span> ; c &lt;= <span class="string">&#x27;z&#x27;</span> ; c++) &#123;</span><br><span class="line">                    System.out.println(c);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Thread myThread = <span class="keyword">new</span> Thread(runnable);</span><br><span class="line">        myThread.start();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Thread의-상태"><a href="#Thread의-상태" class="headerlink" title="Thread의 상태"></a>Thread의 상태</h2><ul>
-<li>Thread는 start함수를 통해 Runnable한 thread객체들이 Thread Pool에 들어가게 된다</li>
-<li>프로그램이 CPU의 자원을 할당받으면 <strong>Run</strong> 상태가되며 작업이 끝나면 <strong>Dead</strong>상태가 된다</li>
-<li><code>sleep()</code>,<code>wait()</code>,<code>join()</code> 함수를 통해 <strong>Not Runnable</strong>상태가 되는데 이때는 CPU의 할당을 받을 수 없다</li>
-<li><code>notify()</code>,<code>notifyAll()</code>, <code>join()</code> 함수를 통해 <strong>Runnable</strong> 상태로 돌아온다</li>
-</ul>
-<h2 id="Thread-Methods"><a href="#Thread-Methods" class="headerlink" title="Thread Methods"></a>Thread Methods</h2><h3 id="Priority"><a href="#Priority" class="headerlink" title="Priority()"></a><code>Priority()</code></h3><ul>
-<li>Thread의 우선순위를 정할 수 있는데 우선 순위가 높을 수록 CPU의 할당을 받을 <strong>확률</strong>이 높아진다 여기에서 확률이라 한 이유는 무조건적으로 높은 우선순위가<br>CPU를 점유하지 않기 때문이다</li>
-<li><code>setPriority()</code> <code>getPriority()</code> 로 set/get할 수 있으며 Default는 5이다</li>
-</ul>
-<h3 id="join"><a href="#join" class="headerlink" title="join()"></a><code>join()</code></h3><ul>
-<li>Thread가 동시 실행될때 하나의 Thread가 다른 Thread의 값을 참조해야 할때 사용한다</li>
-<li><code>join()</code> 함수를 <strong>호출</strong>한 Thread가 Not Runnable 상태로 전환된다</li>
-<li><code>join()</code>이 걸린 Thread의 작업이 끝나면 Runnable 상태로 되돌아간다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JoinTest</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> start;</span><br><span class="line">    <span class="keyword">int</span> end;</span><br><span class="line">    <span class="keyword">int</span> total;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JoinTest</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.start = start;</span><br><span class="line">        <span class="keyword">this</span>.end = end;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span> (i = start; i &lt;= end ; i ++) &#123;</span><br><span class="line">            total += i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        JoinTest jt1 = <span class="keyword">new</span> JoinTest(<span class="number">1</span>, <span class="number">50</span>);</span><br><span class="line">        JoinTest jt2 = <span class="keyword">new</span> JoinTest(<span class="number">51</span> ,<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">        jt1.start();</span><br><span class="line">        jt2.start();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            jt1.join();</span><br><span class="line">            jt2.join();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(jt1.total + jt2.total);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="interrupt"><a href="#interrupt" class="headerlink" title="interrupt()"></a><code>interrupt()</code></h3><ul>
-<li>다른 Thread에 예외를 발생 시키는 interrupt를 보낸다</li>
-<li>Non runnable 상태일때 <code>interrupt()</code> 메소드를 호출함으로써 runnable 상태로 전환 할 수 있음</li>
-</ul>
-<h3 id="Thread-종료하기"><a href="#Thread-종료하기" class="headerlink" title="Thread 종료하기"></a>Thread 종료하기</h3><ul>
-<li>Thread가 무한 루프되는 경우 <code>while(flag)</code> 에서 <strong>flag</strong>를 false로 바꿔 종료함</li>
 </ul>
 
       
