@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-count">73</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,156 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/07/21/Cloud-Computing-AWS-EC2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/21/Cloud-Computing-AWS-EC2/" class="post-title-link" itemprop="url">Cloud Computing AWS 시작하기</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-21 19:20:30" itemprop="dateCreated datePublished" datetime="2021-07-21T19:20:30+09:00">2021-07-21</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-09-06 21:10:35" itemprop="dateModified" datetime="2021-09-06T21:10:35+09:00">2021-09-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cloud-Computing/" itemprop="url" rel="index"><span itemprop="name">Cloud Computing</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Cloud-Computing/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="AWS-Amazon-Web-Service"><a href="#AWS-Amazon-Web-Service" class="headerlink" title="AWS(Amazon Web Service)"></a>AWS(Amazon Web Service)</h1><h2 id="EC2-elastic-computer-생성하기"><a href="#EC2-elastic-computer-생성하기" class="headerlink" title="EC2(elastic computer) 생성하기"></a>EC2(elastic computer) 생성하기</h2><ol>
+<li>Region은 서울로 설정</li>
+</ol>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled.png"></p>
+<ul>
+<li>생성했던 지역에서 다른지역으로 옮기면 EC2가 보이지 않는다.</li>
+</ul>
+<ol>
+<li>EC2 검색</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-07-22_%EC%98%A4%ED%9B%84_3.34.22.png"></p>
+<ol start="2">
+<li>인스턴스 시작</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled1.png"></p>
+<ul>
+<li><p>설치할 이미지 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled2.png"></p>
+</li>
+<li><p>체험판 인스턴스 유형 선택</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled3.png"></p>
+</li>
+</ul>
+<ul>
+<li><p>스토리지 추가</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled4.png"></p>
+<p>체험판은 최대 스토리지를 30GB까지 사용 가능하므로 30GB로 설정.</p>
+</li>
+<li><p>보안 그룹 설정</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled5.png"></p>
+<pre><code>    SSH로 접속하기위해 프로토콜과 포트범위를 정한다.
+</code></pre>
+</li>
+<li><p>인스턴스 시작 검토</p>
+<p>  인스턴스에 대한 세부정보를 확인 할 수 있다.</p>
+</li>
+<li><p>키페어 생성</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled6.png"></p>
+<p>최초접속시에는 새 키페어 생성을 해주며 다운받은 키페어는 유출에 유의하여 저장한다.</p>
+</li>
+</ul>
+<ol>
+<li><p>고정IP로 변경</p>
+<p> 동적IP를 사용할 경우 요금이 부과 될 수 있다.</p>
+</li>
+</ol>
+<ul>
+<li><p>자신의 콘솔로 로그인하여 EC2 메뉴 접속 및 IP주소 할당</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled7.png"></p>
+<p>대시보드의 Elastic IP(탄력적 IP)선택후 새 IP주소를 할당한다.</p>
+</li>
+<li><p>할당받은 IP주소와 자신의 인스턴스와 연결</p>
+<p><img src="/image/Cloud-Computing-AWS-EC2/Untitled8.png"></p>
+<p>인스턴스를 입력하고 연결한다.</p>
+</li>
+</ul>
+<ol>
+<li>대시보드의 인스턴스 메뉴를 통해 인스턴스를 확인 할 수 있다.</li>
+</ol>
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled9.png"></p>
+<ol>
+<li>Terminal을 사용하여 AWS에 접속</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 &#123;pemfile&#125;.pem // 보안을위해 퍼미션을 제한.</span><br><span class="line">ssh -i &#123;pemfile&#125;.pem ubuntu@&#123;public IPv4 Address&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="/image/Cloud-Computing-AWS-EC2/Untitled10.png"></p>
+<p>접속이 된것을 확인 할 수 있다.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

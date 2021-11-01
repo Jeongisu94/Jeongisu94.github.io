@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-count">73</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,6 +199,92 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/11/01/jpa-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeongisu">
+      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ISU's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/01/jpa-2/" class="post-title-link" itemprop="url">JPA - repository interface</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-11-01 22:22:09 / Modified: 23:47:08" itemprop="dateCreated datePublished" datetime="2021-11-01T22:22:09+09:00">2021-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/jpa/" itemprop="url" rel="index"><span itemprop="name">jpa</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JPA-Repository-Interface"><a href="#JPA-Repository-Interface" class="headerlink" title="JPA Repository Interface"></a>JPA Repository Interface</h1><h2 id="Repository-interface-hierarchy"><a href="#Repository-interface-hierarchy" class="headerlink" title="Repository interface hierarchy"></a>Repository interface hierarchy</h2><p><img src="/image/jpa-2_images/a957ee85.png"></p>
+<ul>
+<li>JPA Repository란 Entity의 CRUD 처리를 위한 공통 인터페이스이다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>첫번째 파라미터엔 엔티티의 클래스와 두번째 파라미터엔 Primary Key의 Field Type을 지정한다</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1158,124 +1244,6 @@
 <ul>
 <li><img src="/image/spring-3_images/9b4d8dfb.png"></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jeongisu94.github.io/2021/09/15/spring-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeongisu">
-      <meta itemprop="description" content="잡지식부터 테크지식까지 모두 기록하는 블로그입니다">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ISU's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/15/spring-2/" class="post-title-link" itemprop="url">Spring Boot - Post</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-15 20:00:54" itemprop="dateCreated datePublished" datetime="2021-09-15T20:00:54+09:00">2021-09-15</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-16 20:33:31" itemprop="dateModified" datetime="2021-09-16T20:33:31+09:00">2021-09-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/spring/" itemprop="url" rel="index"><span itemprop="name">spring</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/spring/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><h2 id="Post-APi"><a href="#Post-APi" class="headerlink" title="Post APi"></a>Post APi</h2><ul>
-<li>리소스의 생성 추가 하므로 CRUD에서 C를 담당한다 , 매 요청마다 데이터를 생성하므로 멱등성과 안정성은 없다</li>
-</ul>
-<h3 id="JSON-JavaScript-Object-Notation"><a href="#JSON-JavaScript-Object-Notation" class="headerlink" title="JSON (JavaScript Object Notation)"></a>JSON (JavaScript Object Notation)</h3><ul>
-<li><p>데이터를 주고받을떄 보통 XML과 JSON의 형태로 주고받는다</p>
-</li>
-<li><p>JSON은 KEY - VALUE 형태로 이루어져있다.</p>
-</li>
-<li><p>관례로 snake case를 사용한다 (phone_number)</p>
-</li>
-<li><p>기본자료형은 <strong>Number, String, Boolean, Array, Object</strong>가 있다</p>
-</li>
-<li><p>예시</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">&quot;이름&quot;</span>: <span class="string">&quot;홍길동&quot;</span>,</span><br><span class="line">   <span class="string">&quot;나이&quot;</span>: <span class="number">25</span>,</span><br><span class="line">   <span class="string">&quot;성별&quot;</span>: <span class="string">&quot;여&quot;</span>,</span><br><span class="line">   <span class="string">&quot;주소&quot;</span>: <span class="string">&quot;서울특별시 양천구 목동&quot;</span></span><br><span class="line">   <span class="string">&quot;특기&quot;</span>: [<span class="string">&quot;농구&quot;</span>, <span class="string">&quot;도술&quot;</span>],</span><br><span class="line">   <span class="string">&quot;가족관계&quot;</span>: &#123;<span class="string">&quot;#&quot;</span>: <span class="number">2</span>, <span class="string">&quot;아버지&quot;</span>: <span class="string">&quot;홍판서&quot;</span>, <span class="string">&quot;어머니&quot;</span>: <span class="string">&quot;춘섬&quot;</span>&#125;,</span><br><span class="line">   <span class="string">&quot;회사&quot;</span>: <span class="string">&quot;경기 수원시 팔달구 우만동&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Post-예시"><a href="#Post-예시" class="headerlink" title="Post 예시"></a>Post 예시</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PostApiController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@PostMapping(&quot;/post&quot;)</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">post</span><span class="params">(<span class="meta">@RequestBody</span> Map&lt;String, Object&gt; requestData)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    requestData.forEach((key, value) -&gt; &#123;</span><br><span class="line">      System.out.println(key);</span><br><span class="line">      System.out.println(value);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>Body를 받기위해서 메소드의 파라미터에 <code>@RequestBody</code> Annotation을 붙여주어야 한다</p>
-</li>
-<li><p>Json의 key value형태를 받아와 처리할 수 있다.</p>
-</li>
-</ul>
-<p><img src="/image/spring-2_images/e67c9305.png"><br><img src="/image/spring-2_images/cc42143c.png"></p>
-<ul>
-<li><p>그러나 Map은 컨트롤하기 까다로울 수있다 이때도 마찬가지로 DTO를 이용 할 수 있다</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PostRequestDto</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> Integer age;</span><br><span class="line">  <span class="keyword">private</span> String gender;</span><br><span class="line">  <span class="keyword">private</span> String address;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/post-dto&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postDto</span> <span class="params">(<span class="meta">@RequestBody</span> PostRequestDto requestDto)</span> </span>&#123;</span><br><span class="line">        System.out.println(requestDto);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><img src="/image/spring-2_images/c412f0a3.png"><br><img src="/image/spring-2_images/c3fc027f.png"></p>
-<h2 id="Parsing"><a href="#Parsing" class="headerlink" title="Parsing"></a>Parsing</h2><ul>
-<li>JSON에서는 snake case 자바에서는 camel case를 사용하는게 관례이다 따라서 같은 key이지만 다른 문자인 둘을 매칭해주어야 한다.</li>
-</ul>
-<h3 id="JsonProperty"><a href="#JsonProperty" class="headerlink" title="JsonProperty"></a>JsonProperty</h3>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//DTO </span></span><br><span class="line"><span class="meta">@JsonProperty(&quot;phone_number&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String phoneNumber;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/spring-2_images/205df4ea.png"><br><img src="/image/spring-2_images/56b25764.png"></p>
 
       
     </div>
